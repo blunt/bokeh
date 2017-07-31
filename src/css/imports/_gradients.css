@@ -1,0 +1,7 @@
+.gradient {
+  background: #f4ad17; /* Old browsers */
+  background: -moz-linear-gradient(left, #f4ad17 0%, #6bc2c3 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #f4ad17 0%,#6bc2c3 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #f4ad17 0%,#6bc2c3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4ad17', endColorstr='#6bc2c3',GradientType=1 ); /* IE6-9 */
+}

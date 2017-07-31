@@ -1,0 +1,8 @@
+.main-nav {
+  transform: translateY(-100%);
+  transition: .6s all cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.open .main-nav {
+  transform: translateY(0);
+}

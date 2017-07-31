@@ -1,3 +1,14 @@
+/*
+
+    OVERFLOW
+
+    Media Query Extensions:
+      -ns = not-small
+      -m  = medium
+      -l  = large
+
+ */
+
 .overflow-visible { overflow: visible; }
 .overflow-hidden { overflow: hidden; }
 .overflow-scroll { overflow: scroll; }
@@ -5,7 +16,7 @@
 
 .overflow-x-visible { overflow-x: visible; }
 .overflow-x-hidden { overflow-x: hidden; }
-.overflow-x-scroll { overflow-x: scroll; -webkit-overflow-scrolling: touch;  }
+.overflow-x-scroll { overflow-x: scroll; }
 .overflow-x-auto { overflow-x: auto; }
 
 .overflow-y-visible { overflow-y: visible; }
@@ -20,7 +31,7 @@
   .overflow-auto-ns { overflow: auto; }
   .overflow-x-visible-ns { overflow-x: visible; }
   .overflow-x-hidden-ns { overflow-x: hidden; }
-  .overflow-x-scroll-ns { overflow-x: scroll; -webkit-overflow-scrolling: touch; }
+  .overflow-x-scroll-ns { overflow-x: scroll; }
   .overflow-x-auto-ns { overflow-x: auto; }
 
   .overflow-y-visible-ns { overflow-y: visible; }
@@ -37,7 +48,7 @@
 
   .overflow-x-visible-m { overflow-x: visible; }
   .overflow-x-hidden-m { overflow-x: hidden; }
-  .overflow-x-scroll-m { overflow-x: scroll; -webkit-overflow-scrolling: touch; }
+  .overflow-x-scroll-m { overflow-x: scroll; }
   .overflow-x-auto-m { overflow-x: auto; }
 
   .overflow-y-visible-m { overflow-y: visible; }
@@ -54,7 +65,7 @@
 
   .overflow-x-visible-l { overflow-x: visible; }
   .overflow-x-hidden-l { overflow-x: hidden; }
-  .overflow-x-scroll-l { overflow-x: scroll; -webkit-overflow-scrolling: touch; }
+  .overflow-x-scroll-l { overflow-x: scroll; }
   .overflow-x-auto-l { overflow-x: auto; }
 
   .overflow-y-visible-l { overflow-y: visible; }
