@@ -39,4 +39,9 @@ collections: # A list of collections the CMS should be able to edit
         label: "Home Page"
         name: "homepage"
         fields:
-          - {label: Title, name: title, widget: string}
+          - {label: Name, name: name, widget: string}
+          - {label: Type, name: type, widget: hidden, default: homepage}
+          - {label: Page, name: page, widget: hidden, default: "/index.html"}
+          - {label: Intro Copy - Part 1, name: introCopyPart1, widget: string}
+          - {label: Intro Copy - Part 2, name: introCopyPart2, widget: string}
+          - {label: Featured Case Studies, name: caseStudies, widget: list, fields: [{label: Title, name: title, widget: markdown}, {label: Video, name: video, widget: file}]}
