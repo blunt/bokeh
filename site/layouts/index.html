@@ -1,29 +1,22 @@
 {{ partial "head" . }}
 {{ partial "nav" . }}
-
 <div class="swiper-container">
   <div class="swiper-wrapper">
     <div data-hash="slide1" class="gradient swiper-slide min-vh-100 bg-white pt6">
       <div class="center mw8 w-90 cf">
-        <h2 class="w-50 f1 lh-title mb4">We are creative partner for brands</h2>
-        <h2 class="w-50 fr f1 lh-title">ready to move at the speed of inspiration.</h2>
+        <h2 class="w-50 f1 lh-title mb4">{{ .Params.introCopyPart1 }}</h2>
+        <h2 class="w-50 fr f1 lh-title">{{ .Params.introCopyPart2 }}</h2>
       </div>
     </div>
-    <div data-hash="slide2" class="swiper-slide min-vh-100 bg-white pt6">
-      <div class="center mw8 w-90">
-        <h2 class="w-50 f1 lh-title">We once smuggled $20,000 worth of equipment into cuba for <a href="#">Airbnb Trips</a></h2>
+    {{ range $index, $element := first 3 $.Params.caseStudies }}
+      {{ $count :=add $index 2 }}
+      <div data-hash="slide{{ $count }}" class="swiper-slide min-vh-100 bg-white pt6">
+        <div class="center mw8 w-90">
+          <video class="case-study-video min-w-100 min-h-100 w-auto h-auto absolute" src={{ .video }} autoplay controls></video>
+          <h2 class="w-50 f1 lh-title relative">{{ .title | markdownify }}</a></h2>
+        </div>
       </div>
-    </div>
-    <div data-hash="slide3" class="swiper-slide min-vh-100 bg-white pt6">
-      <div class="center mw8 w-90">
-        <h2 class="w-50 f1 lh-title">We cold called <a href="#">Philz Coffee </a> about their logo, and they let us do a rebrand.</h2>
-      </div>
-    </div>
-    <div data-hash="slide4" class="swiper-slide min-vh-100 bg-white pt6">
-      <div class="center mw8 w-90">
-        <h2 class="w-50 f1 lh-title">We backpacked four months around the globe to shoot an <a href="#">Instragram for Business</a> series.</h2>
-      </div>
-    </div>
+    {{ end }}
   </div>
 </div>
 <!-- {{ partial "blog" . }} -->
