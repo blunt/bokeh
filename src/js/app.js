@@ -13,6 +13,21 @@ function openNav() {
   }
 }
 
+// Contact in Nav
+const contactButton = document.getElementsByClassName('contact-button')[0],
+      contactInfo = document.getElementsByClassName('contact-info')[0],
+      contactWrapper = document.getElementsByClassName('contact-wrapper')[0];
+
+contactButton.addEventListener("click", openContact);
+
+function openContact() {
+  if (contactWrapper.classList.contains('open')) {
+    contactWrapper.classList.remove('open');
+  } else {
+    contactWrapper.classList.add('open');
+  }
+}
+
 // Homepage Swiper
 const swiper = new Swiper('.swiper-container', {
   keyboardControl: true,

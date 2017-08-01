@@ -6,3 +6,48 @@
 .open .main-nav {
   transform: translateY(0);
 }
+
+.flipper {
+  transition: .6s all cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+.flip:hover .flipper {
+  transform: rotate(-180deg);
+  transform-origin: center center;
+}
+
+/* Contact Info */
+.contact-move {
+  transform: translateY(55%);
+}
+
+.contact-info {
+  transform: scale(.6);
+}
+
+.contact-info {
+  transform-origin: top left;
+  opacity: 0;
+}
+
+.contact-heading {
+  transform-origin: bottom left;
+}
+
+.contact-info, .contact-move, .contact-heading {
+  transition: .6s all cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.contact-wrapper.open .contact-move {
+  transform: translateY(0);
+}
+
+.contact-wrapper.open .contact-info {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.contact-wrapper.open .contact-heading {
+  transform: scale(.6);
+  opacity: .6;
+}
