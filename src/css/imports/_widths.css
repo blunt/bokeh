@@ -62,6 +62,7 @@
 .w-80 {  width:  80%; }
 .w-90 {  width:  90%; }
 .w-100 { width: 100%; }
+.min-w-100 { min-width: 100%; }
 
 .w-third { width: calc(100% / 3); }
 .w-two-thirds { width: calc(100% / 1.5); }
