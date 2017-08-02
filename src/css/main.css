@@ -89,10 +89,11 @@
 @import './imports/_media-queries';
 
 /* Custom Elements */
-@import './imports/_gradients';
-@import './imports/_navigation';
+@import './custom/_variables';
+@import './custom/_gradients';
+@import './custom/_navigation';
 @import './custom/_homepage';
-@import './imports/_underlines';
+@import './custom/_underlines';
 
 /* Debugging */
 @import './imports/_debug-children';

@@ -1,0 +1,152 @@
+.main-nav {
+  transform: translateY(-100%);
+  transition: var(--transition);
+}
+
+.open .main-nav {
+  transform: translateY(0);
+}
+
+.nav-button {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  outline: none;
+}
+
+.nav-button span {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: #000;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.nav-button span:nth-child(1) {
+  top: 0px;
+}
+
+.nav-button span:nth-child(2),.nav-button span:nth-child(3) {
+  top: 9px;
+}
+
+.nav-button span:nth-child(4) {
+  top: 18px;
+}
+
+.open .nav-button span {
+  background: linear-gradient(270deg, #935b63, #df3f28);
+  background-size: 400% 400%;
+
+  animation: animateGradient 30s ease infinite;
+}
+
+.open .nav-button span:nth-child(1) {
+  top: 9px;
+  opacity:0;
+}
+
+.open .nav-button span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.open .nav-button span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.open .nav-button span:nth-child(4) {
+  top: 9px;
+  width: 0%;
+  left: 50%;
+}
+
+.flipper {
+  transition: var(--transition) !important;
+}
+
+.flip:hover .flipper {
+  transform: rotate(-180deg);
+  transform-origin: center center;
+}
+
+/* Logo */
+.logo-svg .cls-2-animate {
+  transition: var(--transition);
+  fill: url(#MyGradient);
+  opacity: 0;
+}
+
+.open .logo-svg .cls-2-animate {
+  opacity: 1;
+}
+
+/* Contact Info */
+.contact-move {
+  transform: translateY(55%);
+}
+
+.contact-info {
+  transform: scale(.6);
+}
+
+.contact-info {
+  transform-origin: top left;
+  opacity: 0;
+}
+
+.contact-heading {
+  transform-origin: bottom left;
+}
+
+.contact-info, .contact-move, .contact-heading {
+  transition: var(--transition);
+}
+
+.contact-button {
+  width: 40px;
+  height: 40px;
+}
+
+.contact-button span {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+  transition: var(--transition);
+}
+
+.contact-button span.minus {
+  opacity: 0;
+  transform: translate(-50%, 0);
+}
+
+.contact-wrapper:hover .contact-button span.minus {
+  opacity: 1;
+  transform: translate(-50%, -55%);
+}
+
+.contact-wrapper:hover .contact-button span.plus {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
+
+.contact-wrapper:hover .contact-move {
+  transform: translateY(0);
+}
+
+.contact-wrapper:hover .contact-info {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.contact-wrapper:hover .contact-heading {
+  transform: scale(.6);
+  opacity: .6;
+}
