@@ -10,11 +10,20 @@
     </div>
     {{ range $index, $element := first 3 $.Params.caseStudies }}
       {{ $count :=add $index 2 }}
-      <div data-hash="slide{{ $count }}" class="swiper-slide min-vh-100 bg-white pt6">
+      <div data-hash="slide{{ $count }}" data-color="{{ .color }}" class="slide-{{ $count }} swiper-slide min-vh-100 bg-white pt6">
         <div class="center mw8 w-90">
+          <div class="feat-case-study--image absolute top-0 left-0 w-100 h-100"></div>
           <h2 class="w-50 f1 lh-title relative">{{ .title | markdownify }}</a></h2>
         </div>
       </div>
+
+      <style>
+        /* Add image from CMS as a background image for each slide as we iterate through */
+        .slide-{{ $count }} .feat-case-study--image {
+          background: url({{ .image }}) no-repeat center;
+          background-size: cover;
+        }
+      </style>
     {{ end }}
   </div>
 </div>

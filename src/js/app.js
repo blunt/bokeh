@@ -13,6 +13,15 @@ function openNav() {
   }
 }
 
+// Navigation SVG BG
+// const s = Snap('#nav-bg');
+// Snap.load('/img/shapes/navBg.svg', function (response) {
+//     const navBg = response;
+//     const nav = navBg.select('#navBg');
+//     nav.attr({ width: '100%', height: '100%' });
+//     s.append(navBg);
+// });
+
 // Homepage Swiper
 const swiper = new Swiper('.swiper-container', {
   keyboardControl: true,
