@@ -5,7 +5,8 @@ page: /
 introCopyPart1: We are creative partner for brand
 introCopyPart2: ready to move at the speed of inspiration.
 caseStudies:
-  - image: /img/ARTHMB-HowToHelpYourCatHaveFewerHairballs-20160818.jpeg
+  - color: '#000000'
+    image: /img/ARTHMB-HowToHelpYourCatHaveFewerHairballs-20160818.jpeg
     title: >-
       We once smuggled $20,000 worth of equipment into cuba for [Airbnb
       Trips](//google.ca)
@@ -19,6 +20,7 @@ caseStudies:
       Business](//google.ca) series.
     video: /img/big_buck_bunny.mp4
 ---
+
 
 
 
