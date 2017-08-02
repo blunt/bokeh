@@ -17,12 +17,17 @@
   outline: none;
 }
 
+.nav-button:hover {
+  transition: .1s ease-in;
+  transform: scale(1.1,1.1);
+}
+
 .nav-button span {
   display: block;
   position: absolute;
   height: 5px;
   width: 100%;
-  background: #000;
+  background: var(--near-black);
   border-radius: 2px;
   opacity: 1;
   left: 0;
@@ -78,6 +83,10 @@
 }
 
 /* Logo */
+.logo-svg .cls-2 {
+  fill: var(--near-black);
+}
+
 .logo-svg .cls-2-animate {
   transition: var(--transition);
   fill: url(#MyGradient);
