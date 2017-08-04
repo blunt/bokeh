@@ -3,9 +3,9 @@
 <div class="swiper-container">
   <div class="swiper-wrapper">
     <div data-hash="slide1" class="gradient swiper-slide min-vh-100 bg-white pt6">
-      <div class="center mw8 w-90 cf">
-        <h2 class="w-50 f1 lh-title mb4">{{ .Params.introCopyPart1 }}</h2>
-        <h2 class="w-50 fr f1 lh-title">{{ .Params.introCopyPart2 }}</h2>
+      <div class="center mw8 w-90 cf mt5">
+        <h2 class="w-50 f-subheadline lh-title mb4">{{ .Params.introCopyPart1 }}</h2>
+        <h2 class="w-50 fr f-subheadline lh-title">{{ .Params.introCopyPart2 }}</h2>
       </div>
     </div>
     {{ range $index, $element := first 3 $.Params.caseStudies }}
@@ -13,8 +13,11 @@
       <div data-hash="slide{{ $count }}" class="slide-{{ $count }} swiper-slide min-vh-100 bg-white pt6 feat-case-study__slide">
         <div class="feat-case-study__slide__image absolute top-0 left-0 w-100 h-100"></div>
         <div class="feat-case-study__slide__overlay" style="background-color: {{ .color }}"></div>
-        <div class="center mw8 w-90">
-          <h2 class="w-50 f1 lh-title relative feat-case-study__title">{{ .title | markdownify }}</a></h2>
+        <div class="center mw8 w-90 feat-case-study__content">
+          <div class="bg-white pa5 mt5 w-60">
+            <h2 class="f1 lh-title relative feat-case-study__title mb4">{{ .title | markdownify }}</a></h2>
+            <a class="db underline dib f4 link black feat-case-study__slide__button" href="{{ .link }}">View case study</a>
+          </div>
         </div>
       </div>
 
@@ -23,6 +26,9 @@
         .slide-{{ $count }} .feat-case-study__slide__image {
           background: url({{ .image }}) no-repeat center;
           background-size: cover;
+        }
+        .slide-{{ $count }} .feat-case-study__slide__button:after {
+          background: {{ .color }};
         }
       </style>
     {{ end }}
