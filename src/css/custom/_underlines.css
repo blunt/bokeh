@@ -1,8 +1,13 @@
-.underline {
+.underline, .feat-case-study__title {
   position: relative;
 }
 
-.underline:after {
+.feat-case-study__button {
+  text-decoration: none;
+  position: relative;
+}
+
+.underline:after, .feat-case-study__button:after {
   content: "";
   margin-top: .2em;
   height: .075em;

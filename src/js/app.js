@@ -23,7 +23,7 @@ const swiper = new Swiper('.swiper-container', {
   a11y: true,
   mousewheelControl: true,
   hashnav: true,
-  speed: 2000,
+  speed: 1000,
   // whatSlidesProgress: true,
   // watchSlidesVisibility: true,
   // freeMode: true

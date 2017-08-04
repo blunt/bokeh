@@ -24,9 +24,3 @@ caseStudies:
       Business](//google.ca) series.
     video: /img/big_buck_bunny.mp4
 ---
-
-
-
-
-
-
