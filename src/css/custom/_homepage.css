@@ -11,7 +11,7 @@
   /*transition-delay: 2s;*/
 }
 
-.feat-case-study__slide--animate {
+.feat-case-study__slide.swiper-slide-active {
   & .feat-case-study__slide__image {
     opacity: 1;
     transform: scale(1.25) translateX(0);

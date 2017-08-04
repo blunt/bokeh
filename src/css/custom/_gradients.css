@@ -1,5 +1,12 @@
-.gradient {
+.gradient--red {
   background: linear-gradient(270deg, #935b63, #df3f28);
+}
+
+.gradient--blue-and-yellow {
+  background: linear-gradient(270deg, #F4AD17, #6BC2C3);
+}
+
+.gradient {
   background-size: 400% 400%;
 
   animation: animateGradient 30s ease infinite;

@@ -159,3 +159,8 @@
   transform: scale(.6);
   opacity: .6;
 }
+
+#nav-bg {
+  width: 118%;
+  left: -9%;
+}

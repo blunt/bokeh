@@ -15,7 +15,7 @@ function openNav() {
 
 // Navigation SVG BG
 const s = Snap('#nav-bg');
-s.path("M91.358 198c-92.8-24-97.334-142-88-198H1389.36v80s-16.63 11.268-26 20c-124.62 116.095 56.59 243.777 0 346-26.06 47.066-59 64-105.5 71-66.71 10.042-114.63-9.126-172.5 9-63.53 19.897-79.07 76.876-141.502 100-66.579 24.661-114.953 2.671-186.5 18-88.347 18.929-128.63 98.38-217.091 79.994C428.406 700.745 327.664 682.499 367.358 488c40-196-160-260-276-290z");
+s.path("M 91.3577 198C -1.44226 174 -5.97559 56 3.35774 0L 1389.36 0C 1389.36 0 1371.22 60.4228 1363.36 100C 1337.02 232.531 1439.95 383.777 1383.36 486C 1357.3 533.066 1334.36 550 1287.86 557C 1221.15 567.042 1183.99 541.472 1125.36 566C 1059.03 593.746 1058.18 671.778 995 696C 926.678 722.193 868.905 668.671 797.358 684C 709.011 702.929 723.733 793 600 793C 476.267 793 347 648 367.358 528C 407.358 332 207.358 228 91.3577 198Z");
 
 // Homepage Swiper
 const swiper = new Swiper('.swiper-container', {
@@ -24,16 +24,6 @@ const swiper = new Swiper('.swiper-container', {
   mousewheelControl: true,
   hashnav: true,
   speed: 1000,
-  // whatSlidesProgress: true,
-  // watchSlidesVisibility: true,
+  loop: true,
   // freeMode: true
-  onSlideChangeStart: (slider) => {
-    console.log(slider);
-    const slide = document.getElementsByClassName('feat-case-study__slide--animate')[0];
-    if (slide) slide.classList.remove('feat-case-study__slide--animate');
-  },
-  onSlideChangeEnd: (slider) => {
-    const slide = document.getElementsByClassName(`slide-${slider.activeIndex + 1}`)[0];
-    slide.classList.add('feat-case-study__slide--animate');
-  }
 });
