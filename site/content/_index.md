@@ -25,5 +25,3 @@ caseStudies:
       Business series.
     video: /img/big_buck_bunny.mp4
 ---
-
-
