@@ -2,10 +2,10 @@
 {{ partial "nav" . }}
 <div class="swiper-container">
   <div class="swiper-wrapper">
-    <div class="gradient gradient--blue-and-yellow swiper-slide min-vh-100 bg-white pt6">
-      <div class="center mw8 w-90 cf">
-        <h2 class="w-50 f1 lh-title mb4">{{ .Params.introCopyPart1 }}</h2>
-        <h2 class="w-50 fr f1 lh-title">{{ .Params.introCopyPart2 }}</h2>
+    <div class="hp-slide1 gradient gradient--blue-and-yellow swiper-slide min-vh-100 bg-white pt6">
+      <div class="hp-slide1-content center mw8 w-90 cf dn">
+        <h2 class="hp-slide1--text hp-slide1--part1 w-50 f1 lh-title mb4">{{ .Params.introCopyPart1 }}</h2>
+        <h2 class="hp-slide1--text hp-slide1--part2 w-50 fr f1 lh-title">{{ .Params.introCopyPart2 }}</h2>
       </div>
     </div>
     {{ range $index, $element := first 3 $.Params.caseStudies }}

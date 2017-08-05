@@ -26,4 +26,42 @@ const swiper = new Swiper('.swiper-container', {
   speed: 1000,
   loop: true,
   // freeMode: true
+  onInit: (slider) => {
+    // First slide animation logic
+    const logo = document.getElementsByClassName('logo-svg')[0];
+    const menu = document.getElementsByClassName('nav-button')[0];
+    const hpContent = document.getElementsByClassName('hp-slide1-content')[0];
+    const slideOneText = document.getElementsByClassName('hp-slide1--text');
+
+    if (slider.activeIndex === 1) {
+      logo.classList.add('ready-to-animate');
+
+      for (let i = 0; i < slideOneText.length; i += 1) {
+        slideOneText[i].classList.add('ready-to-animate');
+      }
+
+      slider.params.allowSwipeToPrev = false;
+      slider.params.allowSwipeToNext = false;
+
+      setTimeout(() => {
+        logo.classList.remove('ready-to-animate');
+
+        setTimeout(() => {
+          for (let i = 0; i < slideOneText.length; i += 1) {
+            slideOneText[i].classList.remove('ready-to-animate');
+          }
+
+          menu.classList.remove('dn');
+          slider.params.allowSwipeToPrev = true;
+          slider.params.allowSwipeToNext = true;
+        }, 1600);
+      }, 2500);
+    } else {
+      menu.classList.remove('dn');
+    }
+
+    logo.classList.remove('dn');
+    logo.classList.add('db');
+    hpContent.classList.remove('dn');
+  }
 });
