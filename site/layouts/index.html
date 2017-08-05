@@ -4,8 +4,8 @@
   <div class="swiper-wrapper">
     <div data-hash="slide1" class="gradient gradient--blue-and-yellow swiper-slide min-vh-100 bg-white pt6">
       <div class="center mw8 w-90 cf mt5">
-        <h2 class="w-50 f1 lh-title mb4">{{ .Params.introCopyPart1 }}</h2>
-        <h2 class="w-50 fr f1 lh-title">{{ .Params.introCopyPart2 }}</h2>
+        <h2 class="w-50 f-subheadline lh-title mb4">{{ .Params.introCopyPart1 }}</h2>
+        <h2 class="w-50 fr f-subheadline lh-title">{{ .Params.introCopyPart2 }}</h2>
       </div>
     </div>
     {{ range $index, $element := first 3 $.Params.caseStudies }}
