@@ -1,5 +1,5 @@
 .main-nav {
-  transform: translateY(-100%);
+  transform: translateY(-130%);
   transition: var(--transition);
 }
 
@@ -161,6 +161,7 @@
 }
 
 #nav-bg {
-  width: 118%;
-  left: -9%;
+  width: 1500px;
+  left: 50%;
+  transform: translateX(-53%);
 }

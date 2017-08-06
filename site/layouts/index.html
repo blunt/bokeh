@@ -10,12 +10,15 @@
     </div>
     {{ range $index, $element := first 3 $.Params.caseStudies }}
       {{ $count :=add $index 2 }}
-      <div data-hash="slide{{ $count }}" class="slide-{{ $count }} swiper-slide min-vh-100 bg-white pt6 feat-case-study__slide">
+      <div data-hash="slide{{ $count }}" class="slide-{{ $count }} swiper-slide overflow-visible min-vh-100 bg-white pt6 feat-case-study__slide">
         <div class="feat-case-study__slide__image absolute top-0 left-0 w-100 h-100"></div>
         <div class="feat-case-study__slide__overlay" style="background-color: {{ .color }}"></div>
-        <div class="center mw8 w-90 feat-case-study__content">
-          <div class="bg-white pa5 mt5 w-60">
-            <h2 class="f1 lh-title relative feat-case-study__title mb4">{{ .title | markdownify }}</a></h2>
+        <div class="center mw8 w-90 feat-case-study__content relative">
+          <div class="feat-case-study__slide__shape absolute top-0 left-0 w-100 h-100">
+            <img src="../img/shapes/slide-{{ $index }}.svg">
+          </div>
+          <div class="pv4 mt5 w-50">
+            <h2 class="f1 lh-title relative feat-case-study__slide__title mb4">{{ .title | markdownify }}</a></h2>
             <a class="db underline dib f4 link black feat-case-study__slide__button" href="{{ .link }}">View case study</a>
           </div>
         </div>
