@@ -15,6 +15,11 @@
   transition: .5s ease-in-out;
   cursor: pointer;
   outline: none;
+  opacity: 1;
+}
+
+.nav-button.hide {
+  opacity: 0;
 }
 
 .nav-button:hover {

@@ -30,7 +30,6 @@ const swiper = new Swiper('.swiper-container', {
     console.log('hit');
     // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
-    const menu = document.getElementsByClassName('nav-button')[0];
     const hpContent = document.getElementsByClassName('hp-slide1-content');
     const slideOneText = document.getElementsByClassName('hp-slide1--text');
 
@@ -46,19 +45,19 @@ const swiper = new Swiper('.swiper-container', {
 
       setTimeout(() => {
         logo.classList.remove('ready-to-animate');
+        navButton.classList.remove('hide');
 
         setTimeout(() => {
           for (let i = 0; i < slideOneText.length; i += 1) {
             slideOneText[i].classList.remove('ready-to-animate');
           }
 
-          menu.classList.remove('dn');
           slider.params.allowSwipeToPrev = true;
           slider.params.allowSwipeToNext = true;
         }, 1600);
       }, 2500);
     } else {
-      menu.classList.remove('dn');
+      navButton.classList.remove('hide');
     }
 
     logo.classList.remove('dn');

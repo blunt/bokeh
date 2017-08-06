@@ -1,14 +1,15 @@
 .hp-slide1--text {
   transition: var(--transition-slow);
+  mix-blend-mode: overlay;
 }
 
 .hp-slide1--text.ready-to-animate {
-  transform: translateY(75%);
+  transform: translateX(15%);
   opacity: 0;
 }
 
 .hp-slide1--part2 {
-  transition-delay: .1s;
+  transition-delay: .5s;
 }
 
 .feat-case-study__slide__overlay {
@@ -55,10 +56,30 @@
 
 .slide-2 .feat-case-study__slide__shape {
   & img {
-    width: 1543px;
+    width: 1126px;
     max-width: inherit;
     position: absolute;
-    left: -60%;
+    left: -30%;
     top: -230%;
+  }
+}
+
+.slide-3 .feat-case-study__slide__shape {
+  & img {
+    width: 2587px;
+    max-width: inherit;
+    position: absolute;
+    left: -90%;
+    bottom: -280%;
+  }
+}
+
+.slide-4 .feat-case-study__slide__shape {
+  & img {
+    width: 1740px;
+    max-width: inherit;
+    position: absolute;
+    left: -49%;
+    top: -290%;
   }
 }
