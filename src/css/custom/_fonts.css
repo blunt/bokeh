@@ -1,0 +1,36 @@
+/*Fonts*/
+
+@font-face {
+    font-family: "Circular";
+    src:url("../fonts/lineto-circular-book.eot");
+    src:url("../fonts/lineto-circular-book.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/lineto-circular-book.woff2") format("woff2"),
+        url("../fonts/lineto-circular-book.woff") format("woff");
+    font-weight: 400;
+    font-style: 400;
+}
+
+@font-face {
+    font-family: "Circular";
+    src: url("../fonts/lineto-circular-medium.eot");
+    src: url("../fonts/lineto-circular-medium.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/lineto-circular-medium.woff2") format("woff2"),
+         url("../fonts/lineto-circular-medium.woff") format("woff");
+    font-weight: 600;
+    font-style: 600;
+}
+
+@font-face {
+    font-family: "Circular";
+    src:url("../fonts/lineto-circular-black.eot");
+    src:url("../fonts/lineto-circular-black.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/lineto-circular-black.woff2") format("woff2"),
+        url("../fonts/lineto-circular-black.woff") format("woff");
+    font-weight: 700;
+    font-style: 700;
+}
+
+body, button, input {
+  font-family: "Circular", -apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+  font-weight: 400;
+}

@@ -71,16 +71,12 @@ const swiper = new Swiper('.swiper-container', {
 });
 
 //Next slide
-const nextSlide = document.getElementsByClassName('next-slide')[0];
+const nextSlideButton = document.getElementsByClassName('next-slide')[0];
 
-navButton.addEventListener("click", openNav);
+nextSlideButton.addEventListener("click", nextSlide);
 
-function openNav() {
-  if (body.classList.contains('open')) {
-    body.classList.remove('open');
-  } else {
-    body.classList.add('open');
-  }
+function nextSlide() {
+  swiper.slideNext();
 }
 
 // function findIndex(node) {

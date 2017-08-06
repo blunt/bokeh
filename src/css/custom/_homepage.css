@@ -46,7 +46,7 @@
 .feat-case-study__slide__image {
   opacity: 0;
   transform: scale(1.25) translateX(10%);
-  transition: transform 3s ease-out, opacity 1s ease-in;
+  transition: transform 4s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s ease-in;
 }
 
 .feat-case-study__slide__title, .feat-case-study__slide__button {
