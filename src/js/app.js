@@ -27,10 +27,11 @@ const swiper = new Swiper('.swiper-container', {
   loop: true,
   // freeMode: true
   onInit: (slider) => {
+    console.log('hit');
     // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
     const menu = document.getElementsByClassName('nav-button')[0];
-    const hpContent = document.getElementsByClassName('hp-slide1-content')[0];
+    const hpContent = document.getElementsByClassName('hp-slide1-content');
     const slideOneText = document.getElementsByClassName('hp-slide1--text');
 
     if (slider.activeIndex === 1) {
@@ -62,6 +63,9 @@ const swiper = new Swiper('.swiper-container', {
 
     logo.classList.remove('dn');
     logo.classList.add('db');
-    hpContent.classList.remove('dn');
+
+    for (let i = 0; i < hpContent.length; i += 1) {
+      hpContent[i].classList.remove('dn');
+    }
   }
 });
