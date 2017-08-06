@@ -31,7 +31,7 @@ const swiper = new Swiper('.swiper-container', {
     // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
     const hpContent = document.getElementsByClassName('hp-slide1-content');
-    const slideOneText = document.getElementsByClassName('hp-slide1--text');
+    const slideOneText = document.getElementsByClassName('hp-slide1__text');
 
     if (slider.activeIndex === 1) {
       logo.classList.add('ready-to-animate');

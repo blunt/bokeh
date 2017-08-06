@@ -1,15 +1,17 @@
-.hp-slide1--text {
+.hp-slide1__text {
   transition: var(--transition-slow);
   mix-blend-mode: overlay;
 }
 
-.hp-slide1--text.ready-to-animate {
+.hp-slide1__text.ready-to-animate {
   transform: translateX(15%);
   opacity: 0;
 }
 
-.hp-slide1--part2 {
-  transition-delay: .5s;
+.hp-slide1__shape {
+  width: 885px;
+  bottom: -280%;
+  left: -25%;
 }
 
 .feat-case-study__slide__overlay {
