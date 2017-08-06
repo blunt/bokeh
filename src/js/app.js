@@ -32,14 +32,12 @@ const swiper = new Swiper('.swiper-container', {
     // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
     const hpContent = document.getElementsByClassName('hp-slide1-content');
-    const slideOneText = document.getElementsByClassName('hp-slide1__text');
+    const slideOneText = document.getElementsByClassName('hp-slide1__text')[0];
 
-    if (slider.activeIndex === 1) {
+    if (slider.activeIndex === 3) {
       logo.classList.add('ready-to-animate');
 
-      for (let i = 0; i < slideOneText.length; i += 1) {
-        slideOneText[i].classList.add('ready-to-animate');
-      }
+      slideOneText.classList.add('ready-to-animate');
 
       slider.params.allowSwipeToPrev = false;
       slider.params.allowSwipeToNext = false;
@@ -49,9 +47,7 @@ const swiper = new Swiper('.swiper-container', {
         navButton.classList.remove('hide');
 
         setTimeout(() => {
-          for (let i = 0; i < slideOneText.length; i += 1) {
-            slideOneText[i].classList.remove('ready-to-animate');
-          }
+          slideOneText.classList.remove('ready-to-animate');
 
           slider.params.allowSwipeToPrev = true;
           slider.params.allowSwipeToNext = true;
@@ -70,7 +66,7 @@ const swiper = new Swiper('.swiper-container', {
   }
 });
 
-//Next slide
+// Next slide
 const nextSlideButton = document.getElementsByClassName('next-slide')[0];
 
 nextSlideButton.addEventListener("click", nextSlide);
@@ -78,19 +74,3 @@ nextSlideButton.addEventListener("click", nextSlide);
 function nextSlide() {
   swiper.slideNext();
 }
-
-// function findIndex(node) {
-//   var i = 1;
-//   while (node = node.previousSibling) {
-//       if (node.nodeType === 1) { ++i }
-//   }
-//   return i;
-// }
-//
-// // Hashing for Homepage
-// if (window.location.hash) {
-//   const hash = window.location.hash.replace('#', '');
-//   const slide = document.getElementById(hash);
-//
-//   swiper.slideTo(findIndex(slide) - 1);
-// }
