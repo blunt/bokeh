@@ -26,7 +26,7 @@ const swiper = new Swiper('.swiper-container', {
   speed: 1000,
   loop: true,
   loopAdditionalSlides: 2,
-  // freeMode: true
+  // freeMode: true,
   onInit: (slider) => {
     // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
