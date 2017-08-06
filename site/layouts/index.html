@@ -3,8 +3,11 @@
 <div class="swiper-container">
   <div class="swiper-wrapper">
     <div class="hp-slide1 gradient gradient--blue-and-yellow swiper-slide min-vh-100 bg-white pt6">
-      <div class="hp-slide1-content center mw8 w-90 cf dn mt4 white fw5">
-        <h2 class="hp-slide1--text hp-slide1--part1 w-60 f-headline">{{ .Params.introCopyPart1 }}</h2>
+      <div class="hp-slide1-content center mw8 w-90 cf dn mt5 fw5 relative">
+        <h2 class="hp-slide1__text hp-slide1--part1 w-60 f-headline mt4">{{ .Params.introCopyPart1 }}</h2>
+        <div class="hp-slide1__shape absolute">
+          <img src="../img/shapes/slide-intro.svg">
+        </div>
       </div>
     </div>
     {{ range $index, $element := first 3 $.Params.caseStudies }}

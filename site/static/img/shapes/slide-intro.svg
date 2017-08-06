@@ -1,0 +1,12 @@
+<svg width="886" height="498" viewBox="0 0 886 498" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>slide-intro</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-5035 -110)">
+<g id="slide-intro">
+<use xlink:href="#path0_fill" transform="translate(5035.65 110.283)" fill="#FFFFFF"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 260.354 151.717C 183.004 224.976 105.02 275.717 42.3536 315.717C -77.6464 425.717 90.565 404.496 138.354 445.717C 299.375 584.61 496.354 401.717 678.354 375.717C 860.354 349.717 891.048 318.882 884.354 217.717C 877.268 110.649 732.569 146.933 634.354 103.717C 541.139 62.7022 468.354 -12.2827 394.354 1.71731C 320.354 15.7173 317.384 97.7036 260.354 151.717Z"/>
+</defs>
+</svg>
