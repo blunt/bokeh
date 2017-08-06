@@ -8,7 +8,7 @@ caseStudies:
     color: '#C4493F'
     image: /img/photo-1496389294434-c84a4ebe3a08.jpeg
     link: 'http://google.com'
-    title: 'We once smuggled $20,000 worth of equipment into cuba for Airbnb Trips'
+    title: 'We once smuggled $20,000 worth of equipment into cuba for Airbnb Trips.'
     video: /img/big_buck_bunny.mp4
   - client: Philz Coffee
     color: '#67D5D5'
@@ -28,6 +28,7 @@ caseStudies:
     video: /img/big_buck_bunny.mp4
 introCopyPart2: who move at the speed of inspiration
 ---
+
 
 
 
