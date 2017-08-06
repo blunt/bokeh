@@ -2,8 +2,7 @@
 name: Bokeh
 type: homepage
 page: /
-introCopyPart1: A creative partner for brands
-introCopyPart2: who move at the speed of inspiration
+introCopyPart1: A creative partner for brands who move at the speed of inspiration
 caseStudies:
   - client: Airbnb Trips
     color: '#C4493F'
@@ -27,6 +26,8 @@ caseStudies:
       We backpacked four months around the globe to shoot an Instragram for
       Business series.
     video: /img/big_buck_bunny.mp4
+introCopyPart2: who move at the speed of inspiration
 ---
+
 
 
