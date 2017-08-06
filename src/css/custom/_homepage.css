@@ -1,16 +1,16 @@
 .hp-slide1__text {
-  transition: var(--transition-slow);
+  transition: var(--transition-medium);
   mix-blend-mode: overlay;
 }
 
 .hp-slide1__text.ready-to-animate {
-  transform: translateX(15%);
+  transform: translateY(10%);
   opacity: 0;
 }
 
 .hp-slide1__shape {
   width: 885px;
-  bottom: -280%;
+  bottom: -270%;
   left: -25%;
 }
 
@@ -48,11 +48,12 @@
 .feat-case-study__slide__title, .feat-case-study__slide__button {
   opacity: 0;
   transition: transform 1s ease-out, opacity 1s ease-in !important;
-  transform: translateY(20%);
+  transform: translateY(10%);
   transition-delay: 1s;
 }
 
 .feat-case-study__slide__button {
+  transition-delay: .1s;
   transform: translateY(100%);
 }
 
