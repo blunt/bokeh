@@ -67,9 +67,11 @@ const swiper = new Swiper('.swiper-container', {
 });
 
 // Next slide
-const nextSlideButton = document.getElementsByClassName('next-slide')[0];
+const nextSlideButton = document.getElementsByClassName('next-slide');
 
-nextSlideButton.addEventListener("click", nextSlide);
+Array.from(nextSlideButton).forEach((element) => {
+  element.addEventListener('click', nextSlide);
+});
 
 function nextSlide() {
   swiper.slideNext();
