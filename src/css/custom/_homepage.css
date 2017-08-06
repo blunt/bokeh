@@ -64,6 +64,12 @@
   }
 }
 
+.slide-3 .feat-case-study__content {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+}
+
 .slide-3 .feat-case-study__slide__shape {
   & img {
     width: 2587px;

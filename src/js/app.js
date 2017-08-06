@@ -25,15 +25,15 @@ const swiper = new Swiper('.swiper-container', {
   hashnav: true,
   speed: 1000,
   loop: true,
+  loopAdditionalSlides: 2,
   // freeMode: true
   onInit: (slider) => {
-    console.log('hit');
     // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
     const hpContent = document.getElementsByClassName('hp-slide1-content');
     const slideOneText = document.getElementsByClassName('hp-slide1--text');
 
-    if (slider.activeIndex === 1) {
+    if (slider.activeIndex === 3) {
       logo.classList.add('ready-to-animate');
 
       for (let i = 0; i < slideOneText.length; i += 1) {
@@ -68,3 +68,19 @@ const swiper = new Swiper('.swiper-container', {
     }
   }
 });
+
+// function findIndex(node) {
+//   var i = 1;
+//   while (node = node.previousSibling) {
+//       if (node.nodeType === 1) { ++i }
+//   }
+//   return i;
+// }
+//
+// // Hashing for Homepage
+// if (window.location.hash) {
+//   const hash = window.location.hash.replace('#', '');
+//   const slide = document.getElementById(hash);
+//
+//   swiper.slideTo(findIndex(slide) - 1);
+// }
