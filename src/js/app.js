@@ -70,6 +70,19 @@ const swiper = new Swiper('.swiper-container', {
   }
 });
 
+//Next slide
+const nextSlide = document.getElementsByClassName('next-slide')[0];
+
+navButton.addEventListener("click", openNav);
+
+function openNav() {
+  if (body.classList.contains('open')) {
+    body.classList.remove('open');
+  } else {
+    body.classList.add('open');
+  }
+}
+
 // function findIndex(node) {
 //   var i = 1;
 //   while (node = node.previousSibling) {
