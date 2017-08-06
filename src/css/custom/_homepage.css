@@ -78,8 +78,9 @@
 
 .slide-3 .feat-case-study__content {
   position: absolute;
-  left: 5%;
+  left: 50%;
   bottom: 5%;
+  transform: translateX(-50%);
 }
 
 .slide-3 .feat-case-study__slide__shape {

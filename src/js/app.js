@@ -22,6 +22,7 @@ const swiper = new Swiper('.swiper-container', {
   keyboardControl: true,
   a11y: true,
   mousewheelControl: true,
+  mousewheelSensitivity: 3,
   hashnav: true,
   speed: 1000,
   loop: true,
@@ -33,7 +34,7 @@ const swiper = new Swiper('.swiper-container', {
     const hpContent = document.getElementsByClassName('hp-slide1-content');
     const slideOneText = document.getElementsByClassName('hp-slide1__text');
 
-    if (slider.activeIndex === 3) {
+    if (slider.activeIndex === 1) {
       logo.classList.add('ready-to-animate');
 
       for (let i = 0; i < slideOneText.length; i += 1) {
