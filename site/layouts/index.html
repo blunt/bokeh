@@ -13,41 +13,9 @@
         </div>
       </div>
     </div>
-    {{ range $index, $element := first 3 $.Params.caseStudies }}
-      {{ $count :=add $index 2 }}
-      {{ $client := lower .client }}
-      <div data-hash="{{ replace $client " " "-" }}" class="slide-{{ $count }} swiper-slide overflow-visible min-vh-100 bg-white pt6 feat-case-study__slide">
-        <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
-          <div class="feat-case-study__slide__image w-100 h-100"></div>
-        </div>
-        <div class="feat-case-study__slide__overlay" style="background-color: {{ .color }}"></div>
-        <div class="center mw8 w-90 feat-case-study__content relative z-1">
-          <div class="feat-case-study__slide__shape absolute top-0 left-0 w-100 h-100">
-            <img src="../img/shapes/slide-{{ $index }}.svg">
-          </div>
-          <div class="pv4 mt5 w-50">
-            <h2 class="f1 lh-title relative feat-case-study__slide__title mb4 z-1">{{ .title | markdownify }}</a></h2>
-            <a class="fw6 db underline dib f4 link black feat-case-study__slide__button z-1" href="{{ .link }}">View case study</a>
-          </div>
-        </div>
-        {{ if lt $index 2 }}
-          <div class="feat-case-study__slide__overlay--mingle absolute top-0 h-100 z-1" style="background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ .color }} 90%, {{ .color }} 100%)"></div>
-        {{ end }}
-        <style>
-        /* Add custom styles from CMS for each slide as we iterate through */
-        .slide-{{ $count }} .feat-case-study__slide__image {
-          background: url({{ .image }}) no-repeat center;
-          background-size: cover;
-        }
-        .slide-{{ $count }} .feat-case-study__slide__button:after {
-          background: {{ .color }};
-        }
-        </style>
-      </div>
-    {{ end }}
+    {{ partial "feat-case-studies" . }}
   </div>
 </div>
-<!-- {{ partial "blog" . }} -->
-<script src="js/swiper.min.js"></script>
 
+<script src="js/swiper.min.js"></script>
 {{ partial "footer" . }}
