@@ -72,7 +72,7 @@
     max-width: inherit;
     position: absolute;
     left: -30%;
-    top: -230%;
+    top: -700px;
   }
 }
 
@@ -85,11 +85,14 @@
 
 .slide-3 .feat-case-study__slide__shape {
   & img {
-    width: 2587px;
+    width: 2477px;
     max-width: inherit;
     position: absolute;
     left: -1147px;
-    top: -20%;
+    top: -75px;
+    @media (min-width: 1300px) {
+      width: 2587px;
+    }
   }
 }
 
