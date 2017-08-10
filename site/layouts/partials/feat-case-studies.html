@@ -12,7 +12,6 @@
       </div>
       <div class="pv4 mt5 w-50">
         <h2 class="f1 lh-title relative feat-case-study__slide__title mb4 z-1">{{ .title | markdownify }}</a></h2>
-        <a class="fw6 db underline dib f4 link black feat-case-study__slide__button z-1" href="{{ .link }}">View case study</a>
       </div>
     </div>
     {{ if lt $index 2 }}
@@ -24,8 +23,8 @@
       background: url({{ .image }}) no-repeat center;
       background-size: cover;
     }
-    .slide-{{ $count }} .feat-case-study__slide__button:after {
-      background: {{ .color }};
+    .slide-{{ $count }} .feat-case-study__slide__title a {
+      border-color: {{ .color }};
     }
     </style>
   </div>
