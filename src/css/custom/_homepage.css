@@ -1,5 +1,8 @@
 .hp-slide1__text {
   transition: var(--transition-medium);
+}
+
+button.hp-slide1__text {
   mix-blend-mode: overlay;
 }
 
@@ -12,4 +15,18 @@
   width: 885px;
   bottom: -200%;
   left: -25%;
+}
+
+.hp-slide1 .video-wrapper {
+  padding-top: 56.25%;
+  height: 0px;
+}
+.hp-slide1 .gradient {
+  opacity: .9;
+}
+
+.hp-slide1 .gradient,
+.hp-slide1 .hp-slide1__text,
+.hp-slide1 .hp-slide1__shape {
+  -webkit-transform: translate3d(0,0,0);
 }
