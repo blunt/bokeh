@@ -1,3 +1,7 @@
+.case-study {
+  overflow: hidden;
+}
+
 .case-study-overlay {
   background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.65) 100%);
 }
@@ -89,5 +93,99 @@
     text-align: center;
     margin-bottom: 2.5rem;
     margin-top: -2rem;
+  }
+
+  & .image-grid {
+    margin: 2.5rem -0.5rem;
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    & + .image-grid {
+      margin-top: -1.5rem;
+    }
+
+    & .image {
+      width: 50%;
+      padding: 0 0.5rem;
+    }
+  }
+
+  & .two-up {
+    & .image {
+      float: left;
+    }
+  }
+
+  & .three-up {
+    & .image:first-child {
+      position: relative;
+      float: left;
+      overflow: hidden;
+      padding-bottom: 56%;
+
+      & img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% - 0.5rem);
+      }
+    }
+
+    & .image:not(:first-child) {
+      float: right;
+    }
+
+    & .image:nth-child(2) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  & .five-up {
+    & .image:nth-child(odd) {
+      float: left;
+    }
+
+    & .image:nth-child(even) {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 52.6%;
+      float: right;
+      & img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 0.5rem);
+      }
+    }
+
+    & .image:nth-child(1),
+    & .image:nth-child(2),
+    & .image:nth-child(3) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.next-case-study {
+  display: block;
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 2.75rem;
+  font-weight: 600;
+
+  &:hover {
+    color: #000;
+  }
+
+  & p {
+    max-width: 50rem;
+    margin: 0 auto;
   }
 }

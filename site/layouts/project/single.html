@@ -1,17 +1,27 @@
 {{ partial "head" . }}
-{{ partial "nav" . }}
-  <section class="cover pt7 pb6 tc relative" {{ if .Params.image }}style="background:url({{ .Params.image }}) no-repeat center center"{{ end }}>
+
+<section class="case-study">
+  {{ partial "nav" . }}
+  <header class="cover pt7 pb6 tc relative" {{ if .Params.image }}style="background:url({{ .Params.image }}) no-repeat center center"{{ end }}>
     <div class="case-study-overlay absolute left-0 top-0 right-0 bottom-0"></div>
     <div class="mw8 center f-subheadline white lh-title relative">
       <h1>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
     </div>
-  </section>
+  </header>
   <div class="case-study-container mb6">
     <div class="bg-white intro-blurb pt5 pb4 relative">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
     <h1>Heading One</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat <a href="#">cupidatat non proident</a>, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <img class="full" src="/img/jazmin-quaynor-35847.jpg" alt="">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="two-up image-grid">
+      <div class="image">
+        <img src="/img/jazmin-quaynor-35847.jpg" alt="">
+      </div>
+      <div class="image">
+        <img src="/img/jazmin-quaynor-35847.jpg" alt="">
+      </div>
+    </div>
     <h2>Heading Two</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <img class="contained" src="/img/jazmin-quaynor-35847.jpg" alt="">
@@ -19,6 +29,17 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <h3>Heading Three</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="image-grid three-up">
+      <div class="image">
+        <img src="//lorempixel.com/400/800" alt="">
+      </div>
+      <div class="image">
+        <img src="/img/jazmin-quaynor-35847.jpg" alt="">
+      </div>
+      <div class="image">
+        <img src="/img/jazmin-quaynor-35847.jpg" alt="">
+      </div>
+    </div>
     <blockquote>
       <h2>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.</h2>
       <p>Brian Chesky, Airbnb CEO</p>
@@ -87,7 +108,33 @@
         {{ partial "icon/chevronLeft" }}
       </button>
     </div>
+
+    <div class="image-grid five-up">
+      <div class="image">
+        <img src="/img/jazmin-quaynor-35847.jpg" alt="">
+      </div>
+      <div class="image">
+        <img src="//lorempixel.com/400/800" alt="">
+      </div>
+      <div class="image">
+        <img src="//lorempixel.com/400/400" alt="">
+      </div>
+      <div class="image">
+        <img src="//lorempixel.com/400/800" alt="">
+      </div>
+      <div class="image">
+        <img src="/img/jazmin-quaynor-35847.jpg" alt="">
+      </div>
+    </div>
   </div>
+</section>
+
+<a href="" class="next-case-study gradient gradient--blue-and-yellow">
+  <p>
+    Next: <br />
+    We backpacked for four months around the globe to shoot a series for Instagram.
+  </p>
+</a>
 
 <script src="../../js/swiper.min.js"></script>
 <script src="../../js/article.js"></script>
