@@ -80,7 +80,7 @@
     }
   }
 
-  & .full, & .contained, & blockquote {
+  & .full, & .contained, & blockquote, & .video-wrapper {
     margin: 2.5rem auto;
   }
 

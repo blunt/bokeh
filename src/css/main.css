@@ -90,6 +90,7 @@
 
 /* Custom Elements */
 @import './custom/_variables';
+@import './custom/_global';
 @import './custom/_gradients';
 @import './custom/_navigation';
 @import './custom/_homepage';
