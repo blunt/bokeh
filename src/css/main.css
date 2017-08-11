@@ -96,6 +96,7 @@
 @import './custom/_feat-case-studies';
 @import './custom/_underlines';
 @import './custom/_fonts';
+@import './custom/_case-study';
 
 /* Debugging */
 @import './imports/_debug-children';
