@@ -118,12 +118,6 @@
   padding-left: 110px;
 }
 
-.contact-heading {
-  opacity: .6;
-  transform: scale(.6);
-  transform-origin: bottom left;
-}
-
 .contact-button {
   width: 80px;
   height: 80px;
