@@ -11,7 +11,7 @@
         <img src="../img/shapes/slide-{{ $index }}.svg">
       </div>
       <div class="pv4 mt5 w-50">
-        <h2 class="f1 lh-title relative feat-case-study__slide__title mb4 z-1">{{ .title | markdownify }}</a></h2>
+        <h2 class="f2 lh-title relative feat-case-study__slide__title mb4 z-1">{{ .title | markdownify }}</a></h2>
       </div>
     </div>
     {{ if lt $index 2 }}
@@ -24,7 +24,10 @@
       background-size: cover;
     }
     .slide-{{ $count }} .feat-case-study__slide__title a {
-      border-color: {{ .color }};
+      color: {{ .color }};
+    }
+    .slide-{{ $count }} .feat-case-study__slide__title a:hover {
+      color: #000;
     }
     </style>
   </div>
