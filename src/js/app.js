@@ -1,6 +1,7 @@
 // Navigation
 const navButton = document.getElementsByClassName('nav-button')[0],
       nav = document.getElementById('nav'),
+      navOverlay = document.getElementsByClassName('nav-overlay')[0],
       body = document.getElementsByTagName('body')[0];
 
 navButton.addEventListener("click", openNav);
@@ -8,8 +9,10 @@ navButton.addEventListener("click", openNav);
 function openNav() {
   if (body.classList.contains('open')) {
     body.classList.remove('open');
+    navOverlay.classList.remove('nav-open');
   } else {
     body.classList.add('open');
+    navOverlay.classList.add('nav-open');
   }
 }
 
@@ -32,12 +35,16 @@ const swiper = new Swiper('.swiper-container', {
     // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
     const hpContent = document.getElementsByClassName('hp-slide1-content');
-    const slideOneText = document.getElementsByClassName('hp-slide1__text')[0];
+    const slideOneText = document.getElementsByClassName('hp-slide1__text');
 
     if (slider.activeIndex === 3) {
       logo.classList.add('ready-to-animate');
 
-      slideOneText.classList.add('ready-to-animate');
+      for (var i = 0; i < slideOneText.length; i++) {
+        slideOneText[i].classList.add('ready-to-animate');
+      }
+
+      // slideOneText.classList.add('ready-to-animate');
 
       slider.params.allowSwipeToPrev = false;
       slider.params.allowSwipeToNext = false;
@@ -47,7 +54,11 @@ const swiper = new Swiper('.swiper-container', {
         navButton.classList.remove('hide');
 
         setTimeout(() => {
-          slideOneText.classList.remove('ready-to-animate');
+          for (var i = 0; i < slideOneText.length; i++) {
+            slideOneText[i].classList.remove('ready-to-animate');
+          }
+
+          // slideOneText.classList.remove('ready-to-animate');
 
           slider.params.allowSwipeToPrev = true;
           slider.params.allowSwipeToNext = true;
