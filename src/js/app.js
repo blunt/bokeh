@@ -30,7 +30,6 @@ const swiper = new Swiper('.swiper-container', {
   speed: 1000,
   loop: true,
   loopAdditionalSlides: 2,
-  // freeMode: true,
   onInit: (slider) => {
     // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
@@ -44,32 +43,27 @@ const swiper = new Swiper('.swiper-container', {
         slideOneText[i].classList.add('ready-to-animate');
       }
 
-      // slideOneText.classList.add('ready-to-animate');
-
       slider.params.allowSwipeToPrev = false;
       slider.params.allowSwipeToNext = false;
 
       setTimeout(() => {
         logo.classList.remove('ready-to-animate');
-        navButton.classList.remove('hide');
+        navButton.style.opacity = 1;
 
         setTimeout(() => {
           for (var i = 0; i < slideOneText.length; i++) {
             slideOneText[i].classList.remove('ready-to-animate');
           }
 
-          // slideOneText.classList.remove('ready-to-animate');
-
           slider.params.allowSwipeToPrev = true;
           slider.params.allowSwipeToNext = true;
         }, 1600);
       }, 2500);
     } else {
-      navButton.classList.remove('hide');
+      navButton.style.opacity = 1;
     }
 
-    logo.classList.remove('dn');
-    logo.classList.add('db');
+    logo.style.display = 'block';
 
     for (let i = 0; i < hpContent.length; i += 1) {
       hpContent[i].classList.remove('dn');

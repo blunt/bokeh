@@ -1,25 +1,29 @@
 {{ partial "head" . }}
-{{ partial "nav" . }}
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    <div class="hp-slide1 relative swiper-slide min-vh-100 bg-white pt6">
-      <div class="video-wrapper absolute top-0 left-0 w-100">
-        <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="https://player.vimeo.com/video/200274064?autoplay=1&loop=1&autopause=0&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        <div class="gradient gradient--blue-and-yellow absolute top-0 left-0 w-100 h-100"></div>
-      </div>
-      <div class="hp-slide1-content relative center mw8 w-90 cf dn mt5 relative z2">
-        <div class="">
-          <h2 class="hp-slide1__text w-60 f-headline mt4 mb4 white">{{ .Params.introCopyPart1 }}</h2>
-          <button class="hp-slide1__text fw6 next-slide bg-transparent pointer bn input-reset db underline dib f4 link black mt2">View case studies</button>
-        </div>
-        <div class="hp-slide1__shape absolute">
-          <img src="../img/shapes/slide-intro.svg">
-        </div>
-      </div>
-    </div>
-    {{ partial "feat-case-studies" . }}
-  </div>
-</div>
 
-<script src="js/swiper.min.js"></script>
+<section class="home">
+  {{ partial "nav" . }}
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="hp-slide1 relative swiper-slide min-vh-100 bg-white pt6">
+        <div class="video-wrapper absolute top-0 left-0 w-100">
+          <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="https://player.vimeo.com/video/200274064?autoplay=1&loop=1&autopause=0&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <div class="gradient gradient--blue-and-yellow absolute top-0 left-0 w-100 h-100"></div>
+        </div>
+        <div class="hp-slide1-content relative center mw8 w-90 cf dn mt5 relative z2">
+          <div class="">
+            <h2 class="hp-slide1__text w-60 f-headline mt4 mb4 white">{{ .Params.introCopyPart1 }}</h2>
+            <button class="hp-slide1__text fw6 next-slide bg-transparent pointer bn input-reset db underline dib f4 link black mt2">View case studies</button>
+          </div>
+          <div class="hp-slide1__shape absolute">
+            <img src="../img/shapes/slide-intro.svg">
+          </div>
+        </div>
+      </div>
+      {{ partial "feat-case-studies" . }}
+    </div>
+  </div>
+
+  <script src="js/swiper.min.js"></script>
+</section>
+
 {{ partial "footer" . }}
