@@ -9,7 +9,7 @@
 
 .underline:after, .feat-case-study__slide__button:after {
   content: "";
-  margin-top: .2em;
+  margin-top: .15em;
   height: .075em;
   background: #fff;
   display: block;
