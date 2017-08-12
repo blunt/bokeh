@@ -42,10 +42,9 @@
 
 .feat-case-study__slide__title a {
   text-decoration: none;
-  border-bottom: 4px solid;
   color: inherit;
   transition: var(--transition);
-
+  font-weight: bold;
 }
 
 .feat-case-study__slide__title a:hover {
@@ -62,8 +61,8 @@
     width: 1126px;
     max-width: inherit;
     position: absolute;
-    left: -30%;
-    top: -700px;
+    left: -27%;
+    top: -370px;
   }
 }
 
@@ -76,23 +75,23 @@
 
 .slide-3 .feat-case-study__slide__shape {
   & img {
-    width: 2477px;
+    width: 900px;
     max-width: inherit;
     position: absolute;
-    left: -1147px;
-    top: -75px;
+    left: -200px;
+    top: -50px;
     @media (min-width: 1300px) {
-      width: 2587px;
+      width: 900px;
     }
   }
 }
 
 .slide-4 .feat-case-study__slide__shape {
   & img {
-    width: 1740px;
+    width: 1000px;
     max-width: inherit;
     position: absolute;
-    left: -640px;
-    bottom: -35%;
+    left: -200px;
+    top: -91%;
   }
 }

@@ -1,1 +1,12 @@
-<svg width="2554" height="1017" viewBox="0 0 2554 1017" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Vector 2</title><desc>Created using Figma</desc><use xlink:href="#a" transform="translate(.66)" fill="#FFF"/><defs><path id="a" d="M946.371 386.094C834.136 468.501 745.779 472.888 622.338 494c-101 4-324.6 23.6-411 70-108 58-170 116-204 198s44 310 364 242 568-328 928.002-294c360 34 972.95 419.53 1176 236 104-94 94.81-204 22-300-83.77-110.448-216-124-349.32-186.226-133.31-62.225-228.93-209.895-343.98-334.303-115.05-124.407-405.13-170.136-598.16-73.293-146.1 73.293-137.16 244.08-259.509 333.916z"/></defs></svg>
+<svg width="1649" height="831" viewBox="0 0 1649 831" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>slide-1</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-10749 -3280)">
+<g id="slide-1">
+<use xlink:href="#path0_fill" transform="translate(10749.4 3280.72)" fill="#FFFFFF"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 2.10783 400.277C -16.0217 538.278 82.6287 692.775 304.61 777.278C 514.195 857.061 651.372 831.228 840.609 791.278C 1020.61 753.278 1214.48 817.994 1398.61 703.278C 1637.65 554.348 1826.76 183.276 1368.61 45.2774C 1159.79 -17.6188 1026.61 75.2765 810.609 67.2765C 594.609 59.2765 426.607 -64.7229 222.609 45.2774C 92.8372 115.253 23.6793 236.077 2.10783 400.277Z"/>
+</defs>
+</svg>

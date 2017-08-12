@@ -114,26 +114,34 @@
   opacity: 1;
 }
 
-.contact-heading {
-  opacity: .6;
-  transform: scale(.6);
-  transform-origin: bottom left;
+.contact-wrapper {
+  padding-left: 110px;
 }
 
 .contact-button {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
+  bottom: 20px;
 }
 
-.contact-button span {
+.contact-button a {
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -55%);
+  transform: translate(-50%, -42%);
   transition: var(--transition);
 }
 
-.contact-button span.minus {
-  transform: translate(-50%, -55%);
+.contact-button:hover {
+  & .mail svg {
+    transform: scale(1.1,1.1);
+  }
+}
+
+.mail svg {
+  fill: #fff;
+  width: 30px;
+  height: auto;
+  transition: .1s ease-in;
 }
 
 #nav-bg {
