@@ -2,19 +2,26 @@
   transition: var(--transition-medium);
 }
 
+.hp-slide1__headline {
+  text-shadow: 0 0 .5em rgba(0,0,0,.15);
+  @media (max-width: 460px) {
+    font-size: 2.3rem;
+  }
+}
+
 button.hp-slide1__text {
   mix-blend-mode: overlay;
 }
 
-.hp-slide1__text.ready-to-animate {
-  transform: translateY(10%);
+.hp-slide1 .hp-slide1__text.ready-to-animate {
+  transform: translateY(10%) translate3d(0,0,0);
   opacity: 0;
 }
 
 .hp-slide1__shape {
   width: 885px;
-  bottom: -200%;
-  left: -25%;
+  bottom: -600px;
+  left: -300px;
 }
 
 .hp-slide1 .gradient {
