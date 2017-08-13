@@ -17,7 +17,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Intro Blurb", name: "introBlurb", widget: "text"}
       - {label: "Hero Image", name: "image", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Next Case Study", name: "nextCaseStudy", widget: "relation", collection: "post", searchFields: ["title"], valueField: "headingBlurb", required: false}
+      - {label: "Next Case Study", name: "nextCaseStudy", widget: "relation", collection: "post", searchFields: ["title"], valueField: ["headingBlurb", "title"], required: false}
   - name: "pages"
     label: "Pages"
     files:
