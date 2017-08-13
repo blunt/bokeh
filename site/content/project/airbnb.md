@@ -3,17 +3,18 @@ title: Airbnb
 headingBlurb: 'We once smuggled $20,000 worth of equipment into cuba for Airbnb Trips'
 introBlurb: Intro blurb
 image: /img/photo-1496389294434-c84a4ebe3a08.jpeg
-nextCaseStudy: test project
+nextCaseStudy: Test Project
+nextCaseStudyCopy: Linking to a test project!
 ---
 # Heading One
 
 Ice cream jelly beans lemon drops. Ice cream pastry dessert toffee cupcake. Donut marshmallow cotton candy marshmallow. Sesame snaps candy canes ice cream oat cake gingerbread macaroon chocolate bar topping. Dessert danish oat cake candy macaroon croissant. Toffee halvah tootsie roll lemon drops. Soufflé tiramisu cheesecake jelly bear claw. Macaroon cake candy canes cotton candy cupcake candy jujubes. Pastry wafer tart cookie toffee. Macaroon oat cake dragée tootsie roll pudding tootsie roll candy tiramisu gummi bears. Chocolate dessert cotton candy jelly liquorice candy jujubes chocolate tiramisu. Jelly caramels jelly marshmallow. Pastry donut marshmallow icing topping muffin.
 
 <div class="contained">
-        <div class="video-wrapper relative">
-          <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="https://player.vimeo.com/video/180306696" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div><p class="caption">Music of the Spheres</p>
-      </div>
+<div class="video-wrapper relative">
+<iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="https://player.vimeo.com/video/180306696" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div><p class="caption">Music of the Spheres</p>
+</div>
 
 Candy canes biscuit toffee carrot cake donut jelly-o. Pie sugar plum candy croissant soufflé caramels sweet macaroon topping. Apple pie gummi bears chocolate bar soufflé icing jujubes. Candy brownie chocolate sesame snaps tart macaroon jelly beans. Toffee bear claw icing liquorice candy macaroon cake. Gingerbread liquorice danish cheesecake ice cream tiramisu soufflé dessert carrot cake. Candy canes muffin bonbon. Pie donut chocolate. Dragée sugar plum bear claw. Powder donut chocolate cake dragée bear claw. Tart halvah danish soufflé. Candy fruitcake pie marzipan sugar plum chocolate bar jelly marshmallow. Gummies tart soufflé marzipan jelly beans. Gummi bears gummies jujubes powder lollipop tart wafer gummies.
 
