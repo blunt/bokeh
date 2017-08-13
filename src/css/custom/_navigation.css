@@ -92,9 +92,11 @@
   transition: var(--transition) !important;
 }
 
-.flip:hover .flipper {
-  transform: rotate(-180deg);
-  transform-origin: center center;
+@media (min-width: 44em) {
+  .flip:hover .flipper {
+    transform: rotate(-180deg);
+    transform-origin: center center;
+  }
 }
 
 /* Logo */
