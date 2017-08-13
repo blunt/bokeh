@@ -3,14 +3,16 @@
 }
 
 .hp-slide1__headline {
-  text-shadow: 0 0 .5em rgba(0,0,0,.15);
+  text-shadow: 0 0 .5em rgba(0,0,0,.10);
   @media (max-width: 460px) {
     font-size: 2.3rem;
   }
 }
 
-button.hp-slide1__text {
-  mix-blend-mode: overlay;
+button.next-slide {
+  &:after {
+    background: #000;
+  }
 }
 
 .hp-slide1 .hp-slide1__text.ready-to-animate {
