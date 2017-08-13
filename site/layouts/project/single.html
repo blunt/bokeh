@@ -14,12 +14,12 @@
   </div>
 </section>
 
-{{ if .Params.nextCaseStudy }}
-{{ $url := lower .Params.nextCaseStudy.title }}
+{{ if .Params.nextCaseStudyLink }}
+{{ $url := lower .Params.nextCaseStudyLink }}
   <a href="{{ replace $url " " "-" }}" class="next-case-study gradient gradient--blue-and-yellow">
     <p>
       Next: <br />
-      {{ .Params.nextCaseStudy.headingBlurb }}
+      {{ .Params.nextCaseStudyCopy }}
     </p>
   </a>
 {{ end}}

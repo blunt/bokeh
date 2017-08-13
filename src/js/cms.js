@@ -324,7 +324,6 @@ CMS.registerEditorComponent({
 export var ProjectPreview = createClass({
   render: function() {
     var entry = this.props.entry;
-    console.log(entry);
     var headingBlurb = entry.getIn(['data', "headingBlurb"]);
     var introBlurb = entry.getIn(['data', "introBlurb"]);
     var image = entry.getIn(['data', 'image']);
