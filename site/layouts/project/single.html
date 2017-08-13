@@ -14,8 +14,8 @@
   </div>
 </section>
 
-{{ if .Params.nextCaseStudyLink }}
-{{ $url := lower .Params.nextCaseStudyLink }}
+{{ if .Params.nextCaseStudy }}
+{{ $url := lower .Params.nextCaseStudy }}
   <a href="{{ replace $url " " "-" }}" class="next-case-study gradient gradient--blue-and-yellow">
     <p>
       Next: <br />
