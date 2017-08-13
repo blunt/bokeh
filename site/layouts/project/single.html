@@ -16,7 +16,7 @@
 
 {{ if .Params.nextCaseStudy }}
 {{ $url := lower .Params.nextCaseStudy }}
-  <a href="{{ replace $url " " "-" }}" class="next-case-study gradient gradient--blue-and-yellow">
+  <a href="/project/{{ replace $url " " "-" }}" class="next-case-study gradient gradient--blue-and-yellow">
     <p>
       Next: <br />
       {{ .Params.nextCaseStudyCopy }}
