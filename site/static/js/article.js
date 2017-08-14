@@ -6,5 +6,13 @@ const swiper = new Swiper('.article-swiper-container', {
   centeredSlides: true,
   spaceBetween: 50,
   nextButton: '.swiper-button-next',
-  prevButton: '.swiper-button-prev'
+  prevButton: '.swiper-button-prev',
+  breakpoints: {
+    680: {
+      spaceBetween: 5,
+    },
+    1200: {
+      spaceBetween: 15,
+    }
+  }
 });
