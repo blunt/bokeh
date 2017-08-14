@@ -17,8 +17,8 @@ caseStudies:
     image: /img/jazmin-quaynor-35847.jpg
     link: 'http://google.com'
     title: >-
-      We cold called [Philz Coffee](//google.ca) about their logo, and they let
-      us do a rebrand.
+      We cold called [Philz Coffee](/project/philz-coffee) about their logo, and
+      they let us do a rebrand.
     video: /img/big_buck_bunny.mp4
   - client: Instagram for Business
     color: '#BDA197'
@@ -30,6 +30,7 @@ caseStudies:
     video: /img/big_buck_bunny.mp4
 introCopyPart2: who move at the speed of inspiration
 ---
+
 
 
 
