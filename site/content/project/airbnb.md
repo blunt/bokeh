@@ -3,6 +3,7 @@ title: Airbnb
 headingBlurb: 'We once smuggled $20,000 worth of equipment into cuba for Airbnb Trips'
 introBlurb: Intro blurb
 image: /img/photo-1496389294434-c84a4ebe3a08.jpeg
+color: '#C4493F'
 nextCaseStudy: Test Project
 nextCaseStudyCopy: Linking to a test project!
 ---
@@ -27,3 +28,4 @@ Cheesecake carrot cake jelly beans tart cupcake gingerbread caramels candy canes
 Caramels tiramisu jelly dessert pastry tootsie roll cookie cupcake. Caramels brownie cheesecake gummies pudding. Dessert apple pie dragée fruitcake gingerbread chocolate. Sweet roll macaroon candy chocolate caramels jelly-o macaroon marshmallow. Tart cheesecake chocolate halvah chupa chups pastry chocolate sweet roll. Jelly pie gummi bears gummi bears sweet ice cream ice cream. Sweet roll sesame snaps chupa chups cupcake candy. Muffin pie biscuit bonbon lemon drops apple pie liquorice bear claw. Brownie pudding apple pie cupcake soufflé gummi bears. Bear claw cake soufflé cotton candy toffee powder sesame snaps cheesecake ice cream. Muffin oat cake pie muffin sweet roll chocolate bar. Brownie tiramisu danish pastry cotton candy donut sweet croissant. Bear claw oat cake cake cookie candy canes soufflé.
 
 Donut chupa chups gingerbread cookie chupa chups. Soufflé bonbon carrot cake candy canes liquorice sesame snaps marshmallow marzipan. Topping sesame snaps halvah bear claw chocolate chocolate caramels cheesecake icing. Lemon drops tootsie roll apple pie marshmallow. Chocolate cake jelly-o jelly beans tootsie roll. Marzipan toffee jelly-o donut sugar plum macaroon tiramisu. Bear claw jujubes sesame snaps sesame snaps carrot cake caramels. Gummies jelly beans marzipan. Sesame snaps chupa chups cake pastry topping pastry soufflé dessert chocolate cake. Lemon drops biscuit marzipan wafer cotton candy cotton candy. Cheesecake topping sweet tootsie roll jelly beans topping. Tart candy croissant danish tiramisu cupcake oat cake. Wafer liquorice danish.
+
