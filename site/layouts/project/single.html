@@ -14,15 +14,20 @@
   </div>
 </section>
 
-{{ if .Params.nextCaseStudy }}
-{{ $url := lower .Params.nextCaseStudy }}
-  <a href="/project/{{ replace $url " " "-" }}" class="next-case-study gradient gradient--blue-and-yellow">
-    <p>
-      Next: <br />
-      {{ .Params.nextCaseStudyCopy }}
-    </p>
-  </a>
+{{ if .Section }}
+  {{ with .NextInSection }}
+    <a href="{{ .RelPermalink }}" {{ if .Params.image }}style="background:url({{ .Params.image }}) no-repeat center center"{{ end }} class="cover next-case-study db lh-title link white">
+      <div class="feat-case-study__slide__overlay" style="background-color: {{ .Params.color }}"></div>
+      <div class="mw7 center ph3 pv5">
+        <span class="db mb4">Next Project</span>
+        <span class="f1 mv4">{{ .Params.headingBlurb }}</span>
+        {{ .Params.color }}
+      </div>
+    </a>
+  {{ end}}
 {{ end}}
+
+
 
 <script src="../../js/swiper.min.js"></script>
 <script src="../../js/article.js"></script>
