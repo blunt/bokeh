@@ -90,6 +90,18 @@ CMS.registerEditorComponent({
         <div class="swiper-wrapper">
             ${videos.join('')}
         </div>
+        <button class="swiper-button-next input-reset button-reset bn">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <title>chevron-left</title>
+          <path class="icon" fill="#000" d="M10.413 12l5.294-5.294c0.387-0.387 0.387-1.025 0-1.413s-1.025-0.387-1.413 0l-6 6c-0.387 0.387-0.387 1.025 0 1.413l6 6c0.194 0.194 0.45 0.294 0.706 0.294s0.513-0.1 0.706-0.294c0.387-0.387 0.387-1.025 0-1.413l-5.294-5.294z"></path>
+          </svg>
+        </button>
+        <button class="swiper-button-prev input-reset button-reset bn">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <title>chevron-right</title>
+          <path class="icon" fill="#000" d="M15.706 11.294l-6-6c-0.387-0.387-1.025-0.387-1.413 0s-0.387 1.025 0 1.413l5.294 5.294-5.294 5.294c-0.387 0.387-0.387 1.025 0 1.413 0.194 0.194 0.45 0.294 0.706 0.294s0.513-0.1 0.706-0.294l6-6c0.394-0.387 0.394-1.025 0-1.413z"></path>
+          </svg>
+        </button>
       </div>`
     );
   },
@@ -323,6 +335,18 @@ CMS.registerEditorComponent({
         <div class="swiper-wrapper">
             ${images.join('')}
         </div>
+        <button class="swiper-button-next input-reset button-reset bn">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <title>chevron-left</title>
+          <path class="icon" fill="#000" d="M10.413 12l5.294-5.294c0.387-0.387 0.387-1.025 0-1.413s-1.025-0.387-1.413 0l-6 6c-0.387 0.387-0.387 1.025 0 1.413l6 6c0.194 0.194 0.45 0.294 0.706 0.294s0.513-0.1 0.706-0.294c0.387-0.387 0.387-1.025 0-1.413l-5.294-5.294z"></path>
+          </svg>
+        </button>
+        <button class="swiper-button-prev input-reset button-reset bn">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <title>chevron-right</title>
+          <path class="icon" fill="#000" d="M15.706 11.294l-6-6c-0.387-0.387-1.025-0.387-1.413 0s-0.387 1.025 0 1.413l5.294 5.294-5.294 5.294c-0.387 0.387-0.387 1.025 0 1.413 0.194 0.194 0.45 0.294 0.706 0.294s0.513-0.1 0.706-0.294l6-6c0.394-0.387 0.394-1.025 0-1.413z"></path>
+          </svg>
+        </button>
       </div>`
     );
   },
