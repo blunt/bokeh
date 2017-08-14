@@ -35,7 +35,7 @@ const swiper = new Swiper('.swiper-container', {
         navButton.style.opacity = 1;
 
         setTimeout(() => {
-          for (var i = 0; i < slideOneText.length; i++) {
+          for (let i = 0; i < slideOneText.length; i += 1) {
             slideOneText[i].classList.remove('ready-to-animate');
           }
 
@@ -49,8 +49,8 @@ const swiper = new Swiper('.swiper-container', {
 
     logo.style.display = 'block';
 
-    for (let i = 0; i < hpContent.length; i += 1) {
-      hpContent[i].classList.remove('dn');
+    for (let o = 0; o < hpContent.length; o += 1) {
+      hpContent[o].classList.remove('dn');
     }
   }
 });
