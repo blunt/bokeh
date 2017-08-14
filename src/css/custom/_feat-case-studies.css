@@ -13,6 +13,10 @@
   transition: opacity 1.5s ease-out;
 }
 
+.next-case-study__overlay {
+  opacity: .8;
+}
+
 .feat-case-study__slide.swiper-slide-active {
   & .feat-case-study__slide__image {
     opacity: 1;

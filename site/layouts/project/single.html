@@ -16,12 +16,11 @@
 
 {{ if .Section }}
   {{ with .NextInSection }}
-    <a href="{{ .RelPermalink }}" {{ if .Params.image }}style="background:url({{ .Params.image }}) no-repeat center center"{{ end }} class="cover next-case-study db lh-title link white">
-      <div class="feat-case-study__slide__overlay" style="background-color: {{ .Params.color }}"></div>
-      <div class="mw7 center ph3 pv5">
-        <span class="db mb4">Next Project</span>
+    <a href="{{ .RelPermalink }}" {{ if .Params.image }}style="background:url({{ .Params.image }}) no-repeat center center"{{ end }} class="cover next-case-study db lh-title link white relative">
+      <div class="feat-case-study__slide__overlay next-case-study__overlay" style="background-color: {{ .Params.color }}"></div>
+      <div class="mw7 center ph3 pv5 relative">
+        <span class="db mb4 white-90">Next Project</span>
         <span class="f1 mv4">{{ .Params.headingBlurb }}</span>
-        {{ .Params.color }}
       </div>
     </a>
   {{ end}}
