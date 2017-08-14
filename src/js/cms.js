@@ -41,11 +41,13 @@ CMS.registerEditorComponent({
     };
   },
   toBlock: function(obj) {
+    const caption = typeof obj.caption !== undefined ? `<p class="caption">${obj.caption}</p>` : '';
     return (
       `<div class="contained">
         <div class="video-wrapper relative">
           <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="https://player.vimeo.com/video/${obj.id}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div><p class="caption">${obj.caption}</p>
+        </div>
+        ${caption}
       </div>`
     );
   },
@@ -72,11 +74,14 @@ CMS.registerEditorComponent({
   },
   toBlock: function(obj) {
     const videos = obj.videoCarousel.map((video, i) => {
+      const caption = typeof video.caption !== undefined ? `<p class="caption">${video.caption}</p>` : '';
       return (
-        `<div class="swiper-slide"><div class="video-wrapper relative">
-          <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="https://player.vimeo.com/video/${video.id}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
-        <p class="caption">${video.caption}</p>`
+        `<div class="swiper-slide">
+          <div class="video-wrapper relative">
+            <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="https://player.vimeo.com/video/${video.id}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+          ${caption}
+        </div>`
       )
     });
 
@@ -105,15 +110,17 @@ CMS.registerEditorComponent({
     };
   },
   toBlock: function(obj) {
+    const caption = typeof obj.caption !== undefined ? `<p class="caption">${obj.caption}</p>` : ''
     return (
       `<div class="full"><img src="${obj.image}" alt="${obj.alt}"></div>
-      <p class="caption">${obj.caption}</p>`
+      ${caption}`
     );
   },
   toPreview: function(obj) {
+    const caption = typeof obj.caption !== undefined ? `<p class="caption">${obj.caption}</p>` : ''
     return (
       `<div class="full"><img src="${obj.image}" alt="${obj.alt}"></div>
-      <p class="caption">${obj.caption}</p>`
+      ${caption}`
     );
   }
 });
@@ -227,10 +234,10 @@ CMS.registerEditorComponent({
     {name: 'image', label: 'Image (712px by 712px)', widget: 'image'},
     {name: 'alt', label: 'Alt text', widget: 'string'}
   ]}, {name: 'imageFour', label: 'Fourth Image', widget: 'object', fields: [
-    {name: 'image', label: 'Image (712px by 400px)', widget: 'image'},
+    {name: 'image', label: 'Image (712px by 765px)', widget: 'image'},
     {name: 'alt', label: 'Alt text', widget: 'string'}
   ]}, {name: 'imageFive', label: 'Fifth Image', widget: 'object', fields: [
-    {name: 'image', label: 'Image (712px by 765px)', widget: 'image'},
+    {name: 'image', label: 'Image (712px by 400px)', widget: 'image'},
     {name: 'alt', label: 'Alt text', widget: 'string'}
   ]}],
   pattern: /five_up (\S+)\s/,
@@ -300,11 +307,14 @@ CMS.registerEditorComponent({
   },
   toBlock: function(obj) {
     const images = obj.imageCarousel.map((image, i) => {
+      const caption = typeof image.caption !== undefined ? `<p class="caption">${image.caption}</p>` : ''
       return (
-        `<div class="swiper-slide"><div class="video-wrapper relative">
-          <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="https://player.vimeo.com/video/${image.id}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
-        <p class="caption">${image.caption}</p>`
+        `<div class="swiper-slide">
+          <div class="video-wrapper relative">
+            <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="https://player.vimeo.com/video/${image.id}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+          ${caption}
+        </div>`
       )
     });
 
