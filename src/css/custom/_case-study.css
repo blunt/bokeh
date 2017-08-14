@@ -16,10 +16,16 @@
     max-width: 50rem;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.65;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  @media (min-width: 44em) {
+    & p, & ul, & ol {
+      font-size: 1.25rem;
+    }
   }
 
   & .contained {
@@ -27,14 +33,29 @@
   }
 
   & .intro-blurb {
-    max-width: 56rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    margin-top: -4rem;
+    max-width: 50rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0;
+  }
+
+  @media (min-width: 960px) {
+    & .intro-blurb {
+      max-width: 56rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
+      margin-top: -4rem;
+    }
   }
 
   & .intro-blurb, & h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 44em) {
+    & .intro-blurb, & h1 {
+      font-size: 2rem;
+    }
   }
 
   & blockquote {
@@ -45,12 +66,32 @@
       max-width: inherit;
     }
     & h2 {
-      font-size: 2.75rem;
-      margin-bottom: 2rem;
-      font-weight: 600;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
     }
     & p {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (min-width: 44em) {
+    & blockquote {
+      & h2 {
+        font-size: 2.25rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  @media (min-width: 65em) {
+    & blockquote {
+      max-width: 56rem;
+      & h2 {
+        font-size: 2.75rem;
+      }
+      & p {
+        font-size: 1.5rem;
+      }
     }
   }
 
@@ -85,18 +126,28 @@
   }
 
   & .full, & .contained, & blockquote, & .video-wrapper {
-    margin: 2.5rem auto;
+    margin: 1.5rem auto;
+  }
+
+  @media (min-width: 44em) {
+    & .full, & .contained, & blockquote, & .video-wrapper {
+      margin: 2.5rem auto;
+    }
   }
 
   & .caption {
     font-size: .875rem;
     text-align: center;
     margin-bottom: 2.5rem;
+    margin-top: -1rem;
+  }
+
+  @media (min-width: 720px) {
     margin-top: -2rem;
   }
 
   & .image-grid {
-    margin: 2.5rem -0.5rem;
+    margin: 1.5rem -0.25rem;
 
     &:after {
       content: '';
@@ -110,7 +161,15 @@
 
     & .image {
       width: 50%;
-      padding: 0 0.5rem;
+      padding: 0 0.25rem;
+    }
+  }
+  @media (min-width: 44em) {
+    & .image-grid {
+      margin: 2.5rem -0.5rem;
+      & .image {
+        padding: 0 0.5rem;
+      }
     }
   }
 
@@ -131,7 +190,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: calc(100% - 0.5rem);
+        width: calc(100% - 0.25rem);
       }
     }
 
@@ -140,7 +199,19 @@
     }
 
     & .image:nth-child(2) {
-      margin-bottom: 1rem;
+      margin-bottom: .5rem;
+    }
+  }
+  @media (min-width: 44em) {
+    & .three-up {
+      & .image:first-child {
+        & img {
+          width: calc(100% - 0.5rem);
+        }
+      }
+      & .image:nth-child(2) {
+        margin-bottom: 1rem;
+      }
     }
   }
 
@@ -158,18 +229,28 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: calc(100% - 0.5rem);
+        width: calc(100% - 0.25rem);
       }
     }
 
     & .image:nth-child(1),
     & .image:nth-child(2),
     & .image:nth-child(3) {
-      margin-bottom: 1rem;
+      margin-bottom: .5rem;
     }
   }
-}
-
-.next-case-study {
-  text-align: center;
+  @media (min-width: 44em) {
+    & .five-up {
+      & .image:nth-child(even) {
+        & img {
+          width: calc(100% - 0.5rem);
+        }
+      }
+      & .image:nth-child(1),
+      & .image:nth-child(2),
+      & .image:nth-child(3) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }
