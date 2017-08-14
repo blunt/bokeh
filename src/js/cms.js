@@ -234,10 +234,10 @@ CMS.registerEditorComponent({
     {name: 'image', label: 'Image (712px by 712px)', widget: 'image'},
     {name: 'alt', label: 'Alt text', widget: 'string'}
   ]}, {name: 'imageFour', label: 'Fourth Image', widget: 'object', fields: [
-    {name: 'image', label: 'Image (712px by 400px)', widget: 'image'},
+    {name: 'image', label: 'Image (712px by 765px)', widget: 'image'},
     {name: 'alt', label: 'Alt text', widget: 'string'}
   ]}, {name: 'imageFive', label: 'Fifth Image', widget: 'object', fields: [
-    {name: 'image', label: 'Image (712px by 765px)', widget: 'image'},
+    {name: 'image', label: 'Image (712px by 400px)', widget: 'image'},
     {name: 'alt', label: 'Alt text', widget: 'string'}
   ]}],
   pattern: /five_up (\S+)\s/,
