@@ -281,7 +281,7 @@ CMS.registerEditorComponent({
       </div>`
     );
   }
-});
+}); 
 
 // Image Carousel Module
 CMS.registerEditorComponent({
