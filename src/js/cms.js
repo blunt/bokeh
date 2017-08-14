@@ -342,6 +342,6 @@ export var ProjectPreview = createClass({
   }
 });
 
-CMS.registerPreviewTemplate("project", ProjectPreview); 
+CMS.registerPreviewTemplate("project", ProjectPreview);
 
 CMS.registerPreviewStyle("/css/main.css");
