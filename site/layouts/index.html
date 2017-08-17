@@ -6,7 +6,8 @@
     <div class="swiper-wrapper">
       <div class="hp-slide1 relative swiper-slide min-vh-100 bg-white pt5">
         <div class="hp-video-wrapper absolute top-0 left-0 w-100">
-          <video class="hp-video absolute top-0 left-0 w-100 h-100" src="img/hp.mp4" autoplay muted></video>
+          <video src="img/hp.mp4" class="hp-video absolute top-0 left-0 w-100 h-100" autoplay muted onloadedmetadata="this.muted = true"></video>
+          <div class="hp-image absolute top-0 left-0 w-100 h-100" style="background: url(img/jazmin-quaynor-35847.jpg) no-repeat center; background-size: cover;"></div>
           <div class="gradient gradient--blue-and-yellow absolute top-0 left-0 w-100 h-100"></div>
         </div>
         <div class="hp-slide1-content relative center mw8 w-90 cf dn mt5-ns mt4 relative z2">
