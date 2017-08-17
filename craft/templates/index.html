@@ -1,0 +1,45 @@
+{#
+ # Homepage template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
+ #
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+<section class="home">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="hp-slide1 relative swiper-slide min-vh-100 bg-white pt5">
+        <div class="hp-video-wrapper absolute top-0 left-0 w-100">
+          <video class="hp-video absolute top-0 left-0 w-100 h-100" src="img/hp.mp4" autoplay muted></video>
+          <div class="gradient gradient--blue-and-yellow absolute top-0 left-0 w-100 h-100"></div>
+        </div>
+        <div class="hp-slide1-content relative center mw8 w-90 cf dn mt5-ns mt4 relative z2">
+          <div class="hp-slide1__text">
+            <h2 class="hp-slide1__headline w-70-ns f-headline-l f1 fw7 mt5 mb4-ns mb3 white">{{ entry.body }}</h2>
+            <button class="fw6 next-slide bg-transparent pointer bn input-reset underline dib f4 link black mt2">View case studies</button>
+          </div>
+          <div class="hp-slide1__shape absolute">
+            <img src="../img/shapes/slide-intro.svg">
+          </div>
+        </div>
+      </div>
+      {% include 'partials/feat-case-studies.html' %}
+    </div>
+  </div>
+</section>
+{% endblock %}

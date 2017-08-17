@@ -1,0 +1,42 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+
+	<link rel="home" href="{{ siteUrl }}" />
+  <link rel="stylesheet" type="text/css" href="{{ siteUrl }}assets/css/main.css">
+
+  <meta property="og:type" content="business.business">
+	<meta property="og:title" content="{{ siteName }}">
+	<meta property="og:url" content="{{ siteUrl }}">
+</head>
+
+<body class="near-black">
+  {% include 'partials/header.html' %}
+	<main id="content" role="main">
+		{% block content %}
+			<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+			<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+		{% endblock %}
+	</main>
+  <script src="{{ siteUrl }}assets/js/swiper.min.js"></script>
+  <script src="{{ siteUrl }}assets/js/snap.svg-min.js"></script>
+  <script src="{{ siteUrl }}assets/js/home.js"></script>
+  <script src="{{ siteUrl }}assets/js/app.js"></script>
+</body>
+</html>
