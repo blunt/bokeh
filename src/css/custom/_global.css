@@ -46,3 +46,8 @@ hr {
 svg .icon {
   transition: var(--transition);
 }
+
+.no-scroll {
+  max-height: 100vh;
+  overflow: hidden;
+}

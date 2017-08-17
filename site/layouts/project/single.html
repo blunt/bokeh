@@ -19,8 +19,10 @@
     <a href="{{ .RelPermalink }}" {{ if .Params.image }}style="background:url({{ .Params.image }}) no-repeat center center"{{ end }} class="cover next-case-study db lh-title link white relative">
       <div class="feat-case-study__slide__overlay next-case-study__overlay" style="background-color: {{ .Params.color }}"></div>
       <div class="mw7 tc center ph3 pv5 relative">
-        <span class="db mb4 white-90 f4">Next Project</span>
-        <span class="f1-l f2 mv4">{{ .Params.headingBlurb }}</span>
+        <h3>
+          <span class="db mb4 white-90 f4">Next Project</span>
+          <span class="f1-l f2 mv4">{{ .Params.headingBlurb }}</span>
+        </h3>
       </div>
     </a>
   {{ end}}

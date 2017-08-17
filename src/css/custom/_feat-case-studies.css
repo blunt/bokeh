@@ -60,7 +60,6 @@
   text-decoration: none;
   color: inherit;
   transition: var(--transition);
-  font-weight: bold;
 }
 
 .feat-case-study__slide__title a:hover {

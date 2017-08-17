@@ -14,9 +14,7 @@ Cupcake ipsum dolor sit amet candy canes apple pie.
 Tiramisu jelly-o sesame snaps. Cake brownie powder tart ice cream sweet roll sugar plum apple pie. Pudding sweet topping macaroon. Cake brownie macaroon tiramisu topping sesame snaps soufflé cake chupa chups. Cotton candy pie soufflé. Sesame snaps sweet macaroon oat cake jujubes lemon drops. Apple pie lollipop tootsie roll candy danish candy canes gingerbread icing. Croissant cake cotton candy. Jelly-o lollipop pie jelly dessert carrot cake chocolate bar jelly. Tart tiramisu bonbon sweet roll candy tootsie roll powder lemon drops. Tiramisu pudding tiramisu jelly beans marshmallow carrot cake.
 
 <div class="image-grid three-up">
-<div class="image">
-<img src="/img/download (1).jpeg" alt="flowers">
-</div>
+<div class="image" style="background: url(/img/Common-dog-behaviors-explained.jpg) no-repeat center"></div>
 <div class="image">
 <img src="/img/jazmin-quaynor-35847.jpg" alt="asdf">
 </div>

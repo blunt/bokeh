@@ -184,14 +184,9 @@
       position: relative;
       float: left;
       overflow: hidden;
-      padding-bottom: 56%;
-
-      & img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: calc(100% - 0.25rem);
-      }
+      padding-bottom: 56.05%;
+      margin-left: -0.5rem;
+      background-size: cover !important;
     }
 
     & .image:not(:first-child) {
@@ -223,13 +218,28 @@
     & .image:nth-child(even) {
       position: relative;
       overflow: hidden;
-      padding-bottom: 52.6%;
+      padding-bottom: 52%;
       float: right;
       & img {
         position: absolute;
         top: 0;
         right: 0;
         width: calc(100% - 0.25rem);
+      }
+      @media (min-width: 415px) {
+        padding-bottom: 52.4%
+      }
+      @media (min-width: 44em) {
+        padding-bottom: 52.15%;
+      }
+      @media (min-width: 975px) {
+        padding-bottom: 52.3%;
+      }
+      @media (min-width: 1120px) {
+        padding-bottom: 52.45%;
+      }
+      @media (min-width: 1520px) {
+        padding-bottom: 52.6%;
       }
     }
 

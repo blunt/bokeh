@@ -154,6 +154,10 @@
   padding-left: 110px;
 }
 
+.contact-info a {
+  font-family: var(--circular);
+}
+
 .contact-button {
   width: 80px;
   height: 80px;
@@ -195,10 +199,15 @@
   opacity: 0;
 }
 
+.nav__links a {
+  font-family: var(--circular);
+}
+
 /* Nav Full Viewport Background */
 .nav-overlay {
   opacity: 0;
   transition: var(--transition);
+  pointer-events: none;
   &.nav-open {
     opacity: .9;
     z-index: 4;
