@@ -3,7 +3,8 @@
   {{ $client := lower .client }}
   <div data-hash="{{ replace $client " " "-" }}" class="slide-{{ $count }} swiper-slide overflow-visible-ns min-vh-100 bg-white pt6 feat-case-study__slide">
     <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
-      <div class="feat-case-study__slide__image w-100 h-100"></div>
+      <div class="feat-case-study__slide__image relative w-100 h-100"></div>
+      <div class="feat-case-study__slide__imageFade absolute top-0 left-0 w-100 h-100"></div>
     </div>
     <div class="feat-case-study__slide__overlay" style="background-color: {{ .color }}"></div>
     <div class="center mw8 w-90 feat-case-study__content relative z-1">
@@ -14,14 +15,15 @@
         <h2 class="f2 lh-title relative feat-case-study__slide__title mb4 z-1">{{ .title | markdownify }}</a></h2>
       </div>
     </div>
-    {{ if lt $index 2 }}
-      <div class="feat-case-study__slide__overlay--mingle absolute top-0 h-100 z-1" style="background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ .color }} 90%, {{ .color }} 100%)"></div>
-    {{ end }}
+    <div class="feat-case-study__slide__overlay--mingle absolute top-0 h-100 z-1" style="background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ .color }} 90%, {{ .color }} 100%)"></div>
     <style>
     /* Add custom styles from CMS for each slide as we iterate through */
     .slide-{{ $count }} .feat-case-study__slide__image {
       background: url({{ .image }}) no-repeat center;
       background-size: cover;
+    }
+    .slide-{{ $count }} .feat-case-study__slide__imageFade:after {
+      background: linear-gradient(to left, {{ .color }} 0%, {{ .color }} 20%, rgba(255,255,255,0) 100%);
     }
     .slide-{{ $count }} .feat-case-study__slide__title a {
       color: {{ .color }};

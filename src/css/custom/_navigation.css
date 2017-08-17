@@ -63,12 +63,18 @@
 }
 
 .nav-button .bg {
-  top: -20px;
-  left: -16px;
-  width: calc(100% + 32px);
-  height: calc(100% + 32px);
+  top: -18px;
+  left: -14px;
+  width: calc(100% + 28px);
+  height: calc(100% + 28px);
   padding: 16px;
   border-radius: 50%;
+  @media (min-width: 650px) {
+    top: -20px;
+    left: -16px;
+    width: calc(100% + 32px);
+    height: calc(100% + 32px);
+  }
 }
 
 .open .nav-button span {

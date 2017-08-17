@@ -22,21 +22,40 @@ button.next-slide {
 
 .hp-slide1__shape {
   width: 885px;
-  bottom: -600px;
+  bottom: -630px;
   left: -300px;
-}
-/*
-.hp-slide1-content {
-  @media (max-width: 991px) {
-    display: block !important;
+
+  @media (min-with: 401px) {
+    bottom: -600px;
   }
-}*/
-
-.hp-slide1 .gradient {
-  opacity: .7;
 }
 
-.hp-slide1 .gradient,
+.hp-slide1__imageFade {
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 25%;
+    right: 0;
+    background: linear-gradient(to left, #F4AD17 0%, #F4AD17 20%, rgba(255,255,255,0) 100%);
+  }
+}
+
+.hp-slide1 .hp-slide1__cover {
+  opacity: .7;
+  background: #F4AD17;
+}
+
+.hp-slide1__overlay--mingle {
+  left: 100%;
+  width: 75%;
+  background: linear-gradient(to left, rgba(255,255,255,0) 0%, #F4AD17 90%, #F4AD17 100%)
+}
+
+
+.hp-slide1 .hp-slide1__cover,
 .hp-slide1 .hp-slide1__text,
 .hp-slide1 .hp-slide1__shape {
   -webkit-transform: translate3d(0,0,0);

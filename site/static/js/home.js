@@ -14,12 +14,10 @@ function nextSlide() {
   swiper.slideNext();
 }
 
-// Something about this desktopFlag is not right my friends.
 let desktopFlag = false;
 
 function generateSwiper(viewport) {
   function swiperOnInit(slider) {
-    console.log('yoooo');
     // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
     const hpContent = document.getElementsByClassName('hp-slide1-content');
