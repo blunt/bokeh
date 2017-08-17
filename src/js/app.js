@@ -9,9 +9,11 @@ navButton.addEventListener("click", openNav);
 function openNav() {
   if (body.classList.contains('open')) {
     body.classList.remove('open');
+    body.classList.remove('no-scroll');
     navOverlay.classList.remove('nav-open');
   } else {
     body.classList.add('open');
+    body.classList.add('no-scroll');
     navOverlay.classList.add('nav-open');
   }
 }
