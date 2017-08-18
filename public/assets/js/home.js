@@ -3,17 +3,6 @@ const navTrigger = document.getElementsByClassName('nav-button')[0];
 // Homepage Swiper
 let swiper = null;
 
-// Next slide
-const nextSlideButton = document.getElementsByClassName('next-slide');
-
-Array.from(nextSlideButton).forEach((element) => {
-  element.addEventListener('click', nextSlide);
-});
-
-function nextSlide() {
-  swiper.slideNext();
-}
-
 let desktopFlag = false;
 
 function generateSwiper(viewport) {
@@ -115,6 +104,17 @@ function modifySwiper() {
 
     desktopFlag = true;
   }
+}
+
+// Next slide
+const nextSlideButton = document.getElementsByClassName('next-slide');
+
+Array.from(nextSlideButton).forEach((element) => {
+  element.addEventListener('click', nextSlide);
+});
+
+function nextSlide() {
+  swiper.slideNext();
 }
 
 // Homepage video/poster on first slide
