@@ -1,0 +1,138 @@
+.feat-case-study__slide__shape {
+  z-index: 1;
+}
+
+.feat-case-study__slide__overlay {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 1.5s ease-out;
+}
+
+.next-case-study__overlay {
+  opacity: .8;
+}
+
+.feat-case-study__slide.swiper-slide-active {
+  & .feat-case-study__slide__image {
+    opacity: 1;
+    transform: scale(1.25) translateX(0);
+  }
+  & .feat-case-study__slide__title {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  & .feat-case-study__slide__overlay {
+    opacity: .8;
+  }
+}
+
+.feat-case-study__slide__image {
+  opacity: 0;
+  transform: scale(1.25) translateX(10%);
+  transition: transform 4s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s ease-in;
+}
+
+.feat-case-study__slide__imageFade {
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 25%;
+    right: 0;
+  }
+}
+
+.feat-case-study__slide__title {
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 1s ease-in !important;
+  transform: translateY(10%);
+  transition-delay: 1s;
+}
+
+.feat-case-study__slide__title a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.feat-case-study__slide__title a:hover {
+  border-color: #fff !important;
+}
+
+.feat-case-study__slide__overlay--mingle {
+  width: 75%;
+  left: 100%;
+}
+
+.slide-3 .feat-case-study__content {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  @media (min-width: 1300px) {
+    bottom: 5%;
+  }
+}
+
+.slide-2 .feat-case-study__slide__shape {
+  & img {
+    width: 1126px;
+    max-width: inherit;
+    position: absolute;
+    left: -360px;
+    top: -430px;
+    @media (min-width: 401px) {
+      top: -320px;
+    }
+    @media (min-width: 44em) {
+      top: -370px;
+    }
+    @media (min-width: 760px) {
+      left: -340px;
+    }
+  }
+}
+
+.slide-3 .feat-case-study__slide__shape {
+  & img {
+    width: 900px;
+    max-width: inherit;
+    position: absolute;
+    left: -110px;
+    top: -50px;
+    @media (min-width: 1040px) {
+      left: -200px;
+    }
+    @media (min-width: 1300px) {
+      width: 900px;
+    }
+  }
+}
+
+.slide-4 .feat-case-study__slide__shape {
+  & img {
+    width: 1000px;
+    max-width: inherit;
+    position: absolute;
+    left: -200px;
+    top: -125%;
+    @media (min-width: 401px) {
+      top: -60%;
+    }
+    @media (min-width: 570px) {
+      top: -91%;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .feat-case-study__slide__title {
+    font-size: 1.5rem;
+  }
+}

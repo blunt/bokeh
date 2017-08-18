@@ -1,7 +1,8 @@
 {% for entry in craft.entries.section('projects').limit(3).find() %}
   <div data-hash="" class="slide-{{ loop.index }} swiper-slide overflow-visible-ns min-vh-100 bg-white pt6 feat-case-study__slide">
     <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
-      <div class="feat-case-study__slide__image w-100 h-100"></div>
+      <div class="feat-case-study__slide__image relative w-100 h-100"></div>
+      <div class="feat-case-study__slide__imageFade absolute top-0 left-0 w-100 h-100"></div>
     </div>
     <div class="feat-case-study__slide__overlay" style="background-color: {{ entry.color }}"></div>
     <div class="center mw8 w-90 feat-case-study__content relative z-1">
@@ -14,15 +15,16 @@
         </h2>
       </div>
     </div>
-    {% if loop.index <= 1 %}
-      <div class="feat-case-study__slide__overlay--mingle absolute top-0 h-100 z-1" style="background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%)"></div>
-    {% endif %}
+    <div class="feat-case-study__slide__overlay--mingle absolute top-0 h-100 z-1" style="background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%)"></div>
 
     <style>
     /* Add custom styles from CMS for each slide as we iterate through */
     .slide-{{ loop.index }} .feat-case-study__slide__image {
       background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat center;
       background-size: cover;
+    }
+    .slide-{{ loop.index }} .feat-case-study__slide__imageFade:after {
+      background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 20%, rgba(255,255,255,0) 100%);
     }
     .slide-{{ loop.index }} .feat-case-study__slide__title a {
       color: {{ entry.color }};

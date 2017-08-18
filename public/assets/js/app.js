@@ -1,17 +1,19 @@
 // Navigation
-const navButtonTrigger = document.getElementsByClassName('nav-button')[0],
+const navButton = document.getElementsByClassName('nav-button')[0],
       nav = document.getElementById('nav'),
       navOverlay = document.getElementsByClassName('nav-overlay')[0],
       body = document.getElementsByTagName('body')[0];
 
-navButtonTrigger.addEventListener("click", openNav);
+navButton.addEventListener("click", openNav);
 
 function openNav() {
   if (body.classList.contains('open')) {
     body.classList.remove('open');
+    body.classList.remove('no-scroll');
     navOverlay.classList.remove('nav-open');
   } else {
     body.classList.add('open');
+    body.classList.add('no-scroll');
     navOverlay.classList.add('nav-open');
   }
 }
