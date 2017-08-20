@@ -62,12 +62,18 @@
           {% for asset in block.image %}
             <img class="contained" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
           {% endfor %}
+          {% if block.caption %}
+            <p class="caption">{{ block.caption }}</p>
+          {% endif %}
 
         {% elseif block.type == "fullWidthImage" %}
 
           {% for asset in block.image %}
             <img class="full" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
           {% endfor %}
+          {% if block.caption %}
+            <p class="caption">{{ block.caption }}</p>
+          {% endif %}
 
         {% elseif block.type == "twoUpImages" %}
 
