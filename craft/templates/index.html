@@ -31,10 +31,17 @@
         <div class="hp-slide1__imageFade absolute top-0 left-0 w-100 h-100"></div>
         <div class="hp-slide1__cover absolute top-0 left-0 w-100 h-100"></div>
       </div>
-      <div class="hp-slide1__shape absolute">
-        <img src="assets/img/shapes/slide-intro.svg">
+      <div class="hp-slide1-content relative center mw8 w-90 cf dn mt5-ns mt4 relative z-2">
+        <div class="hp-slide1__text">
+          <h2 class="hp-slide1__headline w-70-ns f-headline-l f1 fw7 mt5 mb4-ns mb3 white">{{ entry.body }}</h2>
+          <button class="fw6 next-slide bg-transparent pointer bn input-reset underline dib f4 link black mt2">View case studies</button>
+        </div>
+        <div class="hp-slide1__shape absolute">
+          <img src="assets/img/shapes/slide-intro.svg">
+        </div>
       </div>
       <div class="hp-slide1__overlay--mingle absolute top-0 h-100 z-1"></div>
+
       <style>
       /* Add custom styles from CMS for each slide as we iterate through */
       .hp-slide1 .hp-slide1__cover {
@@ -48,7 +55,6 @@
       }
       </style>
     </div>
-    <div class="hp-slide1__overlay--mingle absolute top-0 h-100 z-1"></div>
     {% include 'partials/feat-case-studies.html' %}
     {% include 'partials/studio.html' %}
   </div>
