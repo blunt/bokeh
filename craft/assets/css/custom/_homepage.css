@@ -3,7 +3,6 @@
 }
 
 .hp-slide1__headline {
-  text-shadow: 0 0 .5em rgba(0,0,0,.10);
   @media (max-width: 460px) {
     font-size: 2.3rem;
   }
@@ -58,7 +57,7 @@ button.next-slide {
 .hp-slide1 .hp-slide1__cover,
 .hp-slide1 .hp-slide1__text,
 .hp-slide1 .hp-slide1__shape {
-  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 
 .hp-video-wrapper {
@@ -68,6 +67,7 @@ button.next-slide {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  transform: translate3d(0,0,0);
 }
 
 .hp-video-wrapper video {

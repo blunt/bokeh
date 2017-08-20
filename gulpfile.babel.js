@@ -15,7 +15,7 @@ gulp.task("css", () => (
       cssnext(),
       cssnano(),
     ]))
-    .pipe(gulp.dest("./public/assets/css"))
+    .pipe(gulp.dest("./public_html/assets/css"))
 ));
 
 gulp.task("server", ["css"], () => {

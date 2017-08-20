@@ -19,6 +19,11 @@
   margin-left: auto;
 }
 
+.middle {
+  transform: translateY(-50%);
+  top: 50%;
+}
+
 @media (--breakpoint-not-small){
   .center-ns {
     margin-right: auto;

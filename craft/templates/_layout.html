@@ -27,13 +27,19 @@
 </head>
 
 <body class="near-black">
+  {% if craft.request.firstSegment == '' %}
+  <section class="home">
+  {% endif %}
   {% include 'partials/header.html' %}
-	<main id="content" role="main">
-		{% block content %}
-			<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-			<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
-		{% endblock %}
-	</main>
+  	<main id="content" role="main">
+  		{% block content %}
+  			<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+  			<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+  		{% endblock %}
+  	</main>
+  {% if craft.request.firstSegment == '' %}
+  </section>
+  {% endif %}
   <script src="{{ siteUrl }}assets/js/swiper.min.js"></script>
   <script src="{{ siteUrl }}assets/js/snap.svg-min.js"></script>
   <script src="{{ siteUrl }}assets/js/home.js"></script>
