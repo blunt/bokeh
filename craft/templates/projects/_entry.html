@@ -25,7 +25,170 @@
     </header>
     <div class="case-study-container mb5">
       <div class="bg-white intro-blurb pt5-ns pt4 pb4 relative">{{ entry.introParagraph }}</div>
-      {{ entry.body }}
+      {% for block in entry.projectBlocks %}
+
+        {% if block.type == "text" %}
+
+          {{ block.copy }}
+
+        {% elseif block.type == "quote" %}
+
+          <blockquote>
+            <h2>{{ block.quote }}</h2>
+            <p>{{ block.personsName }}, {{ block.jobTitle }}</p>
+          </blockquote>
+
+        {% elseif block.type == "video" %}
+
+          {% set id = block.videoUrl|replace('/(http:|https:|)\\/\\/(player.|www.)?(vimeo\\.com|youtu(be\\.com|\\.be|be\\.googleapis\\.com))\\/(video\\/|embed\\/|watch\\?v=|v\\/)?([A-Za-z0-9._%-]*)(\\&\\S+)?/', '$6') %}
+
+          {% set service = block.videoUrl|lower|replace('/(http:|https:|)\\/\\/(player.|www.)?(vimeo\\.com|youtu(be\\.com|\\.be|be\\.googleapis\\.com))\\/(video\\/|embed\\/|watch\\?v=|v\\/)?([A-Za-z0-9._%-]*)(\\&\\S+)?/', '$3') %}
+
+          <div class="contained">
+            <div class="video-wrapper relative">
+              {% if 'youtu' in service %}
+              <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="http://www.youtube.com/embed/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+              {% else %}
+              <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="http://player.vimeo.com/video/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+              {% endif %}
+            </div>
+            {% if block.caption %}
+              <p class="caption">{{ block.caption }}</p>
+            {% endif %}
+          </div>
+
+        {% elseif block.type == "inlineImage" %}
+
+          {% for asset in block.image %}
+            <img class="contained" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+          {% endfor %}
+
+        {% elseif block.type == "fullWidthImage" %}
+
+          {% for asset in block.image %}
+            <img class="full" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+          {% endfor %}
+
+        {% elseif block.type == "twoUpImages" %}
+
+          <div class="two-up image-grid">
+            <div class="image">
+              {% for asset in block.firstImage %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <div class="image">
+              {% for asset in block.secondImage %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+          </div>
+
+        {% elseif block.type == "threeUpImages" %}
+
+          <div class="image-grid three-up">
+            {% for asset in block.firstImage %}
+              <div class="image" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+            {% endfor %}
+            <div class="image">
+              {% for asset in block.secondImage %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <div class="image">
+              {% for asset in block.thirdImage %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+          </div>
+
+        {% elseif block.type == "fiveUpImages" %}
+
+          <div class="image-grid five-up">
+            <div class="image">
+              {% for asset in block.firstImage %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <div class="image">
+              {% for asset in block.secondImage %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <div class="image">
+              {% for asset in block.thirdImage %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <div class="image">
+              {% for asset in block.fourthImage %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <div class="image">
+              {% for asset in block.fifthImage %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+          </div>
+
+        {% elseif block.type == "videoCarousel" %}
+
+          <div class="article-swiper-container swiper-container">
+            <div class="swiper-wrapper">
+              {% for row in block.video %}
+                {% set id = row.video|replace('/(http:|https:|)\\/\\/(player.|www.)?(vimeo\\.com|youtu(be\\.com|\\.be|be\\.googleapis\\.com))\\/(video\\/|embed\\/|watch\\?v=|v\\/)?([A-Za-z0-9._%-]*)(\\&\\S+)?/', '$6') %}
+
+                {% set service = row.video|lower|replace('/(http:|https:|)\\/\\/(player.|www.)?(vimeo\\.com|youtu(be\\.com|\\.be|be\\.googleapis\\.com))\\/(video\\/|embed\\/|watch\\?v=|v\\/)?([A-Za-z0-9._%-]*)(\\&\\S+)?/', '$3') %}
+
+                <div class="swiper-slide">
+                  <div class="video-wrapper relative">
+                    {% if 'youtu' in service %}
+                    <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="http://www.youtube.com/embed/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    {% else %}
+                    <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="http://player.vimeo.com/video/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    {% endif %}
+                  </div>
+                  {% if row.caption %}
+                    <p class="caption">{{ row.caption }}</p>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+            <button class="swiper-button-next input-reset button-reset bn">
+              {% include 'partials/icons/chevronRight.html' %}
+            </button>
+            <button class="swiper-button-prev input-reset button-reset bn">
+              {% include 'partials/icons/chevronLeft.html' %}
+            </button>
+          </div>
+
+        {% elseif block.type == "imageCarousel" %}
+
+          <div class="article-swiper-container swiper-container">
+            <div class="swiper-wrapper">
+              {% for row in block.image %}
+                <div class="swiper-slide">
+                  {% for asset in row.image %}
+                    <img class="contained" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+                  {% endfor %}
+                  {% if row.caption %}
+                    <p class="caption">{{ row.caption }}</p>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+            <button class="swiper-button-next input-reset button-reset bn">
+              {% include 'partials/icons/chevronRight.html' %}
+            </button>
+            <button class="swiper-button-prev input-reset button-reset bn">
+              {% include 'partials/icons/chevronLeft.html' %}
+            </button>
+          </div>
+
+        {% endif %}
+
+      {% endfor %}
     </div>
   </article>
   <!-- Next Article -->
@@ -45,4 +208,7 @@
       </div>
     </a>
   {% endif %}
+
+  <script src="{{ siteUrl }}assets/js/article.js"></script>
+
 {% endblock %}
