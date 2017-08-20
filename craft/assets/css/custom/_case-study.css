@@ -218,7 +218,7 @@
     & .image:nth-child(even) {
       position: relative;
       overflow: hidden;
-      padding-bottom: 52%;
+      padding-bottom: 50.15%;
       float: right;
       & img {
         position: absolute;
@@ -227,19 +227,19 @@
         width: calc(100% - 0.25rem);
       }
       @media (min-width: 415px) {
-        padding-bottom: 52.4%
+        padding-bottom: 50.55%
       }
       @media (min-width: 44em) {
-        padding-bottom: 52.15%;
+        padding-bottom: 50.3%;
       }
       @media (min-width: 975px) {
-        padding-bottom: 52.3%;
+        padding-bottom: 50.45%;
       }
       @media (min-width: 1120px) {
-        padding-bottom: 52.45%;
+        padding-bottom: 50.75%;
       }
       @media (min-width: 1520px) {
-        padding-bottom: 52.6%;
+        padding-bottom: 50.9%;
       }
     }
 
