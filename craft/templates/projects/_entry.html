@@ -207,8 +207,8 @@
   {# And make sure to only output the links if the element exists #}
   {% if prevEntry %}
     <a href="{{ prevEntry.url }}" style="background:url({% for asset in prevEntry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat center center" class="cover next-case-study db lh-title link white relative">
-      <div class="feat-case-study__slide__overlay next-case-study__overlay" style="background-color:{{ prevEntry.color }}"></div>
-      <div class="mw7 tc center ph3 pv5 relative">
+      <div class="feat-case-study__slide__overlay left-0 top-0 bottom-0 right-0 absolute next-case-study__overlay" style="background-color:{{ prevEntry.color }}"></div>
+      <div class="mw7 tc center ph3 pv5 relative z-1">
         <span class="db mb4 white-90 f4">Next Project</span>
         <span class="f1-l f2 mv4">{{ prevEntry.headingParagraph | striptags }}</span>
       </div>

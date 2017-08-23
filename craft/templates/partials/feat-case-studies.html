@@ -1,4 +1,5 @@
-{% for entry in craft.entries.section('projects').limit(3).find() %}
+{% set entries = entry.featuredCaseStudies %}
+{% for entry in entries %}
   <div data-hash="{{ entry.title | lower | replace(' ', '-') }}" class="slide-{{ loop.index }} swiper-slide overflow-visible-ns min-vh-100 bg-white pt6 feat-case-study__slide">
     <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
       <div class="feat-case-study__slide__image relative w-100 h-100"></div>
@@ -24,7 +25,7 @@
       background-size: cover;
     }
     .slide-{{ loop.index }} .feat-case-study__slide__imageFade:after {
-      background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 20%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 1%, rgba(255,255,255,0) 100%);
     }
     .slide-{{ loop.index }} .feat-case-study__slide__title a {
       color: {{ entry.color }};

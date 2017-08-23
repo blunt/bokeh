@@ -8,7 +8,8 @@
 }
 
 .next-case-study__overlay {
-  opacity: .8;
+  opacity: .6;
+  filter: contrast(3);
 }
 
 .feat-case-study__slide.swiper-slide-active, .slide-studio.swiper-slide-active {
@@ -21,7 +22,7 @@
     transform: translateY(0);
   }
   & .feat-case-study__slide__overlay, & .studio__slide__overlay {
-    opacity: .8;
+    opacity: .6;
   }
 }
 
@@ -63,7 +64,7 @@
 }
 
 .feat-case-study__slide__overlay--mingle, .studio__slide__overlay--mingle {
-  width: 75%;
+  width: 50%;
   left: 100%;
   transform: translate3d(0,0,0);
 }

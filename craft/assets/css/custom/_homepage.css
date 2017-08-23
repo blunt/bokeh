@@ -42,12 +42,12 @@ button.next-slide {
 }
 
 .hp-slide1 .hp-slide1__cover {
-  opacity: .7;
+  opacity: .5;
 }
 
 .hp-slide1__overlay--mingle {
   left: 100%;
-  width: 75%;
+  width: 50%;
 }
 
 
