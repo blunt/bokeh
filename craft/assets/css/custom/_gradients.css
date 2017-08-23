@@ -6,6 +6,10 @@
   background: linear-gradient(270deg, #6BC2C3, #F4AD17);
 }
 
+.gradient--yellow-and-red {
+  background: linear-gradient(270deg, #F4AD17, #c6483b);
+}
+
 .gradient {
   background-size: 400% 400%;
 
