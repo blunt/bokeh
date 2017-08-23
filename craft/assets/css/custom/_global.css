@@ -1,0 +1,57 @@
+::-moz-selection {
+  color: #df3f28;
+  background: rgba(0,0,0,.9);
+}
+::selection {
+  color: #df3f28;
+  background: rgba(0,0,0,.9);
+}
+
+hr {
+  height: 2px;
+}
+
+.video-wrapper {
+  padding-top: 56.25%;
+  height: 0px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background: none !important;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  padding-top: 6px;
+  border: 2px solid rgba(0,0,0,.2);
+  line-height: 1;
+  transition: var(--transition);
+}
+
+.swiper-button-prev {
+  left: 30px;
+  text-indent: -3px;
+}
+
+.swiper-button-next {
+  right: 30px;
+  text-indent: 3px;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  border-color: #000;
+}
+
+svg .icon {
+  transition: var(--transition);
+}
+
+.no-scroll {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.text-shadow {
+  text-shadow: 0 0.03em 0.04em rgba(0,0,0,.15);
+}

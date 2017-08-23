@@ -1,0 +1,9 @@
+{
+    "type": "ftp",
+    "host": "bokeh.agency",
+    "username": "admin@bokeh.agency",
+    "password": "pEQA9?2mUWd",
+    "port": 21,
+    "remotePath": "/",
+    "uploadOnSave": false
+}

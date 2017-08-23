@@ -1,0 +1,38 @@
+{% set entries = entry.featuredCaseStudies %}
+{% for entry in entries %}
+  <div data-hash="{{ entry.title | lower | replace(' ', '-') }}" class="slide-{{ loop.index }} swiper-slide overflow-visible-ns min-vh-100 bg-white pt6 feat-case-study__slide">
+    <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
+      <div class="feat-case-study__slide__image relative w-100 h-100"></div>
+      <div class="feat-case-study__slide__imageFade absolute db top-0 left-0 right-0 h-100"></div>
+    </div>
+    <div class="feat-case-study__slide__overlay left-0 bottom-0 right-0 top-0 db absolute" style="background-color: {{ entry.color }}"></div>
+    <div class="center mw8 w-90 feat-case-study__content relative z-1">
+      <div class="feat-case-study__slide__shape absolute top-0 left-0 w-100 h-100">
+        <img class="absolute" src="{{ siteUrl }}assets/img/shapes/slide-{{ loop.index }}.svg">
+      </div>
+      <div class="pv4 mt5-ns w-50-l w-80-ns">
+        <h2 class="f2 lh-title relative feat-case-study__slide__title mb4 z-1">
+          {{ entry.headingParagraph }}
+        </h2>
+      </div>
+    </div>
+    <div class="feat-case-study__slide__overlay--mingle absolute top-0 h-100 z-1" style="background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%)"></div>
+
+    <style>
+    /* Add custom styles from CMS for each slide as we iterate through */
+    .slide-{{ loop.index }} .feat-case-study__slide__image {
+      background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }};
+      background-size: cover;
+    }
+    .slide-{{ loop.index }} .feat-case-study__slide__imageFade:after {
+      background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 1%, rgba(255,255,255,0) 100%);
+    }
+    .slide-{{ loop.index }} .feat-case-study__slide__title a {
+      color: {{ entry.color }};
+    }
+    .slide-{{ loop.index }} .feat-case-study__slide__title a:hover {
+      color: #000;
+    }
+    </style>
+  </div>
+{% endfor %}
