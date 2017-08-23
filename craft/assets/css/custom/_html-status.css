@@ -1,0 +1,8 @@
+.html-status {
+  background: url(../img/404.gif) no-repeat center;
+  background-size: cover;
+
+  & .gradient--yellow-and-red {
+    opacity: .7;
+  }
+}

@@ -17,6 +17,10 @@
   transform-origin: left center;
 }
 
+.underline.black:after {
+  background: #000;
+}
+
 .feat-case-study__slide__button:after {
   background: #000;
 }
