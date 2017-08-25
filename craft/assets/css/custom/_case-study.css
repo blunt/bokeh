@@ -2,8 +2,11 @@
   overflow: hidden;
 }
 
-.case-study-overlay {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.65) 100%);
+.case-study__shape img {
+  width: 102%;
+  max-width: 102%;
+  left: -1%;
+  margin-bottom: -5px;
 }
 
 .case-study-container {
@@ -12,7 +15,7 @@
     width: 100%;
   }
 
-  & h1, & h2, & h3, & p, & blockquote, & span, & ul, & ol, & .intro-blurb, & .contained {
+  & h1, & h2, & h3, & p, & span, & ul, & ol, & .intro-blurb, & .contained {
     max-width: 50rem;
     margin-left: auto;
     margin-right: auto;
@@ -44,7 +47,7 @@
       max-width: 56rem;
       padding-left: 4rem;
       padding-right: 4rem;
-      margin-top: -4rem;
+      /*margin-top: -4rem;*/
     }
   }
 
@@ -59,11 +62,25 @@
   }
 
   & blockquote {
-    max-width: 56rem;
-    text-align: center;
+    & .blockquote__content {
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+    & img {
+      width: 102%;
+      max-width: 102%;
+      left: -1%;
+    }
+    & .blockquote__shape--top img {
+      top: -3px;
+    }
+    & .blockquote__shape--bottom img {
+      top: 5px;
+    }
     & p, & h2 {
       line-height: 1.25;
       max-width: inherit;
+      color: #fff !important;
     }
     & h2 {
       font-size: 1.75rem;
@@ -71,6 +88,26 @@
     }
     & p {
       font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    & .blockquote__avatar {
+      width: 120px;
+      height: 120px;
+      background-size: cover !important;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-top: -7rem;
+
+      @media (min-width: 600px) {
+        width: 140px;
+        height: 140px;
+        margin-top: -9rem;
+      }
+
+      @media (min-width: 1024px) {
+        margin-top: -11rem;
+      }
     }
   }
 
@@ -85,7 +122,6 @@
 
   @media (min-width: 65em) {
     & blockquote {
-      max-width: 56rem;
       & h2 {
         font-size: 2.75rem;
       }
@@ -125,13 +161,17 @@
     }
   }
 
-  & .full, & .contained, & blockquote, & .video-wrapper {
+  & .full, & .contained, & .video-wrapper {
     margin: 1.5rem auto;
   }
 
   @media (min-width: 44em) {
-    & .full, & .contained, & blockquote, & .video-wrapper {
+    & .full, & .contained, & .video-wrapper {
       margin: 2.5rem auto;
+    }
+
+    & blockquote {
+      margin: -2.5rem auto;
     }
   }
 
@@ -140,10 +180,6 @@
     text-align: center;
     margin-bottom: 2.5rem;
     margin-top: -1rem;
-  }
-
-  @media (min-width: 720px) {
-    margin-top: -2rem;
   }
 
   & .image-grid {
@@ -220,12 +256,14 @@
       overflow: hidden;
       padding-bottom: 50.15%;
       float: right;
-      & img {
+      margin-right: -0.5rem;
+      background-size: cover !important;
+      /*& img {
         position: absolute;
         top: 0;
         right: 0;
         width: calc(100% - 0.25rem);
-      }
+      }*/
       @media (min-width: 415px) {
         padding-bottom: 50.55%
       }
@@ -261,6 +299,37 @@
       & .image:nth-child(3) {
         margin-bottom: 1rem;
       }
+    }
+  }
+}
+
+.next-case-study__shape img {
+  width: 102%;
+  max-width: 102%;
+  left: -1%;
+  margin-top: -10px;
+}
+
+.next-case-study__icon {
+  top: 50%;
+  right: 0;
+  display: inline-block;
+  padding: 10px;
+  line-height: 1px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: var(--transition);
+  & .icon {
+    fill: #fff;
+    transition: var(--transition);
+  }
+}
+
+.next-case-study__link:hover {
+  & .next-case-study__icon {
+    background: #fff;
+    & .icon {
+      fill: #000;
     }
   }
 }
