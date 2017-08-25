@@ -30,14 +30,27 @@ button.next-slide {
 }
 
 .hp-slide1__imageFade {
+  transform: translate3d(0,0,0);
   &:after {
     content: '';
     display: block;
     position: absolute;
-    top: 0;
-    height: 100%;
-    width: 25%;
+    top: auto;
+    bottom: 0;
+    height: 60%;
+    width: 100%;
+    left: 0;
     right: 0;
+  }
+  @media (min-width: 768px) {
+    &:after {
+      top: 0;
+      right: 0;
+      bottom: auto;
+      left: auto;
+      height: 100%;
+      width: 60%;
+    }
   }
 }
 
@@ -46,8 +59,16 @@ button.next-slide {
 }
 
 .hp-slide1__overlay--mingle {
-  left: 100%;
-  width: 50%;
+  width: 100%;
+  top: 100%;
+  height: 60%;
+  transform: translate3d(0,0,0);
+  @media (min-width: 768px) {
+    left: 100%;
+    top: 0;
+    height: 100%;
+    width: 60%;
+  }
 }
 
 

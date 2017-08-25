@@ -1,0 +1,18 @@
+{% set entries = craft.entries.section('projects') %}
+
+  <div data-hash="work" class="swiper-slide overflow-visible min-vh-100 bg-white pt z-3">
+    <div class="mt6-ns pt4 mt5 center mw8 w-90 feat-case-study__content relative z-1 cf">
+      {% for entry in entries %}
+      <div class="pb4 fl w-third-l w-50-ns work-item">
+        <div class="aspect-ratio aspect-ratio--16x9 mr4 work-item-margin">
+          <a class="db br3 overflow-hidden link aspect-ratio--object cover flex items-center justify-center content-center" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
+            <div class="absolute left-0 bottom-0 top-0 right-0" style="background: {{ entry.color }}; opacity: .6;"></div>
+            <h2 class="f3 db lh-title white relative text-shadow mb0 z-1">
+              {{ entry.title }}
+            </h2>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+   </div>
