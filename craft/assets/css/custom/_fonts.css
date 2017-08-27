@@ -39,7 +39,7 @@ html body, input {
   font-family: var(--openSans);
 }
 
-h1, h2, h3, h4, h5, button {
+h1, h2, h3, h4, h5, button, .button {
   font-family: var(--circular);
   font-weight: 700;
 }
