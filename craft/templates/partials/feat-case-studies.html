@@ -2,10 +2,10 @@
 {% for entry in entries %}
   <div data-hash="{{ entry.title | lower | replace(' ', '-') }}" class="slide-{{ loop.index }} swiper-slide overflow-visible min-vh-100 bg-white pt6 feat-case-study__slide">
     <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
-      <div class="feat-case-study__slide__image relative w-100 h-100"></div>
-      <div class="feat-case-study__slide__imageFade absolute db top-0 left-0 right-0 h-100"></div>
+      <div class="slide__image relative w-100 h-100"></div>
+      <div class="slide__imageFade absolute"></div>
     </div>
-    <div class="feat-case-study__slide__overlay left-0 bottom-0 right-0 top-0 db absolute" style="background-color: {{ entry.color }}"></div>
+    <div class="slide__overlay left-0 bottom-0 right-0 top-0 db absolute" style="background-color: {{ entry.color }}"></div>
     <div class="center mw8 w-90 feat-case-study__content relative z-2">
       <div class="feat-case-study__slide__shape absolute top-0 left-0 w-100 h-100">
         <img class="absolute" src="{{ siteUrl }}assets/img/shapes/slide-{{ loop.index }}.svg">
@@ -16,25 +16,25 @@
         </h2>
       </div>
     </div>
-    <div class="feat-case-study__slide__overlay--mingle absolute top-0 h-100 z-1"></div>
+    <div class="slide__overlay--mingle absolute top-0 h-100 z-1"></div>
 
     <style>
     /* Add custom styles from CMS for each slide as we iterate through */
-    .slide-{{ loop.index }} .feat-case-study__slide__image {
+    .slide-{{ loop.index }} .slide__image {
       background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }};
       background-size: cover;
     }
-    .slide-{{ loop.index }} .feat-case-study__slide__imageFade:after {
+    .slide-{{ loop.index }} .slide__imageFade {
       background: linear-gradient(to top, {{ entry.color }} 0%, {{ entry.color }} 10%, rgba(255,255,255,0) 100%);
     }
-    .slide-{{ loop.index }} .feat-case-study__slide__overlay--mingle {
+    .slide-{{ loop.index }} .slide__overlay--mingle {
       background: linear-gradient(to top, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%);
     }
     @media (min-width: 768px) {
-      .slide-{{ loop.index }} .feat-case-study__slide__imageFade:after {
+      .slide-{{ loop.index }} .slide__imageFade {
         background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 10%, rgba(255,255,255,0) 100%);
       }
-      .slide-{{ loop.index }} .feat-case-study__slide__overlay--mingle {
+      .slide-{{ loop.index }} .slide__overlay--mingle {
         background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%);
       }
     }
