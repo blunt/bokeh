@@ -56,6 +56,14 @@ svg .icon {
   text-shadow: 0 0.03em 0.04em rgba(0,0,0,.15);
 }
 
+.slide__title  {
+  transform: translate3d(0,0,0);
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 1s ease-in !important;
+  transform: translateY(10%);
+  transition-delay: 1s;
+}
+
 .slide__image {
   opacity: 0;
   transform: scale(1.25) translateX(10%);
@@ -101,6 +109,10 @@ svg .icon {
   & .slide__image {
     opacity: 1;
     transform: scale(1.25) translateX(0);
+  }
+  & .slide__title  {
+    opacity: 1;
+    transform: translateY(0);
   }
   & .slide__overlay {
     opacity: .6;

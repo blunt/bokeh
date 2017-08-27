@@ -99,6 +99,7 @@
 @import './custom/_case-study';
 @import './custom/_html-status';
 @import './custom/_work';
+@import './custom/_services';
 
 /* Debugging */
 @import './imports/_debug-children';

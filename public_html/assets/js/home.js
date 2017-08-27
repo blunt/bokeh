@@ -46,6 +46,19 @@ function generateSwiper(viewport) {
     }
   }
 
+  function swiperOnSlideChangeStart(slider) {
+    // Animate services list in
+    const services = document.getElementsByClassName('services-list')[0];
+
+    if (slider.activeIndex === 7) {
+      services.classList.add('services-list--visible');
+    } else if ((slider.activeIndex === 8 || slider.activeIndex === 9) && !services.classList.contains('services-list--visible')) {
+      services.classList.add('services-list--visible');
+    } else if ((slider.activeIndex < 7 || slider.activeIndex > 9) && services.classList.contains('services-list--visible')) {
+      services.classList.remove('services-list--visible');
+    }
+  }
+
   let swiperAttributes = {};
 
   const swiperDesktopAttributes = {
@@ -57,7 +70,8 @@ function generateSwiper(viewport) {
     speed: 1000,
     loop: true,
     loopAdditionalSlides: 2,
-    onInit: (slider) => swiperOnInit(slider)
+    onInit: (slider) => swiperOnInit(slider),
+    onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
 
   let swiperMobileAttributes = null;
@@ -65,6 +79,7 @@ function generateSwiper(viewport) {
     swiperMobileAttributes = JSON.parse(JSON.stringify(swiperDesktopAttributes));
     swiperMobileAttributes.direction = 'vertical';
     swiperMobileAttributes.onInit = (slider) => swiperOnInit(slider);
+    swiperMobileAttributes.onSlideChangeStart = (slider) => swiperOnSlideChangeStart(slider);
 
     swiperAttributes = swiperMobileAttributes;
   } else {

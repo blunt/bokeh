@@ -1,12 +1,47 @@
-<div data-hash="" class="slide-service swiper-slide overflow-visible min-vh-100 bg-white pt6">
-  <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
-    <div class="slide__imageFade absolute"></div>
-  </div>
-  <div class="slide__overlay absolute left-0 top-0 right-0 bottom-0" style="background-color: #5E2CA5"></div>
-  <div class="center mw8 w-90 feat-case-study__content relative z-1">
-    Services
-  </div>
-  <div class="slide__overlay--mingle absolute top-0 h-100 z-1" style="background: linear-gradient(to left, rgba(255,255,255,0) 0%, #5E2CA5 90%, #5E2CA5 100%)"></div>
-</div>
+{% set entries = entry.services %}
+{% for entry in entries %}
 
-<style></style>
+  {% if loop.index == 1 %}
+    {% set hash = "services" %}
+  {% elseif loop.index == 2 %}
+    {% set hash = "boundless" %}
+  {% else %}
+    {% set hash = "creative" %}
+  {% endif %}
+  
+  <div data-hash="{{ hash }}" class="slide-service slide-service-{{ loop.index }} swiper-slide overflow-visible min-vh-100 bg-white pt6">
+    <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
+      <div class="slide__image relative w-100 h-100"></div>
+      <div class="slide__imageFade absolute"></div>
+    </div>
+    <div class="slide__overlay absolute left-0 top-0 right-0 bottom-0" style="background-color: {{ entry.color }}"></div>
+    <div class="center mw8 w-90 relative z-1">
+      <div class="pv4 mt5-ns w-50-l w-80-ns">
+        <h2 class="slide__title f1 lh-title white relative text-shadow">{{ entry.copy }}</h2>
+      </div>
+    </div>
+    <div class="slide__overlay--mingle absolute top-0 h-100 z-1"></div>
+
+    <style>
+      /* Add custom styles from CMS for each slide as we iterate through */
+      .slide-service-{{ loop.index }} .slide__image {
+        background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat;
+        background-size: cover;
+      }
+      .slide-service-{{ loop.index }} .slide__imageFade {
+        background: linear-gradient(to top, {{ entry.color }} 0%, {{ entry.color }} 10%, rgba(255,255,255,0) 100%);
+      }
+      .slide-service-{{ loop.index }} .slide__overlay--mingle {
+        background: linear-gradient(to top, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%);
+      }
+      @media (min-width: 768px) {
+        .slide-service-{{ loop.index }} .slide__imageFade {
+          background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 10%, rgba(255,255,255,0) 100%);
+        }
+        .slide-service-{{ loop.index }} .slide__overlay--mingle {
+          background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%);
+        }
+      }
+    </style>
+  </div>
+{% endfor %}

@@ -70,5 +70,24 @@
   </div>
 </div>
 
+<!-- Services list -->
+<div class="services-list fixed z-1 bottom-0 right-0 pb6 pr4 w-40">
+  <div class="services__shape absolute">
+    <svg width="764" height="623" viewBox="0 0 764 623" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Vector</title><desc>Created using Figma</desc><use xlink:href="#a" transform="translate(.421 .39)" fill="{{ entry.serviceListColor }}"/><defs><path id="a" d="M77.579 324.61c-26.834 15.166-79.9 64-77.5 138 2.319 71.496 47.453 101.142 72 107.876 158.5 52.624 639.1 81.324 679.5 4.124 50.5-96.5-77-190-117.5-242.5s-43-77-31-135.5 25-73-12-120-149.5-85-267.5-75-114.5 72.5-147.5 177.5c-26.4 84-55.5 116.5-98.5 145.5z"/></defs></svg>
+  </div>
+  {% set serviceList = entry.serviceList %}
+  {% for entry in serviceList %}
+    <div class="list relative">
+      <h3 class="white f3">{{ entry.serviceType }}</h3>
+      <ul>
+        {% set service = entry.service %}
+        {% for entry in service %}
+          <li class="white f4">{{ entry.service }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+
 <script src="{{ siteUrl }}assets/js/home.js"></script>
 {% endblock %}
