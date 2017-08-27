@@ -28,7 +28,7 @@
         <div
           class="hp-image absolute top-0 left-0 w-100 h-100"
           style="background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat 75% 50%; background-size: cover;"></div>
-        <div class="hp-slide1__imageFade absolute top-0 left-0 w-100 h-100"></div>
+        <div class="slide__imageFade absolute"></div>
         <div class="hp-slide1__cover absolute top-0 left-0 w-100 h-100"></div>
       </div>
       <div class="hp-slide1-content relative center mw8 w-90 cf dn mt5-ns mt4 relative z-2">
@@ -47,14 +47,14 @@
       .hp-slide1 .hp-slide1__cover {
         background: {{ entry.color }};
       }
-      .hp-slide1 .hp-slide1__imageFade:after {
+      .hp-slide1 .slide__imageFade {
         background: linear-gradient(to top, {{ entry.color }} 0%, {{ entry.color }} 10%, rgba(255,255,255,0) 100%);
       }
       .hp-slide1__overlay--mingle {
         background: linear-gradient(to top, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%)
       }
       @media (min-width: 768px) {
-        .hp-slide1 .hp-slide1__imageFade:after {
+        .hp-slide1 .slide__imageFade {
           background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 10%, rgba(255,255,255,0) 100%);
         }
         .hp-slide1__overlay--mingle {
@@ -64,6 +64,7 @@
       </style>
     </div>
     {% include 'partials/feat-case-studies.html' %}
+    {% include 'partials/services.html' %}
     {% include 'partials/work.html' %}
     {% include 'partials/studio.html' %}
   </div>
