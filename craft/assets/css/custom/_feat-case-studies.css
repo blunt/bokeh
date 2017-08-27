@@ -7,21 +7,13 @@
   filter: contrast(3);
 }
 
-.feat-case-study__slide__title, .studio__slide__title  {
-  transform: translate3d(0,0,0);
-  opacity: 0;
-  transition: transform 1s ease-out, opacity 1s ease-in !important;
-  transform: translateY(10%);
-  transition-delay: 1s;
-}
-
-.feat-case-study__slide__title a {
+.feat-case-study__slide .slide__title a {
   text-decoration: none;
   color: inherit;
   transition: var(--transition);
 }
 
-.feat-case-study__slide__title a:hover {
+.feat-case-study__slide .slide__title a:hover {
   border-color: #fff !important;
 }
 
@@ -83,14 +75,7 @@
   }
 }
 @media (max-width: 400px) {
-  .feat-case-study__slide__title {
+  .feat-case-study__slide .slide__title {
     font-size: 1.5rem;
-  }
-}
-
-.feat-case-study__slide.swiper-slide-active {
-  & .feat-case-study__slide__title, & .studio__slide__title  {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

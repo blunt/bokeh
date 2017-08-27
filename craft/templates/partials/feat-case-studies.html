@@ -11,7 +11,7 @@
         <img class="absolute" src="{{ siteUrl }}assets/img/shapes/slide-{{ loop.index }}.svg">
       </div>
       <div class="pv4 mt5-ns w-50-l w-80-ns">
-        <h2 class="f2 lh-title relative feat-case-study__slide__title mb4 z-1">
+        <h2 class="f2 lh-title relative slide__title mb4 z-1">
           {{ entry.headingParagraph }}
         </h2>
       </div>
@@ -38,10 +38,10 @@
         background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%);
       }
     }
-    .slide-{{ loop.index }} .feat-case-study__slide__title a {
+    .slide-{{ loop.index }} .slide__title a {
       color: {{ entry.color }};
     }
-    .slide-{{ loop.index }} .feat-case-study__slide__title a:hover {
+    .slide-{{ loop.index }} .slide__title a:hover {
       color: #000;
     }
     </style>

@@ -1,0 +1,40 @@
+.services-list {
+  pointer-events: none;
+  transform: scale(0);
+  transform-origin: bottom center;
+  opacity: 0;
+  transition: var(--transition-medium);
+
+  &--visible {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  & .list {
+    width: 33.333%;
+    float: left;
+    padding: 0 15px;
+  }
+  & h3 {
+    margin-left: -35px;
+    margin-bottom: 15px;
+  }
+  & li {
+    line-height: 1.5;
+  }
+}
+
+.services__shape {
+  bottom: 0;
+  width: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 1600px) {
+    bottom: -18%;
+  }
+}
