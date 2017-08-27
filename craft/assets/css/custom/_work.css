@@ -1,5 +1,11 @@
+.work-slide {
+  transform: translate3d(0,0,0);
+}
 .work__wrapper {
-  width: calc(90% + 2rem);
+  width: calc(90% + .5rem);
+  @media (min-width: 44em) {
+    width: calc(90% + 2rem);
+  }
 }
 
 .work-item {
