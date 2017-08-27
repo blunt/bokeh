@@ -30,3 +30,21 @@
     opacity: .7;
   }
 }
+
+.work__shape {
+  & img {
+    top: -530px;
+    right: -550px;
+    width: 900px;
+    max-width: inherit;
+    @media (min-width: 620px) {
+      top: -400px;
+      right: -500px;
+    }
+    @media (min-width: 1200px) {
+      top: -400px;
+      right: -500px;
+      width: 1200px;
+    }
+  }
+}
