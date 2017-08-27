@@ -20,4 +20,8 @@
       transform: scale(1.1);
     }
   }
+  &.disabled {
+    transform: scale(.97);
+    opacity: .7;
+  }
 }

@@ -19,26 +19,19 @@
     <h2 class="pa3-l pa2 f-subheadline-l f2 fw7 black mb4">All projects</h2>
     <div class="cf">
       <div class="w-third-ns w-50 ph3-l ph2 fl">
-        <button class="fw6 pa0 mb2 bg-transparent pointer bn input-reset underline dib f4-ns f5 link black mt2" href="#">Everything</button>
+        <button data-tag="everything" class="filter-button fw6 pa0 mb2 bg-transparent pointer bn input-reset underline dib f4-ns f5 link black mt2">Everything</button>
       </div>
-      <div class="w-third-ns w-50 ph3-l ph2 fl">
-        <button class="fw6 pa0 mb2 bg-transparent pointer bn input-reset underline hover-underline dib f4-ns f5 link black mt2" href="#">Content</button>
-      </div>
-      <div class="w-third-ns w-50 ph3-l ph2 fl">
-        <button class="fw6 pa0 mb2 bg-transparent pointer bn input-reset underline hover-underline dib f4-ns f5 link black mt2" href="#">Branding</button>
-      </div>
-      <div class="w-third-ns w-50 ph3-l ph2 fl">
-        <button class="fw6 pa0 mb2 bg-transparent pointer bn input-reset underline hover-underline dib f4-ns f5 link black mt2" href="#">Film</button>
-      </div>
-      <div class="w-third-ns w-50 ph3-l ph2 fl">
-        <button class="fw6 pa0 mb2 bg-transparent pointer bn input-reset underline hover-underline dib f4-ns f5 link black mt2" href="#">Animation</button>
-      </div>
+      {% for tag in craft.tags.group('default') %}
+        <div class="w-third-ns w-50 ph3-l ph2 fl">
+          <button data-tag="{{ tag.title }}" class="filter-button fw6 pa0 mb2 bg-transparent pointer bn input-reset underline hover-underline dib f4-ns f5 link black mt2 ttc">{{ tag.title }}</button>
+        </div>
+      {% endfor %}
     </div>
   </div>
 
   <div class="cf">
   	{% for entry in craft.entries.section('projects').find() %}
-      <article class="pa3-l pa2 fl w-third-ns w-50 work-item overflow-hidden">
+      <article class="{% for tag in entry.tags %}{{ tag.title }}{% endfor %} everything pa3-l pa2 fl w-third-ns w-50 work-item overflow-hidden">
         <div class="aspect-ratio aspect-ratio--16x9 overflow-hidden br3">
           <a class="db overflow-hidden link aspect-ratio--object cover flex items-center justify-center content-center" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
             <div class="absolute left-0 bottom-0 top-0 right-0" style="background: {{ entry.color }}; opacity: .6;"></div>
@@ -51,4 +44,5 @@
   	{% endfor %}
   </div>
 </div>
+<script src="{{ siteUrl }}assets/js/projects.js"></script>
 {% endblock %}
