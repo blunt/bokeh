@@ -38,3 +38,9 @@
     bottom: -18%;
   }
 }
+
+.slide-service-3 {
+  & .slide__overlay--mingle {
+    width: 40%;
+  }
+}
