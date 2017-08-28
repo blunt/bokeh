@@ -24,10 +24,12 @@ return array(
 	// Whether "index.php" should be visible in URLs (true, false, "auto")
 	'omitScriptNameInUrls' => 'true',
 
+	'addTrailingSlashesToUrls' => false,
+
 	// Control Panel trigger word
 	'cpTrigger' => 'admin',
 
 	// Dev Mode (see https://craftcms.com/support/dev-mode)
-	'devMode' => false,
+	'devMode' => false
 
 );
