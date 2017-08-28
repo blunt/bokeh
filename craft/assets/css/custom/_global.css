@@ -56,6 +56,12 @@ svg .icon {
   text-shadow: 0 0.03em 0.04em rgba(0,0,0,.15);
 }
 
+.swiper-slide {
+  @media (min-width: 992px) {
+    min-height: 100vh;
+  }
+}
+
 .slide__title  {
   transform: translate3d(0,0,0);
   opacity: 0;
