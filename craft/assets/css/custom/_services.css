@@ -140,6 +140,10 @@
 
 .slide-service-3 {
   & .slide__overlay--mingle {
-    width: 40%;
+      height: 40%;
+    @media (min-width: 993px) {
+      width: 40%;
+      height: 100%;
+    }
   }
 }
