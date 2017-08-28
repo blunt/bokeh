@@ -7,7 +7,7 @@
   transition: var(--transition-medium);
 
   @media (min-width: 700px) {
-    transform-origin: bottom center;
+    transform-origin: bottom right;
   }
 
   @media (min-width: 700px) and (max-width: 1000px) {
@@ -87,16 +87,17 @@
   }
   @media (min-width: 993px) {
     bottom: -38%;
+    width: 200%;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
   }
   @media (min-width: 1040px) {
-    bottom: 0;
+    bottom: -80%;
+    left: 60%;
+    width: 200%;
     min-width: 0;
-  }
-  @media (min-width: 1600px) {
-    bottom: -18%;
+    max-width: 1200px;
   }
 }
 
