@@ -1,6 +1,5 @@
 // Navigation
 const navButtonTrigger = document.getElementsByClassName('nav-button')[0],
-      nav = document.getElementById('nav'),
       navOverlay = document.getElementsByClassName('nav-overlay')[0],
       body = document.getElementsByTagName('body')[0];
 

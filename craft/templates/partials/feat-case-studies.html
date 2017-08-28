@@ -1,6 +1,6 @@
 {% set entries = entry.featuredCaseStudies %}
 {% for entry in entries %}
-  <div data-hash="{{ entry.title | lower | replace(' ', '-') }}" class="slide-{{ loop.index }} swiper-slide overflow-visible min-vh-100 bg-white pt6 feat-case-study__slide">
+  <div data-hash="{{ entry.title | lower | replace(' ', '-') }}" class="slide-{{ loop.index }} swiper-slide overflow-visible bg-white pt6 feat-case-study__slide">
     <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
       <div class="slide__image relative w-100 h-100"></div>
       <div class="slide__imageFade absolute"></div>

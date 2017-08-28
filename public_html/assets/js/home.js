@@ -74,13 +74,21 @@ function generateSwiper(viewport) {
     onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
 
-  let swiperMobileAttributes = null;
-  if (viewport === 'mobile') {
-    swiperMobileAttributes = JSON.parse(JSON.stringify(swiperDesktopAttributes));
-    swiperMobileAttributes.direction = 'vertical';
-    swiperMobileAttributes.onInit = (slider) => swiperOnInit(slider);
-    swiperMobileAttributes.onSlideChangeStart = (slider) => swiperOnSlideChangeStart(slider);
+  const swiperMobileAttributes = {
+    keyboardControl: true,
+    a11y: true,
+    mousewheelControl: true,
+    mousewheelSensitivity: 3,
+    direction: 'vertical',
+    hashnav: true,
+    speed: 1000,
+    loop: true,
+    loopAdditionalSlides: 2,
+    onInit: (slider) => swiperOnInit(slider),
+    onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
+  };
 
+  if (viewport === 'mobile') {
     swiperAttributes = swiperMobileAttributes;
   } else {
     swiperAttributes = swiperDesktopAttributes;
@@ -95,10 +103,6 @@ function modifySwiper() {
   if (screenSize === 'xlarge' || screenSize === 'large') {
     if ((swiper !== null && desktopFlag) ||
     (swiper === null && !desktopFlag)) {
-      const container = document.getElementsByTagName('html')[0];
-
-      container.classList.remove('mobile-swiper');
-
       if (swiper !== null) swiper.destroy(true, true);
 
       generateSwiper('desktop');
@@ -109,9 +113,6 @@ function modifySwiper() {
 
   if (screenSize !== 'xlarge' && screenSize !== 'large') {
     if (!desktopFlag) {
-      const container = document.getElementsByTagName('html')[0];
-
-      container.classList.add('mobile-swiper');
       if (swiper !== null) swiper.destroy(true, true);
 
       generateSwiper('mobile');
