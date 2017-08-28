@@ -9,6 +9,12 @@
 
 </IfModule>
 
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteCond %{REQUEST_URI} !^/admin(.*)?
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^/(.*)/$ /$1 [L,R=301]
+
 # AuthType Basic
 # AuthName "Password Protected Area"
 # AuthUserFile /public_html/.htpasswd

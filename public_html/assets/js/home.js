@@ -132,6 +132,24 @@ function nextSlide() {
   swiper.slideNext();
 }
 
+// Show service list
+const showServices = document.getElementsByClassName('services-list__link');
+
+Array.from(showServices).forEach((element) => {
+  element.addEventListener('click', showServiceDetails);
+});
+
+function showServiceDetails() {
+  const services = document.getElementsByClassName('services-list__content');
+  for (var i = 0; i < services.length; i++) {
+    if (services[i].classList.contains('visible')) {
+      services[i].classList.remove('visible');
+    } else {
+      services[i].classList.add('visible');
+    }
+  }
+}
+
 // Homepage video/poster on first slide
 (function() {
   modifySwiper();

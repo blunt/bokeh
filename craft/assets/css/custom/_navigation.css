@@ -26,6 +26,8 @@
   cursor: pointer;
   outline: none;
   opacity: 1;
+  margin-right: 1rem;
+  top: -0.5rem;
 }
 
 .nav-button.hide {
