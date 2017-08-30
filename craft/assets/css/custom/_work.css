@@ -29,6 +29,16 @@
     transform: scale(.97);
     opacity: .7;
   }
+  @media (max-height: 610px) {
+    &:nth-last-child(-n+2) {
+      display:none;
+    }
+  }
+  @media (min-width: 44em) {
+    &:last-child {
+      display:none;
+    }
+  }
 }
 
 .work__shape {

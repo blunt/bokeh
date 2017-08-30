@@ -23,7 +23,7 @@
         <h1 class="text-shadow pr7-ns pb4">{{ entry.headingParagraph | striptags }}</h1>
       </div>
       <div class="case-study__shape relative">
-        <img class="relative" src="../assets/img/shapes/case-study-banner.svg">
+        <img class="relative" src="{{ siteUrl }}assets/img/shapes/case-study-banner.svg">
       </div>
     </header>
     <div class="case-study-container mb5">
@@ -38,7 +38,7 @@
 
           <blockquote>
             <div class="blockquote__shape--top relative z-1">
-              <img class="relative" src="../assets/img/shapes/blockquote-top.svg">
+              <img class="relative" src="{{ siteUrl }}assets/img/shapes/blockquote-top.svg">
             </div>
             <div class="blockquote__content pt4">
               {% for asset in block.avatar %}
@@ -48,7 +48,7 @@
               <p>{{ block.personsName }}, {{ block.jobTitle }}</p>
             </div>
             <div class="blockquote__shape--bottom relative z-1">
-              <img class="relative" src="../assets/img/shapes/blockquote-bottom.svg">
+              <img class="relative" src="{{ siteUrl }}assets/img/shapes/blockquote-bottom.svg">
             </div>
           </blockquote>
 
@@ -218,7 +218,7 @@
   {% if prevEntry %}
     <div style="background:url({% for asset in prevEntry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat center center" class="cover next-case-study relative overflow-hidden">
       <div class="next-case-study__shape relative z-1">
-        <img class="relative" src="../assets/img/shapes/next-case-study.svg">
+        <img class="relative" src="{{ siteUrl }}assets/img/shapes/next-case-study.svg">
       </div>
       <div class="slide__overlay left-0 top-0 bottom-0 right-0 absolute next-case-study__overlay" style="background: {{ prevEntry.color }}"></div>
       <a href="{{ prevEntry.url }}" class="next-case-study__link db mw8 center-ns ph6-ns pl3 pr5 mr4 mr0-ns pv4 pv5-ns relative z-1 lh-title link white">
