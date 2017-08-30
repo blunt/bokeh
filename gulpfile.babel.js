@@ -5,8 +5,9 @@ import postcss from "gulp-postcss";
 import cssImport from "postcss-import";
 import cssnext from "postcss-cssnext";
 import cssnano from "cssnano";
+import minify from 'gulp-minify';
 
-gulp.task("build", ["css"]);
+gulp.task("build", ["css", "js"]);
 
 gulp.task("css", () => (
   gulp.src("craft/assets/css/*.css")
@@ -18,6 +19,19 @@ gulp.task("css", () => (
     .pipe(gulp.dest("./public_html/assets/css"))
 ));
 
-gulp.task("server", ["css"], () => {
+
+gulp.task('js', function() {
+ gulp.src("craft/assets/js/*.js")
+   .pipe(minify({
+       ext:{
+           min:'.min.js'
+       },
+       noSource: true,
+   }))
+   .pipe(gulp.dest("./public_html/assets/js"))
+});
+
+gulp.task("server", ["css", "js"], () => {
   gulp.watch("craft/assets/css/**/*.css", ["css"]);
+  gulp.watch("craft/assets/js/**/*.js", ["js"]);
 });
