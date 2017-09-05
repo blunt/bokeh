@@ -51,11 +51,9 @@ function generateSwiper(viewport) {
     const services = document.getElementsByClassName('services-list')[0];
 
     if (slider.activeIndex === 7) {
-      services.classList.add('services-list--visible');
-    } else if ((slider.activeIndex === 8 || slider.activeIndex === 9) && !services.classList.contains('services-list--visible')) {
-      services.classList.add('services-list--visible');
-    } else if ((slider.activeIndex < 7 || slider.activeIndex > 9) && services.classList.contains('services-list--visible')) {
-      services.classList.remove('services-list--visible');
+      loopServices(true);
+    } else {
+      loopServices(false);
     }
   }
 
@@ -65,9 +63,8 @@ function generateSwiper(viewport) {
     keyboardControl: true,
     a11y: true,
     mousewheelControl: true,
-    mousewheelSensitivity: 3,
     hashnav: true,
-    speed: 1000,
+    speed: 600,
     loop: true,
     loopAdditionalSlides: 2,
     onInit: (slider) => swiperOnInit(slider),
@@ -133,23 +130,6 @@ function nextSlide() {
   swiper.slideNext();
 }
 
-// Show service list
-const showServices = document.getElementsByClassName('services-list__link');
-
-Array.from(showServices).forEach((element) => {
-  element.addEventListener('click', showServiceDetails);
-});
-
-function showServiceDetails() {
-  const services = document.getElementsByClassName('services-list__content');
-  for (var i = 0; i < services.length; i++) {
-    if (services[i].classList.contains('visible')) {
-      services[i].classList.remove('visible');
-    } else {
-      services[i].classList.add('visible');
-    }
-  }
-}
 
 // Homepage video/poster on first slide
 (function() {
@@ -218,4 +198,36 @@ function getBreakpoints() {
   });
 
   return Object.keys(breakpoints).find((key) => { return breakpoints[key] === breakpointValue; });
+}
+
+
+//Slides Text Fade
+
+function loopServices(trigger) {
+  const servicesTitle = document.getElementsByClassName('services-title');
+
+  let serviceAnimation = null;
+  if (trigger) {
+    serviceAnimation = setInterval(() => {
+      for (let i = 0; i < servicesTitle.length; i += 1) {
+        const service = servicesTitle[i];
+
+        if (service.classList.contains('fadeIn')) {
+          // Animate current text block out
+          service.classList.add('fadeOut');
+          setTimeout(() => {
+            // Wait till that animation is done before doing the next part
+            const nextSlide = servicesTitle[i + 1] ? servicesTitle[i + 1] : servicesTitle[0];
+
+            // Animate next slide in
+            nextSlide.classList.add('fadeIn');
+            // Remove fadeIn from current slide as it's no longer necessary
+            service.classList.remove('fadeIn').remove('fadeOut');
+          }, 1500);
+        }
+      }
+    }, 4000);
+  } else {
+    clearInterval(serviceAnimation);
+  }
 }

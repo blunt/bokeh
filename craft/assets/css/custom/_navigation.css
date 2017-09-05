@@ -23,6 +23,7 @@
   position: relative;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
+  transition: var(--transition-default);
   cursor: pointer;
   outline: none;
   opacity: 1;
@@ -35,7 +36,6 @@
 }
 
 .nav-button:hover {
-  transition: .1s ease-in;
   transform: scale(1.1,1.1);
 }
 
@@ -161,29 +161,26 @@
 }
 
 .contact-button {
-  width: 80px;
-  height: 80px;
-  bottom: 20px;
+  width: 70px;
+  height: 70px;
+  bottom: 25px;
+  transition: var(--transition-default);
 }
 
 .contact-button a {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -42%);
-  transition: var(--transition);
 }
 
 .contact-button:hover {
-  & .mail svg {
-    transform: scale(1.1,1.1);
-  }
+  transform: scale(1.1,1.1);
 }
 
 .mail svg {
   fill: #fff;
   width: 30px;
   height: auto;
-  transition: .1s ease-in;
 }
 
 #nav-bg {

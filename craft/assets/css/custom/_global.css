@@ -18,14 +18,17 @@ hr {
 
 .swiper-button-prev,
 .swiper-button-next {
-  background: none !important;
   border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
   width: 45px;
   height: 45px;
   padding-top: 6px;
-  border: 2px solid rgba(0,0,0,.2);
   line-height: 1;
-  transition: var(--transition);
+  background: #fff;
+  transition: var(--transition-default);
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .swiper-button-prev {
@@ -36,11 +39,6 @@ hr {
 .swiper-button-next {
   right: 30px;
   text-indent: 3px;
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  border-color: #000;
 }
 
 svg .icon {
@@ -54,6 +52,10 @@ svg .icon {
 
 .text-shadow {
   text-shadow: 0 0.03em 0.04em rgba(0,0,0,.15);
+}
+
+.shadow {
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
 }
 
 .swiper-slide {

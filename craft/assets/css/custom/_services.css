@@ -1,9 +1,6 @@
 .services-list {
   width: 100%;
-  pointer-events: none;
-  transform: scale(0);
   transform-origin: bottom left;
-  opacity: 0;
   transition: var(--transition-medium);
 
   @media (min-width: 700px) {
@@ -146,4 +143,20 @@
       height: 100%;
     }
   }
+}
+
+.services-title {
+  opacity: 0;
+  transform: translateY(10%);
+  transition: var(--transition-medium);
+}
+
+.fadeOut {
+	transform: translateY(10%);
+  opacity: 0;
+}
+
+.fadeIn {
+	transform: translateY(0);
+  opacity: 1;
 }

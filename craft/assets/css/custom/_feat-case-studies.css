@@ -4,7 +4,6 @@
 
 .next-case-study__overlay {
   opacity: .6;
-  filter: contrast(3);
 }
 
 .feat-case-study__slide .slide__title a {
