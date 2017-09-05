@@ -1,4 +1,4 @@
-<div data-hash="" class="slide-studio swiper-slide overflow-visible bg-white pt6">
+<div data-hash="studio" class="slide-studio swiper-slide overflow-visible bg-white pt6">
   <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
     <div class="slide__imageFade absolute"></div>
   </div>
@@ -102,22 +102,21 @@
       </div>
     </div>
   </div>
-</div>
-
-<style>
-/* Add custom styles from CMS for each slide as we iterate through */
-.slide-studio .slide__imageFade {
-  /*background: linear-gradient(to top, #5533FF 0%, #5533FF 20%, rgba(255,255,255,0) 100%);*/
-}
-.slide-studio .slide__overlay--mingle:after {
-  background: linear-gradient(to top, rgba(255,255,255,0) 0%, #A2FECB 90%, #A2FECB 100%)
-}
-@media (min-width: 992px) {
+  <style>
+  /* Add custom styles from CMS for each slide as we iterate through */
   .slide-studio .slide__imageFade {
-    /*background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 1%, rgba(255,255,255,0) 100%);*/
+    /*background: linear-gradient(to top, #5533FF 0%, #5533FF 20%, rgba(255,255,255,0) 100%);*/
   }
-  .slide-studio .slide__overlay--mingle {
-    background: linear-gradient(to left, rgba(255,255,255,0) 0%, #A2FECB 90%, #A2FECB 100%);
+  .slide-studio .slide__overlay--mingle:after {
+    background: linear-gradient(to top, rgba(255,255,255,0) 0%, #A2FECB 90%, #A2FECB 100%)
   }
-}
-</style>
+  @media (min-width: 992px) {
+    .slide-studio .slide__imageFade {
+      /*background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 1%, rgba(255,255,255,0) 100%);*/
+    }
+    .slide-studio .slide__overlay--mingle {
+      background: linear-gradient(to left, rgba(255,255,255,0) 0%, #A2FECB 90%, #A2FECB 100%);
+    }
+  }
+  </style>
+</div>

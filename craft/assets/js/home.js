@@ -130,6 +130,24 @@ function nextSlide() {
   swiper.slideNext();
 }
 
+// Homepage navigation link triggers
+const links = document.querySelectorAll('.nav__links .link');
+
+Array.from(links).forEach((element) => {
+  element.addEventListener('click', () => {
+    navigateToSlide(element.getAttribute('data-slide'));
+  });
+});
+
+function navigateToSlide(slideIndex) {
+  const navOverlay = document.getElementsByClassName('nav-overlay')[0],
+        body = document.getElementsByTagName('body')[0];
+
+  body.classList.remove('open');
+  navOverlay.classList.remove('nav-open');
+
+  swiper.slideTo(Number(slideIndex) + 3, 0);
+}
 
 // Homepage video/poster on first slide
 (function() {
