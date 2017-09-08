@@ -1,5 +1,9 @@
 const navTrigger = document.getElementsByClassName('nav-button')[0];
 
+// Service variables setup
+let serviceAnimation = null;
+let triggered = false;
+
 // Homepage Swiper
 let swiper = null;
 
@@ -220,12 +224,9 @@ function getBreakpoints() {
 
 
 //Slides Text Fade
-
 function loopServices(trigger) {
   const servicesTitle = document.getElementsByClassName('services-title');
-
-  let serviceAnimation = null;
-  if (trigger) {
+  if (trigger && !triggered) {
     serviceAnimation = setInterval(() => {
       for (let i = 0; i < servicesTitle.length; i += 1) {
         const service = servicesTitle[i];
@@ -240,12 +241,17 @@ function loopServices(trigger) {
             // Animate next slide in
             nextSlide.classList.add('fadeIn');
             // Remove fadeIn from current slide as it's no longer necessary
-            service.classList.remove('fadeIn').remove('fadeOut');
+            service.classList.remove('fadeIn');
+            service.classList.remove('fadeOut');
           }, 1500);
         }
       }
     }, 4000);
+
+    triggered = true;
   } else {
     clearInterval(serviceAnimation);
+
+    triggered = false;
   }
 }
