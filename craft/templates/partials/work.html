@@ -6,7 +6,7 @@
         <h2 class="f1-l f2 fw7 black mb3">Latest<br class="db-ns dn"> projects</h2>
         <a class="link f4-ns f5 fw6 black underline dib button" href="{{ siteUrl }}projects">All projects</a>
       </div>
-      {% for entry in entries.limit(5) %}
+      {% for entry in entries.limit(6) %}
         <article class="pa3-l pa2 fl w-third-ns w-50 work-item overflow-hidden">
           <a class="h5-ns h4 br3 db overflow-hidden link cover flex items-center justify-center content-center relative" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
             <div class="absolute left-0 bottom-0 top-0 right-0" style="background: {{ entry.color }}; opacity: .6;"></div>

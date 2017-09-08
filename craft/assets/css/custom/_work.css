@@ -29,13 +29,17 @@
     transform: scale(.97);
     opacity: .7;
   }
+}
+
+/* Homepage specific styles */
+.work-slide .work-item {
   @media (max-height: 610px) {
     &:nth-last-child(-n+2) {
       display:none;
     }
   }
   @media (min-width: 44em) {
-    &:last-child {
+    &:nth-child(6) {
       display:none;
     }
   }

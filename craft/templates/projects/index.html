@@ -37,7 +37,7 @@
     </div>
 
     <div class="cf">
-    	{% for entry in craft.entries.section('projects').find() %}
+    	{% for entry in craft.entries.section('projects') %}
         <article class="{% for tag in entry.tags %}{{ tag.title }}{% endfor %} everything pa3-l pa2 fl w-third-ns w-50 work-item overflow-hidden">
           <div class="aspect-ratio aspect-ratio--16x9 overflow-hidden br3">
             <a class="db overflow-hidden link aspect-ratio--object cover flex items-center justify-center content-center" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
