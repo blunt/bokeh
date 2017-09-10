@@ -1,3 +1,5 @@
 /node_modules
 /dist
 /**/**/.DS_Store
+/craft/config/db.php
+/public_html/assets/img/*

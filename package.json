@@ -44,6 +44,7 @@
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0"
+    "babel-core": "^6.26.0",
+    "gulp-minify": "^1.0.0"
   }
 }

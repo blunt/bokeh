@@ -23,7 +23,7 @@
         <h1 class="text-shadow pr7-ns pb4">{{ entry.headingParagraph | striptags }}</h1>
       </div>
       <div class="case-study__shape relative">
-        <img class="relative" src="../assets/img/shapes/case-study-banner.svg">
+        <img class="relative" src="{{ siteUrl }}assets/img/shapes/case-study-banner.svg">
       </div>
     </header>
     <div class="case-study-container mb5">
@@ -36,20 +36,28 @@
 
         {% elseif block.type == "quote" %}
 
-          <blockquote>
+          {% if block.shapeBackground | length %}
+          <blockquote class="white">
+          {% else %}
+          <blockquote class="black bg-transparent no-shape pv4">
+          {% endif %}
+            {% if block.shapeBackground | length %}
             <div class="blockquote__shape--top relative z-1">
-              <img class="relative" src="../assets/img/shapes/blockquote-top.svg">
+              <img class="relative" src="{{ siteUrl }}assets/img/shapes/blockquote-top.svg">
             </div>
+            {% endif %}
             <div class="blockquote__content pt4">
               {% for asset in block.avatar %}
                 <div class="blockquote__avatar mb4 relative z-2 ml3" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
               {% endfor %}
-              <h2>{{ block.quote }}</h2>
-              <p>{{ block.personsName }}, {{ block.jobTitle }}</p>
+              <h2 class="lh-title">{{ block.quote }}</h2>
+              <p class="lh-title">{{ block.personsName }}{% if block.jobTitle %}, {{ block.jobTitle }}{% endif %}</p>
             </div>
+            {% if block.shapeBackground | length %}
             <div class="blockquote__shape--bottom relative z-1">
-              <img class="relative" src="../assets/img/shapes/blockquote-bottom.svg">
+              <img class="relative" src="{{ siteUrl }}assets/img/shapes/blockquote-bottom.svg">
             </div>
+            {% endif %}
           </blockquote>
 
         {% elseif block.type == "video" %}
@@ -218,19 +226,19 @@
   {% if prevEntry %}
     <div style="background:url({% for asset in prevEntry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat center center" class="cover next-case-study relative overflow-hidden">
       <div class="next-case-study__shape relative z-1">
-        <img class="relative" src="../assets/img/shapes/next-case-study.svg">
+        <img class="relative" src="{{ siteUrl }}assets/img/shapes/next-case-study.svg">
       </div>
       <div class="slide__overlay left-0 top-0 bottom-0 right-0 absolute next-case-study__overlay" style="background: {{ prevEntry.color }}"></div>
       <a href="{{ prevEntry.url }}" class="next-case-study__link db mw8 center-ns ph6-ns pl3 pr5 mr4 mr0-ns pv4 pv5-ns relative z-1 lh-title link white">
         <h2 class="text-shadow f1-l f2-m f3 mv4">{{ prevEntry.headingParagraph | striptags }}</h2>
-        <span class="next-case-study__icon bg-black absolute">
+        <span class="next-case-study__icon bg-white shadow absolute">
           {% include 'partials/icons/chevronRight.html' %}
         </span>
       </a>
     </div>
   {% endif %}
 
-  <script src="{{ siteUrl }}assets/js/article.js"></script>
+  <script src="{{ siteUrl }}assets/js/article.min.js"></script>
 
   <style>
     .case-study-overlay {
@@ -247,9 +255,18 @@
       color: {{ entry.color }};
     }
 
-    blockquote {
+    .case-study-container blockquote h2 {
+      color: #fff;
+    }
+
+    .case-study-container blockquote.black h2 {
+      color: #000;
+    }
+
+    blockquote:not(.bg-transparent) {
       background: {{ entry.color }};
     }
+
   </style>
 
 {% endblock %}
