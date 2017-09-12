@@ -2,10 +2,12 @@ const navTrigger = document.getElementsByClassName('nav-button')[0];
 
 // Service variables setup
 let serviceAnimation = null;
-let triggered = false;
+let triggeredServices = false;
 
 // Homepage Swiper
 let swiper = null;
+let homeAnimation = null;
+let triggeredHomeAnimation = false;
 
 let desktopFlag = false;
 
@@ -15,6 +17,7 @@ function generateSwiper(viewport) {
     const logo = document.getElementsByClassName('logo-svg')[0];
     const hpContent = document.getElementsByClassName('hp-slide1-content');
     const slideOneText = document.getElementsByClassName('hp-slide1__text');
+    const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
 
     if (slider.activeIndex === 3) {
       logo.classList.add('ready-to-animate');
@@ -37,10 +40,13 @@ function generateSwiper(viewport) {
 
           slider.params.allowSwipeToPrev = true;
           slider.params.allowSwipeToNext = true;
+
+          loopAnimation(true, triggeredHomeAnimation, homeAnimation, homepageWords);
         }, 1600);
       }, 2500);
     } else {
       navTrigger.style.opacity = 1;
+      loopAnimation(false, triggeredHomeAnimation, homeAnimation, homepageWords);
     }
 
     logo.style.display = 'block';
@@ -53,11 +59,12 @@ function generateSwiper(viewport) {
   function swiperOnSlideChangeStart(slider) {
     // Animate services list in
     const services = document.getElementsByClassName('services-list')[0];
+    const servicesTitle = document.getElementsByClassName('services-title');
 
     if (slider.activeIndex === 7) {
-      loopServices(true);
+      loopAnimation(true, triggeredServices, serviceAnimation, servicesTitle);
     } else {
-      loopServices(false);
+      loopAnimation(false, triggeredServices, serviceAnimation, servicesTitle);
     }
   }
 
@@ -223,35 +230,34 @@ function getBreakpoints() {
 }
 
 
-//Slides Text Fade
-function loopServices(trigger) {
-  const servicesTitle = document.getElementsByClassName('services-title');
-  if (trigger && !triggered) {
-    serviceAnimation = setInterval(() => {
-      for (let i = 0; i < servicesTitle.length; i += 1) {
-        const service = servicesTitle[i];
+// Global function for animated text loop
+function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
+  if (shouldRun && !intervalTrigger) {
+    interval = setInterval(() => {
+      for (let i = 0; i < elems.length; i += 1) {
+        const item = elems[i];
 
-        if (service.classList.contains('fadeIn')) {
+        if (item.classList.contains('fadeIn')) {
           // Animate current text block out
-          service.classList.add('fadeOut');
+          item.classList.add('fadeOut');
           setTimeout(() => {
             // Wait till that animation is done before doing the next part
-            const nextSlide = servicesTitle[i + 1] ? servicesTitle[i + 1] : servicesTitle[0];
+            const nextSlide = elems[i + 1] ? elems[i + 1] : elems[0];
 
             // Animate next slide in
             nextSlide.classList.add('fadeIn');
             // Remove fadeIn from current slide as it's no longer necessary
-            service.classList.remove('fadeIn');
-            service.classList.remove('fadeOut');
+            item.classList.remove('fadeIn');
+            item.classList.remove('fadeOut');
           }, 1500);
         }
       }
     }, 4000);
 
-    triggered = true;
+    intervalTrigger = true;
   } else {
-    clearInterval(serviceAnimation);
+    clearInterval(interval);
 
-    triggered = false;
+    intervalTrigger = false;
   }
 }
