@@ -1,11 +1,56 @@
 .main-nav {
-  transform: scale(0,0) skewY(-30deg);
+  transform: scale(.3,.3) translateY(-40%);
   transition: 1s all cubic-bezier(0.19, 1, 0.22, 1);
   transform-origin: left top;
 }
 
 .open .main-nav {
-  transform: scale(1,1) skewY(0deg);
+  transform: scale(1,1) translateY(0%);
+}
+
+.nav__links li {
+  opacity: 0;
+  transform: translateY(40%);
+  transition: var(--transition-slow);
+}
+
+.open .nav__links li:first-child {
+  transition-delay: 1.2s;
+}
+
+.open .nav__links li:nth-child(2) {
+  transition-delay: 1s;
+}
+
+.open .nav__links li:nth-child(3) {
+  transition-delay: .8s;
+}
+
+.open .nav__links li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-wrapper {
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: var(--transition-slow);
+}
+
+.open .contact-wrapper {
+  transition-delay: .6s;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contact-heading {
+  transform: translateX(-20%);
+  transition: var(--transition-slow);
+}
+
+.open .contact-heading {
+  transition-delay: .6s;
+  transform: translateX(0);
 }
 
 .nav-content {
@@ -186,8 +231,7 @@
 #nav-bg {
   width: 1698px;
   left: 50%;
-  -webkit-transform: translateX(-53%);
-  transform: translateX(-50%) translateY(-17%);
+  transform: translateX(-53%) translateY(-22%);
 }
 
 .home .logo-svg {
