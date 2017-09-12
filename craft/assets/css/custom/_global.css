@@ -126,3 +126,13 @@ svg .icon {
     opacity: .6;
   }
 }
+
+.fadeOut {
+	transform: translateY(10%) !important;
+  opacity: 0 !important;
+}
+
+.fadeIn {
+	transform: translateY(0) !important;
+  opacity: 1 !important;
+}

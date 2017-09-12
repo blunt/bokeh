@@ -121,3 +121,20 @@ html {
     }
   }
 }
+
+.wordList {
+  position: relative;
+  & span:not(:first-child) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 1.3;
+  }
+
+  & span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10%);
+    transition: var(--transition-medium);
+  }
+}
