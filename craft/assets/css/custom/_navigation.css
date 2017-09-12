@@ -10,8 +10,14 @@
 
 .nav__links li {
   opacity: 0;
-  transform: translateY(40%);
+  transform: translateY(10%);
   transition: var(--transition-slow);
+}
+
+@media (min-width: 44em) {
+  .nav__links li {
+    transform: translateY(40%);
+  }
 }
 
 .open .nav__links li:first-child {
@@ -27,6 +33,35 @@
 }
 
 .open .nav__links li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-info-mobile {
+  transform: translateY(40%);
+  transition: var(--transition-slow);
+}
+
+.open .contact-info-mobile {
+  transform: translateY(0);
+  transition-delay: .4s;
+}
+
+.contact-info-mobile a {
+  opacity: 0;
+  transform: translateY(10%);
+  transition: var(--transition-slow);
+}
+
+.open .contact-info-mobile a:first-child {
+  transition-delay: .6s;
+}
+
+.open .contact-info-mobile a:nth-child(3) {
+  transition-delay: .4s;
+}
+
+.open .contact-info-mobile a {
   opacity: 1;
   transform: translateY(0);
 }
