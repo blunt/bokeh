@@ -67,9 +67,14 @@
   }
 
   & blockquote {
+    &.no-shape {
+      padding: 1.5rem 0 0;
+      margin-bottom: 1.5rem;
+    }
     & .blockquote__content {
       max-width: 56rem;
       margin: 0 auto;
+      padding-top: 2rem;
     }
     & img {
       width: 102%;
@@ -91,6 +96,7 @@
     }
     & p {
       font-size: 1.25rem;
+      margin-bottom: 0;
     }
 
     & .blockquote__avatar {
@@ -115,13 +121,20 @@
     &.no-shape .blockquote__avatar {
       margin-top: 0;
     }
+
+    &.no-shape .blockquote__content {
+      padding-top: 0;
+    }
   }
 
   @media (min-width: 44em) {
     & blockquote {
+      &.no-shape {
+        padding-top: 4rem;
+        margin-bottom: 4rem;
+      }
       & h2 {
         font-size: 2.25rem;
-        margin-bottom: 2rem;
       }
     }
   }
@@ -130,9 +143,11 @@
     & blockquote {
       & h2 {
         font-size: 2.75rem;
+        margin-bottom: 0;
       }
       & p {
         font-size: 1.5rem;
+        margin-top: 2rem;
       }
     }
   }
@@ -171,21 +186,35 @@
     margin: 1.5rem auto;
   }
 
+  & blockquote:not(.no-shape) {
+    margin: 0 auto 2rem;
+  }
+
   @media (min-width: 44em) {
     & .full, & .contained, & .video-wrapper {
-      margin: 2.5rem auto;
+      margin: 4rem auto;
     }
 
     & blockquote:not(.no-shape) {
-      margin: -2.5rem auto;
+      margin: -2.5rem auto 3rem;
     }
+  }
+
+  & .swiper-wrapper .video-wrapper {
+    margin-top: 0;
   }
 
   & .caption {
     font-size: .875rem;
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 4rem;
     margin-top: -1rem;
+  }
+
+  @media (min-width: 44em) {
+    & .caption {
+      margin-top: -2rem;
+    }
   }
 
   & .image-grid {
@@ -208,7 +237,7 @@
   }
   @media (min-width: 44em) {
     & .image-grid {
-      margin: 2.5rem -0.5rem;
+      margin: 4rem -0.5rem;
       & .image {
         padding: 0 0.5rem;
       }
