@@ -17,17 +17,17 @@
 
 {% block content %}
   <article class="case-study">
-    <header class="cover pt6 relative overflow-hidden" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat center center">
+    <header class="cover pt6 relative overflow-hidden" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat center center fixed">
       <div class="case-study-overlay absolute left-0 top-0 right-0 bottom-0"></div>
       <div class="mw8 w-90 mh3 mh0-ns center f-subheadline-l f1-ns f2 white lh-title relative">
-        <h1 class="text-shadow pr7-ns pb5 mt5">{{ entry.headingParagraph | striptags }}</h1>
+        <h1 class="text-shadow pr7-ns pb5 mb3 mt5">{{ entry.headingParagraph | striptags }}</h1>
       </div>
       <div class="case-study__shape relative">
         <img class="relative" src="{{ siteUrl }}assets/img/shapes/case-study-banner.svg">
       </div>
     </header>
-    <div class="case-study-container mb5">
-      <div class="bg-white intro-blurb pt5-ns pt4 pb4 relative">{{ entry.introParagraph }}</div>
+    <div class="case-study-container mb5-l mb3">
+      <div class="intro-blurb pt5-ns pt4 pb4 relative">{{ entry.introParagraph }}</div>
       {% for block in entry.projectBlocks %}
 
         {% if block.type == "text" %}
@@ -118,7 +118,7 @@
 
           <div class="image-grid three-up">
             {% for asset in block.firstImage %}
-              <div class="image" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+              <div class="image cover" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
             {% endfor %}
             <div class="image">
               {% for asset in block.secondImage %}
@@ -141,7 +141,7 @@
               {% endfor %}
             </div>
             {% for asset in block.secondImage %}
-              <div class="image" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+              <div class="image cover" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
             {% endfor %}
             <div class="image">
               {% for asset in block.thirdImage %}
@@ -149,7 +149,7 @@
               {% endfor %}
             </div>
             {% for asset in block.fourthImage %}
-              <div class="image" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+              <div class="image cover" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
             {% endfor %}
             <div class="image">
               {% for asset in block.fifthImage %}
@@ -281,6 +281,10 @@
 
     .case-study-container blockquote.black h2 {
       color: #000;
+    }
+
+    .case-study-container li:before {
+      color: {{ entry.color }};
     }
 
     blockquote:not(.bg-transparent) {

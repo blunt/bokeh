@@ -20,14 +20,18 @@ hr {
 .swiper-button-next {
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0,0,0,.1);
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
+  margin-top: -15px;
   padding-top: 6px;
   line-height: 1;
   background: #fff;
   transition: var(--transition-default);
   &:hover {
     transform: scale(1.1) translateY(-50%);
+  }
+  & svg {
+    width: 100%;
   }
 }
 
@@ -38,7 +42,22 @@ hr {
 
 .swiper-button-next {
   right: 30px;
-  text-indent: 3px;
+}
+
+@media (min-width: 44em) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    margin-top: 0;
+    width: 45px;
+    height: 45px;
+  }
+  .swiper-button-prev {
+    left: 15px;
+  }
+
+  .swiper-button-next {
+    right: 15px;
+  }
 }
 
 svg .icon {
@@ -96,19 +115,18 @@ svg .icon {
 
 .slide__overlay {
   opacity: 1;
-  transition: opacity 1.5s ease-out;
 }
 
 .slide__overlay--mingle {
   width: 100%;
   top: 100%;
-  height: 60%;
+  height: 40%;
   transform: translate3d(0,0,0);
   @media (min-width: 992px) {
     left: 100%;
     top: 0;
     height: 100%;
-    width: 60%;
+    width: 40%;
   }
 }
 
@@ -120,9 +138,6 @@ svg .icon {
   & .slide__title  {
     opacity: 1;
     transform: translateY(0);
-  }
-  & .slide__overlay {
-    opacity: .6;
   }
 }
 
