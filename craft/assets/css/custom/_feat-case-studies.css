@@ -16,6 +16,10 @@
   border-color: #fff !important;
 }
 
+.feat-case-study__content {
+  transform: translate3d(0,0,0);
+}
+
 .slide-2 .feat-case-study__content {
   position: absolute;
   left: 50%;

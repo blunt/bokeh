@@ -76,6 +76,7 @@ svg .icon {
 .shadow {
   box-shadow: 0 4px 6px rgba(0,0,0,.1);
 }
+
 .home .swiper-slide {
   @media (min-width: 992px) {
     min-height: 100vh;
@@ -84,16 +85,20 @@ svg .icon {
 
 .slide__title  {
   transform: translate3d(0,0,0);
-  opacity: 0;
-  transition: transform 1s ease-out, opacity 1s ease-in !important;
-  transform: translateY(10%);
-  transition-delay: 1s;
+  transition: transform .6s ease-out;
+  transition-delay: .6s;
+  transform: translateX(5%);
+}
+
+.feat-case-study__slide__shape {
+  transition: transform .65s ease-out;
+  transition-delay: .6s;
+  transform: translateX(5%);
 }
 
 .slide__image {
-  opacity: 0;
-  transform: scale(1.25) translateX(10%);
-  transition: transform 4s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s ease-in;
+  transform: scale(1);
+  transition: transform 20s ease-in-out;
 }
 
 .slide__imageFade {
@@ -132,12 +137,14 @@ svg .icon {
 
 .swiper-slide.swiper-slide-active {
   & .slide__image {
-    opacity: 1;
-    transform: scale(1.25) translateX(0);
+    transform: scale(1.25);
   }
   & .slide__title  {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
+  }
+  & .feat-case-study__slide__shape {
+    transform: translateX(0);
   }
 }
 

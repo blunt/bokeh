@@ -75,7 +75,7 @@ function generateSwiper(viewport) {
     a11y: true,
     mousewheelControl: true,
     hashnav: true,
-    speed: 600,
+    speed: 1000,
     loop: true,
     loopAdditionalSlides: 2,
     onInit: (slider) => swiperOnInit(slider),
