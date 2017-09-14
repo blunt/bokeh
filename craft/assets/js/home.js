@@ -1,15 +1,15 @@
 const navTrigger = document.getElementsByClassName('nav-button')[0];
 
 // Service variables setup
-let serviceAnimation = null;
-let triggeredServices = false;
+var serviceAnimation = null;
+var triggeredServices = false;
 
 // Homepage Swiper
-let swiper = null;
-let homeAnimation = null;
-let triggeredHomeAnimation = false;
+var swiper = null;
+var homeAnimation = null;
+var triggeredHomeAnimation = false;
 
-let desktopFlag = false;
+var desktopFlag = false;
 
 function generateSwiper(viewport) {
   function swiperOnInit(slider) {
@@ -19,7 +19,7 @@ function generateSwiper(viewport) {
     const slideOneText = document.getElementsByClassName('hp-slide1__text');
     const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
 
-    if (slider.activeIndex === 3) {
+    if (slider.activeIndex === 3 || slider.activeIndex === 0) {
       logo.classList.add('ready-to-animate');
 
       for (var i = 0; i < slideOneText.length; i++) {
@@ -34,24 +34,24 @@ function generateSwiper(viewport) {
         navTrigger.style.opacity = 1;
 
         setTimeout(() => {
-          for (let i = 0; i < slideOneText.length; i += 1) {
+          for (var i = 0; i < slideOneText.length; i += 1) {
             slideOneText[i].classList.remove('ready-to-animate');
           }
 
           slider.params.allowSwipeToPrev = true;
           slider.params.allowSwipeToNext = true;
 
-          loopAnimation(true, triggeredHomeAnimation, homeAnimation, homepageWords);
+          loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
         }, 1600);
       }, 2500);
     } else {
       navTrigger.style.opacity = 1;
-      loopAnimation(false, triggeredHomeAnimation, homeAnimation, homepageWords);
+      loopAnimation(false, triggeredHomeAnimation, 'home', homepageWords);
     }
 
     logo.style.display = 'block';
 
-    for (let o = 0; o < hpContent.length; o += 1) {
+    for (var o = 0; o < hpContent.length; o += 1) {
       hpContent[o].classList.remove('dn');
     }
   }
@@ -62,13 +62,13 @@ function generateSwiper(viewport) {
     const servicesTitle = document.getElementsByClassName('services-title');
 
     if (slider.activeIndex === 7) {
-      loopAnimation(true, triggeredServices, serviceAnimation, servicesTitle);
+      loopAnimation(true, triggeredServices, 'service', servicesTitle);
     } else {
-      loopAnimation(false, triggeredServices, serviceAnimation, servicesTitle);
+      loopAnimation(false, triggeredServices, 'service', servicesTitle);
     }
   }
 
-  let swiperAttributes = {};
+  var swiperAttributes = {};
 
   const swiperDesktopAttributes = {
     keyboardControl: true,
@@ -160,6 +160,24 @@ function navigateToSlide(slideIndex) {
   swiper.slideTo(Number(slideIndex) + 3, 0);
 }
 
+// Show service list
+const showServices = document.getElementsByClassName('services-list__link');
+
+Array.from(showServices).forEach((element) => {
+  element.addEventListener('click', showServiceDetails);
+});
+
+function showServiceDetails() {
+  const services = document.getElementsByClassName('services-list__content');
+  for (var i = 0; i < services.length; i++) {
+    if (services[i].classList.contains('visible')) {
+      services[i].classList.remove('visible');
+    } else {
+      services[i].classList.add('visible');
+    }
+  }
+}
+
 // Homepage video/poster on first slide
 (function() {
   modifySwiper();
@@ -233,30 +251,57 @@ function getBreakpoints() {
 // Global function for animated text loop
 function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
   if (shouldRun && !intervalTrigger) {
-    interval = setInterval(() => {
-      for (let i = 0; i < elems.length; i += 1) {
+    // console.log('ran');
+    if (interval === 'home') {
+      // TODO:
+      // This isn't clearing properly
+      homeAnimation = setInterval(() => {
+        animation();
+      }, 4000);
+    } else {
+      serviceAnimation = setInterval(() => {
+        animation();
+      }, 4000);
+    }
+
+    function animation() {
+      // console.log('interval');
+
+      const activeItem = [];
+      for (var i = 0; i < elems.length; i += 1) {
         const item = elems[i];
 
         if (item.classList.contains('fadeIn')) {
+          // console.log(item);
           // Animate current text block out
           item.classList.add('fadeOut');
-          setTimeout(() => {
-            // Wait till that animation is done before doing the next part
-            const nextSlide = elems[i + 1] ? elems[i + 1] : elems[0];
 
-            // Animate next slide in
-            nextSlide.classList.add('fadeIn');
-            // Remove fadeIn from current slide as it's no longer necessary
-            item.classList.remove('fadeIn');
-            item.classList.remove('fadeOut');
-          }, 1500);
+          activeItem.push(item);
+          activeItem.push(elems[i + 1] ? elems[i + 1] : elems[0])
         }
       }
-    }, 4000);
+
+      setTimeout(() => {
+        // console.log('timeout');
+        for (var i = 0; i < activeItem.length; i += 2) {
+          // Wait till that animation is done before doing the next part
+          const nextSlide = activeItem[i + 1];
+
+          // Animate next slide in
+          nextSlide.classList.add('fadeIn');
+          // Remove fadeIn from current slide as it's no longer necessary
+          activeItem[i].classList.remove('fadeIn', 'fadeOut');
+        }
+      }, 1500);
+    }
 
     intervalTrigger = true;
   } else {
-    clearInterval(interval);
+    if (interval === 'home') {
+      clearInterval(homeAnimation);
+    } else {
+      clearInterval(serviceAnimation);
+    }
 
     intervalTrigger = false;
   }
