@@ -205,19 +205,6 @@
   transition: var(--transition-slow);
 }
 
-.logo-svg.ready-to-animate {
-  transform: translate(23vw, 36vh) scale(1.5);
-  @media (min-width: 680px) {
-    transform: translate(36vw, 42vh) scale(3);
-  }
-  @media (min-width: 1100px) {
-    transform: translate(39vw, 42vh) scale(4);
-  }
-  @media (min-width: 1440px) {
-    transform: translate(540px, 40vh) scale(4);
-  }
-}
-
 .logo-svg .cls-2 {
   fill: var(--near-black);
 }
@@ -267,14 +254,6 @@
   width: 1698px;
   left: 50%;
   transform: translateX(-53%) translateY(-22%);
-}
-
-.home .logo-svg {
-  display: none;
-}
-
-.home .nav-button {
-  opacity: 0;
 }
 
 .nav__links a {
