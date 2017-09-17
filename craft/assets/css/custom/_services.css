@@ -67,13 +67,6 @@
         display: none;
       }
     }
-
-    &.desktop {
-      display: none;
-      @media (min-width: 1040px) {
-        display: block;
-      }
-    }
   }
 
   @media (min-width: 700px) {
@@ -83,18 +76,11 @@
     right: -40%;
   }
   @media (min-width: 993px) {
-    bottom: -20%;
+    bottom: -5%;
     width: 200%;
-    left: 40%;
+    left: 50%;
     right: auto;
     transform: translateX(-50%);
-  }
-  @media (min-width: 1040px) {
-    bottom: -317px;
-    left: 65%;
-    width: 200%;
-    min-width: 0;
-    max-width: 1200px;
   }
 }
 
