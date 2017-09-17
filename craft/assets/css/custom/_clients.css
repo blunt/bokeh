@@ -16,7 +16,7 @@
   top: -2%;
   bottom: -2%;
   width: 200%;
-  transition: 160s all cubic-bezier(0.19, 1, 0.22, 1);
+  transition: 300s all cubic-bezier(0.19, 1, 0.22, 1);
   transform: translateX(0);
   transition-delay: .5s;
 }

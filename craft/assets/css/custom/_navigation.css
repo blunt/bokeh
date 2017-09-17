@@ -1,11 +1,11 @@
 .main-nav {
-  transform: scale(.3,.3) translateY(-40%);
+  transform: translate(40%, -100%);
   transition: 1s all cubic-bezier(0.19, 1, 0.22, 1);
   transform-origin: left top;
 }
 
 .open .main-nav {
-  transform: scale(1,1) translateY(0%);
+  transform: translate(0, 0);
 }
 
 .nav__links li {
@@ -160,7 +160,7 @@
 }
 
 .open .nav-button span {
-  background: linear-gradient(270deg, #935b63, #df3f28);
+  background: linear-gradient(270deg, #F62944, #FEAE5A);
   background-size: 400% 400%;
 
   animation: animateGradient 30s ease infinite;
@@ -253,7 +253,9 @@
 #nav-bg {
   width: 1698px;
   left: 50%;
+  top: -350px;
   transform: translateX(-53%) translateY(-22%);
+  pointer-events: none;
 }
 
 .nav__links a {
