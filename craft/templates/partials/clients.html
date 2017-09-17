@@ -1,4 +1,7 @@
 <div data-hash="clients" class="swiper-slide clients-slide overflow-visible bg-white">
+  <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden z-1">
+    <div class="slide__imageFade absolute"></div>
+  </div>
   <div class="logos absolute left-0 right-0 pa3 relative">
     <div class="flex flex-wrap flex-column h-100">
       {% set entries = entry.clients %}
@@ -9,7 +12,7 @@
                 <img class="db mw4 w-60 center" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
               {% endfor %}
             </li>
-          {% if loop.index == 3 or loop.index == 7 or loop.index == 10 %}
+          {% if loop.index == 6 or loop.index == 15 or loop.index == 21 %}
             </ul>
             <ul class="flex w-100 items-center flex-grow">
           {% endif %}
