@@ -54,14 +54,14 @@
   -ms-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.swiper-container-android .swiper-slide,
+/*.swiper-container-android .swiper-slide,
 .swiper-wrapper {
   -webkit-transform: translate3d(0px, 0, 0);
   -moz-transform: translate3d(0px, 0, 0);
   -o-transform: translate(0px, 0px);
   -ms-transform: translate3d(0px, 0, 0);
   transform: translate3d(0px, 0, 0);
-}
+}*/
 .swiper-container-multirow > .swiper-wrapper {
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;

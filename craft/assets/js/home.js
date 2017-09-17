@@ -15,20 +15,16 @@ function generateSwiper(viewport) {
   function swiperOnInit(slider) {
     // Animate slide 1 word list
     const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
-    console.log(homeAnimation);
     if (!homeAnimation) loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
-  }
-
-  function swiperOnSlideChangeStart(slider) {
     // Animate services copy list
     const services = document.getElementsByClassName('services-list')[0];
     const servicesTitle = document.getElementsByClassName('services-title');
+    if (!serviceAnimation) loopAnimation(true, triggeredServices, 'service', servicesTitle);
 
-    if (slider.activeIndex === 5) {
-      if (!serviceAnimation) loopAnimation(true, triggeredServices, 'service', servicesTitle);
-    } else {
-      loopAnimation(false, triggeredServices, 'service', servicesTitle);
-    }
+    nextSlideLinks();
+  }
+
+  function swiperOnSlideChangeStart(slider) {
   }
 
   var swiperAttributes = {};
@@ -40,8 +36,7 @@ function generateSwiper(viewport) {
     hashnav: true,
     speed: 1000,
     loop: true,
-    onInit: (slider) => swiperOnInit(slider),
-    onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
+    onInit: (slider) => swiperOnInit(slider)
   };
 
   const swiperMobileAttributes = {
@@ -53,8 +48,7 @@ function generateSwiper(viewport) {
     hashnav: true,
     speed: 1000,
     loop: true,
-    onInit: (slider) => swiperOnInit(slider),
-    onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
+    onInit: (slider) => swiperOnInit(slider)
   };
 
   if (viewport === 'mobile') {
@@ -92,15 +86,20 @@ function modifySwiper() {
 }
 
 // Next slide
-const nextSlideButton = document.getElementsByClassName('next-slide');
+function nextSlideLinks() {
+  const nextSlideButton = document.querySelectorAll('.next-slide');
 
-Array.from(nextSlideButton).forEach((element) => {
-  element.addEventListener('click', nextSlide);
-});
+  Array.from(nextSlideButton).forEach((element) => {
+    element.addEventListener('click', () => {
+      nextSlide();
+    });
+  });
 
-function nextSlide() {
-  swiper.slideNext();
+  function nextSlide() {
+    swiper.slideNext();
+  }
 }
+
 
 // Homepage navigation link triggers
 const links = document.querySelectorAll('.nav__links .link');
@@ -140,16 +139,6 @@ function showServiceDetails() {
 }
 
 // Homepage video/poster on first slide
-(function() {
-  modifySwiper();
-  generateContent();
-})();
-
-window.addEventListener('resize', () => {
-  modifySwiper();
-  generateContent();
-});
-
 function generateContent() {
   const screenSize = getBreakpoints();
 
@@ -262,60 +251,110 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
 }
 
 
+// Shape flags
+var slide1DesktopFlag = false;
+var caseStudyDesktopFlag = false;
+var servicesDesktopFlag = false;
+
 // Shapes
-(function() {
+function generateShapes() {
+  const screenSize = getBreakpoints();
+
+  if (!slide1DesktopFlag) {
+    const duplicateSlide = document.querySelectorAll('.hp-slide1.swiper-slide-duplicate .hp-slide1__shape svg')[0];
+
+    if (!duplicateSlide) {
+      const slide1 = document.getElementsByClassName('hp-slide1__shape');
+
+      var slide1_b = new Two({
+        type: Two.Types['svg'],
+        width: 1000
+      }).appendTo(slide1[1]);
+
+      shapeAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2);
+    }
+  }
+
   // First slide
-  const slide1 = document.getElementsByClassName('hp-slide1__shape');
+  if ((screenSize === 'xlarge' || screenSize === 'large') && !slide1DesktopFlag) {
+    const slide1 = document.getElementsByClassName('hp-slide1__shape');
 
-  var slide1_a = new Two({
-    type: Two.Types['svg'],
-    width: 1000
-  }).appendTo(slide1[0]);
+    var slide1_a = new Two({
+      type: Two.Types['svg'],
+      width: 1000
+    }).appendTo(slide1[0]);
 
-  var slide1_b = new Two({
-    type: Two.Types['svg'],
-    width: 1000
-  }).appendTo(slide1[1]);
+    shapeAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2);
 
+    slide1DesktopFlag = true;
+  } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && slide1DesktopFlag) {
+    const slide1_shapes = document.querySelectorAll('.hp-slide1:not(.swiper-slide-duplicate) .hp-slide1__shape svg')[0];
 
-  shapeAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2);
-  shapeAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2);
+    if (slide1_shapes) slide1_shapes.parentNode.removeChild(slide1_shapes);
+
+    slide1DesktopFlag = false;
+  }
 
   // Featured Case Studies
-  const case1 = document.querySelectorAll('.feat-case-study__slide.slide-1 .feat-case-study__slide__shape')[0];
   const case2 = document.querySelectorAll('.feat-case-study__slide.slide-2 .feat-case-study__slide__shape')[0];
-  const case3 = document.querySelectorAll('.feat-case-study__slide.slide-3 .feat-case-study__slide__shape')[0];
+  const case2Shape = document.querySelectorAll('.feat-case-study__slide.slide-2 .feat-case-study__slide__shape svg')[0];
 
-  var case1_shape = new Two({
-    type: Two.Types['svg'],
-    width: 1125
-  }).appendTo(case1);
+  if ((screenSize === 'xlarge' || screenSize === 'large') && !case2Shape) {
+    var case2_shape = new Two({
+      type: Two.Types['svg'],
+      width: 1000,
+      height: 550
+    }).appendTo(case2);
 
-  var case2_shape = new Two({
-    type: Two.Types['svg'],
-    width: 1000,
-    height: 550
-  }).appendTo(case2);
+    shapeAnimation(case2_shape, '#fff', case2_shape.width / 2.25, case2_shape.height / 2);
+  } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && case2Shape) {
+    case2Shape.parentNode.removeChild(case2Shape);
+  }
 
-  var case3_shape = new Two({
-    type: Two.Types['svg'],
-    width: 1000
-  }).appendTo(case3);
+  if (!caseStudyDesktopFlag) {
+    const case1 = document.querySelectorAll('.feat-case-study__slide.slide-1 .feat-case-study__slide__shape')[0];
+    const case3 = document.querySelectorAll('.feat-case-study__slide.slide-3 .feat-case-study__slide__shape')[0];
 
-  shapeAnimation(case1_shape, '#fff', case1_shape.width / 3.3, case1_shape.height / 2.25);
-  shapeAnimation(case2_shape, '#fff', case2_shape.width / 2.25, case2_shape.height / 2);
-  shapeAnimation(case3_shape, '#fff', case3_shape.width / 2.1, case3_shape.height / 2.15);
+    var case1_shape = new Two({
+      type: Two.Types['svg'],
+      width: 1125
+    }).appendTo(case1);
+
+    var case3_shape = new Two({
+      type: Two.Types['svg'],
+      width: 1000
+    }).appendTo(case3);
+
+    shapeAnimation(case1_shape, '#fff', case1_shape.width / 3.3, case1_shape.height / 2.25);
+    shapeAnimation(case3_shape, '#fff', case3_shape.width / 2.1, case3_shape.height / 2.15);
+
+    caseStudyDesktopFlag = true;
+  }
 
   // Services
-  const services = document.querySelectorAll('.services-list .services__shape')[0];
+  if((screenSize === 'xlarge' || screenSize === 'large' || screenSize === 'medium') && !servicesDesktopFlag) {
+    const services = document.querySelectorAll('.services-list .services__shape')[0];
 
-  var services_shape = new Two({
-    type: Two.Types['svg'],
-    width: 1400
-  }).appendTo(services);
+    var services_shape = new Two({
+      type: Two.Types['svg'],
+      width: 1400
+    }).appendTo(services);
 
-  shapeAnimation(services_shape, '#000', services_shape.width / 2.5, services_shape.height / 2);
-})();
+    shapeAnimation(services_shape, '#000', services_shape.width / 2.5, services_shape.height / 2);
+
+    servicesDesktopFlag = true;
+  } else if ((screenSize !== 'xlarge' && screenSize !== 'large' && screenSize !== 'medium') && servicesDesktopFlag) {
+    const services_shapes = document.querySelectorAll('.services__shape svg:not(.mobile)');
+
+    if (services_shapes) {
+      for (var i = 0; i < services_shapes.length; i++) {
+        services_shapes[i].parentNode.removeChild(services_shapes[i]);
+      }
+    }
+
+    servicesDesktopFlag = false;
+  }
+}
 
 function shapeAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY) {
   shape.renderer.domElement.style.overflow = "visible";
@@ -383,3 +422,16 @@ function shapeAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY) {
       foreground.translation.copy(background.translation);
     }
 }
+
+// Setup page and resize functions
+(function() {
+  modifySwiper();
+  generateContent();
+  generateShapes();
+})();
+
+window.addEventListener('resize', () => {
+  modifySwiper();
+  generateContent();
+  generateShapes();
+});

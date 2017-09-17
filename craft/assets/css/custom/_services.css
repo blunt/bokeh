@@ -63,16 +63,13 @@
 
     &.mobile {
       display: block;
-      @media (min-width: 1040px) {
+      @media (min-width: 768px) {
         display: none;
       }
     }
   }
 
-  @media (min-width: 700px) {
-    bottom: -70%;
-  }
-  @media (min-width: 750px) {
+  @media (min-width: 768px) {
     right: -40%;
   }
   @media (min-width: 993px) {
@@ -90,7 +87,7 @@
   border-radius: 50%;
   padding: 12px 17px;
 
-  @media (min-width: 700px) {
+  @media (min-width: 768px) {
     display: none;
   }
 }
@@ -110,7 +107,7 @@
     opacity: 1;
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 768px) {
     opacity: 1;
   }
 }
