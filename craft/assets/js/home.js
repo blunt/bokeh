@@ -13,9 +13,47 @@ var desktopFlag = false;
 
 function generateSwiper(viewport) {
   function swiperOnInit(slider) {
-    // Animate slide 1 word list
-    const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
-    if (!homeAnimation) loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
+    const logo = document.getElementsByClassName('logo-svg')[0];
+    const hpContent = document.getElementsByClassName('hp-slide1-content');
+    const slideOneText = document.getElementsByClassName('hp-slide1__text');
+
+    if (slider.activeIndex === 1) {
+      logo.classList.add('ready-to-animate');
+
+      for (var i = 0; i < slideOneText.length; i++) {
+        slideOneText[i].classList.add('ready-to-animate');
+      }
+
+      slider.params.allowSwipeToPrev = false;
+      slider.params.allowSwipeToNext = false;
+
+      setTimeout(() => {
+        logo.classList.remove('ready-to-animate');
+        navTrigger.style.opacity = 1;
+
+        setTimeout(() => {
+          for (var i = 0; i < slideOneText.length; i += 1) {
+            slideOneText[i].classList.remove('ready-to-animate');
+          }
+
+          slider.params.allowSwipeToPrev = true;
+          slider.params.allowSwipeToNext = true;
+
+          // Animate slide 1 word list
+          const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
+          if (!homeAnimation) loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
+        }, 1600);
+      }, 2500);
+    } else {
+      navTrigger.style.opacity = 1;
+    }
+
+    logo.style.display = 'block';
+
+    for (var o = 0; o < hpContent.length; o += 1) {
+      hpContent[o].classList.remove('dn');
+    }
+
     // Animate services copy list
     const services = document.getElementsByClassName('services-list')[0];
     const servicesTitle = document.getElementsByClassName('services-title');
@@ -271,7 +309,7 @@ function generateShapes() {
         width: 1000
       }).appendTo(slide1[1]);
 
-      shapeAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2);
+      shapeAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2, 8);
     }
   }
 
@@ -284,7 +322,7 @@ function generateShapes() {
       width: 1000
     }).appendTo(slide1[0]);
 
-    shapeAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2);
+    shapeAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2, 8);
 
     slide1DesktopFlag = true;
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && slide1DesktopFlag) {
@@ -306,7 +344,7 @@ function generateShapes() {
       height: 550
     }).appendTo(case2);
 
-    shapeAnimation(case2_shape, '#fff', case2_shape.width / 2.25, case2_shape.height / 2);
+    shapeAnimation(case2_shape, '#fff', case2_shape.width / 2.5, case2_shape.height / 3, 9);
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && case2Shape) {
     case2Shape.parentNode.removeChild(case2Shape);
   }
@@ -325,8 +363,8 @@ function generateShapes() {
       width: 1000
     }).appendTo(case3);
 
-    shapeAnimation(case1_shape, '#fff', case1_shape.width / 3.3, case1_shape.height / 2.25);
-    shapeAnimation(case3_shape, '#fff', case3_shape.width / 2.1, case3_shape.height / 2.15);
+    shapeAnimation(case1_shape, '#fff', case1_shape.width / 3.3, case1_shape.height / 2.25, 11);
+    shapeAnimation(case3_shape, '#fff', case3_shape.width / 2.3, case3_shape.height / 2.5, 11);
 
     caseStudyDesktopFlag = true;
   }
@@ -340,7 +378,7 @@ function generateShapes() {
       width: 1400
     }).appendTo(services);
 
-    shapeAnimation(services_shape, '#000', services_shape.width / 2.5, services_shape.height / 2);
+    shapeAnimation(services_shape, '#000', services_shape.width / 4, services_shape.height / 2, 9);
 
     servicesDesktopFlag = true;
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large' && screenSize !== 'medium') && servicesDesktopFlag) {
@@ -356,7 +394,7 @@ function generateShapes() {
   }
 }
 
-function shapeAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY) {
+function shapeAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePoints) {
   shape.renderer.domElement.style.overflow = "visible";
 
   var mass = 100;
@@ -372,9 +410,9 @@ function shapeAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY) {
   var points = [];
   var i = 0;
 
-  for (i = 0; i < 11; i++) {
+  for (i = 0; i < shapePoints; i++) {
 
-    var pct = i / 11;
+    var pct = i / shapePoints;
     var theta = pct * Math.PI * 2;
 
     var ax = radiusX * Math.cos(theta);

@@ -143,7 +143,8 @@ svg .icon {
   }
 }
 
-.swiper-slide.swiper-slide-active {
+.swiper-slide.swiper-slide-active,
+.swiper-slide.swiper-slide-prev {
   & .slide__image {
     transform: scale(1.25);
   }

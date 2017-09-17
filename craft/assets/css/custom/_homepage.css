@@ -27,6 +27,9 @@ button.next-slide {
   @media (min-width: 600px) {
     bottom: -940px;
   }
+  @media (min-width: 992px) {
+    bottom: -650px;
+  }
 }
 
 .hp-slide1__imageFade {

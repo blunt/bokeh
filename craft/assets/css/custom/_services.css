@@ -73,9 +73,9 @@
     right: -40%;
   }
   @media (min-width: 993px) {
-    bottom: -20%;
+    bottom: -79%;
     width: 200%;
-    left: -400px;
+    left: -470px;
     right: auto;
   }
 }
