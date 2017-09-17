@@ -31,8 +31,8 @@
 }
 
 .slide-1 .feat-case-study__slide__shape {
-  & img {
-    width: 1126px;
+  & svg {
+    position: absolute;
     max-width: inherit;
     left: -360px;
     top: -430px;
@@ -40,40 +40,34 @@
       top: -320px;
     }
     @media (min-width: 44em) {
-      top: -370px;
+      top: -75%;
     }
     @media (min-width: 760px) {
-      left: -340px;
+      left: -300px;
     }
   }
 }
 
 .slide-2 .feat-case-study__slide__shape {
-  & img {
-    width: 900px;
+  & svg {
+    position: absolute;
     max-width: inherit;
     left: -110px;
-    top: -50px;
+    top: -100px;
     @media (min-width: 1040px) {
       left: -200px;
-    }
-    @media (min-width: 1300px) {
-      width: 900px;
     }
   }
 }
 
 .slide-3 .feat-case-study__slide__shape {
-  & img {
-    width: 1000px;
+  & svg {
+    position: absolute;
     max-width: inherit;
-    left: -200px;
+    left: -230px;
     top: -125%;
     @media (min-width: 401px) {
-      top: -60%;
-    }
-    @media (min-width: 570px) {
-      top: -91%;
+      top: -56%;
     }
   }
 }

@@ -19,7 +19,7 @@ function generateSwiper(viewport) {
     const slideOneText = document.getElementsByClassName('hp-slide1__text');
     const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
 
-    if (slider.activeIndex === 3 || slider.activeIndex === 0) {
+    if (slider.activeIndex === 1) {
       logo.classList.add('ready-to-animate');
 
       for (var i = 0; i < slideOneText.length; i++) {
@@ -61,7 +61,7 @@ function generateSwiper(viewport) {
     const services = document.getElementsByClassName('services-list')[0];
     const servicesTitle = document.getElementsByClassName('services-title');
 
-    if (slider.activeIndex === 7) {
+    if (slider.activeIndex === 5) {
       loopAnimation(true, triggeredServices, 'service', servicesTitle);
     } else {
       loopAnimation(false, triggeredServices, 'service', servicesTitle);
@@ -77,7 +77,6 @@ function generateSwiper(viewport) {
     hashnav: true,
     speed: 1000,
     loop: true,
-    loopAdditionalSlides: 2,
     onInit: (slider) => swiperOnInit(slider),
     onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
@@ -91,7 +90,6 @@ function generateSwiper(viewport) {
     hashnav: true,
     speed: 1000,
     loop: true,
-    loopAdditionalSlides: 2,
     onInit: (slider) => swiperOnInit(slider),
     onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
@@ -157,7 +155,8 @@ function navigateToSlide(slideIndex) {
   body.classList.remove('open');
   navOverlay.classList.remove('nav-open');
 
-  swiper.slideTo(Number(slideIndex) + 3, 0);
+  // swiper.slideTo(Number(slideIndex) + 3, 0);
+  swiper.slideTo(Number(slideIndex), 0);
 }
 
 // Show service list
@@ -305,4 +304,128 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
 
     intervalTrigger = false;
   }
+}
+
+
+// Shapes
+(function() {
+  // First slide
+  const slide1 = document.getElementsByClassName('hp-slide1__shape');
+
+  var slide1_a = new Two({
+    type: Two.Types['svg'],
+    width: 1000
+  }).appendTo(slide1[0]);
+
+  var slide1_b = new Two({
+    type: Two.Types['svg'],
+    width: 1000
+  }).appendTo(slide1[1]);
+
+
+  shapeAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2);
+  // slide1_a.height / 2
+  shapeAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2);
+
+  // Featured Case Studies
+  const case1 = document.querySelectorAll('.feat-case-study__slide.slide-1 .feat-case-study__slide__shape')[0];
+  const case2 = document.querySelectorAll('.feat-case-study__slide.slide-2 .feat-case-study__slide__shape')[0];
+  const case3 = document.querySelectorAll('.feat-case-study__slide.slide-3 .feat-case-study__slide__shape')[0];
+
+  var case1_shape = new Two({
+    type: Two.Types['svg'],
+    width: 1125
+  }).appendTo(case1);
+
+  var case2_shape = new Two({
+    type: Two.Types['svg'],
+    width: 1000,
+    height: 550
+  }).appendTo(case2);
+
+  var case3_shape = new Two({
+    type: Two.Types['svg'],
+    width: 1000
+  }).appendTo(case3);
+
+  shapeAnimation(case1_shape, '#fff', case1_shape.width / 3.3, case1_shape.height / 2.25);
+  shapeAnimation(case2_shape, '#fff', case2_shape.width / 2.25, case2_shape.height / 2);
+  shapeAnimation(case3_shape, '#fff', case3_shape.width / 2.1, case3_shape.height / 2.15);
+
+  // Services
+  const services = document.querySelectorAll('.services-list .services__shape')[0];
+
+  var services_shape = new Two({
+    type: Two.Types['svg'],
+    width: 1400
+  }).appendTo(services);
+
+  shapeAnimation(services_shape, '#000', services_shape.width / 2.5, services_shape.height / 2);
+})();
+
+function shapeAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY) {
+  shape.renderer.domElement.style.overflow = "visible";
+
+  var mass = 100;
+  var radiusX = shapeRadiusX;
+  var radiusY = shapeRadiusY;
+  var strength = 0.0003;
+  var drag = 0.0;
+
+  var background = shape.makeGroup();
+  var foreground = shape.makeGroup();
+
+  var physics = new Physics();
+  var points = [];
+  var i = 0;
+
+  for (i = 0; i < 11; i++) {
+
+    var pct = i / 11;
+    var theta = pct * Math.PI * 2;
+
+    var ax = radiusX * Math.cos(theta);
+    var ay = radiusY * Math.sin(theta);
+
+    var varianceX = Math.random() * 0.3 + 0.7;
+    var varianceY = Math.random() * 0.5 + 0.5;
+    var bx = varianceX * ax;
+    var by = varianceY * ay;
+
+    var origin = physics.makeParticle(mass, ax, ay)
+    var particle = physics.makeParticle(Math.random() * mass * 0.66 + mass * 0.33, bx, by);
+    var spring = physics.makeSpring(particle, origin, strength, drag, 0);
+
+    origin.makeFixed();
+
+    particle.shape = shape.makeCircle(particle.position.x, particle.position.y, 1);
+    particle.shape.noStroke().fill = shapeColor;
+    particle.position = particle.shape.translation;
+
+    foreground.add(particle.shape)
+    points.push(particle.position);
+
+  }
+
+  var outer = new Two.Path(points, true, true);
+  var color = shapeColor;
+  outer.fill = color;
+  outer.scale = 1.15;
+  outer.linewidth = 0;
+
+  background.add(outer);
+
+  resize();
+
+  shape
+    .bind('resize', resize)
+    .bind('update', function() {
+      physics.update();
+    })
+    .play();
+
+    function resize() {
+      background.translation.set(shape.width / 2, shape.height / 2);
+      foreground.translation.copy(background.translation);
+    }
 }
