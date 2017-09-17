@@ -291,7 +291,6 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
 
 
   shapeAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2);
-  // slide1_a.height / 2
   shapeAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2);
 
   // Featured Case Studies
@@ -336,7 +335,7 @@ function shapeAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY) {
   var mass = 100;
   var radiusX = shapeRadiusX;
   var radiusY = shapeRadiusY;
-  var strength = 0.0003;
+  var strength = 0.003;
   var drag = 0.0;
 
   var background = shape.makeGroup();
