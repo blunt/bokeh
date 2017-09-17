@@ -13,51 +13,18 @@ var desktopFlag = false;
 
 function generateSwiper(viewport) {
   function swiperOnInit(slider) {
-    // First slide animation logic
-    const logo = document.getElementsByClassName('logo-svg')[0];
-    const hpContent = document.getElementsByClassName('hp-slide1-content');
-    const slideOneText = document.getElementsByClassName('hp-slide1__text');
+    // Animate slide 1 word list
     const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
 
     if (slider.activeIndex === 1) {
-      logo.classList.add('ready-to-animate');
-
-      for (var i = 0; i < slideOneText.length; i++) {
-        slideOneText[i].classList.add('ready-to-animate');
-      }
-
-      slider.params.allowSwipeToPrev = false;
-      slider.params.allowSwipeToNext = false;
-
-      setTimeout(() => {
-        logo.classList.remove('ready-to-animate');
-        navTrigger.style.opacity = 1;
-
-        setTimeout(() => {
-          for (var i = 0; i < slideOneText.length; i += 1) {
-            slideOneText[i].classList.remove('ready-to-animate');
-          }
-
-          slider.params.allowSwipeToPrev = true;
-          slider.params.allowSwipeToNext = true;
-
-          loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
-        }, 1600);
-      }, 2500);
+      loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
     } else {
-      navTrigger.style.opacity = 1;
       loopAnimation(false, triggeredHomeAnimation, 'home', homepageWords);
-    }
-
-    logo.style.display = 'block';
-
-    for (var o = 0; o < hpContent.length; o += 1) {
-      hpContent[o].classList.remove('dn');
     }
   }
 
   function swiperOnSlideChangeStart(slider) {
-    // Animate services list in
+    // Animate services copy list
     const services = document.getElementsByClassName('services-list')[0];
     const servicesTitle = document.getElementsByClassName('services-title');
 
