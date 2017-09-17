@@ -15,12 +15,8 @@ function generateSwiper(viewport) {
   function swiperOnInit(slider) {
     // Animate slide 1 word list
     const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
-
-    if (slider.activeIndex === 1) {
-      loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
-    } else {
-      loopAnimation(false, triggeredHomeAnimation, 'home', homepageWords);
-    }
+    console.log(homeAnimation);
+    if (!homeAnimation) loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
   }
 
   function swiperOnSlideChangeStart(slider) {
@@ -29,7 +25,7 @@ function generateSwiper(viewport) {
     const servicesTitle = document.getElementsByClassName('services-title');
 
     if (slider.activeIndex === 5) {
-      loopAnimation(true, triggeredServices, 'service', servicesTitle);
+      if (!serviceAnimation) loopAnimation(true, triggeredServices, 'service', servicesTitle);
     } else {
       loopAnimation(false, triggeredServices, 'service', servicesTitle);
     }
@@ -122,7 +118,6 @@ function navigateToSlide(slideIndex) {
   body.classList.remove('open');
   navOverlay.classList.remove('nav-open');
 
-  // swiper.slideTo(Number(slideIndex) + 3, 0);
   swiper.slideTo(Number(slideIndex), 0);
 }
 
@@ -217,10 +212,7 @@ function getBreakpoints() {
 // Global function for animated text loop
 function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
   if (shouldRun && !intervalTrigger) {
-    // console.log('ran');
     if (interval === 'home') {
-      // TODO:
-      // This isn't clearing properly
       homeAnimation = setInterval(() => {
         animation();
       }, 4000);
@@ -231,14 +223,11 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
     }
 
     function animation() {
-      // console.log('interval');
-
       const activeItem = [];
       for (var i = 0; i < elems.length; i += 1) {
         const item = elems[i];
 
         if (item.classList.contains('fadeIn')) {
-          // console.log(item);
           // Animate current text block out
           item.classList.add('fadeOut');
 
@@ -248,7 +237,6 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
       }
 
       setTimeout(() => {
-        // console.log('timeout');
         for (var i = 0; i < activeItem.length; i += 2) {
           // Wait till that animation is done before doing the next part
           const nextSlide = activeItem[i + 1];
