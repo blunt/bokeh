@@ -53,10 +53,10 @@
 }
 
 .services__shape {
-  bottom: -120%;
+  bottom: -100px;
   width: 150%;
   min-width: 1240px;
-  right: -65%;
+  left: -600px;
   & svg {
     width: 100%;
     height: auto;
@@ -70,6 +70,7 @@
   }
 
   @media (min-width: 768px) {
+    left: auto;
     right: -14%;
     bottom: -90%;
     & svg {
