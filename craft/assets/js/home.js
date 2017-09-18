@@ -16,25 +16,40 @@ function generateSwiper(viewport) {
     const logo = document.getElementsByClassName('logo-svg')[0];
     const hpContent = document.getElementsByClassName('hp-slide1-content');
     const slideOneText = document.getElementsByClassName('hp-slide1__text');
+    const slideOneOverlay = document.getElementsByClassName('hp-slide1__overlay');
 
     if (slider.activeIndex === 1) {
       logo.classList.add('ready-to-animate');
-
+      logo.classList.add('strokeless');
+      
       for (var i = 0; i < slideOneText.length; i++) {
         slideOneText[i].classList.add('ready-to-animate');
+      }
+
+      for (var i = 0; i < slideOneOverlay.length; i++) {
+        slideOneOverlay[i].classList.add('ready-to-animate');
       }
 
       slider.params.allowSwipeToPrev = false;
       slider.params.allowSwipeToNext = false;
 
       setTimeout(() => {
+        logo.classList.add('visible');
+      }, 500);
+
+      setTimeout(() => {
         logo.classList.remove('ready-to-animate');
+        for (var i = 0; i < slideOneOverlay.length; i += 1) {
+          slideOneOverlay[i].classList.remove('ready-to-animate');
+        }
         navTrigger.style.opacity = 1;
 
         setTimeout(() => {
           for (var i = 0; i < slideOneText.length; i += 1) {
             slideOneText[i].classList.remove('ready-to-animate');
           }
+
+          logo.classList.remove('strokeless');
 
           slider.params.allowSwipeToPrev = true;
           slider.params.allowSwipeToNext = true;

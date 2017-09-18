@@ -206,21 +206,67 @@
 }
 
 .logo-svg.ready-to-animate {
-  transform: translate(23vw, 36vh) scale(1.5);
+  transform: translate(26vw, 36vh) scale(1.5);
+  opacity: 0;
   @media (min-width: 680px) {
-    transform: translate(36vw, 42vh) scale(3);
+    transform: translate(39vw, 42vh) scale(3);
   }
   @media (min-width: 1100px) {
-    transform: translate(39vw, 42vh) scale(4);
+    transform: translate(41vw, 42vh) scale(4);
   }
   @media (min-width: 1440px) {
-    transform: translate(540px, 40vh) scale(4);
+    transform: translate(600px, 40vh) scale(4);
+  }
+  & .cls-2-animate {
+    transition: var(--transition-default);
+    fill: url(#MyGradient);
+    opacity: 1;
+  }
+}
+
+.logo-svg.visible {
+  opacity: 1;
+}
+
+.hp-slide1__overlay {
+  opacity: 0;
+  transition: var(--transition);
+  &.ready-to-animate {
+    transition: none;
+    opacity: 1;
   }
 }
 
 
 .logo-svg .cls-2 {
   fill: var(--near-black);
+  transition: var(--transition);
+  transform-origin: left top;
+}
+
+.logo-svg.strokeless {
+  & .cls-3 {
+     stroke: transparent;
+  }
+}
+
+.logo-svg .cls-3 {
+  stroke: black;
+  stroke-width: 3.5px;
+  stroke-location: outside;
+  transition: stroke .1s ease-in;
+}
+
+.logo-svg:hover .cls-2 {
+  transform: skewX(13deg) skewY(2deg) perspective(100px) rotate(-1deg);
+}
+
+.logo-svg.ready-to-animate:hover {
+  transform: scale(1);
+}
+
+.logo-svg.ready-to-animate:hover .cls-2 {
+  transform: skewX(0) skewY(0) perspective(0) rotate(0);
 }
 
 .logo-svg .cls-2-animate {
@@ -231,6 +277,14 @@
 
 .open .logo-svg .cls-2-animate {
   opacity: 1;
+}
+
+.open .logo-svg:hover .cls-2-animate {
+  transform: skewX(13deg) skewY(2deg) perspective(100px) rotate(-1deg);
+}
+
+.open .logo-svg .cls-3 {
+  stroke: #fff;
 }
 
 .contact-wrapper {
