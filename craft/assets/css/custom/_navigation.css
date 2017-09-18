@@ -261,10 +261,6 @@
   transform: skewX(13deg) skewY(2deg) perspective(100px) rotate(-1deg);
 }
 
-.logo-svg.ready-to-animate:hover {
-  transform: scale(1);
-}
-
 .logo-svg.ready-to-animate:hover .cls-2 {
   transform: skewX(0) skewY(0) perspective(0) rotate(0);
 }
