@@ -10,7 +10,7 @@
   @media (min-width: 700px) and (max-width: 1000px) {
     width: 90%;
   }
-  @media (min-width: 1000px) and (max-width: 1100px) {
+  @media (min-width: 993px) and (max-width: 1100px) {
     width: 55%;
   }
   @media (min-width: 1100px) {
@@ -33,7 +33,7 @@
       padding-left: 0;
       padding-right: 15px;
     }
-    @media (min-width: 995px) {
+    @media (min-width: 993px) {
       padding-right: 35px;
     }
   }
@@ -43,7 +43,7 @@
     @media (min-width: 700px) {
       margin-left: -15px;
     }
-    @media (min-width: 995px) {
+    @media (min-width: 993px) {
       margin-left: -25px;
     }
   }
@@ -53,24 +53,28 @@
 }
 
 .services__shape {
-  bottom: -140%;
+  bottom: -120%;
   width: 150%;
   min-width: 1240px;
-  right: -60%;
+  right: -65%;
   & svg {
     width: 100%;
     height: auto;
 
     &.mobile {
       display: block;
-      @media (min-width: 768px) {
+      @media (min-width: 769px) {
         display: none;
       }
     }
   }
 
   @media (min-width: 768px) {
-    right: -40%;
+    right: -14%;
+    bottom: -90%;
+    & svg {
+      transform: scaleX(1.3) scaleY(0.7);
+    }
   }
   @media (min-width: 993px) {
     bottom: -79%;
@@ -86,6 +90,10 @@
   left: 1rem;
   border-radius: 50%;
   padding: 12px 17px;
+
+  @media (min-width: 700px) and (max-width: 1000px) {
+    left: -56px;
+  }
 
   @media (min-width: 768px) {
     display: none;
