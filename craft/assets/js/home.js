@@ -21,7 +21,7 @@ function generateSwiper(viewport) {
     if (slider.activeIndex === 1) {
       logo.classList.add('ready-to-animate');
       logo.classList.add('strokeless');
-      
+
       for (var i = 0; i < slideOneText.length; i++) {
         slideOneText[i].classList.add('ready-to-animate');
       }
@@ -256,15 +256,15 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
   if (shouldRun && !intervalTrigger) {
     if (interval === 'home') {
       homeAnimation = setInterval(() => {
-        animation();
+        slideAnimation();
       }, 4000);
     } else {
       serviceAnimation = setInterval(() => {
-        animation();
+        slideAnimation();
       }, 4000);
     }
 
-    function animation() {
+    function slideAnimation() {
       const activeItem = [];
       for (var i = 0; i < elems.length; i += 1) {
         const item = elems[i];
@@ -324,7 +324,7 @@ function generateShapes() {
         width: 1000
       }).appendTo(slide1[1]);
 
-      shapeAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2, 8);
+      physicsAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2, 8);
     }
   }
 
@@ -337,7 +337,7 @@ function generateShapes() {
       width: 1000
     }).appendTo(slide1[0]);
 
-    shapeAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2, 8);
+    physicsAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2, 8);
 
     slide1DesktopFlag = true;
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && slide1DesktopFlag) {
@@ -359,7 +359,7 @@ function generateShapes() {
       height: 550
     }).appendTo(case2);
 
-    shapeAnimation(case2_shape, '#fff', case2_shape.width / 2.5, case2_shape.height / 3, 9);
+    physicsAnimation(case2_shape, '#fff', case2_shape.width / 2.5, case2_shape.height / 3, 9);
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && case2Shape) {
     case2Shape.parentNode.removeChild(case2Shape);
   }
@@ -378,8 +378,8 @@ function generateShapes() {
       width: 1000
     }).appendTo(case3);
 
-    shapeAnimation(case1_shape, '#fff', case1_shape.width / 3.3, case1_shape.height / 2.25, 11);
-    shapeAnimation(case3_shape, '#fff', case3_shape.width / 2.3, case3_shape.height / 2.5, 11);
+    physicsAnimation(case1_shape, '#fff', case1_shape.width / 3.3, case1_shape.height / 2.25, 11);
+    physicsAnimation(case3_shape, '#fff', case3_shape.width / 2.3, case3_shape.height / 2.5, 11);
 
     caseStudyDesktopFlag = true;
   }
@@ -393,7 +393,7 @@ function generateShapes() {
       width: 1400
     }).appendTo(services);
 
-    shapeAnimation(services_shape, '#000', services_shape.width / 4, services_shape.height / 2, 9);
+    physicsAnimation(services_shape, '#000', services_shape.width / 4, services_shape.height / 2, 9);
 
     servicesDesktopFlag = true;
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large' && screenSize !== 'medium') && servicesDesktopFlag) {
@@ -407,73 +407,6 @@ function generateShapes() {
 
     servicesDesktopFlag = false;
   }
-}
-
-function shapeAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePoints) {
-  shape.renderer.domElement.style.overflow = "visible";
-
-  var mass = 100;
-  var radiusX = shapeRadiusX;
-  var radiusY = shapeRadiusY;
-  var strength = 0.003;
-  var drag = 0.0;
-
-  var background = shape.makeGroup();
-  var foreground = shape.makeGroup();
-
-  var physics = new Physics();
-  var points = [];
-  var i = 0;
-
-  for (i = 0; i < shapePoints; i++) {
-
-    var pct = i / shapePoints;
-    var theta = pct * Math.PI * 2;
-
-    var ax = radiusX * Math.cos(theta);
-    var ay = radiusY * Math.sin(theta);
-
-    var varianceX = Math.random() * 0.3 + 0.7;
-    var varianceY = Math.random() * 0.5 + 0.5;
-    var bx = varianceX * ax;
-    var by = varianceY * ay;
-
-    var origin = physics.makeParticle(mass, ax, ay)
-    var particle = physics.makeParticle(Math.random() * mass * 0.66 + mass * 0.33, bx, by);
-    var spring = physics.makeSpring(particle, origin, strength, drag, 0);
-
-    origin.makeFixed();
-
-    particle.shape = shape.makeCircle(particle.position.x, particle.position.y, 1);
-    particle.shape.noStroke().fill = shapeColor;
-    particle.position = particle.shape.translation;
-
-    foreground.add(particle.shape)
-    points.push(particle.position);
-
-  }
-
-  var outer = new Two.Path(points, true, true);
-  var color = shapeColor;
-  outer.fill = color;
-  outer.scale = 1.15;
-  outer.linewidth = 0;
-
-  background.add(outer);
-
-  resize();
-
-  shape
-    .bind('resize', resize)
-    .bind('update', function() {
-      physics.update();
-    })
-    .play();
-
-    function resize() {
-      background.translation.set(shape.width / 2, shape.height / 2);
-      foreground.translation.copy(background.translation);
-    }
 }
 
 // Setup page and resize functions

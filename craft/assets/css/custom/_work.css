@@ -46,19 +46,13 @@
 }
 
 .work__shape {
-  & img {
-    top: -530px;
-    right: -550px;
-    width: 900px;
-    max-width: inherit;
+  & svg {
+    position: absolute;
+    top: -370px;
+    right: -720px;
     @media (min-width: 620px) {
-      top: -400px;
-      right: -500px;
-    }
-    @media (min-width: 1200px) {
-      top: -400px;
-      right: -500px;
-      width: 1200px;
+      top: -120px;
+      right: -410px;
     }
   }
 }
