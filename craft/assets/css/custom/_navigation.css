@@ -257,12 +257,19 @@
   transition: stroke .1s ease-in;
 }
 
-.logo-svg:hover .cls-2 {
-  transform: skewX(13deg) skewY(2deg) perspective(100px) rotate(-1deg);
+.logo-svg .cls-2, .logo-svg .cls-2-animate {
+  animation: logoAnimation 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
 }
 
-.logo-svg.ready-to-animate:hover .cls-2 {
-  transform: skewX(0) skewY(0) perspective(0) rotate(0);
+.logo-svg:hover .cls-2, .logo-svg:hover .cls-2-animate {
+  animation-play-state: running;
+}
+
+.logo-svg.ready-to-animate:hover .cls-2, .logo-svg.ready-to-animate:hover .cls-2-animate {
+  animation-play-state: paused;
 }
 
 .logo-svg .cls-2-animate {
@@ -275,8 +282,25 @@
   opacity: 1;
 }
 
-.open .logo-svg:hover .cls-2-animate {
-  transform: skewX(13deg) skewY(2deg) perspective(100px) rotate(-1deg);
+@keyframes logoAnimation {
+    0% {
+      transform: skewX(0) skewY(0) perspective(0) rotate(0);
+    }
+    20% {
+      transform: skewX(8deg) skewY(0deg) perspective(100px) rotate(0);
+    }
+    40% {
+      transform: skewX(4deg) skewY(2deg) perspective(100px) rotate(1deg);
+    }
+    60% {
+      transform: skewX(-3deg) skewY(1deg) perspective(100px) rotate(0);
+    }
+    80% {
+      transform: skewX(2deg) skewY(2deg) perspective(100px) rotate(0);
+    }
+    100% {
+      transform: skewX(0) skewY(0) perspective(0) rotate(0);
+    }
 }
 
 .open .logo-svg .cls-3 {
