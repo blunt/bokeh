@@ -227,16 +227,16 @@
   {# And make sure to only output the links if the element exists #}
   {% if prevEntry %}
     <div style="background:url({% for asset in prevEntry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat center center" class="cover next-case-study relative overflow-hidden">
-      <div class="next-case-study__shape relative z-1">
-        <img class="relative" src="{{ siteUrl }}assets/img/shapes/next-case-study.svg">
-      </div>
+      <div class="next-case-study__shape shape relative z-1"></div>
       <div class="slide__overlay left-0 top-0 bottom-0 right-0 absolute next-case-study__overlay" style="background: {{ prevEntry.color }}"></div>
       <div class="mw8 w-90 relative center">
-        <a href="{{ prevEntry.url }}" class="next-case-study__link pr7-ns pr5 pv5 db z-1 lh-title link white">
-          <h2 class="text-shadow f1-l f2-m f3 mv4">{{ prevEntry.headingParagraph | striptags }}</h2>
-          <span class="next-case-study__icon bg-white shadow absolute">
-            {% include 'partials/icons/chevronRight.html' %}
-          </span>
+        <a href="{{ prevEntry.url }}" class="next-case-study__link db z-1 lh-title link white">
+          <h2 class="text-shadow f1-l f2-m f3 mb4 mt5 pr7-ns pr5 relative">
+            {{ prevEntry.headingParagraph | striptags }}
+            <span class="next-case-study__icon bg-white shadow absolute">
+              {% include 'partials/icons/chevronRight.html' %}
+            </span>
+          </h2>
         </a>
       </div>
     </div>
