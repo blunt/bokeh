@@ -16,7 +16,7 @@ function openNav() {
 }
 
 // Navigation Link Shape
-function generateShapes() {
+function generateNavShape() {
   const navShapeContainer = document.getElementsByClassName('navShapeContainer')[0];
 
   var navShape = new Two({
@@ -30,5 +30,5 @@ function generateShapes() {
 
 // Trigger generateShapes()
 (function() {
-  generateShapes();
+  generateNavShape();
 })();

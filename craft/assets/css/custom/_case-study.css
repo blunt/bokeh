@@ -20,11 +20,8 @@ p + .article-swiper-container {
   overflow: hidden;
 }
 
-.case-study__shape img {
-  width: 102%;
-  max-width: 102%;
-  left: -1%;
-  margin-bottom: -5px;
+.case-study__shape {
+  transform: translateX(-25%) translateY(60%);
 }
 
 .case-study-container {
@@ -394,11 +391,8 @@ p + .article-swiper-container {
   }
 }
 
-.next-case-study__shape img {
-  width: 102%;
-  max-width: 102%;
-  left: -1%;
-  margin-top: -10px;
+.next-case-study__shape svg {
+  transform: translateX(-25%) translateY(-60%);
 }
 
 .next-case-study__icon {
