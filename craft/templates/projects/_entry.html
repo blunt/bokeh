@@ -71,9 +71,9 @@
           <div class="contained">
             <div class="video-wrapper relative">
               {% if 'youtu' in service %}
-              <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="http://www.youtube.com/embed/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+              <iframe class="hp-video absolute top-0 left-0 w-100 h-100" data-src="http://www.youtube.com/embed/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
               {% else %}
-              <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="http://player.vimeo.com/video/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+              <iframe class="hp-video absolute top-0 left-0 w-100 h-100" data-src="http://player.vimeo.com/video/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
               {% endif %}
             </div>
             {% if block.caption %}
@@ -170,9 +170,9 @@
                 <div class="swiper-slide">
                   <div class="video-wrapper relative">
                     {% if 'youtu' in service %}
-                    <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="http://www.youtube.com/embed/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe class="hp-video absolute top-0 left-0 w-100 h-100" data-src="http://www.youtube.com/embed/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                     {% else %}
-                    <iframe class="hp-video absolute top-0 left-0 w-100 h-100" src="http://player.vimeo.com/video/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe class="hp-video absolute top-0 left-0 w-100 h-100" data-src="http://player.vimeo.com/video/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                     {% endif %}
                   </div>
                   {% if row.caption %}

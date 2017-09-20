@@ -16,3 +16,16 @@ const swiper = new Swiper('.article-swiper-container', {
     }
   }
 });
+
+// Load iframes after page Load
+function init() {
+  const vidDefer = document.getElementsByTagName('iframe');
+
+  for (var i = 0; i < vidDefer.length; i += 1) {
+    if(vidDefer[i].getAttribute('data-src')) {
+      vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+    }
+  }
+}
+
+window.onload = init;

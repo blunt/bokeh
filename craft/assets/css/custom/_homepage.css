@@ -28,6 +28,10 @@ button.next-slide {
   left: -300px;
 }
 
+.hp-slide1__headline {
+  line-height: 1.15;
+}
+
 .hp-slide1__imageFade {
   transform: translate3d(0,0,0);
   &:after {
