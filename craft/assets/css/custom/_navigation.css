@@ -213,9 +213,7 @@
   @media (min-width: 1440px) {
     transform: translate(600px, 40vh) scale(4);
   }
-  & .cls-2-animate {
-    transition: var(--transition-default);
-    fill: url(#MyGradient);
+  & .cls-2-animate-home {
     opacity: 1;
   }
 }
@@ -272,6 +270,13 @@
   transition: var(--transition);
   fill: url(#MyGradient);
   opacity: 0;
+}
+
+.logo-svg .cls-2-animate-home {
+  transition: var(--transition);
+  fill: url(#CMSGradient);
+  opacity: 0;
+  z-index: 2;
 }
 
 .open .logo-svg .cls-2-animate {

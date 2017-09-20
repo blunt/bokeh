@@ -91,7 +91,13 @@ svg .icon {
   transform: translate3d(0,0,0);
   transition: transform 2s ease-out;
   transition-delay: .6s;
-  transform: translateX(10%);
+  transform: translateY(15%);
+}
+
+@media (min-width: 44em) {
+  .slide__title, .services-list__content  {
+    transform: translateX(10%);
+  }
 }
 
 .services-list__content {
@@ -101,7 +107,13 @@ svg .icon {
 .feat-case-study__slide__shape, .services__shape, .hp-slide1__shape {
   transition: transform 3s ease-out;
   transition-delay: .6s;
-  transform: translateX(10%);
+  transform: translateY(15%);
+}
+
+@media (min-width: 44em) {
+  .feat-case-study__slide__shape, .services__shape, .hp-slide1__shape {
+    transform: translateX(10%);
+  }
 }
 
 .slide__image {
@@ -149,10 +161,18 @@ svg .icon {
     transform: scale(1.25);
   }
   & .slide__title, & .services-list__content  {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   & .feat-case-study__slide__shape, & .services__shape, & .hp-slide1__shape {
-    transform: translateX(0);
+    transform: translateY(0);
+  }
+  @media (min-width: 44em) {
+    & .slide__title, & .services-list__content  {
+      transform: translateX(0);
+    }
+    & .feat-case-study__slide__shape, & .services__shape, & .hp-slide1__shape {
+      transform: translateX(0);
+    }
   }
 }
 
