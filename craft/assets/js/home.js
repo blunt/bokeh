@@ -336,7 +336,7 @@ function generateShapes() {
       height: 550
     }).appendTo(case2);
 
-    physicsAnimation(case2_shape, '#fff', case2_shape.width / 2.5, case2_shape.height / 3, 9);
+    physicsAnimation(case2_shape, '#fff', case2_shape.width / 2.5, case2_shape.height / 3, 5);
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && case2Shape) {
     case2Shape.parentNode.removeChild(case2Shape);
   }
@@ -355,8 +355,8 @@ function generateShapes() {
       width: 1000
     }).appendTo(case3);
 
-    physicsAnimation(case1_shape, '#fff', case1_shape.width / 3.3, case1_shape.height / 2.25, 11);
-    physicsAnimation(case3_shape, '#fff', case3_shape.width / 2.3, case3_shape.height / 2.5, 11);
+    physicsAnimation(case1_shape, '#fff', case1_shape.width / 2.75, case1_shape.height / 2.5, 6);
+    physicsAnimation(case3_shape, '#fff', case3_shape.width / 2.3, case3_shape.height / 2.5, 6);
 
     caseStudyDesktopFlag = true;
   }
@@ -370,7 +370,7 @@ function generateShapes() {
       width: 1400
     }).appendTo(services);
 
-    physicsAnimation(services_shape, '#000', services_shape.width / 4, services_shape.height / 2, 9);
+    physicsAnimation(services_shape, '#000', services_shape.width / 4, services_shape.height / 2, 6);
 
     servicesDesktopFlag = true;
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large' && screenSize !== 'medium') && servicesDesktopFlag) {

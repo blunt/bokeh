@@ -34,20 +34,20 @@
   & svg {
     position: absolute;
     max-width: inherit;
-    left: -400px;
+    left: -450px;
     top: -200px;
     @media (max-width: 600px) {
       transform: scale(0.8);
     }
     @media (min-width: 600px) {
-      left: -260px;
+      left: -300px;
     }
     @media (min-width: 993px) {
       top: -75%;
       transform: scale(1);
     }
     @media (min-width: 1040px) {
-      left: -300px;
+      left: -350px;
     }
   }
 }
