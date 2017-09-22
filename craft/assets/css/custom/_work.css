@@ -15,19 +15,11 @@
 
 .work-item {
   transition: var(--transition);
-  & .aspect-ratio--object {
-    transition: var(--transition);
-    transform: scale(1.2);
-  }
   &:hover {
-    transform: scale(1.05);
-    & .aspect-ratio--object {
-      transform: scale(1.1);
-    }
+    transform: translateY(-2%);
   }
   &.disabled {
-    transform: scale(.97);
-    opacity: .7;
+    opacity: .4;
   }
 }
 

@@ -101,6 +101,7 @@
 @import './custom/_work';
 @import './custom/_services';
 @import './custom/_clients';
+@import './custom/_scroll-animations';
 
 /* Debugging */
 @import './imports/_debug-children';

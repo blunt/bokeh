@@ -5,7 +5,6 @@
     <div class="slide__image relative w-100 h-100"></div>
     <div class="slide__imageFade absolute"></div>
   </div>
-  <div class="slide__overlay absolute left-0 top-0 right-0 bottom-0" style="background-color: {{ entry.color }}"></div>
   <div class="center mw8 w-90 relative z-1 z-2-ns">
     <div class="pv4 mt5-l mt3-ns w-50-l w-80-ns relative slide__title">
       <h2 class="services-title absolute left-0 top-0 w-100 copy-one f2-ns f3 lh-title white relative text-shadow fadeIn">{{ entry.copyLineOne }}</h2>
@@ -18,6 +17,7 @@
   <style>
     /* Add custom styles from CMS for each slide as we iterate through */
     .slide-services .slide__image {
+      background: url({% for asset in entry.servicesImage %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat center center;
       background-size: cover;
     }
     .slide-services .slide__imageFade {
