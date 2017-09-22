@@ -39,7 +39,9 @@
               <div class="blockquote__shape--top shape relative z-1"></div>
             {% endif %}
 
-            <div class="blockquote__content">
+            <div class="blockquote__content"
+              data-aos="fade-up"
+              data-aos-duration="800">
               {% for asset in block.avatar %}
                 <div class="blockquote__avatar mb4 relative z-2 ml3" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
               {% endfor %}
@@ -112,14 +114,30 @@
 
           <div class="image-grid three-up">
             {% for asset in block.firstImage %}
-              <div class="image cover" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+              <div class="image cover" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"
+                data-aos-anchor=".three-up"
+                data-aos="fade-up"
+                data-aos-delay="0"
+                data-aos-offset="600"
+                data-aos-duration="800">
+              </div>
             {% endfor %}
-            <div class="image">
+            <div class="image"
+              data-aos-anchor=".three-up"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-offset="600"
+              data-aos-duration="800">
               {% for asset in block.secondImage %}
                 <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
               {% endfor %}
             </div>
-            <div class="image">
+            <div class="image"
+              data-aos-anchor=".three-up"
+              data-aos="fade-up"
+              data-aos-delay="400"
+              data-aos-offset="600"
+              data-aos-duration="800">
               {% for asset in block.thirdImage %}
                 <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
               {% endfor %}
@@ -287,4 +305,11 @@
 
   </style>
 <script src="{{ siteUrl }}assets/js/aos.min.js"></script>
+<script>
+  AOS.init({
+    easing: 'ease-in-out',
+    offset: 300,
+    once: true
+  });
+</script>
 {% endblock %}
