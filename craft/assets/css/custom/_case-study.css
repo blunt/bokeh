@@ -113,23 +113,19 @@ p + .article-swiper-container {
     & .blockquote__content {
       max-width: 56rem;
       margin: 0 auto;
-      padding-top: 4rem;
-      padding-bottom: 2rem;
+      padding-top: 7rem;
+      padding-bottom: 6rem;
     }
     & img {
       width: 102%;
       max-width: 102%;
       left: -1%;
     }
-    & .blockquote__shape--top img {
-      top: -3px;
-      position: relative;
-      z-index: 1;
+    & .blockquote__shape--top {
+      transform: translateX(-25%) translateY(-60%);
     }
-    & .blockquote__shape--bottom img {
-      top: 5px;
-      position: relative;
-      z-index: 1;
+    & .blockquote__shape--bottom {
+      transform: translateX(-25%) translateY(60%);
     }
     & p, & h2 {
       max-width: inherit;

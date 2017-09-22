@@ -36,6 +36,9 @@ var heroWidth = 800;
 var nextShapeFlag = 'xs';
 var nextWidth = 800;
 
+var blockquoteShapeFlag = 'xs';
+var blockquoteWidth = 800;
+
 // Shapes
 function generateShapes() {
   const screenSize = getBreakpoints();
@@ -66,7 +69,7 @@ function generateShapes() {
   var heroShape = new Two({
     type: Two.Types['svg'],
     width: heroWidth,
-    height: 200
+    height: 100
   }).appendTo(heroShapeContainer);
 
   physicsAnimation(heroShape, '#fff', heroShape.width, heroShape.height, 11);
@@ -98,10 +101,58 @@ function generateShapes() {
   var nextShape = new Two({
     type: Two.Types['svg'],
     width: nextWidth,
-    height: 200
+    height: 100
   }).appendTo(nextShapeContainer);
 
   physicsAnimation(nextShape, '#fff', nextShape.width, nextShape.height, 11);
+
+  const blockquotes = document.querySelectorAll('blockquote:not(.no-shape)');
+
+  for (var i = 0; i < blockquotes.length; i += 1) {
+    const blockquote = blockquotes[i];
+
+    const blockquoteTopShapeContainer = blockquote.getElementsByClassName('blockquote__shape--top')[0];
+    const blockquoteTopShapeExists = blockquote.querySelectorAll('.blockquote__shape--top svg')[0];
+    const blockquoteBottomShapeContainer = blockquote.getElementsByClassName('blockquote__shape--bottom')[0];
+    const blockquoteBottomShapeExists = blockquote.querySelectorAll('.blockquote__shape--bottom svg')[0];
+
+
+    if (screenSize === 'xlarge' && blockquoteShapeFlag !== 'xlarge') {
+      blockquoteWidth = 3000;
+
+      blockquoteShapeFlag = 'xlarge';
+    } else if (screenSize === 'large' && blockquoteShapeFlag !== 'large') {
+      blockquoteWidth = 2000;
+
+      blockquoteShapeFlag = 'large';
+    } else if (screenSize === 'medium' && blockquoteShapeFlag !== 'medium') {
+      blockquoteWidth = 1500;
+
+      blockquoteShapeFlag = 'medium';
+    } else if (((screenSize === 'xs' || screenSize === 'small') && blockquoteShapeFlag !== 'xs') || (screenSize === 'xs' || screenSize === 'small') && !nextShapeExists) {
+      blockquoteWidth = 800;
+
+      blockquoteShapeFlag = 'xs';
+    }
+
+    if (blockquoteTopShapeExists) blockquoteTopShapeExists.parentNode.removeChild(blockquoteTopShapeExists);
+    if (blockquoteBottomShapeExists) blockquoteBottomShapeExists.parentNode.removeChild(blockquoteBottomShapeExists);
+
+    var blockquoteShapeTop = new Two({
+      type: Two.Types['svg'],
+      width: blockquoteWidth,
+      height: 100
+    }).appendTo(blockquoteTopShapeContainer);
+
+    var blockquoteShapeBottom = new Two({
+      type: Two.Types['svg'],
+      width: blockquoteWidth,
+      height: 100
+    }).appendTo(blockquoteBottomShapeContainer);
+
+    physicsAnimation(blockquoteShapeTop, '#fff', blockquoteShapeTop.width, blockquoteShapeTop.height, 11);
+    physicsAnimation(blockquoteShapeBottom, '#fff', blockquoteShapeBottom.width, blockquoteShapeBottom.height, 11);
+  }
 }
 
 // Trigger generateShapes()

@@ -34,29 +34,25 @@
 
         {% elseif block.type == "quote" %}
 
-          {% if block.shapeBackground | length %}
-          <blockquote class="white">
-          {% else %}
-          <blockquote class="black bg-transparent no-shape">
-          {% endif %}
+          <blockquote class="{% if block.shapeBackground | length %}white{% else %}black bg-transparent no-shape{% endif %} overflow-hidden">
             {% if block.shapeBackground | length %}
-            <div class="blockquote__shape--top relative z-1">
-              <img class="relative" src="{{ siteUrl }}assets/img/shapes/blockquote-top.svg">
-            </div>
+              <div class="blockquote__shape--top shape relative z-1"></div>
             {% endif %}
+
             <div class="blockquote__content">
               {% for asset in block.avatar %}
                 <div class="blockquote__avatar mb4 relative z-2 ml3" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
               {% endfor %}
+
               <h2 class="lh-title">{{ block.quote }}</h2>
+
               {% if block.personsName %}
-              <p class="lh-title">{{ block.personsName }}{% if block.jobTitle %}, {{ block.jobTitle }}{% endif %}</p>
+                <p class="lh-title">{{ block.personsName }}{% if block.jobTitle %}, {{ block.jobTitle }}{% endif %}</p>
               {% endif %}
             </div>
+
             {% if block.shapeBackground | length %}
-            <div class="blockquote__shape--bottom relative z-1">
-              <img class="relative" src="{{ siteUrl }}assets/img/shapes/blockquote-bottom.svg">
-            </div>
+              <div class="blockquote__shape--bottom shape relative z-1"></div>
             {% endif %}
           </blockquote>
 
