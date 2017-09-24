@@ -314,8 +314,11 @@ p + .article-swiper-container {
       bottom: 0;
       float: left;
       overflow: hidden;
-      margin-left: -0.25rem;
-      background-size: cover !important;
+      & > div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
     }
 
     & .image:not(:first-child) {
@@ -332,12 +335,6 @@ p + .article-swiper-container {
   }
   @media (min-width: 44em) {
     & .three-up {
-      & .image:first-child {
-        margin-left: -0.5rem;
-        & img {
-          width: calc(100% - 0.5rem);
-        }
-      }
       & .image:nth-child(2) {
         margin-bottom: 1rem;
       }

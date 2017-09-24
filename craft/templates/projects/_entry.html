@@ -111,14 +111,10 @@
             <div
               class="image"
               data-aos="fade-up"
-              data-aos-delay="0"
-              data-aos-offset="600"
               data-aos-duration="800">
               {% for asset in block.firstImage %}
                 <img
                   data-aos="zoom-out"
-                  data-aos-delay="0"
-                  data-aos-offset="600"
                   data-aos-duration="800"
                   src="{{ siteUrl }}{{ asset.url }}"
                   alt="{{ asset.title }}">
@@ -127,14 +123,10 @@
             <div
               class="image"
               data-aos="fade-up"
-              data-aos-delay="0"
-              data-aos-offset="600"
               data-aos-duration="800">
               {% for asset in block.secondImage %}
               <img
                 data-aos="zoom-out"
-                data-aos-delay="0"
-                data-aos-offset="600"
                 data-aos-duration="800"
                 src="{{ siteUrl }}{{ asset.url }}"
                 alt="{{ asset.title }}">
@@ -148,17 +140,24 @@
           data-aos="fade-up"
           >
             {% for asset in block.firstImage %}
-              <div class="image cover" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;">
+              <div class="image"
+              data-aos="fade-in"
+              >
+              <div class="cover" data-aos="zoom-out" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
               </div>
             {% endfor %}
-            <div class="image">
+            <div class="image"
+            data-aos="fade-up"
+            >
               {% for asset in block.secondImage %}
-                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+                <img data-aos="zoom-out" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
               {% endfor %}
             </div>
-            <div class="image">
+            <div class="image"
+            data-aos="fade-up"
+            >
               {% for asset in block.thirdImage %}
-                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+                <img data-aos="zoom-out" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
               {% endfor %}
             </div>
           </div>
