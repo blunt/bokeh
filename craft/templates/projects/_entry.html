@@ -85,9 +85,14 @@
         {% elseif block.type == "inlineImage" %}
 
           {% for asset in block.image %}
-            <img class="contained"
-              data-aos="fade-up"
-              src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+            <div
+              class="contained overflow-hidden"
+              data-aos="fade-up">
+              <img class="contained"
+                data-aos="zoom-out"
+                src="{{ siteUrl }}{{ asset.url }}"
+                alt="{{ asset.title }}">
+            </div>
           {% endfor %}
           {% if block.caption %}
             <p class="caption">{{ block.caption }}</p>
@@ -96,10 +101,14 @@
         {% elseif block.type == "fullWidthImage" %}
 
           {% for asset in block.image %}
-            <img class="full"
-              data-aos="fade-up"
-
-              src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+            <div
+              class="full overflow-hidden"
+              data-aos="fade-up">
+              <img
+                data-aos="zoom-out"
+                src="{{ siteUrl }}{{ asset.url }}"
+                alt="{{ asset.title }}">
+            </div>
           {% endfor %}
           {% if block.caption %}
             <p class="caption">{{ block.caption }}</p>
@@ -110,24 +119,20 @@
           <div class="two-up image-grid">
             <div
               class="image"
-              data-aos="fade-up"
-              data-aos-duration="800">
+              data-aos="fade-up">
               {% for asset in block.firstImage %}
                 <img
                   data-aos="zoom-out"
-                  data-aos-duration="800"
                   src="{{ siteUrl }}{{ asset.url }}"
                   alt="{{ asset.title }}">
               {% endfor %}
             </div>
             <div
               class="image"
-              data-aos="fade-up"
-              data-aos-duration="800">
+              data-aos="fade-up">
               {% for asset in block.secondImage %}
               <img
                 data-aos="zoom-out"
-                data-aos-duration="800"
                 src="{{ siteUrl }}{{ asset.url }}"
                 alt="{{ asset.title }}">
               {% endfor %}
@@ -167,25 +172,54 @@
           <div class="image-grid five-up"
           data-aos="fade-up"
           >
-            <div class="image">
+            <div
+              class="image"
+              data-aos="fade-up">
               {% for asset in block.firstImage %}
-                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+                <img
+                  data-aos="zoom-out"
+                  src="{{ siteUrl }}{{ asset.url }}"
+                  alt="{{ asset.title }}">
               {% endfor %}
             </div>
             {% for asset in block.secondImage %}
-              <div class="image cover" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+              <div
+                class="image"
+                data-aos="fade-up">
+                <div
+                  class="cover"
+                  data-aos="zoom-out"
+                  style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+              </div>
             {% endfor %}
-            <div class="image">
+            <div
+              class="image"
+              data-aos="fade-up">
               {% for asset in block.thirdImage %}
-                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+                <img
+                  data-aos="zoom-out"
+                  src="{{ siteUrl }}{{ asset.url }}"
+                  alt="{{ asset.title }}">
               {% endfor %}
             </div>
             {% for asset in block.fourthImage %}
-              <div class="image cover" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+              <div
+                class="image"
+                data-aos="fade-up">
+                <div
+                  class="cover"
+                  data-aos="zoom-out"
+                  style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+              </div>
             {% endfor %}
-            <div class="image">
+            <div
+              class="image"
+              data-aos="fade-up">
               {% for asset in block.fifthImage %}
-                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+                <img
+                  data-aos="zoom-out"
+                  src="{{ siteUrl }}{{ asset.url }}"
+                  alt="{{ asset.title }}">
               {% endfor %}
             </div>
           </div>

@@ -1071,7 +1071,8 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 }
 
 [data-aos=zoom-out] {
-    transform: scale(1.5)
+    transform: scale(1.5);
+    transform-origin: top center;
 }
 
 [data-aos=zoom-out-up] {
