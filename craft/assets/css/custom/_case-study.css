@@ -286,15 +286,17 @@ p + .article-swiper-container {
     }
 
     & .image {
-      width: 50%;
-      padding: 0 0.25rem;
+      width: calc(50% - 0.5rem);
+      margin: 0 0.25rem;
+      overflow: hidden;
     }
   }
   @media (min-width: 44em) {
     & .image-grid {
       margin: 4rem -0.5rem;
       & .image {
-        padding: 0 0.5rem;
+        width: calc(50% - 1rem);
+        margin: 0 0.5rem;
       }
     }
   }

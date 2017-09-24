@@ -98,7 +98,7 @@
           {% for asset in block.image %}
             <img class="full"
               data-aos="fade-up"
-              
+
               src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
           {% endfor %}
           {% if block.caption %}
@@ -107,17 +107,37 @@
 
         {% elseif block.type == "twoUpImages" %}
 
-          <div class="two-up image-grid"
-          data-aos="fade-up"
-          >
-            <div class="image">
+          <div class="two-up image-grid">
+            <div
+              class="image"
+              data-aos="fade-up"
+              data-aos-delay="0"
+              data-aos-offset="600"
+              data-aos-duration="800">
               {% for asset in block.firstImage %}
-                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+                <img
+                  data-aos="zoom-out"
+                  data-aos-delay="0"
+                  data-aos-offset="600"
+                  data-aos-duration="800"
+                  src="{{ siteUrl }}{{ asset.url }}"
+                  alt="{{ asset.title }}">
               {% endfor %}
             </div>
-            <div class="image">
+            <div
+              class="image"
+              data-aos="fade-up"
+              data-aos-delay="0"
+              data-aos-offset="600"
+              data-aos-duration="800">
               {% for asset in block.secondImage %}
-                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              <img
+                data-aos="zoom-out"
+                data-aos-delay="0"
+                data-aos-offset="600"
+                data-aos-duration="800"
+                src="{{ siteUrl }}{{ asset.url }}"
+                alt="{{ asset.title }}">
               {% endfor %}
             </div>
           </div>
