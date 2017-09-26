@@ -15,6 +15,20 @@ function openNav() {
   }
 }
 
-// Navigation SVG BG
-const s = Snap('#nav-bg');
-s.path("M 2.17131 412.206C -16.5042 554.32 85.1171 713.421 313.783 800.442C 529.68 882.603 670.989 856 865.925 814.859C 1051.35 775.726 1251.06 842.371 1440.73 724.236C 1686.97 570.868 1881.78 188.738 1409.83 46.6268C 1194.72 -18.1439 1057.53 77.5198 835.021 69.2814C 612.516 61.043 439.455 -66.6517 229.313 46.6268C 95.6331 118.688 24.3924 243.112 2.17131 412.206Z");
+// Navigation Link Shape
+function generateNavShape() {
+  const navShapeContainer = document.getElementsByClassName('navShapeContainer')[0];
+
+  var navShape = new Two({
+    type: Two.Types['svg'],
+    width: 58,
+    height: 58
+  }).appendTo(navShapeContainer);
+
+  physicsAnimation(navShape, '#fff', navShape.width / 2, navShape.height / 2, 5);
+}
+
+// Trigger generateShapes()
+(function() {
+  generateNavShape();
+})();

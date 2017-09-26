@@ -30,15 +30,23 @@
           style="background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat 75% 50%; background-size: cover;"></div>
         <div class="slide__imageFade absolute"></div>
         <div class="hp-slide1__cover absolute top-0 left-0 w-100 h-100"></div>
+        <div class="hp-slide1__overlay absolute bg-white top-0 left-0 w-100 h-100"></div>
       </div>
-      <div class="hp-slide1-content relative center mw8 w-90 cf dn mt5-ns mt4 relative">
-        <div class="hp-slide1__text">
-          <h2 class="hp-slide1__headline w-70-ns f-headline-l f1 fw7 mt5 mb4-ns mb3 white text-shadow">{{ entry.body }}</h2>
+      <div class="hp-slide1-content relative center mw8 w-90 cf mt5-ns mt4 relative dn">
+        <div class="hp-slide1__text relative z-1">
+          <h2 class="hp-slide1__headline w-50-ns f-headline-l f1 fw7 mt5 mb4-ns mb3 white text-shadow">
+            We are a
+            <span class="wordList">
+              {% set entries = entry.taglineWordList %}
+              {% for entry in entries %}
+                <span class="{% if loop.index == 1 %}fadeIn{% endif %}">{{ entry.word }}</span>
+              {% endfor %}
+            </span><br>
+            partner for brands ready to move at the speed of inspiration.
+          </h2>
           <button class="fw6 pa0 next-slide bg-transparent pointer bn input-reset underline dib f4 link black mt2">View case studies</button>
         </div>
-        <div class="hp-slide1__shape absolute">
-          <img src="assets/img/shapes/slide-intro.svg">
-        </div>
+        <div class="hp-slide1__shape shape absolute"></div>
       </div>
       <div class="hp-slide1__overlay--mingle absolute top-0 h-100 z-1"></div>
 

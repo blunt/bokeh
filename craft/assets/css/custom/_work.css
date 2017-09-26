@@ -15,26 +15,18 @@
 
 .work-item {
   transition: var(--transition);
-  & .aspect-ratio--object {
-    transition: var(--transition);
-    transform: scale(1.2);
-  }
   &:hover {
-    transform: scale(1.05);
-    & .aspect-ratio--object {
-      transform: scale(1.1);
-    }
+    transform: translateY(-2%);
   }
   &.disabled {
-    transform: scale(.97);
-    opacity: .7;
+    opacity: .4;
   }
 }
 
 /* Homepage specific styles */
 .work-slide .work-item {
   @media (max-height: 610px) {
-    &:nth-last-child(-n+2) {
+    &:nth-child(n+6) {
       display:none;
     }
   }
@@ -46,19 +38,13 @@
 }
 
 .work__shape {
-  & img {
-    top: -530px;
-    right: -550px;
-    width: 900px;
-    max-width: inherit;
+  & svg {
+    position: absolute;
+    top: -370px;
+    right: -720px;
     @media (min-width: 620px) {
-      top: -400px;
-      right: -500px;
-    }
-    @media (min-width: 1200px) {
-      top: -400px;
-      right: -500px;
-      width: 1200px;
+      top: -120px;
+      right: -410px;
     }
   }
 }

@@ -48,20 +48,20 @@
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  -webkit-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-  -moz-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-  -o-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-  -ms-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.swiper-container-android .swiper-slide,
+/*.swiper-container-android .swiper-slide,
 .swiper-wrapper {
   -webkit-transform: translate3d(0px, 0, 0);
   -moz-transform: translate3d(0px, 0, 0);
   -o-transform: translate(0px, 0px);
   -ms-transform: translate3d(0px, 0, 0);
   transform: translate3d(0px, 0, 0);
-}
+}*/
 .swiper-container-multirow > .swiper-wrapper {
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;
@@ -127,7 +127,7 @@
   top: 50%;
   width: 27px;
   height: 44px;
-  margin-top: -22px;
+  transform: translateY(-50%);
   z-index: 10;
   cursor: pointer;
   -moz-background-size: 27px 44px;

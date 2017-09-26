@@ -14,9 +14,7 @@
 {% set title = "Projects" %}
 
 {% block content %}
-<div class="work__shape overflow-hidden absolute left-0 top-0 right-0 bottom-0">
-  <img class="absolute db" src="{{ siteUrl }}assets/img/shapes/projects-shape.svg">
-</div>
+<div class="work__shape overflow-hidden absolute left-0 top-0 right-0 bottom-0"></div>
 <div class="pt6-ns pt5">
   <div class="work__wrapper center pt5 pb6 relative z-1">
     <div class="mb4 pb2 pt0-ns pt3 relative">
@@ -39,14 +37,12 @@
     <div class="cf">
     	{% for entry in craft.entries.section('projects') %}
         <article class="{% for tag in entry.tags %}{{ tag.title }}{% endfor %} everything pa3-l pa2 fl w-third-ns w-50 work-item overflow-hidden">
-          <div class="aspect-ratio aspect-ratio--16x9 overflow-hidden br3">
-            <a class="db overflow-hidden link aspect-ratio--object cover flex items-center justify-center content-center" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
-              <div class="absolute left-0 bottom-0 top-0 right-0" style="background: {{ entry.color }}; opacity: .6;"></div>
-              <h2 class="f3-l f4-ns f5 db lh-title white relative text-shadow mb0 z-1">
-                {{ entry.title }}
-              </h2>
-            </a>
-          </div>
+          <a class="h5-ns h4 br3 db overflow-hidden link cover flex items-center justify-center content-center relative" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
+            <div class="absolute left-0 bottom-0 top-0 right-0" style="background: {{ entry.color }}; opacity: .6;"></div>
+            <h2 class="f3-l f4-ns f5 db lh-title white relative text-shadow mb0 z-1">
+              {{ entry.title }}
+            </h2>
+          </a>
         </article>
     	{% endfor %}
     </div>

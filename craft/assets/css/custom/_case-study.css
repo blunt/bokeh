@@ -1,12 +1,27 @@
+p + .article-swiper-container {
+  margin-top: 2.5rem;
+}
+
+.article-swiper-container {
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 44em) {
+  p + .article-swiper-container {
+    margin-top: 4rem;
+  }
+
+  .article-swiper-container {
+    margin-bottom: 4rem;
+  }
+}
+
 .case-study {
   overflow: hidden;
 }
 
-.case-study__shape img {
-  width: 102%;
-  max-width: 102%;
-  left: -1%;
-  margin-bottom: -5px;
+.case-study__shape {
+  transform: translateX(-25%) translateY(60%);
 }
 
 .case-study-container {
@@ -29,10 +44,34 @@
     position: relative;
     z-index: 1;
   }
+  & ul, & ol {
+    margin-bottom: 2.5rem;
+  }
+  & li {
+    margin-bottom: .5rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 20px;
+    &:before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      margin-right: .5rem;
+    }
+  }
 
   @media (min-width: 44em) {
     & p, & ul, & ol {
       font-size: 1.25rem;
+    }
+    & ul, & ol {
+      margin-bottom: 4em;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    & li {
+      width: 46%;
+      margin-right: 2%;
     }
   }
 
@@ -67,20 +106,26 @@
   }
 
   & blockquote {
+    &.no-shape {
+      padding: 1.5rem 0 0;
+      margin-bottom: 2.5rem;
+    }
     & .blockquote__content {
       max-width: 56rem;
       margin: 0 auto;
+      padding-top: 7rem;
+      padding-bottom: 6rem;
     }
     & img {
       width: 102%;
       max-width: 102%;
       left: -1%;
     }
-    & .blockquote__shape--top img {
-      top: -3px;
+    & .blockquote__shape--top {
+      transform: translateX(-25%) translateY(-60%);
     }
-    & .blockquote__shape--bottom img {
-      top: 5px;
+    & .blockquote__shape--bottom {
+      transform: translateX(-25%) translateY(60%);
     }
     & p, & h2 {
       max-width: inherit;
@@ -91,6 +136,7 @@
     }
     & p {
       font-size: 1.25rem;
+      margin-bottom: 0;
     }
 
     & .blockquote__avatar {
@@ -115,13 +161,23 @@
     &.no-shape .blockquote__avatar {
       margin-top: 0;
     }
+
+    &.no-shape .blockquote__content {
+      padding-top: 0;
+    }
   }
 
   @media (min-width: 44em) {
     & blockquote {
+      &.no-shape {
+        padding-top: 4rem;
+        margin-bottom: 4rem;
+      }
       & h2 {
         font-size: 2.25rem;
-        margin-bottom: 2rem;
+      }
+      & .blockquote__shape--top img {
+        margin-top: 1.5rem;
       }
     }
   }
@@ -130,9 +186,11 @@
     & blockquote {
       & h2 {
         font-size: 2.75rem;
+        margin-bottom: 0;
       }
       & p {
         font-size: 1.5rem;
+        margin-top: 2rem;
       }
     }
   }
@@ -168,28 +226,58 @@
   }
 
   & .full, & .contained, & .video-wrapper {
-    margin: 1.5rem auto;
+    margin: 2.5rem auto;
+  }
+
+  & .image-grid + .full {
+    margin-top: -2rem;
+  }
+
+  & .image-grid + .image-grid {
+    margin-top: -2rem;
+  }
+
+  & blockquote:not(.no-shape) {
+    margin: 0 auto 2.5rem;
   }
 
   @media (min-width: 44em) {
+    & .image-grid + .full {
+      margin-top: -3rem;
+    }
+
+    & .image-grid + .image-grid {
+      margin-top: -3rem;
+    }
+
     & .full, & .contained, & .video-wrapper {
-      margin: 2.5rem auto;
+      margin: 4rem auto;
     }
 
     & blockquote:not(.no-shape) {
-      margin: -2.5rem auto;
+      margin: -2.5rem auto 3rem;
     }
+  }
+
+  & .swiper-wrapper .video-wrapper {
+    margin-top: 0;
   }
 
   & .caption {
     font-size: .875rem;
     text-align: center;
-    margin-bottom: 2.5rem;
     margin-top: -1rem;
   }
 
+  @media (min-width: 44em) {
+    & .caption {
+      margin-top: -2rem;
+    }
+  }
+
   & .image-grid {
-    margin: 1.5rem -0.25rem;
+    margin: 2.5rem -0.25rem;
+    position: relative;
 
     &:after {
       content: '';
@@ -197,20 +285,18 @@
       clear: both;
     }
 
-    & + .image-grid {
-      margin-top: -1.5rem;
-    }
-
     & .image {
-      width: 50%;
-      padding: 0 0.25rem;
+      width: calc(50% - 0.5rem);
+      margin: 0 0.25rem;
+      overflow: hidden;
     }
   }
   @media (min-width: 44em) {
     & .image-grid {
-      margin: 2.5rem -0.5rem;
+      margin: 4rem -0.5rem;
       & .image {
-        padding: 0 0.5rem;
+        width: calc(50% - 1rem);
+        margin: 0 0.5rem;
       }
     }
   }
@@ -223,12 +309,16 @@
 
   & .three-up {
     & .image:first-child {
-      position: relative;
+      position: absolute;
+      top: 0;
+      bottom: 0;
       float: left;
       overflow: hidden;
-      padding-bottom: 56.05%;
-      margin-left: -0.5rem;
-      background-size: cover !important;
+      & > div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
     }
 
     & .image:not(:first-child) {
@@ -238,14 +328,13 @@
     & .image:nth-child(2) {
       margin-bottom: .5rem;
     }
+
+    & .image:nth-child(3) {
+      clear: both;
+    }
   }
   @media (min-width: 44em) {
     & .three-up {
-      & .image:first-child {
-        & img {
-          width: calc(100% - 0.5rem);
-        }
-      }
       & .image:nth-child(2) {
         margin-bottom: 1rem;
       }
@@ -255,36 +344,26 @@
   & .five-up {
     & .image:nth-child(odd) {
       float: left;
+      clear: both;
     }
 
     & .image:nth-child(even) {
-      position: relative;
+      position: absolute;
       overflow: hidden;
-      padding-bottom: 50.15%;
-      float: right;
-      margin-right: -0.5rem;
+      height: calc(50% - .25rem);
+      right: 0;
+      top: 0;
       background-size: cover !important;
-      /*& img {
+      & > div {
         position: absolute;
-        top: 0;
-        right: 0;
-        width: calc(100% - 0.25rem);
-      }*/
-      @media (min-width: 415px) {
-        padding-bottom: 50.55%
+        width: 100%;
+        height: 100%;
       }
-      @media (min-width: 44em) {
-        padding-bottom: 50.3%;
-      }
-      @media (min-width: 975px) {
-        padding-bottom: 50.45%;
-      }
-      @media (min-width: 1120px) {
-        padding-bottom: 50.75%;
-      }
-      @media (min-width: 1520px) {
-        padding-bottom: 50.9%;
-      }
+    }
+
+    & .image:nth-child(4) {
+      bottom: 0;
+      top: inherit;
     }
 
     & .image:nth-child(1),
@@ -296,6 +375,7 @@
   @media (min-width: 44em) {
     & .five-up {
       & .image:nth-child(even) {
+        height: calc(50% - .5rem);
         & img {
           width: calc(100% - 0.5rem);
         }
@@ -309,11 +389,8 @@
   }
 }
 
-.next-case-study__shape img {
-  width: 102%;
-  max-width: 102%;
-  left: -1%;
-  margin-top: -10px;
+.next-case-study__shape svg {
+  transform: translateX(-25%) translateY(-60%);
 }
 
 .next-case-study__icon {

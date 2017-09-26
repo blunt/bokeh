@@ -1,42 +1,62 @@
 const navTrigger = document.getElementsByClassName('nav-button')[0];
 
 // Service variables setup
-let serviceAnimation = null;
-let triggered = false;
+var serviceAnimation = null;
+var triggeredServices = false;
 
 // Homepage Swiper
-let swiper = null;
+var swiper = null;
+var homeAnimation = null;
+var triggeredHomeAnimation = false;
 
-let desktopFlag = false;
+var desktopFlag = false;
 
 function generateSwiper(viewport) {
   function swiperOnInit(slider) {
-    // First slide animation logic
     const logo = document.getElementsByClassName('logo-svg')[0];
     const hpContent = document.getElementsByClassName('hp-slide1-content');
     const slideOneText = document.getElementsByClassName('hp-slide1__text');
+    const slideOneOverlay = document.getElementsByClassName('hp-slide1__overlay');
 
-    if (slider.activeIndex === 3) {
+    if (slider.activeIndex === 1) {
       logo.classList.add('ready-to-animate');
+      logo.classList.add('strokeless');
 
       for (var i = 0; i < slideOneText.length; i++) {
         slideOneText[i].classList.add('ready-to-animate');
+      }
+
+      for (var i = 0; i < slideOneOverlay.length; i++) {
+        slideOneOverlay[i].classList.add('ready-to-animate');
       }
 
       slider.params.allowSwipeToPrev = false;
       slider.params.allowSwipeToNext = false;
 
       setTimeout(() => {
+        logo.classList.add('visible');
+      }, 500);
+
+      setTimeout(() => {
         logo.classList.remove('ready-to-animate');
+        for (var i = 0; i < slideOneOverlay.length; i += 1) {
+          slideOneOverlay[i].classList.remove('ready-to-animate');
+        }
         navTrigger.style.opacity = 1;
 
         setTimeout(() => {
-          for (let i = 0; i < slideOneText.length; i += 1) {
+          for (var i = 0; i < slideOneText.length; i += 1) {
             slideOneText[i].classList.remove('ready-to-animate');
           }
 
+          logo.classList.remove('strokeless');
+
           slider.params.allowSwipeToPrev = true;
           slider.params.allowSwipeToNext = true;
+
+          // Animate slide 1 word list
+          const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
+          if (!homeAnimation) loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
         }, 1600);
       }, 2500);
     } else {
@@ -45,34 +65,31 @@ function generateSwiper(viewport) {
 
     logo.style.display = 'block';
 
-    for (let o = 0; o < hpContent.length; o += 1) {
+    for (var o = 0; o < hpContent.length; o += 1) {
       hpContent[o].classList.remove('dn');
     }
+
+    // Animate services copy list
+    const services = document.getElementsByClassName('services-list')[0];
+    const servicesTitle = document.getElementsByClassName('services-title');
+    if (!serviceAnimation) loopAnimation(true, triggeredServices, 'service', servicesTitle);
+
+    nextSlideLinks();
   }
 
   function swiperOnSlideChangeStart(slider) {
-    // Animate services list in
-    const services = document.getElementsByClassName('services-list')[0];
-
-    if (slider.activeIndex === 7) {
-      loopServices(true);
-    } else {
-      loopServices(false);
-    }
   }
 
-  let swiperAttributes = {};
+  var swiperAttributes = {};
 
   const swiperDesktopAttributes = {
     keyboardControl: true,
     a11y: true,
     mousewheelControl: true,
     hashnav: true,
-    speed: 600,
+    speed: 1000,
     loop: true,
-    loopAdditionalSlides: 2,
-    onInit: (slider) => swiperOnInit(slider),
-    onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
+    onInit: (slider) => swiperOnInit(slider)
   };
 
   const swiperMobileAttributes = {
@@ -84,9 +101,7 @@ function generateSwiper(viewport) {
     hashnav: true,
     speed: 1000,
     loop: true,
-    loopAdditionalSlides: 2,
-    onInit: (slider) => swiperOnInit(slider),
-    onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
+    onInit: (slider) => swiperOnInit(slider)
   };
 
   if (viewport === 'mobile') {
@@ -124,15 +139,20 @@ function modifySwiper() {
 }
 
 // Next slide
-const nextSlideButton = document.getElementsByClassName('next-slide');
+function nextSlideLinks() {
+  const nextSlideButton = document.querySelectorAll('.next-slide');
 
-Array.from(nextSlideButton).forEach((element) => {
-  element.addEventListener('click', nextSlide);
-});
+  Array.from(nextSlideButton).forEach((element) => {
+    element.addEventListener('click', () => {
+      nextSlide();
+    });
+  });
 
-function nextSlide() {
-  swiper.slideNext();
+  function nextSlide() {
+    swiper.slideNext();
+  }
 }
+
 
 // Homepage navigation link triggers
 const links = document.querySelectorAll('.nav__links .link');
@@ -150,20 +170,28 @@ function navigateToSlide(slideIndex) {
   body.classList.remove('open');
   navOverlay.classList.remove('nav-open');
 
-  swiper.slideTo(Number(slideIndex) + 3, 0);
+  swiper.slideTo(Number(slideIndex), 0);
+}
+
+// Show service list
+const showServices = document.getElementsByClassName('services-list__link');
+
+Array.from(showServices).forEach((element) => {
+  element.addEventListener('click', showServiceDetails);
+});
+
+function showServiceDetails() {
+  const services = document.getElementsByClassName('services-list__content');
+  for (var i = 0; i < services.length; i++) {
+    if (services[i].classList.contains('visible')) {
+      services[i].classList.remove('visible');
+    } else {
+      services[i].classList.add('visible');
+    }
+  }
 }
 
 // Homepage video/poster on first slide
-(function() {
-  modifySwiper();
-  generateContent();
-})();
-
-window.addEventListener('resize', () => {
-  modifySwiper();
-  generateContent();
-});
-
 function generateContent() {
   const screenSize = getBreakpoints();
 
@@ -200,58 +228,173 @@ function generateContent() {
   }
 }
 
-function getBreakpoints() {
-  const windowWidth = window.innerWidth;
+// Global function for animated text loop
+function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
+  if (shouldRun && !intervalTrigger) {
+    if (interval === 'home') {
+      homeAnimation = setInterval(() => {
+        slideAnimation();
+      }, 4000);
+    } else {
+      serviceAnimation = setInterval(() => {
+        slideAnimation();
+      }, 4000);
+    }
 
-  const breakpoints = {
-    xlarge: '1200',
-    large: '992',
-    medium: '768',
-    small: '576',
-    xs: '0'
-  };
+    function slideAnimation() {
+      const activeItem = [];
+      for (var i = 0; i < elems.length; i += 1) {
+        const item = elems[i];
 
-  const breakpointValues = Object.keys(breakpoints).map((key) => {
-    return breakpoints[key];
-  });
-
-  const breakpointValue = breakpointValues.find((element) => {
-    return windowWidth > element;
-  });
-
-  return Object.keys(breakpoints).find((key) => { return breakpoints[key] === breakpointValue; });
-}
-
-
-//Slides Text Fade
-function loopServices(trigger) {
-  const servicesTitle = document.getElementsByClassName('services-title');
-  if (trigger && !triggered) {
-    serviceAnimation = setInterval(() => {
-      for (let i = 0; i < servicesTitle.length; i += 1) {
-        const service = servicesTitle[i];
-
-        if (service.classList.contains('fadeIn')) {
+        if (item.classList.contains('fadeIn')) {
           // Animate current text block out
-          service.classList.add('fadeOut');
-          setTimeout(() => {
-            // Wait till that animation is done before doing the next part
-            const nextSlide = servicesTitle[i + 1] ? servicesTitle[i + 1] : servicesTitle[0];
+          item.classList.add('fadeOut');
 
-            // Animate next slide in
-            nextSlide.classList.add('fadeIn');
-            // Remove fadeIn from current slide as it's no longer necessary
-            service.classList.remove('fadeIn');
-            service.classList.remove('fadeOut');
-          }, 1500);
+          activeItem.push(item);
+          activeItem.push(elems[i + 1] ? elems[i + 1] : elems[0])
         }
       }
-    }, 4000);
 
-    triggered = true;
+      setTimeout(() => {
+        for (var i = 0; i < activeItem.length; i += 2) {
+          // Wait till that animation is done before doing the next part
+          const nextSlide = activeItem[i + 1];
+
+          // Animate next slide in
+          nextSlide.classList.add('fadeIn');
+          // Remove fadeIn from current slide as it's no longer necessary
+          activeItem[i].classList.remove('fadeIn', 'fadeOut');
+        }
+      }, 1500);
+    }
+
+    intervalTrigger = true;
   } else {
-    clearInterval(serviceAnimation);
+    if (interval === 'home') {
+      clearInterval(homeAnimation);
+    } else {
+      clearInterval(serviceAnimation);
+    }
 
-    triggered = false;
+    intervalTrigger = false;
   }
 }
+
+
+// Shape flags
+var slide1DesktopFlag = false;
+var caseStudyDesktopFlag = false;
+var servicesDesktopFlag = false;
+
+// Shapes
+function generateShapes() {
+  const screenSize = getBreakpoints();
+
+  if (!slide1DesktopFlag) {
+    const duplicateSlide = document.querySelectorAll('.hp-slide1.swiper-slide-duplicate .hp-slide1__shape svg')[0];
+
+    if (!duplicateSlide) {
+      const slide1 = document.getElementsByClassName('hp-slide1__shape');
+
+      var slide1_b = new Two({
+        type: Two.Types['svg'],
+        width: 1000
+      }).appendTo(slide1[1]);
+
+      physicsAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2, 8);
+    }
+  }
+
+  // First slide
+  if ((screenSize === 'xlarge' || screenSize === 'large') && !slide1DesktopFlag) {
+    const slide1 = document.getElementsByClassName('hp-slide1__shape');
+
+    var slide1_a = new Two({
+      type: Two.Types['svg'],
+      width: 1000
+    }).appendTo(slide1[0]);
+
+    physicsAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2, 8);
+
+    slide1DesktopFlag = true;
+  } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && slide1DesktopFlag) {
+    const slide1_shapes = document.querySelectorAll('.hp-slide1:not(.swiper-slide-duplicate) .hp-slide1__shape svg')[0];
+
+    if (slide1_shapes) slide1_shapes.parentNode.removeChild(slide1_shapes);
+
+    slide1DesktopFlag = false;
+  }
+
+  // Featured Case Studies
+  const case2 = document.querySelectorAll('.feat-case-study__slide.slide-2 .feat-case-study__slide__shape')[0];
+  const case2Shape = document.querySelectorAll('.feat-case-study__slide.slide-2 .feat-case-study__slide__shape svg')[0];
+
+  if ((screenSize === 'xlarge' || screenSize === 'large') && !case2Shape) {
+    var case2_shape = new Two({
+      type: Two.Types['svg'],
+      width: 1000,
+      height: 550
+    }).appendTo(case2);
+
+    physicsAnimation(case2_shape, '#fff', case2_shape.width / 2.5, case2_shape.height / 3, 5);
+  } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && case2Shape) {
+    case2Shape.parentNode.removeChild(case2Shape);
+  }
+
+  if (!caseStudyDesktopFlag) {
+    const case1 = document.querySelectorAll('.feat-case-study__slide.slide-1 .feat-case-study__slide__shape')[0];
+    const case3 = document.querySelectorAll('.feat-case-study__slide.slide-3 .feat-case-study__slide__shape')[0];
+
+    var case1_shape = new Two({
+      type: Two.Types['svg'],
+      width: 1125
+    }).appendTo(case1);
+
+    var case3_shape = new Two({
+      type: Two.Types['svg'],
+      width: 1000
+    }).appendTo(case3);
+
+    physicsAnimation(case1_shape, '#fff', case1_shape.width / 2.75, case1_shape.height / 2.5, 6);
+    physicsAnimation(case3_shape, '#fff', case3_shape.width / 2.3, case3_shape.height / 2.5, 6);
+
+    caseStudyDesktopFlag = true;
+  }
+
+  // Services
+  if((screenSize === 'xlarge' || screenSize === 'large' || screenSize === 'medium') && !servicesDesktopFlag) {
+    const services = document.querySelectorAll('.services-list .services__shape')[0];
+
+    var services_shape = new Two({
+      type: Two.Types['svg'],
+      width: 1400
+    }).appendTo(services);
+
+    physicsAnimation(services_shape, '#000', services_shape.width / 4, services_shape.height / 2, 6);
+
+    servicesDesktopFlag = true;
+  } else if ((screenSize !== 'xlarge' && screenSize !== 'large' && screenSize !== 'medium') && servicesDesktopFlag) {
+    const services_shapes = document.querySelectorAll('.services__shape svg:not(.mobile)');
+
+    if (services_shapes) {
+      for (var i = 0; i < services_shapes.length; i++) {
+        services_shapes[i].parentNode.removeChild(services_shapes[i]);
+      }
+    }
+
+    servicesDesktopFlag = false;
+  }
+}
+
+// Setup page and resize functions
+(function() {
+  modifySwiper();
+  generateContent();
+  generateShapes();
+})();
+
+window.addEventListener('resize', () => {
+  modifySwiper();
+  generateContent();
+  generateShapes();
+});
