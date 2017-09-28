@@ -91,21 +91,21 @@ button.next-slide {
   transform: translate3d(0,0,0);
 }
 
-.hp-video-wrapper video {
-  /* Make video to at least 100% wide and tall */
-  min-width: 100%;
+.hp-video-container {
+  position: relative;
   min-height: 100%;
-
-  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
-  width: auto;
-  height: auto;
-
-  /* Center the video */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  width: 100%;
+  overflow: hidden;
 }
+
+.hp-video-container iframe {
+  width: 200%;
+  height: 200%;
+  top: 50%;
+  left: -50%;
+  transform: translate(0%, -50%);
+}
+
 
 html {
   @media (max-width: 991px) {

@@ -3,7 +3,6 @@
   {% for entry in entries %}
   <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
     <div class="slide__image relative w-100 h-100"></div>
-    <div class="slide__imageFade absolute"></div>
   </div>
   <div class="center mw8 w-90 relative z-1 z-2-ns">
     <div class="pv4 mt5-l mt3-ns w-50-l w-80-ns relative slide__title">
@@ -12,29 +11,6 @@
       <h2 class="services-title absolute left-0 top-0 w-100 copy-three f2-ns f3 lh-title white relative text-shadow">{{ entry.copyLineThree }}</h2>
     </div>
   </div>
-  <div class="slide__overlay--mingle absolute top-0 h-100 z-1"></div>
-
-  <style>
-    /* Add custom styles from CMS for each slide as we iterate through */
-    .slide-services .slide__image {
-      background: url({% for asset in entry.servicesImage %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat center center;
-      background-size: cover;
-    }
-    .slide-services .slide__imageFade {
-      background: linear-gradient(to top, {{ entry.color }} 0%, {{ entry.color }} 10%, rgba(255,255,255,0) 100%);
-    }
-    .slide-services .slide__overlay--mingle {
-      background: linear-gradient(to top, rgba(255,255,255,0) 0%, {{ entry.color }} 100%, {{ entry.color }} 100%);
-    }
-    @media (min-width: 992px) {
-      .slide-services .slide__imageFade {
-        background: linear-gradient(to left, {{ entry.color }} 0%, {{ entry.color }} 10%, rgba(255,255,255,0) 100%);
-      }
-      .slide-services .slide__overlay--mingle {
-        background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ entry.color }} 100%, {{ entry.color }} 100%);
-      }
-    }
-  </style>
   {% endfor %}
   <!-- Services list -->
   <div class="services-list absolute z-1 bottom-0 right-0 w-40-l pb5 pr4-l pr3-ns ph3 ph0-ns">

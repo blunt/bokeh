@@ -39,6 +39,12 @@ p + .article-swiper-container {
     padding-right: 1rem;
   }
 
+  & .contained--large {
+    @media (min-width: 1000px) {
+      max-width: 82% !important;
+    }
+  }
+
   & p, & .intro-blurb {
     line-height: 1.5;
     position: relative;

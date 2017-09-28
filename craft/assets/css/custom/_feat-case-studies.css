@@ -89,6 +89,10 @@
   }
 }
 
+.feat-case-study__slide.slide-3 .slide__overlay--mingle {
+  width: 90%;
+}
+
 @media (max-width: 400px) {
   .feat-case-study__slide .slide__title {
     font-size: 1.5rem;

@@ -200,7 +200,8 @@ function generateContent() {
     const video = document.getElementsByClassName('hp-video');
 
     for (var i = 0; i < video.length; i++) {
-      video[i].setAttribute('autoplay', true);
+      const src = video[i].getAttribute('data-src');
+      video[i].setAttribute('src', src);
     }
 
     // remove image
@@ -223,7 +224,7 @@ function generateContent() {
     const video = document.getElementsByClassName('hp-video');
 
     for (var i = 0; i < video.length; i++) {
-      video[i].removeAttribute('autoplay');
+      video[i].removeAttribute('src');
     }
   }
 }
