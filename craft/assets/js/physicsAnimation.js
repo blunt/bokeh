@@ -5,7 +5,8 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
   var radiusX = shapeRadiusX;
   var radiusY = shapeRadiusY;
   var strength = 0.003;
-  var drag = 0.0;
+  var drag = 0.01;
+  // var drag = 0.0;
 
   var background = shape.makeGroup();
   var foreground = shape.makeGroup();
@@ -22,10 +23,9 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
     var ax = radiusX * Math.cos(theta);
     var ay = radiusY * Math.sin(theta);
 
-    var varianceX = Math.random() * 0.3 + 0.7;
-    var varianceY = Math.random() * 0.5 + 0.5;
-    var bx = varianceX * ax;
-    var by = varianceY * ay;
+    var variance = Math.random() * (0.9 - 0.8) + 0.8;
+    var bx = variance * ax;
+    var by = variance * ay;
 
     var origin = physics.makeParticle(mass, ax, ay)
     var particle = physics.makeParticle(Math.random() * mass * 0.66 + mass * 0.33, bx, by);
