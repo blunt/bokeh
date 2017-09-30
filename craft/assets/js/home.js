@@ -77,7 +77,20 @@ function generateSwiper(viewport) {
     nextSlideLinks();
   }
 
-  function swiperOnSlideChangeStart(slider) {
+  function swiperOnSlideChangeEnd(slider) {
+    const video = document.querySelectorAll('.swiper-slide-active video')[0];
+
+    if (video) {
+      console.log(video);
+      video.play();
+    }
+
+    const prevVideo = document.querySelectorAll('.swiper-slide-prev video')[0];
+
+    if (prevVideo) {
+      prevVideo.pause();
+      prevVideo.currentTime = 0;
+    }
   }
 
   var swiperAttributes = {};
@@ -89,7 +102,8 @@ function generateSwiper(viewport) {
     hashnav: true,
     speed: 1000,
     loop: true,
-    onInit: (slider) => swiperOnInit(slider)
+    onInit: (slider) => swiperOnInit(slider),
+    onSlideChangeEnd: (slider) => swiperOnSlideChangeEnd(slider)
   };
 
   const swiperMobileAttributes = {
@@ -101,7 +115,8 @@ function generateSwiper(viewport) {
     hashnav: true,
     speed: 1000,
     loop: true,
-    onInit: (slider) => swiperOnInit(slider)
+    onInit: (slider) => swiperOnInit(slider),
+    onSlideChangeEnd: (slider) => swiperOnSlideChangeEnd(slider)
   };
 
   if (viewport === 'mobile') {
