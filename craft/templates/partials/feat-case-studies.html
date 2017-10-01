@@ -4,8 +4,16 @@
     <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
       <!-- <div class="slide__image relative w-100 h-100"></div> -->
       <!-- <div class="slide__imageFade absolute"></div> -->
-      <div class="w-60-l w-80-ns pb4 fr">
-        <video class="w-100" src="assets/img/promise.mp4?v=3" muted></video>
+      <div class="center mw8 w-90 cf">
+          {% if loop.index == 3 %}
+            <div class="w-50-l w-80-ns pt6 mt5 fr">
+          {% else %}
+            <div class="w-60-l w-80-ns pt6 mt5 nr5 fr">
+          {% endif %}
+          {% for asset in entry.featuredCaseStudyGraphic %}
+            <img src="{{ siteUrl }}{{ asset.url }}" alt="">
+          {% endfor %}
+        </div>
       </div>
     </div>
     <div class="center mw8 w-90 feat-case-study__content relative z-1 {% if loop.index == 2 %}z-2{% endif %}">
