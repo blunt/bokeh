@@ -42,11 +42,11 @@
               <div class="blockquote__shape--top shape relative z-1"></div>
             {% endif %}
 
-            <div class="blockquote__content"
+            <div class="blockquote__content relative z-1"
               data-aos="fade-up"
               >
               {% for asset in block.avatar %}
-                <div class="blockquote__avatar mb4 relative z-2 ml3" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+                <div class="blockquote__avatar mb4 relative ml3" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
               {% endfor %}
 
               <h2 class="lh-title">{{ block.quote }}</h2>
