@@ -8,12 +8,14 @@
 
 .feat-case-study__slide .slide__title a {
   text-decoration: none;
-  color: inherit;
-  transition: var(--transition);
+  color: #000;
+  opacity: .6;
+  transition: var(--transition-default);
 }
 
 .feat-case-study__slide .slide__title a:hover {
-  border-color: #fff !important;
+  color: #fff;
+  opacity: 1;
 }
 
 .feat-case-study__content {

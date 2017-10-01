@@ -2,18 +2,21 @@
 {% for entry in entries %}
   <div data-hash="{{ entry.title | lower | replace(' ', '-') }}" class="slide-{{ loop.index }} swiper-slide overflow-visible bg-white pt6 feat-case-study__slide">
     <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
-      <div class="slide__image relative w-100 h-100"></div>
-      <div class="slide__imageFade absolute"></div>
+      <!-- <div class="slide__image relative w-100 h-100"></div> -->
+      <!-- <div class="slide__imageFade absolute"></div> -->
+      <div class="w-60-l w-80-ns pb4 fr">
+        <video class="w-100" src="assets/img/promise.mp4?v=3" muted></video>
+      </div>
     </div>
     <div class="center mw8 w-90 feat-case-study__content relative z-1 {% if loop.index == 2 %}z-2{% endif %}">
-      <div class="feat-case-study__slide__shape shape absolute top-0 left-0 w-100 h-100"></div>
+      <div data-color="{{ entry.color }}" class="feat-case-study__slide__shape shape absolute top-0 left-0 w-100 h-100"></div>
       <div class="pv4-ns pv3 mt5-l mt3-ns w-50-l w-80-ns z-1 relative">
-        <h2 class="f2-ns f3 lh-title relative slide__title mb4">
+        <h2 class="f2-ns f3 lh-title relative slide__title mb4 white">
           {{ entry.headingParagraph }}
         </h2>
       </div>
     </div>
-    <div class="slide__overlay--mingle absolute top-0 h-100 z-1"></div>
+    <!-- <div class="slide__overlay--mingle absolute top-0 h-100 z-1"></div> -->
 
     <style>
     /* Add custom styles from CMS for each slide as we iterate through */
@@ -34,12 +37,6 @@
       .slide-{{ loop.index }} .slide__overlay--mingle {
         background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%);
       }
-    }
-    .slide-{{ loop.index }} .slide__title a {
-      color: {{ entry.color }};
-    }
-    .slide-{{ loop.index }} .slide__title a:hover {
-      color: #000;
     }
     </style>
   </div>

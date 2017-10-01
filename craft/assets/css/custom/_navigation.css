@@ -1,3 +1,16 @@
+.open {
+  overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
 .main-nav {
   transform: translate(40%, -100%);
   transition: 1s all cubic-bezier(0.19, 1, 0.22, 1);
