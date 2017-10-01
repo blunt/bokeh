@@ -23,7 +23,7 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
     var ax = radiusX * Math.cos(theta);
     var ay = radiusY * Math.sin(theta);
 
-    var variance = Math.random() * (0.9 - 0.8) + 0.8;
+    var variance = Math.random() * (0.95 - 0.9) + 0.9;
     var bx = variance * ax;
     var by = variance * ay;
 

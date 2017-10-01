@@ -353,7 +353,7 @@ function generateShapes() {
       height: 550
     }).appendTo(case2);
 
-    physicsAnimation(case2_shape, case2.dataset.color, case2_shape.width / 2.5, case2_shape.height / 3, 5);
+    physicsAnimation(case2_shape, case2.dataset.color, case2_shape.width / 2.5, case2_shape.height / 3.5, 5);
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && case2Shape) {
     case2Shape.parentNode.removeChild(case2Shape);
   }
@@ -372,8 +372,8 @@ function generateShapes() {
       width: 1000
     }).appendTo(case3);
 
-    physicsAnimation(case1_shape, case1.dataset.color, case1_shape.width / 2.75, case1_shape.height / 2.5, 6);
-    physicsAnimation(case3_shape, case3.dataset.color, case3_shape.width / 2.3, case3_shape.height / 2.5, 6);
+    physicsAnimation(case1_shape, case1.dataset.color, case1_shape.width / 3.5, case1_shape.height / 3.5, 6);
+    physicsAnimation(case3_shape, case3.dataset.color, case3_shape.width / 2.75, case3_shape.height / 3, 6);
 
     caseStudyDesktopFlag = true;
   }
@@ -387,7 +387,7 @@ function generateShapes() {
       width: 1400
     }).appendTo(services);
 
-    physicsAnimation(services_shape, '#F62944', services_shape.width / 4, services_shape.height / 2, 6);
+    physicsAnimation(services_shape, '#F62944', services_shape.width / 5, services_shape.height / 2, 6);
 
     servicesDesktopFlag = true;
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large' && screenSize !== 'medium') && servicesDesktopFlag) {
