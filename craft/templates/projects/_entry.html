@@ -15,6 +15,11 @@
 
 {% extends "_layout" %}
 
+{% set socialName = 'Bokeh | ' ~ entry.title %}
+{% set description = entry.headingParagraph | striptags %}
+{% set twitterImage = entry.image %}
+{% set facebookImage = entry.image %}
+
 {% block content %}
   <article class="case-study">
     <header class="cover pt6 relative overflow-hidden" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }}; fixed">

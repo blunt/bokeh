@@ -9,6 +9,11 @@
  # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
  #}
 
+{% set seoName = siteName %}
+{% set seoDescription = 'We are a creative partner for brands ready to move at the speed of inspiration.' %}
+{% set seoTwitterImage = 'assets/img/bokeh_twitter.jpg' %}
+{% set seoFacebookImage = 'assets/img/bokeh_facebook.jpg' %}
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -18,12 +23,44 @@
 
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
 
-	<link rel="home" href="{{ siteUrl }}" />
-  <link rel="stylesheet" type="text/css" href="{{ siteUrl }}assets/css/main.css">
+  <link rel="home" href="{{ siteUrl }}" />
 
-  <meta property="og:type" content="business.business">
-	<meta property="og:title" content="{{ siteName }}">
-	<meta property="og:url" content="{{ siteUrl }}">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ siteUrl }}favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ siteUrl }}favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ siteUrl }}favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{ siteUrl }}favicon/manifest.json">
+  <link rel="mask-icon" href="{{ siteUrl }}favicon/safari-pinned-tab.svg" color="#f4ad17">
+  <link rel="shortcut icon" href="{{ siteUrl }}favicon/favicon.ico">
+  <meta name="msapplication-config" content="{{ siteUrl }}favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Meta data -->
+  <meta name="description" content="{% if description is defined %}{{ description }}{% else %}{{ seoDescription }}{% endif %}" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if socialName is defined %}{{ socialName }}{% else %}{{ seoName }}{% endif %}">
+  <meta name="twitter:description" content="{% if description is defined %}{{ description }}{% else %}{{ seoDescription }}{% endif %}">
+  <meta name="twitter:image" content="{{ siteUrl }}
+    {% if twitterImage is defined %}
+      {% for asset in twitterImage %}{{ asset.url }}{% endfor %}
+    {% else %}
+      {{ seoTwitterImage }}
+    {% endif %}">
+  <meta name="twitter:creator" content="@seebokeh">
+
+  <meta property="og:title" content="{% if socialName is defined %}{{ socialName }}{% else %}{{ seoName }}{% endif %}" />
+  <meta property="og:type" content="business.business" />
+  <meta property="og:url" content="{{ craft.request.url }}" />
+  <meta property="og:image" content="{{ siteUrl }}
+    {% if facebookImage is defined %}
+      {% for asset in facebookImage %}{{ asset.url }}{% endfor %}
+    {% else %}
+      {{ seoFacebookImage }}
+    {% endif %}" />
+  <meta property="og:description" content="{% if description is defined %}{{ description }}{% else %}{{ seoDescription }}{% endif %}" />
+  <meta property="og:site_name" content="{% if socialName is defined %}{{ socialName }}{% else %}{{ seoName }}{% endif %}" />
+
+  <link rel="stylesheet" type="text/css" href="{{ siteUrl }}assets/css/main.css">
 
   <script src="{{ siteUrl }}assets/js/swiper.min.js"></script>
   <script src="{{ siteUrl }}assets/js/physics.min.js"></script>
