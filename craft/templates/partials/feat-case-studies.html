@@ -8,7 +8,7 @@
           {% if loop.index == 3 %}
             <div class="w-50-l w-80-ns pt5 mt5 fr">
           {% else %}
-            <div class="w-60-l w-80-ns pt6 mt5 nr5 fr">
+            <div class="w-70-l w-80-ns pt5 mt4 nr5 fr">
           {% endif %}
           {% for asset in entry.featuredCaseStudyGraphic %}
             <img src="{{ siteUrl }}{{ asset.url }}" alt="">
@@ -18,7 +18,7 @@
     </div>
     <div class="center mw8 w-90 feat-case-study__content relative z-1 {% if loop.index == 2 %}z-2{% endif %}">
       <div data-color="{{ entry.color }}" class="feat-case-study__slide__shape shape absolute top-0 left-0 w-100 h-100"></div>
-      <div class="pv4-ns pv3 mt5-l mt3-ns w-50-l w-80-ns z-1 relative">
+      <div class="pv4-ns pv3 mt2-ns w-50-l w-80-ns z-1 relative">
         <h2 class="f2-ns f3 lh-title relative slide__title mb4 white">
           {{ entry.headingParagraph }}
         </h2>

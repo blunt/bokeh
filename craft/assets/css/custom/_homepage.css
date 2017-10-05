@@ -70,18 +70,28 @@
 }
 
 .hp-video-container {
-  position: relative;
-  min-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   width: 100%;
+  height: 100%; 
   overflow: hidden;
 }
 
 .hp-video-container iframe {
-  width: 200%;
-  height: 200%;
+  /* Make video to at least 100% wide and tall */
+  min-width: 115%; 
+  min-height: 115%; 
+
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto;
+  height: auto;
+
+  /* Center the video */
+  position: absolute;
   top: 50%;
-  left: -50%;
-  transform: translate(0%, -50%);
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 

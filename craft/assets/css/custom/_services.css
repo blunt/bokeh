@@ -59,7 +59,8 @@
     line-height: 1.5;
     padding-left: 20px;
     &:before {
-      content: "–";
+      content: "·";
+      font-weight: bold;
       position: absolute;
       left: 0;
       margin-right: .5rem;

@@ -55,7 +55,15 @@
       <style>
       /* Add custom styles from CMS for each slide as we iterate through */
       .hp-slide1 .hp-slide1__cover {
-        background: {{ entry.color }};
+        /* background: {{ entry.color }}; */
+        background: linear-gradient(270deg, {{ entry.gradientColor1 }}, {{ entry.gradientColor2 }});
+        background-size: 400% 400%;
+        animation: animateGradient 15s ease infinite;
+      }
+      @keyframes animateGradient {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
       }
       .hp-slide1 .slide__imageFade {
         background: linear-gradient(to top, #fff 0%, rgba(255,255,255,0) 100%);

@@ -254,7 +254,7 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
     } else {
       serviceAnimation = setInterval(() => {
         slideAnimation();
-      }, 4000);
+      }, 6000);
     }
 
     function slideAnimation() {
