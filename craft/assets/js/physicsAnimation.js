@@ -4,9 +4,8 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
   var mass = 100;
   var radiusX = shapeRadiusX;
   var radiusY = shapeRadiusY;
-  var strength = 0.003;
-  var drag = 0.01;
-  // var drag = 0.0;
+  var strength = 0.03;
+  var drag = 0.0;
 
   var background = shape.makeGroup();
   var foreground = shape.makeGroup();
@@ -23,7 +22,7 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
     var ax = radiusX * Math.cos(theta);
     var ay = radiusY * Math.sin(theta);
 
-    var variance = Math.random() * (0.95 - 0.9) + 0.9;
+    var variance = Math.random() * (0.95 - 0.85) + 0.85;
     var bx = variance * ax;
     var by = variance * ay;
 
@@ -63,4 +62,16 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
       background.translation.set(shape.width / 2, shape.height / 2);
       foreground.translation.copy(background.translation);
     }
+}
+
+function controlAnimation(shape, pauseShape) {
+  setTimeout(() => {
+    if (pauseShape) {
+      shape.pause();
+    }
+  }, 1000);
+
+  if (!pauseShape) {
+    shape.play();
+  }
 }

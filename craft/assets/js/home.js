@@ -1,5 +1,17 @@
 const navTrigger = document.getElementsByClassName('nav-button')[0];
 
+// Shape variables setup
+var slide1_a, slide1_b, case1_shape, case2_shape, case3_shape, services_shape = null;
+
+const shapes = {
+  shape_1: null,
+  shape_15: null,
+  shape_2: null,
+  shape_3: null,
+  shape_4: null,
+  shape_5: null
+}
+
 // Service variables setup
 var serviceAnimation = null;
 var triggeredServices = false;
@@ -79,6 +91,10 @@ function generateSwiper(viewport) {
 
   function swiperOnSlideChangeEnd(slider) {
     const video = document.querySelectorAll('.swiper-slide-active video')[0];
+
+    if (shapes[`shape_${slider.previousIndex}`]) controlAnimation(shapes[`shape_${slider.previousIndex}`], true);
+    if (shapes[`shape_${slider.activeIndex}`]) controlAnimation(shapes[`shape_${slider.activeIndex}`]);
+    if (shapes[`shape_${slider.activeIndex + 1}`]) controlAnimation(shapes[`shape_${slider.activeIndex + 1}`]);
 
     if (video) {
       console.log(video);
@@ -313,12 +329,13 @@ function generateShapes() {
     if (!duplicateSlide) {
       const slide1 = document.getElementsByClassName('hp-slide1__shape');
 
-      var slide1_b = new Two({
+      shapes.shape_15 = new Two({
         type: Two.Types['svg'],
         width: 1000
       }).appendTo(slide1[1]);
 
-      physicsAnimation(slide1_b, '#fff', slide1_b.height / 2, slide1_b.height / 2, 8);
+      physicsAnimation(shapes.shape_15, '#fff', shapes.shape_15.height / 2, shapes.shape_15.height / 2, 8, true);
+      controlAnimation(shapes.shape_15, true);
     }
   }
 
@@ -326,12 +343,13 @@ function generateShapes() {
   if ((screenSize === 'xlarge' || screenSize === 'large') && !slide1DesktopFlag) {
     const slide1 = document.getElementsByClassName('hp-slide1__shape');
 
-    var slide1_a = new Two({
+    shapes.shape_1 = new Two({
       type: Two.Types['svg'],
       width: 1000
     }).appendTo(slide1[0]);
 
-    physicsAnimation(slide1_a, '#fff', slide1_a.height / 2, slide1_a.height / 2, 8);
+    physicsAnimation(shapes.shape_1, '#fff', shapes.shape_1.height / 2, shapes.shape_1.height / 2, 8, true);
+    controlAnimation(shapes.shape_1, true);
 
     slide1DesktopFlag = true;
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && slide1DesktopFlag) {
@@ -347,13 +365,14 @@ function generateShapes() {
   const case2Shape = document.querySelectorAll('.feat-case-study__slide.slide-2 .feat-case-study__slide__shape svg')[0];
 
   if ((screenSize === 'xlarge' || screenSize === 'large') && !case2Shape) {
-    var case2_shape = new Two({
+    shapes.shape_3 = new Two({
       type: Two.Types['svg'],
       width: 1000,
       height: 550
     }).appendTo(case2);
 
-    physicsAnimation(case2_shape, case2.dataset.color, case2_shape.width / 2.5, case2_shape.height / 3.5, 5);
+    physicsAnimation(shapes.shape_3, case2.dataset.color, shapes.shape_3.width / 2.5, shapes.shape_3.height / 3.5, 10, true);
+    controlAnimation(shapes.shape_3, true);
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && case2Shape) {
     case2Shape.parentNode.removeChild(case2Shape);
   }
@@ -362,18 +381,20 @@ function generateShapes() {
     const case1 = document.querySelectorAll('.feat-case-study__slide.slide-1 .feat-case-study__slide__shape')[0];
     const case3 = document.querySelectorAll('.feat-case-study__slide.slide-3 .feat-case-study__slide__shape')[0];
 
-    var case1_shape = new Two({
+    shapes.shape_2 = new Two({
       type: Two.Types['svg'],
       width: 1125
     }).appendTo(case1);
 
-    var case3_shape = new Two({
+    shapes.shape_4 = new Two({
       type: Two.Types['svg'],
       width: 1000
     }).appendTo(case3);
 
-    physicsAnimation(case1_shape, case1.dataset.color, case1_shape.width / 3.5, case1_shape.height / 3.5, 6);
-    physicsAnimation(case3_shape, case3.dataset.color, case3_shape.width / 2.75, case3_shape.height / 3, 6);
+    physicsAnimation(shapes.shape_2, case1.dataset.color, shapes.shape_2.width / 3.5, shapes.shape_2.height / 3.5, 10, true);
+    controlAnimation(shapes.shape_2, true);
+    physicsAnimation(shapes.shape_4, case3.dataset.color, shapes.shape_4.width / 2.75, shapes.shape_4.height / 3, 10, true);
+    controlAnimation(shapes.shape_4, true);
 
     caseStudyDesktopFlag = true;
   }
@@ -382,12 +403,13 @@ function generateShapes() {
   if((screenSize === 'xlarge' || screenSize === 'large' || screenSize === 'medium') && !servicesDesktopFlag) {
     const services = document.querySelectorAll('.services-list .services__shape')[0];
 
-    var services_shape = new Two({
+    shapes.shape_5 = new Two({
       type: Two.Types['svg'],
       width: 1400
     }).appendTo(services);
 
-    physicsAnimation(services_shape, '#F62944', services_shape.width / 5, services_shape.height / 2, 6);
+    physicsAnimation(shapes.shape_5, '#F62944', shapes.shape_5.width / 5, shapes.shape_5.height / 2, 10, true);
+    controlAnimation(shapes.shape_5, true);
 
     servicesDesktopFlag = true;
   } else if ((screenSize !== 'xlarge' && screenSize !== 'large' && screenSize !== 'medium') && servicesDesktopFlag) {
@@ -401,17 +423,22 @@ function generateShapes() {
 
     servicesDesktopFlag = false;
   }
+
+  setTimeout(() => {
+    if (shapes[`shape_${swiper.activeIndex}`]) controlAnimation(shapes[`shape_${swiper.activeIndex}`]);
+    if (shapes[`shape_${swiper.activeIndex + 1}`]) controlAnimation(shapes[`shape_${swiper.activeIndex + 1}`]);
+  }, 1000);
 }
 
 // Setup page and resize functions
 (function() {
   modifySwiper();
-  generateContent();
   generateShapes();
+  generateContent();
 })();
 
 window.addEventListener('resize', () => {
   modifySwiper();
-  generateContent();
   generateShapes();
+  generateContent();
 });
