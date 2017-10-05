@@ -59,7 +59,14 @@
   <script src="{{ siteUrl }}assets/js/breakpoints.min.js"></script>
 </head>
 
-<body class="near-black">
+<body id="body" class="near-black">
+  <script>
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (iOS) {
+    } else {
+      document.getElementById('body').classList.add('fade-out');
+    }
+  </script>
   {% if craft.request.firstSegment == '' %}
   <section class="home">
   {% endif %}

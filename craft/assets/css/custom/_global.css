@@ -2,9 +2,20 @@
   color: #df3f28;
   background: rgba(0,0,0,.9);
 }
+
 ::selection {
   color: #df3f28;
   background: rgba(0,0,0,.9);
+}
+
+body {
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: 1s opacity;
 }
 
 hr {
