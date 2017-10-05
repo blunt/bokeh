@@ -40,23 +40,13 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{% if socialName is defined %}{{ socialName }}{% else %}{{ seoName }}{% endif %}">
   <meta name="twitter:description" content="{% if description is defined %}{{ description }}{% else %}{{ seoDescription }}{% endif %}">
-  <meta name="twitter:image" content="{{ siteUrl }}
-    {% if twitterImage is defined %}
-      {% for asset in twitterImage %}{{ asset.url }}{% endfor %}
-    {% else %}
-      {{ seoTwitterImage }}
-    {% endif %}">
+  <meta name="twitter:image" content="{{ siteUrl }}{% if twitterImage is defined %}{% for asset in twitterImage %}{{ asset.url }}{% endfor %}{% else %}{{ seoTwitterImage }}{% endif %}">
   <meta name="twitter:creator" content="@seebokeh">
 
   <meta property="og:title" content="{% if socialName is defined %}{{ socialName }}{% else %}{{ seoName }}{% endif %}" />
   <meta property="og:type" content="business.business" />
   <meta property="og:url" content="{{ craft.request.url }}" />
-  <meta property="og:image" content="{{ siteUrl }}
-    {% if facebookImage is defined %}
-      {% for asset in facebookImage %}{{ asset.url }}{% endfor %}
-    {% else %}
-      {{ seoFacebookImage }}
-    {% endif %}" />
+  <meta property="og:image" content="{{ siteUrl }}{% if facebookImage is defined %}{% for asset in facebookImage %}{{ asset.url }}{% endfor %}{% else %}{{ seoFacebookImage }}{% endif %}" />
   <meta property="og:description" content="{% if description is defined %}{{ description }}{% else %}{{ seoDescription }}{% endif %}" />
   <meta property="og:site_name" content="{% if socialName is defined %}{{ socialName }}{% else %}{{ seoName }}{% endif %}" />
 
