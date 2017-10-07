@@ -75,10 +75,10 @@
           <div class="contained contained--large"
           data-aos="fade-up"
           >
-          {% if block.ratio.value == 16.9 %}
-            <div class="video-wrapper relative">
-          {% else %}
-            <div class="video-wrapper two-35 relative">
+          {% if block.ratio.value == '235-1' %}
+              <div class="video-wrapper two-35 relative">
+            {% else %}
+              <div class="video-wrapper relative">
           {% endif %}
               {% if 'youtu' in service %}
               <iframe class="hp-video absolute top-0 left-0 w-100 h-100" data-src="http://www.youtube.com/embed/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
