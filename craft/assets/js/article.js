@@ -69,10 +69,10 @@ function generateShapes() {
   var heroShape = new Two({
     type: Two.Types['svg'],
     width: heroWidth,
-    height: 100
+    height: 200
   }).appendTo(heroShapeContainer);
 
-  physicsAnimation(heroShape, '#fff', heroShape.width, heroShape.height, 11);
+  physicsAnimation(heroShape, '#fff', heroShape.width, heroShape.height, 18, speed = 0.01);
 
 
   const nextShapeContainer = document.getElementsByClassName('next-case-study__shape')[0];
@@ -101,10 +101,10 @@ function generateShapes() {
   var nextShape = new Two({
     type: Two.Types['svg'],
     width: nextWidth,
-    height: 100
+    height: 200
   }).appendTo(nextShapeContainer);
 
-  physicsAnimation(nextShape, '#fff', nextShape.width, nextShape.height, 11);
+  physicsAnimation(nextShape, '#fff', nextShape.width, nextShape.height, 18, speed = 0.01);
 
   const blockquotes = document.querySelectorAll('blockquote:not(.no-shape)');
 
@@ -141,17 +141,17 @@ function generateShapes() {
     var blockquoteShapeTop = new Two({
       type: Two.Types['svg'],
       width: blockquoteWidth,
-      height: 100
+      height: 200
     }).appendTo(blockquoteTopShapeContainer);
 
     var blockquoteShapeBottom = new Two({
       type: Two.Types['svg'],
       width: blockquoteWidth,
-      height: 100
+      height: 200
     }).appendTo(blockquoteBottomShapeContainer);
 
-    physicsAnimation(blockquoteShapeTop, '#fff', blockquoteShapeTop.width, blockquoteShapeTop.height, 11);
-    physicsAnimation(blockquoteShapeBottom, '#fff', blockquoteShapeBottom.width, blockquoteShapeBottom.height, 11);
+    physicsAnimation(blockquoteShapeTop, '#fff', blockquoteShapeTop.width, blockquoteShapeTop.height, 18, speed = 0.01);
+    physicsAnimation(blockquoteShapeBottom, '#fff', blockquoteShapeBottom.width, blockquoteShapeBottom.height, 18, speed = 0.01);
   }
 }
 
