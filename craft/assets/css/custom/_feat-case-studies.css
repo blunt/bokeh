@@ -23,10 +23,12 @@
 }
 
 .feat-case-study__slide.slide-2 .feat-case-study__content {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
+  @media (min-width: 993px) {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
   @media (min-width: 1300px) {
     bottom: 5%;
   }
@@ -59,9 +61,16 @@
   & svg {
     position: absolute;
     max-width: inherit;
+    top: -200px;
+    left: -250px;
+    transform: scale(0.8);
+    @media (min-width: 600px) {
+      left: -180px;
+    }
     @media (min-width: 993px) {
       left: -130px;
       top: -150px;
+      transform: scale(1);
     }
     @media (min-width: 1040px) {
       top: -150px;
@@ -75,14 +84,11 @@
     position: absolute;
     max-width: inherit;
     left: -310px;
-    top: -215%;
+    top: -140%;
+    transform: scale(0.8);
     @media (min-width: 600px) {
-      transform: scale(1.2);
-      top: -330px;
-      left: -130px;
-    }
-    @media (min-width: 650px) {
-      transform: scale(1.5);
+      top: -200px;
+      left: -230px;
     }
     @media (min-width: 993px) {
       top: -130px;

@@ -22,6 +22,7 @@ p + .article-swiper-container {
 
 .case-study__shape {
   transform: translateX(-25%) translateY(60%);
+  margin-bottom: -100px;
 }
 
 .case-study-container {

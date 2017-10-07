@@ -334,7 +334,7 @@ function generateShapes() {
         width: 1000
       }).appendTo(slide1[1]);
 
-      physicsAnimation(shapes.shape_15, '#fff', shapes.shape_15.height / 2, shapes.shape_15.height / 2, 8, true);
+      physicsAnimation(shapes.shape_15, '#fff', shapes.shape_15.height / 2, shapes.shape_15.height / 2, 8);
       controlAnimation(shapes.shape_15, true);
     }
   }
@@ -348,7 +348,7 @@ function generateShapes() {
       width: 1000
     }).appendTo(slide1[0]);
 
-    physicsAnimation(shapes.shape_1, '#fff', shapes.shape_1.height / 2, shapes.shape_1.height / 2, 8, true);
+    physicsAnimation(shapes.shape_1, '#fff', shapes.shape_1.height / 2, shapes.shape_1.height / 2, 8);
     controlAnimation(shapes.shape_1, true);
 
     slide1DesktopFlag = true;
@@ -361,24 +361,9 @@ function generateShapes() {
   }
 
   // Featured Case Studies
-  const case2 = document.querySelectorAll('.feat-case-study__slide.slide-2 .feat-case-study__slide__shape')[0];
-  const case2Shape = document.querySelectorAll('.feat-case-study__slide.slide-2 .feat-case-study__slide__shape svg')[0];
-
-  if ((screenSize === 'xlarge' || screenSize === 'large') && !case2Shape) {
-    shapes.shape_3 = new Two({
-      type: Two.Types['svg'],
-      width: 1000,
-      height: 550
-    }).appendTo(case2);
-
-    physicsAnimation(shapes.shape_3, case2.dataset.color, shapes.shape_3.width / 2.5, shapes.shape_3.height / 3.5, 10, true);
-    controlAnimation(shapes.shape_3, true);
-  } else if ((screenSize !== 'xlarge' && screenSize !== 'large') && case2Shape) {
-    case2Shape.parentNode.removeChild(case2Shape);
-  }
-
   if (!caseStudyDesktopFlag) {
     const case1 = document.querySelectorAll('.feat-case-study__slide.slide-1 .feat-case-study__slide__shape')[0];
+    const case2 = document.querySelectorAll('.feat-case-study__slide.slide-2 .feat-case-study__slide__shape')[0];
     const case3 = document.querySelectorAll('.feat-case-study__slide.slide-3 .feat-case-study__slide__shape')[0];
 
     shapes.shape_2 = new Two({
@@ -386,14 +371,22 @@ function generateShapes() {
       width: 1125
     }).appendTo(case1);
 
+    shapes.shape_3 = new Two({
+      type: Two.Types['svg'],
+      width: 1000,
+      height: 550
+    }).appendTo(case2);
+
     shapes.shape_4 = new Two({
       type: Two.Types['svg'],
       width: 1000
     }).appendTo(case3);
 
-    physicsAnimation(shapes.shape_2, case1.dataset.color, shapes.shape_2.width / 3.5, shapes.shape_2.height / 3.5, 10, true);
+    physicsAnimation(shapes.shape_2, case1.dataset.color, shapes.shape_2.width / 3.5, shapes.shape_2.height / 3.5, 10);
     controlAnimation(shapes.shape_2, true);
-    physicsAnimation(shapes.shape_4, case3.dataset.color, shapes.shape_4.width / 2.75, shapes.shape_4.height / 3, 10, true);
+    physicsAnimation(shapes.shape_3, case2.dataset.color, shapes.shape_3.width / 2.5, shapes.shape_3.height / 3.5, 10);
+    controlAnimation(shapes.shape_3, true);
+    physicsAnimation(shapes.shape_4, case3.dataset.color, shapes.shape_4.width / 2.75, shapes.shape_4.height / 3, 10);
     controlAnimation(shapes.shape_4, true);
 
     caseStudyDesktopFlag = true;
@@ -408,7 +401,7 @@ function generateShapes() {
       width: 1400
     }).appendTo(services);
 
-    physicsAnimation(shapes.shape_5, '#F62944', shapes.shape_5.width / 5, shapes.shape_5.height / 2, 10, true);
+    physicsAnimation(shapes.shape_5, '#F62944', shapes.shape_5.width / 5, shapes.shape_5.height / 2, 10);
     controlAnimation(shapes.shape_5, true);
 
     servicesDesktopFlag = true;
