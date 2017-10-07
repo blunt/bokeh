@@ -19,7 +19,7 @@ function openNav() {
 function fadeIn() {
   body.classList.remove('fade-out');
 }
-window.addEventListener('load', function() { 
+window.addEventListener('load', function() {
   fadeIn();
 }, false);
 
