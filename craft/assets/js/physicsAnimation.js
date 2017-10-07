@@ -1,10 +1,11 @@
-function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePoints) {
+function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePoints, speed) {
+  console.log(speed);
   shape.renderer.domElement.style.overflow = "visible";
 
   var mass = 100;
   var radiusX = shapeRadiusX;
   var radiusY = shapeRadiusY;
-  var strength = 0.03;
+  var strength = speed ? speed : 0.03;
   var drag = 0.0;
 
   var background = shape.makeGroup();
