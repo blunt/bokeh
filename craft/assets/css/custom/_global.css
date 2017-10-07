@@ -25,6 +25,9 @@ hr {
 .video-wrapper {
   padding-top: 56.25%;
   height: 0px;
+  &.two-35 {
+    padding-top: 43%;
+  }
 }
 
 .swiper-button-prev,

@@ -75,7 +75,11 @@
           <div class="contained contained--large"
           data-aos="fade-up"
           >
+          {% if block.ratio.value == 16.9 %}
             <div class="video-wrapper relative">
+          {% else %}
+            <div class="video-wrapper two-35 relative">
+          {% endif %}
               {% if 'youtu' in service %}
               <iframe class="hp-video absolute top-0 left-0 w-100 h-100" data-src="http://www.youtube.com/embed/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
               {% else %}
@@ -164,6 +168,34 @@
               {% endfor %}
             </div>
             <div class="image"
+            data-aos="fade-up"
+            >
+              {% for asset in block.thirdImage %}
+                <img data-aos="zoom-out" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+          </div>
+
+        {% elseif block.type == "threeSideBySideImages" %}
+
+          <div class="image-grid three-side cf"
+          data-aos="fade-up"
+          >
+            {% for asset in block.firstImage %}
+              <div class="image fl"
+              data-aos="fade-up"
+              >
+                <img data-aos="zoom-out" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              </div>
+            {% endfor %}
+            <div class="image fl"
+            data-aos="fade-up"
+            >
+              {% for asset in block.secondImage %}
+                <img data-aos="zoom-out" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <div class="image fl"
             data-aos="fade-up"
             >
               {% for asset in block.thirdImage %}
