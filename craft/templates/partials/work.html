@@ -8,9 +8,9 @@
       </div>
       {% for entry in entries.limit(6) %}
         <article class="pa3-l pa2 fl w-third-ns w-50 work-item overflow-hidden">
-          <a class="h5-ns h4 br3 db overflow-hidden link cover flex items-center justify-center content-center relative" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
+          <a class="h5-ns h4 br3 db overflow-hidden link cover flex items-center justify-center content-center tc relative" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
             <div class="absolute left-0 bottom-0 top-0 right-0" style="background: {{ entry.color }}; opacity: .6;"></div>
-            <h2 class="f3-l f4-ns f5 db lh-title white relative text-shadow mb0 z-1">
+            <h2 class="f3-l f4-ns f5 db lh-title white relative text-shadow mb0 z-1 ph2">
               {{ entry.title }}
             </h2>
           </a>
