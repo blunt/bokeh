@@ -84,7 +84,7 @@ function generateSwiper(viewport) {
     // Animate services copy list
     const services = document.getElementsByClassName('services-list')[0];
     const servicesTitle = document.getElementsByClassName('services-title');
-    if (!serviceAnimation) loopAnimation(true, triggeredServices, 'service', servicesTitle);
+    if (!serviceAnimation && slider.activeIndex === 5) loopAnimation(true, triggeredServices, 'service', servicesTitle);
 
     nextSlideLinks();
   }
@@ -96,7 +96,6 @@ function generateSwiper(viewport) {
     if (shapes[`shape_${slider.activeIndex}`]) controlAnimation(shapes[`shape_${slider.activeIndex}`]);
 
     if (video) {
-      console.log(video);
       video.play();
     }
 
@@ -106,6 +105,11 @@ function generateSwiper(viewport) {
       prevVideo.pause();
       prevVideo.currentTime = 0;
     }
+
+    if (serviceAnimation && slider.previousIndex === 5) clearInterval(serviceInterval)
+
+    const servicesTitle = document.getElementsByClassName('services-title');
+    if (!serviceAnimation && slider.activeIndex === 5) loopAnimation(true, triggeredServices, 'service', servicesTitle);
   }
 
   var swiperAttributes = {};

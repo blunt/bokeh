@@ -6,7 +6,7 @@
     <div data-hash="name" class="slide-studio swiper-slide bg-white pt6 overflow-y-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap">
         <div class="mt4-ns mt5-l w-30-l w-80-ns">
-          <h2 class="f2-ns f3 lh-title relative slide__title mb4-ns mb5 z-1">
+          <h2 class="f2-5-ns f3 lh-title relative slide__title mb4-ns mb5 z-1">
             {{ block.copy }}
           </h2>
         </div>
@@ -24,7 +24,7 @@
           <video class="w-100" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted autoplay playsinline></video>
         </div>
         <div class="w-50-l w-80-ns center tc">
-          <h2 class="f2 lh-title relative slide__title mb4 z-1">
+          <h2 class="f2-5-ns f3 lh-title relative slide__title mb4 z-1">
             {{ block.copy }}
           </h2>
         </div>
@@ -33,7 +33,7 @@
 
   {% elseif loop.index == 3 %}
 
-    <div data-hash="education" class="slide-studio swiper-slide bg-white pt6 overflow-y-hidden">
+    <div data-hash="education" class="slide-studio swiper-slide bg-white pt6 pt5-ns pt6-l overflow-y-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap items-end">
         <div class="mb4 center w-60-ns w-80">
           <video class="w-100" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted autoplay playsinline></video>
@@ -41,9 +41,9 @@
         <div class="pb4 w-30-l w-80-ns center">
           <h2 class="lh-title relative slide__title mb4 z-1">
             {% for copy in block.copy %}
-                <span class="f4-ns f5 db-l mb3-l">{{ copy.line1 }}</span>
-                <span class="f4-ns f5 db-l mb4-l">{{ copy.line2 }}</span>
-                <span class="f2-ns f3 db mt3 mt0-l">{{ copy.line3 }}</span>
+                <span class="f2-5-ns f3 db-l mb3-l">{{ copy.line1 }}</span>
+                <span class="f2-5-ns f3 db-l mb4-l">{{ copy.line2 }}</span>
+                <span class="f2-5-ns f3 db mt3 mt0-l">{{ copy.line3 }}</span>
             {% endfor %}
           </h2>
         </div>
@@ -55,7 +55,7 @@
     <div data-hash="start" class="slide-studio swiper-slide bg-white pt3-l pt6 overflow-y-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap items-end">
         <div class="pb6-l pb4 w-40-l w-80-ns">
-          <h2 class="f2-ns f3 lh-title relative slide__title z-1 mw6-l pl5-ns">
+          <h2 class="f2-5-ns f3 lh-title relative slide__title z-1 mw6-l pl5-ns">
             {{ block.copy }}
           </h2>
         </div>
@@ -70,7 +70,7 @@
     <div data-hash="lead" class="slide-studio swiper-slide bg-white pt5-ns pt6 overflow-y-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap items-center">
         <div class="mt5-ns w-30-l pb4 pb0-ns w-80-ns">
-          <h2 class="f2-ns f3 lh-title relative slide__title z-1">
+          <h2 class="f2-5-ns f3 lh-title relative slide__title z-1">
             {{ block.copy }}
           </h2>
         </div>
@@ -88,7 +88,7 @@
           <video class="w-100" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted autoplay playsinline></video>
         </div>
         <div class="w-40-l pb4-l">
-          <h2 class="f2-ns f3 lh-title relative slide__title z-1">
+          <h2 class="f2-5-ns f3 lh-title relative slide__title z-1">
             {{ block.copy }}
           </h2>
         </div>
@@ -104,10 +104,10 @@
             <video class="w-100" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted autoplay playsinline></video>
           </div>
           <div class="pv2 w-60-l w-80-ns center tc">
-            <h2 class="f2-ns f3 lh-title relative slide__title z-1">
+            <h2 class="f2-5-ns f3 lh-title relative slide__title z-1">
               <span class="mb2 db">{{ block.copy }}</span>
               {% for link in block.cta %}
-                <a href="{{ link.ctaLink }}" class="f3 link underline underline-black black dib lh-solid">{{ link.copy }}</a>
+                <a href="{{ link.ctaLink }}" class="f2-5-ns f3 link underline underline-black black dib lh-solid">{{ link.copy }}</a>
               {% endfor %}
             </h2>
           </div>

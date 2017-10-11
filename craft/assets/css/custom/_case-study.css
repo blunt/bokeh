@@ -67,6 +67,14 @@ p + .article-swiper-container {
     }
   }
 
+  & strong {
+    font-weight: bold;
+  }
+
+  & em {
+    font-style: italic;
+  }
+
   @media (min-width: 44em) {
     & p, & ul, & ol {
       font-size: 1.25rem;
