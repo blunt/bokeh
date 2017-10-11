@@ -105,12 +105,12 @@ function generateSwiper(viewport) {
       video.play();
     }
 
-    const prevVideo = document.querySelectorAll('.swiper-slide-prev video')[0];
-
-    if (prevVideo) {
-      prevVideo.pause();
-      prevVideo.currentTime = 0;
-    }
+    // const prevVideo = document.querySelectorAll('.swiper-slide-prev video')[0];
+    //
+    // if (prevVideo) {
+    //   prevVideo.pause();
+    //   prevVideo.currentTime = 0;
+    // }
 
     if (serviceAnimation && slider.previousIndex === 5) clearInterval(serviceInterval)
 
