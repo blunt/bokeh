@@ -112,7 +112,7 @@ function generateSwiper(viewport) {
     //   prevVideo.currentTime = 0;
     // }
 
-    if (serviceAnimation && slider.previousIndex === 5) clearInterval(serviceInterval)
+    if (serviceAnimation && slider.previousIndex === 5) clearInterval(serviceAnimation)
 
     const servicesTitle = document.getElementsByClassName('services-title');
     if (!serviceAnimation && slider.activeIndex === 5) loopAnimation(true, triggeredServices, 'service', servicesTitle);
