@@ -30,6 +30,12 @@ function generateSwiper(viewport) {
     const slideOneText = document.getElementsByClassName('hp-slide1__text');
     const slideOneOverlay = document.getElementsByClassName('hp-slide1__overlay');
 
+    const video = document.querySelectorAll('.swiper-slide-active video')[0];
+
+    if (video) {
+      video.play();
+    }
+
     if (slider.activeIndex === 1) {
       logo.classList.add('ready-to-animate');
       logo.classList.add('strokeless');
