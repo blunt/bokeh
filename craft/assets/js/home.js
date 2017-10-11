@@ -94,7 +94,6 @@ function generateSwiper(viewport) {
 
     if (shapes[`shape_${slider.previousIndex}`]) controlAnimation(shapes[`shape_${slider.previousIndex}`], true);
     if (shapes[`shape_${slider.activeIndex}`]) controlAnimation(shapes[`shape_${slider.activeIndex}`]);
-    if (shapes[`shape_${slider.activeIndex + 1}`]) controlAnimation(shapes[`shape_${slider.activeIndex + 1}`]);
 
     if (video) {
       console.log(video);
@@ -419,7 +418,6 @@ function generateShapes() {
 
   setTimeout(() => {
     if (shapes[`shape_${swiper.activeIndex}`]) controlAnimation(shapes[`shape_${swiper.activeIndex}`]);
-    if (shapes[`shape_${swiper.activeIndex + 1}`]) controlAnimation(shapes[`shape_${swiper.activeIndex + 1}`]);
   }, 1000);
 }
 
