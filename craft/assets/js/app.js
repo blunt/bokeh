@@ -19,9 +19,9 @@ function openNav() {
 function fadeIn() {
   body.classList.remove('fade-out');
 }
-window.addEventListener('load', function() {
+document.addEventListener("DOMContentLoaded", () => {
   fadeIn();
-}, false);
+});
 
 // Navigation Link Shape
 function generateNavShape() {
