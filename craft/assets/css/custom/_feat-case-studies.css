@@ -104,3 +104,9 @@
     font-size: 1.5rem;
   }
 }
+@media (max-width: 44em) {
+  .case-study-video {
+    width: 120%;
+    margin-right: -10%;
+  }
+}

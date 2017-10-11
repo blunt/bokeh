@@ -5,13 +5,13 @@
       <!-- <div class="slide__image relative w-100 h-100"></div> -->
       <!-- <div class="slide__imageFade absolute"></div> -->
       <div class="center mw8 w-90 cf">
-          {% if loop.index == 3 %}
-            <div class="w-50-l w-80-ns pt5 mt5 fr">
+          {% if loop.index == 2 %}
+            <div class="w-100 pt0-l pt4 mt0-l mt7 nr7-l fr case-study-video">
           {% else %}
-            <div class="w-70-l w-100 pt5-l pt7 mt5-l mt6 nr5-l fr">
+            <div class="w-100 pt0-l pt4 mt0-l mt7 nr7-l fr case-study-video">
           {% endif %}
           {% for asset in entry.featuredCaseStudyGraphic %}
-            <img src="{{ siteUrl }}{{ asset.url }}" alt="">
+            <video class="w-100" src="{{ siteUrl }}{{ asset.url }}" muted autoplay playsinline></video>
           {% endfor %}
         </div>
       </div>
