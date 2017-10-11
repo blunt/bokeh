@@ -22,7 +22,7 @@ p + .article-swiper-container {
 
 .case-study__shape {
   transform: translateX(-25%) translateY(60%);
-  margin-bottom: -100px;
+  margin-bottom: -150px;
 }
 
 .case-study-container {
@@ -138,9 +138,11 @@ p + .article-swiper-container {
     }
     & .blockquote__shape--top {
       transform: translateX(-25%) translateY(-60%);
+      margin-top: -140px;
     }
     & .blockquote__shape--bottom {
       transform: translateX(-25%) translateY(60%);
+      margin-bottom: -150px;
     }
     & p, & h2 {
       max-width: inherit;
@@ -414,8 +416,11 @@ p + .article-swiper-container {
   }
 }
 
-.next-case-study__shape svg {
-  transform: translateX(-25%) translateY(-60%);
+.next-case-study__shape {
+  margin-top: -150px;
+  & svg {
+    transform: translateX(-25%) translateY(-60%);
+  }
 }
 
 .next-case-study__icon {
