@@ -1,5 +1,9 @@
-function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePoints, speed) {
-  console.log(speed);
+function blendColors(c0, c1, p) {
+    var f=parseInt(c0.slice(1),16),t=parseInt(c1.slice(1),16),R1=f>>16,G1=f>>8&0x00FF,B1=f&0x0000FF,R2=t>>16,G2=t>>8&0x00FF,B2=t&0x0000FF;
+    return "#"+(0x1000000+(Math.round((R2-R1)*p)+R1)*0x10000+(Math.round((G2-G1)*p)+G1)*0x100+(Math.round((B2-B1)*p)+B1)).toString(16).slice(1);
+}
+
+function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePoints, speed, gradient) {
   shape.renderer.domElement.style.overflow = "visible";
 
   var mass = 100;
@@ -34,7 +38,8 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
     origin.makeFixed();
 
     particle.shape = shape.makeCircle(particle.position.x, particle.position.y, 1);
-    particle.shape.noStroke().fill = shapeColor;
+
+    particle.shape.noStroke().fill = 'rgba(255,255,255,0)';
     particle.position = particle.shape.translation;
 
     foreground.add(particle.shape)
@@ -42,9 +47,15 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
 
   }
 
+  var linearGradient = shape.makeLinearGradient(
+    - shape.width / 2, shape.height / 2,
+    shape.width / 2, shape.height / 2,
+    new Two.Stop(0, blendColors(shapeColor, '#000000', 0.3)),
+    new Two.Stop(1, shapeColor),
+  );
+
   var outer = new Two.Path(points, true, true);
-  var color = shapeColor;
-  outer.fill = color;
+  outer.fill = gradient ? linearGradient : shapeColor;
   outer.scale = 1.15;
   outer.linewidth = 0;
 

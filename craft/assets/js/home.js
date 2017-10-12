@@ -391,11 +391,11 @@ function generateShapes() {
       width: 1000
     }).appendTo(case3);
 
-    physicsAnimation(shapes.shape_2, case1.dataset.color, shapes.shape_2.width / 3.5, shapes.shape_2.height / 3.5, 10);
+    physicsAnimation(shapes.shape_2, case1.dataset.color, shapes.shape_2.width / 3.5, shapes.shape_2.height / 3.5, 10, null, true);
     controlAnimation(shapes.shape_2, true);
-    physicsAnimation(shapes.shape_3, case2.dataset.color, shapes.shape_3.width / 2.5, shapes.shape_3.height / 3.5, 10);
+    physicsAnimation(shapes.shape_3, case2.dataset.color, shapes.shape_3.width / 2.5, shapes.shape_3.height / 3.5, 10, null, true);
     controlAnimation(shapes.shape_3, true);
-    physicsAnimation(shapes.shape_4, case3.dataset.color, shapes.shape_4.width / 2.75, shapes.shape_4.height / 3, 10);
+    physicsAnimation(shapes.shape_4, case3.dataset.color, shapes.shape_4.width / 2.75, shapes.shape_4.height / 3, 10, null, true);
     controlAnimation(shapes.shape_4, true);
 
     caseStudyDesktopFlag = true;
@@ -410,7 +410,7 @@ function generateShapes() {
       width: 1400
     }).appendTo(services);
 
-    physicsAnimation(shapes.shape_5, '#F62944', shapes.shape_5.width / 5, shapes.shape_5.height / 2, 10);
+    physicsAnimation(shapes.shape_5, '#F62944', shapes.shape_5.width / 5, shapes.shape_5.height / 2, 10, null, true);
     controlAnimation(shapes.shape_5, true);
 
     servicesDesktopFlag = true;
