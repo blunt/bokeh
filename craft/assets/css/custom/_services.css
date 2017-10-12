@@ -1,7 +1,7 @@
 .services-list {
   width: 100%;
   transform-origin: bottom left;
-  transition: var(--transition-medium);
+  transition: var(--transition-default);
 
   @media (min-width: 700px) {
     transform-origin: bottom right;
@@ -105,9 +105,10 @@
 
 .services-list__link {
   pointer-events: initial;
-  bottom: 1rem;
-  left: 1rem;
-  border-radius: 50%;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px;
   padding: 12px 17px;
 
   @media (min-width: 700px) and (max-width: 1000px) {

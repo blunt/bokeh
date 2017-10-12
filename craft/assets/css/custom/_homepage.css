@@ -128,3 +128,23 @@ html {
     transition: var(--transition);
   }
 }
+
+.next-slide__icon {
+  top: 50%;
+  right: 40px;
+  display: inline-block;
+  padding: 10px;
+  line-height: 1px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  display: none;
+  transition: var(--transition-default);
+  @media (min-width: 44em) { 
+    display: block;
+  }
+}
+
+.next-slide__icon:hover {
+  transform: translateY(-50%) scale(1.1);
+  cursor: pointer;
+}

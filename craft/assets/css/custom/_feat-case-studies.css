@@ -34,6 +34,7 @@
 .feat-case-study__slide.slide-1 .feat-case-study__slide__shape {
   /*& svg {*/
     position: absolute;
+    pointer-events: none;
     max-width: inherit;
     left: -340px;
     top: -160px;
@@ -48,8 +49,8 @@
       transform: scale(1);
     }
     @media (min-width: 1040px) {
-      top: -76%;
-      left: -275px;
+      top: -73%;
+      left: -300px;
     }
   /*}*/
 }

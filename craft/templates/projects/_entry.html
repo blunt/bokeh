@@ -340,7 +340,7 @@
         >
         <a href="{{ prevEntry.url }}" class="next-case-study__link db z-1 lh-title link white">
           <h2 class="text-shadow f1-l f2-m f3 mv6-ns mv5 pr7-ns pr5 relative">
-            {{ prevEntry.headingParagraph | striptags }}
+            {{ prevEntry.headingParagraph | striptags | raw }}
             <span class="next-case-study__icon bg-white shadow absolute">
               {% include 'partials/icons/chevronRight.html' %}
             </span>
@@ -358,7 +358,7 @@
       >
       <a href="{{ firstEntry.url }}" class="next-case-study__link pv5 db z-1 lh-title link white">
         <h2 class="text-shadow f1-l f2-m f3 mv6-ns mv5 pr7-ns pr5 relative">
-          {{ firstEntry.headingParagraph | striptags }}
+          {{ firstEntry.headingParagraph | striptags | raw }}
           <span class="next-case-study__icon bg-white shadow absolute">
             {% include 'partials/icons/chevronRight.html' %}
           </span>
