@@ -64,6 +64,7 @@
     transform: scale(0.8);
     @media (min-width: 600px) {
       left: -180px;
+      top: -160px;
     }
     @media (min-width: 993px) {
       left: -130px;
@@ -85,7 +86,7 @@
     top: -122%;
     transform: scale(0.8);
     @media (min-width: 600px) {
-      top: -200px;
+      top: -160px;
       left: -230px;
     }
     @media (min-width: 993px) {
