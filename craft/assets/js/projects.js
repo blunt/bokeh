@@ -31,7 +31,7 @@ function generateShapes() {
     width: 1200
   }).appendTo(shapeContainer);
 
-  physicsAnimation(shape, '#feae5a', shape.width / 2.5, shape.height / 2, 6);
+  physicsAnimation(shape, '#F84449', shape.width / 2.5, shape.height / 2.7, 6, null, true);
 }
 
 // Trigger generateShapes()

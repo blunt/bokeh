@@ -21,6 +21,10 @@
   transform-origin: left center;
 }
 
+.underline-black:after {
+  background: #000;
+}
+
 .underline.black:after {
   background: #000;
 }

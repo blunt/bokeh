@@ -15,6 +15,11 @@
 
 {% extends "_layout" %}
 
+{% set socialName = 'Bokeh | ' ~ entry.title %}
+{% set description = entry.headingParagraph | striptags %}
+{% set twitterImage = entry.image %}
+{% set facebookImage = entry.image %}
+
 {% block content %}
   <article class="case-study">
     <header class="cover pt6 relative overflow-hidden" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }}; fixed">
@@ -23,7 +28,7 @@
         <h1 class="text-shadow pr7-ns pb5 mv5"
         data-aos="fade-up"
         data-aos-offset="0"
-        >{{ entry.headingParagraph | striptags }}</h1>
+        >{{ entry.headingParagraph | striptags | raw }}</h1>
       </div>
       <div class="case-study__shape shape relative"></div>
     </header>
@@ -42,11 +47,11 @@
               <div class="blockquote__shape--top shape relative z-1"></div>
             {% endif %}
 
-            <div class="blockquote__content"
+            <div class="blockquote__content relative z-1"
               data-aos="fade-up"
               >
               {% for asset in block.avatar %}
-                <div class="blockquote__avatar mb4 relative z-2 ml3" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
+                <div class="blockquote__avatar mb4 relative ml3" style="background: url({{ siteUrl }}{{ asset.url }}) no-repeat center;"></div>
               {% endfor %}
 
               <h2 class="lh-title">{{ block.quote }}</h2>
@@ -67,10 +72,14 @@
 
           {% set service = block.videoUrl|lower|replace('/(http:|https:|)\\/\\/(player.|www.)?(vimeo\\.com|youtu(be\\.com|\\.be|be\\.googleapis\\.com))\\/(video\\/|embed\\/|watch\\?v=|v\\/)?([A-Za-z0-9._%-]*)(\\&\\S+)?/', '$3') %}
 
-          <div class="contained"
+          <div class="contained contained--large"
           data-aos="fade-up"
           >
-            <div class="video-wrapper relative">
+          {% if block.ratio.value == '235-1' %}
+              <div class="video-wrapper two-35 relative">
+            {% else %}
+              <div class="video-wrapper relative">
+          {% endif %}
               {% if 'youtu' in service %}
               <iframe class="hp-video absolute top-0 left-0 w-100 h-100" data-src="http://www.youtube.com/embed/{{ id }}" frameborder="0" width="640" height="360" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
               {% else %}
@@ -159,6 +168,34 @@
               {% endfor %}
             </div>
             <div class="image"
+            data-aos="fade-up"
+            >
+              {% for asset in block.thirdImage %}
+                <img data-aos="zoom-out" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+          </div>
+
+        {% elseif block.type == "threeSideBySideImages" %}
+
+          <div class="image-grid three-side cf"
+          data-aos="fade-up"
+          >
+            {% for asset in block.firstImage %}
+              <div class="image fl"
+              data-aos="fade-up"
+              >
+                <img data-aos="zoom-out" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              </div>
+            {% endfor %}
+            <div class="image fl"
+            data-aos="fade-up"
+            >
+              {% for asset in block.secondImage %}
+                <img data-aos="zoom-out" src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <div class="image fl"
             data-aos="fade-up"
             >
               {% for asset in block.thirdImage %}
@@ -303,7 +340,7 @@
         >
         <a href="{{ prevEntry.url }}" class="next-case-study__link db z-1 lh-title link white">
           <h2 class="text-shadow f1-l f2-m f3 mv6-ns mv5 pr7-ns pr5 relative">
-            {{ prevEntry.headingParagraph | striptags }}
+            {{ prevEntry.headingParagraph | striptags | raw }}
             <span class="next-case-study__icon bg-white shadow absolute">
               {% include 'partials/icons/chevronRight.html' %}
             </span>
@@ -321,7 +358,7 @@
       >
       <a href="{{ firstEntry.url }}" class="next-case-study__link pv5 db z-1 lh-title link white">
         <h2 class="text-shadow f1-l f2-m f3 mv6-ns mv5 pr7-ns pr5 relative">
-          {{ firstEntry.headingParagraph | striptags }}
+          {{ firstEntry.headingParagraph | striptags | raw }}
           <span class="next-case-study__icon bg-white shadow absolute">
             {% include 'partials/icons/chevronRight.html' %}
           </span>

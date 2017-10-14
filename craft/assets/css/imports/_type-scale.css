@@ -42,6 +42,7 @@
 
 .f1 { font-size: 3rem; }
 .f2 { font-size: 2.25rem; }
+.f2-5 { font-size: 2rem; }
 .f3 { font-size: 1.5rem; }
 .f4 { font-size: 1.25rem; }
 .f5 { font-size: 1rem; }
@@ -55,6 +56,7 @@
   .f-subheadline-ns { font-size: 4rem; }
   .f1-ns { font-size: 3rem; }
   .f2-ns { font-size: 2.25rem; }
+  .f2-5-ns { font-size: 2rem; }
   .f3-ns { font-size: 1.5rem; }
   .f4-ns { font-size: 1.25rem; }
   .f5-ns { font-size: 1rem; }

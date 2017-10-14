@@ -28,7 +28,7 @@
         </div>
         {% for tag in craft.tags.group('default') %}
           <div class="w-third-ns w-50 ph3-l ph2 fl">
-            <button data-tag="{{ tag.title }}" class="filter-button fw6 pa0 mb2 bg-transparent pointer bn input-reset underline hover-underline dib f4-ns f5 link black mt2 ttc">{{ tag.title }}</button>
+            <button data-tag="{{ tag.title|escape|replace('/', '-') }}" class="filter-button fw6 pa0 mb2 bg-transparent pointer bn input-reset underline hover-underline dib f4-ns f5 link black mt2 ttc">{{ tag.title }}</button>
           </div>
         {% endfor %}
       </div>
@@ -36,10 +36,10 @@
 
     <div class="cf">
     	{% for entry in craft.entries.section('projects') %}
-        <article class="{% for tag in entry.tags %}{{ tag.title }}{% endfor %} everything pa3-l pa2 fl w-third-ns w-50 work-item overflow-hidden">
-          <a class="h5-ns h4 br3 db overflow-hidden link cover flex items-center justify-center content-center relative" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
+        <article class="{% for tag in entry.tags %}{{ tag.title|escape|replace('/', '-') }} {% endfor %} everything pa3-l pa2 fl w-third-ns w-50 work-item overflow-hidden">
+          <a class="h5-ns h4 br3 db overflow-hidden link cover flex items-center justify-center content-center relative tc" href="{{ entry.url }}" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) center;">
             <div class="absolute left-0 bottom-0 top-0 right-0" style="background: {{ entry.color }}; opacity: .6;"></div>
-            <h2 class="f3-l f4-ns f5 db lh-title white relative text-shadow mb0 z-1">
+            <h2 class="f3-l f4-ns f5 db lh-title white relative text-shadow mb0 z-1 ph2">
               {{ entry.title }}
             </h2>
           </a>

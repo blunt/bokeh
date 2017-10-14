@@ -8,12 +8,14 @@
 
 .feat-case-study__slide .slide__title a {
   text-decoration: none;
-  color: inherit;
-  transition: var(--transition);
+  color: #000;
+  opacity: .6;
+  transition: var(--transition-default);
 }
 
 .feat-case-study__slide .slide__title a:hover {
-  border-color: #fff !important;
+  color: #fff;
+  opacity: 1;
 }
 
 .feat-case-study__content {
@@ -21,21 +23,21 @@
 }
 
 .feat-case-study__slide.slide-2 .feat-case-study__content {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  @media (min-width: 1300px) {
-    bottom: 5%;
+  @media (min-width: 993px) {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
   }
 }
 
 .feat-case-study__slide.slide-1 .feat-case-study__slide__shape {
-  & svg {
+  /*& svg {*/
     position: absolute;
+    pointer-events: none;
     max-width: inherit;
-    left: -450px;
-    top: -200px;
+    left: -340px;
+    top: -160px;
     @media (max-width: 600px) {
       transform: scale(0.8);
     }
@@ -43,54 +45,70 @@
       left: -300px;
     }
     @media (min-width: 993px) {
-      top: -75%;
+      top: -85%;
       transform: scale(1);
     }
     @media (min-width: 1040px) {
-      left: -350px;
+      top: -73%;
+      left: -300px;
     }
-  }
+  /*}*/
 }
 
 .feat-case-study__slide.slide-2 .feat-case-study__slide__shape {
-  & svg {
+  /*& svg {*/
     position: absolute;
     max-width: inherit;
+    top: -200px;
+    left: -250px;
+    transform: scale(0.8);
+    @media (min-width: 600px) {
+      left: -180px;
+      top: -160px;
+    }
     @media (min-width: 993px) {
       left: -130px;
       top: -150px;
+      transform: scale(1);
     }
     @media (min-width: 1040px) {
-      top: -100px;
+      top: -150px;
       left: -250px;
     }
-  }
+  /*}*/
 }
 
 .feat-case-study__slide.slide-3 .feat-case-study__slide__shape {
-  & svg {
+  /*& svg {*/
     position: absolute;
     max-width: inherit;
     left: -310px;
-    top: -215%;
+    top: -122%;
+    transform: scale(0.8);
     @media (min-width: 600px) {
-      transform: scale(1.2);
-      top: -330px;
-      left: -130px;
-    }
-    @media (min-width: 650px) {
-      transform: scale(1.5);
+      top: -160px;
+      left: -230px;
     }
     @media (min-width: 993px) {
       top: -160px;
       left: -230px;
-      transform: scale(1);
+      transform: scale(0.9);
     }
-  }
+  /*}*/
+}
+
+.feat-case-study__slide.slide-3 .slide__overlay--mingle {
+  width: 90%;
 }
 
 @media (max-width: 400px) {
   .feat-case-study__slide .slide__title {
     font-size: 1.5rem;
+  }
+}
+@media (max-width: 44em) {
+  .case-study-video {
+    width: 120%;
+    margin-right: -10%;
   }
 }

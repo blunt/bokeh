@@ -15,6 +15,14 @@ function openNav() {
   }
 }
 
+//Page Transition
+function fadeIn() {
+  body.classList.remove('fade-out');
+}
+document.addEventListener("DOMContentLoaded", () => {
+  fadeIn();
+});
+
 // Navigation Link Shape
 function generateNavShape() {
   const navShapeContainer = document.getElementsByClassName('navShapeContainer')[0];

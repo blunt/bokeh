@@ -19,7 +19,7 @@
     transform: translateY(-2%);
   }
   &.disabled {
-    opacity: .4;
+    display: none;
   }
 }
 

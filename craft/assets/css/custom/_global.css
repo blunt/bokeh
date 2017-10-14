@@ -2,9 +2,20 @@
   color: #df3f28;
   background: rgba(0,0,0,.9);
 }
+
 ::selection {
   color: #df3f28;
   background: rgba(0,0,0,.9);
+}
+
+body {
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: 1s opacity;
 }
 
 hr {
@@ -14,6 +25,9 @@ hr {
 .video-wrapper {
   padding-top: 56.25%;
   height: 0px;
+  &.two-35 {
+    padding-top: 43%;
+  }
 }
 
 .swiper-button-prev,
@@ -89,37 +103,13 @@ svg .icon {
 
 .slide__title, .services-list__content  {
   transform: translate3d(0,0,0);
-  transition: transform 2s ease-out;
-  transition-delay: .6s;
-  transform: translateY(15%);
 }
 
-@media (min-width: 44em) {
-  .slide__title, .services-list__content  {
-    transform: translateX(10%);
-  }
-}
 
 .services-list__content {
-  transition: all 2s ease-out;
+  transition: all .6s ease-out;
 }
 
-.feat-case-study__slide__shape, .services__shape, .hp-slide1__shape {
-  transition: transform 3s ease-out;
-  transition-delay: .6s;
-  transform: translateY(15%);
-}
-
-@media (min-width: 44em) {
-  .feat-case-study__slide__shape, .services__shape, .hp-slide1__shape {
-    transform: translateX(10%);
-  }
-}
-
-.slide__image {
-  transform: scale(1);
-  transition: transform 20s ease-in-out;
-}
 
 .slide__imageFade {
   transform: translate3d(0,0,0);
@@ -155,10 +145,15 @@ svg .icon {
   }
 }
 
+.swiper-slide video {
+  opacity: 0;
+  transition: var(--transition);
+}
+
 .swiper-slide.swiper-slide-active,
 .swiper-slide.swiper-slide-prev {
-  & .slide__image {
-    transform: scale(1.25);
+  & video {
+    opacity: 1;
   }
   & .slide__title, & .services-list__content  {
     transform: translateY(0);
@@ -176,12 +171,40 @@ svg .icon {
   }
 }
 
-.fadeOut {
-	transform: translateY(10%) !important;
-  opacity: 0 !important;
+.wordList, .slide-service {
+  & .fadeIn {
+    animation: push-in .8s forwards;
+  }
+
+  & .fadeOut {
+    animation: push-out .8s forwards;
+  }
 }
 
-.fadeIn {
-	transform: translateY(0) !important;
-  opacity: 1 !important;
+.services-title, .wordList span {
+  opacity: 0;
+}
+
+@keyframes push-in {
+	0% {
+		opacity: 0;
+		transform:translateX(-10%);
+	}
+
+	100% {
+		opacity: 1;
+		transform:translateX(0);
+	}
+}
+
+@keyframes push-out {
+	0% {
+		opacity: 1;
+		transform:translateX(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform:translateX(10%);
+	}
 }
