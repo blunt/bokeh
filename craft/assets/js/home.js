@@ -95,21 +95,29 @@ function generateSwiper(viewport) {
     nextSlideLinks();
   }
 
-  function swiperOnSlideChangeEnd(slider) {
+  function swiperOnSlideChangeStart(slider) {
     const video = document.querySelectorAll('.swiper-slide-active video')[0];
 
     if (shapes[`shape_${slider.previousIndex}`]) controlAnimation(shapes[`shape_${slider.previousIndex}`], true);
     if (shapes[`shape_${slider.activeIndex}`]) controlAnimation(shapes[`shape_${slider.activeIndex}`]);
 
     if (video) {
-      video.play();
+      video.load();
+      setTimeout(() => {
+        video.play();
+      }, 1000);
     }
 
     const prevVideo = document.querySelectorAll('.swiper-slide-prev video')[0];
 
     if (prevVideo) {
-      prevVideo.pause();
-      prevVideo.currentTime = 0;
+      var isPlaying = prevVideo.currentTime > 0 && !prevVideo.paused && !prevVideo.ended
+          && prevVideo.readyState > 2;
+
+      if (isPlaying) {
+        prevVideo.pause();
+        prevVideo.currentTime = 0;
+      }
     }
 
     if (serviceAnimation && slider.previousIndex === 5) clearInterval(serviceAnimation)
@@ -128,7 +136,8 @@ function generateSwiper(viewport) {
     speed: 1000,
     loop: true,
     onInit: (slider) => swiperOnInit(slider),
-    onSlideChangeEnd: (slider) => swiperOnSlideChangeEnd(slider)
+    runCallbacksOnInit: false,
+    onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
 
   const swiperMobileAttributes = {
@@ -141,7 +150,8 @@ function generateSwiper(viewport) {
     speed: 1000,
     loop: true,
     onInit: (slider) => swiperOnInit(slider),
-    onSlideChangeEnd: (slider) => swiperOnSlideChangeEnd(slider)
+    runCallbacksOnInit: false,
+    onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
 
   if (viewport === 'mobile') {
