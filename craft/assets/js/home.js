@@ -37,8 +37,6 @@ function generateSwiper(viewport) {
     }
 
     if (slider.activeIndex === 1) {
-      logo.classList.add('ready-to-animate');
-      logo.classList.add('strokeless');
 
       for (var i = 0; i < slideOneText.length; i++) {
         slideOneText[i].classList.add('ready-to-animate');
@@ -55,8 +53,6 @@ function generateSwiper(viewport) {
         logo.classList.add('visible');
       }, 500);
 
-      setTimeout(() => {
-        logo.classList.remove('ready-to-animate');
         for (var i = 0; i < slideOneOverlay.length; i += 1) {
           slideOneOverlay[i].classList.remove('ready-to-animate');
         }
@@ -67,7 +63,6 @@ function generateSwiper(viewport) {
             slideOneText[i].classList.remove('ready-to-animate');
           }
 
-          logo.classList.remove('strokeless');
 
           slider.params.allowSwipeToPrev = true;
           slider.params.allowSwipeToNext = true;
@@ -76,7 +71,6 @@ function generateSwiper(viewport) {
           const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
           if (!homeAnimation) loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
         }, 1600);
-      }, 2500);
     } else {
       navTrigger.style.opacity = 1;
     }
