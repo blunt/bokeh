@@ -78,7 +78,7 @@
   overflow: hidden;
 }
 
-.hp-video-container iframe {
+.hp-video-container video {
   /* Make video to at least 100% wide and tall */
   min-width: 115%; 
   min-height: 115%; 
