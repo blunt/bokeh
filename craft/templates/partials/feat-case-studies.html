@@ -11,14 +11,14 @@
             <div class="w-100 pt0-l pt6 mt0-l mt7 nr7-l fr case-study-video">
           {% endif %}
           {% for asset in entry.featuredCaseStudyGraphic %}
-            <video class="w-100" src="{{ siteUrl }}{{ asset.url }}" muted playsinline></video>
+            <video class="w-100" src="{{ siteUrl }}{{ asset.url }}" muted playsinline preload="auto"></video>
           {% endfor %}
         </div>
       </div>
     </div>
     <div class="center mw8 w-90 feat-case-study__content relative z-1 {% if loop.index == 2 %}z-2{% endif %}">
       <div data-color="{{ entry.color }}" class="feat-case-study__slide__shape shape absolute top-0 left-0 w-100 h-100"></div>
-      <div class="pv4-ns pv3 mt2-ns w-50-l pr5-l w-80-ns z-1 relative">
+      <div class="pv4-ns pv3 mt2-ns w-50-l pr5-l w-70-ns z-1 relative">
         <h2 class="f2-5-ns f3 lh-title relative slide__title mb4 white">
           {{ entry.headingParagraph }}
         </h2>

@@ -50,12 +50,12 @@
   <meta property="og:description" content="{% if description is defined %}{{ description }}{% else %}{{ seoDescription }}{% endif %}" />
   <meta property="og:site_name" content="{% if socialName is defined %}{{ socialName }}{% else %}{{ seoName }}{% endif %}" />
 
-  <link rel="stylesheet" type="text/css" href="{{ siteUrl }}assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="{{ siteUrl }}assets/css/main.css?v=2">
 
   <script src="{{ siteUrl }}assets/js/swiper.min.js"></script>
   <script src="{{ siteUrl }}assets/js/physics.min.js"></script>
   <script src="{{ siteUrl }}assets/js/two.min.js"></script>
-  <script src="{{ siteUrl }}assets/js/physicsAnimation.min.js"></script>
+  <script src="{{ siteUrl }}assets/js/physicsAnimation.min.js?v=2"></script>
   <script src="{{ siteUrl }}assets/js/breakpoints.min.js"></script>
 
   <!-- <script>
@@ -91,6 +91,6 @@
   {% if craft.request.firstSegment == '' %}
   </section>
   {% endif %}
-  <script src="{{ siteUrl }}assets/js/app.min.js"></script>
+  <script src="{{ siteUrl }}assets/js/app.js?v=2"></script>
 </body>
 </html>

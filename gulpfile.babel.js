@@ -22,12 +22,12 @@ gulp.task("css", () => (
 
 gulp.task('js', function() {
  gulp.src("craft/assets/js/*.js")
-   .pipe(minify({
-       ext:{
-           min:'.min.js'
-       },
-       noSource: true,
-   }))
+  //  .pipe(minify({
+  //      ext:{
+  //          min:'.min.js'
+  //      },
+  //      noSource: true,
+  //  }))
    .pipe(gulp.dest("./public_html/assets/js"))
 });
 

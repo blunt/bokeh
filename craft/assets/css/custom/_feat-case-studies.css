@@ -29,6 +29,10 @@
     bottom: 0;
     transform: translateX(-50%);
   }
+
+  @media (min-width: 1024px) and (max-width: 1039px) {
+    bottom: -30px;
+  }
 }
 
 .feat-case-study__slide.slide-1 .feat-case-study__slide__shape {
@@ -48,11 +52,24 @@
       top: -85%;
       transform: scale(1);
     }
+    @media (min-width: 1024px) {
+      left: -280px;
+    }
     @media (min-width: 1040px) {
       top: -73%;
       left: -300px;
     }
   /*}*/
+}
+.feat-case-study__slide.slide-1 .feat-case-study__content {
+  @media (min-width: 993px) and (max-width: 1039px) {
+    margin-top: -2rem;
+  }
+}
+.feat-case-study__slide.slide-1 .case-study-video {
+  @media (min-width: 993px) and (max-width: 1039px) {
+    margin-top: 10rem;
+  }
 }
 
 .feat-case-study__slide.slide-2 .feat-case-study__slide__shape {
@@ -67,19 +84,28 @@
       top: -160px;
     }
     @media (min-width: 993px) {
-      left: -130px;
       top: -150px;
       transform: scale(1);
     }
+    @media (min-width: 1024px) {
+      left: -250px;
+    }
     @media (min-width: 1040px) {
       top: -150px;
-      left: -250px;
     }
   /*}*/
 }
 
+.feat-case-study__slide.slide-2 .case-study-video {
+  @media (min-width: 993px) and (max-width: 1023px) {
+    margin-top: 0;
+  }
+  @media (min-width: 1024px) and (max-width: 1039px) {
+    margin-top: -5rem;
+  }
+}
+
 .feat-case-study__slide.slide-3 .feat-case-study__slide__shape {
-  /*& svg {*/
     position: absolute;
     max-width: inherit;
     left: -310px;
@@ -90,11 +116,26 @@
       left: -230px;
     }
     @media (min-width: 993px) {
+      top: -140px;
+      left: -190px;
+      transform: scaleX(1) scaleY(0.8);
+    }
+    @media (min-width: 1040px) {
       top: -160px;
       left: -230px;
       transform: scale(0.9);
     }
-  /*}*/
+}
+
+.feat-case-study__slide.slide-3 .feat-case-study__content {
+  @media (min-width: 993px) and (max-width: 1039px) {
+    margin-top: -2rem;
+  }
+}
+.feat-case-study__slide.slide-3 .case-study-video {
+  @media (min-width: 993px) and (max-width: 1039px) {
+    margin-top: 10rem;
+  }
 }
 
 .feat-case-study__slide.slide-3 .slide__overlay--mingle {

@@ -1,3 +1,17 @@
 .r5 {
     right: -8rem;
 }
+
+.slide-studio-1,
+.slide-studio-2,
+.slide-studio-3,
+.slide-studio-4,
+.slide-studio-5,
+.slide-studio-6,
+.slide-studio-7 {
+  & .feat-case-study__content {
+    @media (min-width: 768px) and (max-width: 992px) {
+      margin-top: 10rem;
+    }
+  }
+}
