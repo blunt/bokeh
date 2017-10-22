@@ -1,7 +1,9 @@
+'use strict';
+
 // Navigation
-const navButtonTrigger = document.getElementsByClassName('nav-button')[0],
-      navOverlay = document.getElementsByClassName('nav-overlay')[0],
-      body = document.getElementsByTagName('body')[0];
+var navButtonTrigger = document.getElementsByClassName('nav-button')[0],
+    navOverlay = document.getElementsByClassName('nav-overlay')[0],
+    body = document.getElementsByTagName('body')[0];
 
 navButtonTrigger.addEventListener("click", openNav);
 
@@ -19,13 +21,13 @@ function openNav() {
 function fadeIn() {
   body.classList.remove('fade-out');
 }
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   fadeIn();
 });
 
 // Navigation Link Shape
 function generateNavShape() {
-  const navShapeContainer = document.getElementsByClassName('navShapeContainer')[0];
+  var navShapeContainer = document.getElementsByClassName('navShapeContainer')[0];
 
   var navShape = new Two({
     type: Two.Types['svg'],
@@ -37,6 +39,6 @@ function generateNavShape() {
 }
 
 // Trigger generateShapes()
-(function() {
+(function () {
   generateNavShape();
 })();

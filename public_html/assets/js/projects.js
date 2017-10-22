@@ -1,13 +1,15 @@
-const filterButton = document.getElementsByClassName('filter-button');
-const workItems = document.getElementsByClassName('work-item');
+'use strict';
 
-Array.from(filterButton).forEach((element) => {
+var filterButton = document.getElementsByClassName('filter-button');
+var workItems = document.getElementsByClassName('work-item');
+
+Array.from(filterButton).forEach(function (element) {
   element.addEventListener('click', filter);
 });
 
 function filter() {
-  const activeFilter = document.querySelectorAll('.filter-button:not(.hover-underline)')[0];
-  const activeTag = this.dataset.tag;
+  var activeFilter = document.querySelectorAll('.filter-button:not(.hover-underline)')[0];
+  var activeTag = this.dataset.tag;
   for (var i = 0; i < workItems.length; i++) {
     workItems[i].classList.remove('disabled');
   }
@@ -15,8 +17,7 @@ function filter() {
   activeFilter.classList.add('hover-underline');
   this.classList.remove('hover-underline');
 
-
-  const activeWorkItems = document.querySelectorAll(`.work-item:not(.${activeTag})`);
+  var activeWorkItems = document.querySelectorAll('.work-item:not(.' + activeTag + ')');
   for (var i = 0; i < activeWorkItems.length; i++) {
     activeWorkItems[i].classList.add('disabled');
   }
@@ -24,7 +25,7 @@ function filter() {
 
 // Shapes
 function generateShapes() {
-  const shapeContainer = document.getElementsByClassName('work__shape')[0];
+  var shapeContainer = document.getElementsByClassName('work__shape')[0];
 
   var shape = new Two({
     type: Two.Types['svg'],
@@ -35,6 +36,6 @@ function generateShapes() {
 }
 
 // Trigger generateShapes()
-(function() {
+(function () {
   generateShapes();
 })();

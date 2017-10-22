@@ -1,7 +1,9 @@
-function getBreakpoints() {
-  const windowWidth = window.innerWidth;
+'use strict';
 
-  const breakpoints = {
+function getBreakpoints() {
+  var windowWidth = window.innerWidth;
+
+  var breakpoints = {
     xlarge: '1200',
     large: '992',
     medium: '768',
@@ -9,13 +11,15 @@ function getBreakpoints() {
     xs: '0'
   };
 
-  const breakpointValues = Object.keys(breakpoints).map((key) => {
+  var breakpointValues = Object.keys(breakpoints).map(function (key) {
     return breakpoints[key];
   });
 
-  const breakpointValue = breakpointValues.find((element) => {
+  var breakpointValue = breakpointValues.find(function (element) {
     return windowWidth > element;
   });
 
-  return Object.keys(breakpoints).find((key) => { return breakpoints[key] === breakpointValue; });
+  return Object.keys(breakpoints).find(function (key) {
+    return breakpoints[key] === breakpointValue;
+  });
 }

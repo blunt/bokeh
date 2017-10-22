@@ -1,6 +1,7 @@
 'use strict';
 
 import gulp from "gulp";
+import babel from "gulp-babel";
 import postcss from "gulp-postcss";
 import cssImport from "postcss-import";
 import cssnext from "postcss-cssnext";
@@ -28,7 +29,8 @@ gulp.task('js', function() {
   //      },
   //      noSource: true,
   //  }))
-   .pipe(gulp.dest("./public_html/assets/js"))
+  .pipe(babel())
+  .pipe(gulp.dest("./public_html/assets/js"))
 });
 
 gulp.task("server", ["css", "js"], () => {

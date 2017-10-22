@@ -1,5 +1,7 @@
+'use strict';
+
 // Article Swiper
-const swiper = new Swiper('.article-swiper-container', {
+var swiper = new Swiper('.article-swiper-container', {
   speed: 1000,
   loop: true,
   slidesPerView: 1.25,
@@ -9,21 +11,21 @@ const swiper = new Swiper('.article-swiper-container', {
   prevButton: '.swiper-button-prev',
   breakpoints: {
     680: {
-      spaceBetween: 5,
+      spaceBetween: 5
     },
     1200: {
-      spaceBetween: 15,
+      spaceBetween: 15
     }
   }
 });
 
 // Load iframes after page Load
 function init() {
-  const vidDefer = document.getElementsByTagName('iframe');
+  var vidDefer = document.getElementsByTagName('iframe');
 
   for (var i = 0; i < vidDefer.length; i += 1) {
-    if(vidDefer[i].getAttribute('data-src')) {
-      vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+    if (vidDefer[i].getAttribute('data-src')) {
+      vidDefer[i].setAttribute('src', vidDefer[i].getAttribute('data-src'));
     }
   }
 }
@@ -41,10 +43,10 @@ var blockquoteWidth = 800;
 
 // Shapes
 function generateShapes() {
-  const screenSize = getBreakpoints();
+  var screenSize = getBreakpoints();
 
-  const heroShapeContainer = document.getElementsByClassName('case-study__shape')[0];
-  const heroShapeExists = document.querySelectorAll('.case-study__shape svg')[0];
+  var heroShapeContainer = document.getElementsByClassName('case-study__shape')[0];
+  var heroShapeExists = document.querySelectorAll('.case-study__shape svg')[0];
 
   if (screenSize === 'xlarge' && heroShapeFlag !== 'xlarge') {
     heroWidth = 3000;
@@ -58,7 +60,7 @@ function generateShapes() {
     heroWidth = 1500;
 
     heroShapeFlag = 'medium';
-  } else if (((screenSize === 'xs' || screenSize === 'small') && heroShapeFlag !== 'xs') || (screenSize === 'xs' || screenSize === 'small') && !heroShapeExists) {
+  } else if ((screenSize === 'xs' || screenSize === 'small') && heroShapeFlag !== 'xs' || (screenSize === 'xs' || screenSize === 'small') && !heroShapeExists) {
     heroWidth = 800;
 
     heroShapeFlag = 'xs';
@@ -74,9 +76,8 @@ function generateShapes() {
 
   physicsAnimation(heroShape, '#fff', heroShape.width, heroShape.height, 18, speed = 0.01);
 
-
-  const nextShapeContainer = document.getElementsByClassName('next-case-study__shape')[0];
-  const nextShapeExists = document.querySelectorAll('.next-case-study__shape svg')[0];
+  var nextShapeContainer = document.getElementsByClassName('next-case-study__shape')[0];
+  var nextShapeExists = document.querySelectorAll('.next-case-study__shape svg')[0];
 
   if (screenSize === 'xlarge' && nextShapeFlag !== 'xlarge') {
     nextWidth = 3000;
@@ -90,7 +91,7 @@ function generateShapes() {
     nextWidth = 1500;
 
     nextShapeFlag = 'medium';
-  } else if (((screenSize === 'xs' || screenSize === 'small') && nextShapeFlag !== 'xs') || (screenSize === 'xs' || screenSize === 'small') && !nextShapeExists) {
+  } else if ((screenSize === 'xs' || screenSize === 'small') && nextShapeFlag !== 'xs' || (screenSize === 'xs' || screenSize === 'small') && !nextShapeExists) {
     nextWidth = 800;
 
     nextShapeFlag = 'xs';
@@ -106,16 +107,15 @@ function generateShapes() {
 
   physicsAnimation(nextShape, '#fff', nextShape.width, nextShape.height, 18, speed = 0.01);
 
-  const blockquotes = document.querySelectorAll('blockquote:not(.no-shape)');
+  var blockquotes = document.querySelectorAll('blockquote:not(.no-shape)');
 
   for (var i = 0; i < blockquotes.length; i += 1) {
-    const blockquote = blockquotes[i];
+    var blockquote = blockquotes[i];
 
-    const blockquoteTopShapeContainer = blockquote.getElementsByClassName('blockquote__shape--top')[0];
-    const blockquoteTopShapeExists = blockquote.querySelectorAll('.blockquote__shape--top svg')[0];
-    const blockquoteBottomShapeContainer = blockquote.getElementsByClassName('blockquote__shape--bottom')[0];
-    const blockquoteBottomShapeExists = blockquote.querySelectorAll('.blockquote__shape--bottom svg')[0];
-
+    var blockquoteTopShapeContainer = blockquote.getElementsByClassName('blockquote__shape--top')[0];
+    var blockquoteTopShapeExists = blockquote.querySelectorAll('.blockquote__shape--top svg')[0];
+    var blockquoteBottomShapeContainer = blockquote.getElementsByClassName('blockquote__shape--bottom')[0];
+    var blockquoteBottomShapeExists = blockquote.querySelectorAll('.blockquote__shape--bottom svg')[0];
 
     if (screenSize === 'xlarge' && blockquoteShapeFlag !== 'xlarge') {
       blockquoteWidth = 3000;
@@ -129,7 +129,7 @@ function generateShapes() {
       blockquoteWidth = 1500;
 
       blockquoteShapeFlag = 'medium';
-    } else if (((screenSize === 'xs' || screenSize === 'small') && blockquoteShapeFlag !== 'xs') || (screenSize === 'xs' || screenSize === 'small') && !nextShapeExists) {
+    } else if ((screenSize === 'xs' || screenSize === 'small') && blockquoteShapeFlag !== 'xs' || (screenSize === 'xs' || screenSize === 'small') && !nextShapeExists) {
       blockquoteWidth = 800;
 
       blockquoteShapeFlag = 'xs';
@@ -156,10 +156,10 @@ function generateShapes() {
 }
 
 // Trigger generateShapes()
-(function() {
+(function () {
   generateShapes();
 })();
 
-window.addEventListener('resize', () => {
+window.addEventListener('resize', function () {
   generateShapes();
 });
