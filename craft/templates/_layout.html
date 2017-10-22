@@ -50,15 +50,15 @@
   <meta property="og:description" content="{% if description is defined %}{{ description }}{% else %}{{ seoDescription }}{% endif %}" />
   <meta property="og:site_name" content="{% if socialName is defined %}{{ socialName }}{% else %}{{ seoName }}{% endif %}" />
 
-  <link rel="stylesheet" type="text/css" href="{{ siteUrl }}assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="{{ siteUrl }}assets/css/main.css?v=2">
 
   <script src="{{ siteUrl }}assets/js/swiper.min.js"></script>
   <script src="{{ siteUrl }}assets/js/physics.min.js"></script>
   <script src="{{ siteUrl }}assets/js/two.min.js"></script>
-  <script src="{{ siteUrl }}assets/js/physicsAnimation.min.js"></script>
+  <script src="{{ siteUrl }}assets/js/physicsAnimation.min.js?v=2"></script>
   <script src="{{ siteUrl }}assets/js/breakpoints.min.js"></script>
 
-  <!-- <script>
+  <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -67,7 +67,7 @@
 		  ga('create', 'UA-46568601-1', 'seebokeh.com');
 		  ga('send', 'pageview');
 
-		</script> -->
+		</script>
 </head>
 
 <body id="body" class="near-black">
@@ -91,6 +91,6 @@
   {% if craft.request.firstSegment == '' %}
   </section>
   {% endif %}
-  <script src="{{ siteUrl }}assets/js/app.min.js"></script>
+  <script src="{{ siteUrl }}assets/js/app.min.js?v=2"></script>
 </body>
 </html>

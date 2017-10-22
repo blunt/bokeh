@@ -32,6 +32,20 @@
     transform: translateY(40%);
   }
 }
+@media (max-height: 400px) {
+  .nav__links li {
+    width: 32%;
+    display: inline-block;
+    padding: .5rem;
+  }
+  .nav__links li a {
+    font-size: 2rem;
+  }
+  hr.dn-ns {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
+}
 
 .open .nav__links li:first-child {
   transition-delay: 1.2s;
@@ -210,21 +224,22 @@
   top: 0;
   margin-top: -30px;
   left: 0;
-  transform-origin: center center;
+  transform-origin: 50% 50%;
   transition: var(--transition-slow);
+  transform: translate(0, 0) scale3d(1, 1, 1);
 }
 
 .logo-svg.ready-to-animate {
-  transform: translate(26vw, 36vh) scale(1.5);
+  transform: translate(26vw, 36vh) scale3d(1.5, 1.5, 1.5);
   opacity: 0;
   @media (min-width: 680px) {
-    transform: translate(39vw, 42vh) scale(3);
+    transform: translate(39vw, 42vh) scale3d(3, 3, 3);
   }
   @media (min-width: 1100px) {
-    transform: translate(41vw, 42vh) scale(4);
+    transform: translate(41vw, 42vh) scale3d(4, 4, 4);
   }
   @media (min-width: 1440px) {
-    transform: translate(600px, 40vh) scale(4);
+    transform: translate(600px, 40vh) scale3d(4, 4, 4);
   }
   & .cls-2-animate-home {
     opacity: 1;
@@ -265,21 +280,6 @@
   transition: stroke .1s ease-in;
 }
 
-.logo-svg .cls-2, .logo-svg .cls-2-animate {
-  animation: logoAnimation 8s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-play-state: paused;
-}
-
-.logo-svg:hover .cls-2, .logo-svg:hover .cls-2-animate {
-  animation-play-state: running;
-}
-
-.logo-svg.ready-to-animate:hover .cls-2, .logo-svg.ready-to-animate:hover .cls-2-animate {
-  animation-play-state: paused;
-}
-
 .logo-svg .cls-2-animate {
   transition: var(--transition);
   fill: url(#MyGradient);
@@ -295,27 +295,6 @@
 
 .open .logo-svg .cls-2-animate {
   opacity: 1;
-}
-
-@keyframes logoAnimation {
-    0% {
-      transform: skewX(0) skewY(0) perspective(0) rotate(0);
-    }
-    20% {
-      transform: skewX(8deg) skewY(0deg) perspective(100px) rotate(0);
-    }
-    40% {
-      transform: skewX(4deg) skewY(2deg) perspective(100px) rotate(1deg);
-    }
-    60% {
-      transform: skewX(-3deg) skewY(1deg) perspective(100px) rotate(0);
-    }
-    80% {
-      transform: skewX(2deg) skewY(2deg) perspective(100px) rotate(0);
-    }
-    100% {
-      transform: skewX(0) skewY(0) perspective(0) rotate(0);
-    }
 }
 
 .open .logo-svg .cls-3 {

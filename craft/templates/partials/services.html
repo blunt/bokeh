@@ -20,15 +20,15 @@
       </div>
       {% set serviceList = entry.serviceList %}
       {% for entry in serviceList %}
-        <div class="list relative mb0-ns mb4">
-          <h3 class="white f3-ns f4">
+        <div class="list relative mb0-ns mb3">
+          <h3 class="white f3-ns f5 mb3-ns mb1">
             <span class="fw3 black-60">0{{ loop.index }}.</span>
             {{ entry.serviceType }}
           </h3>
           <ul>
             {% set service = entry.service %}
             {% for entry in service %}
-              <li class="white f5-ns f5">{{ entry.service }}</li>
+              <li class="white f5-ns f6">{{ entry.service }}</li>
             {% endfor %}
           </ul>
         </div>

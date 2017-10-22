@@ -24,6 +24,9 @@
 
 .hp-slide1__headline {
   line-height: 1.15;
+  @media (max-height: 400px) {
+    font-size: 1.7rem;
+  }
 }
 
 .hp-slide1 .slide__imageFade {
@@ -78,7 +81,7 @@
   overflow: hidden;
 }
 
-.hp-video-container iframe {
+.hp-video-container video {
   /* Make video to at least 100% wide and tall */
   min-width: 115%; 
   min-height: 115%; 

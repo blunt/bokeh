@@ -148,6 +148,9 @@ svg .icon {
 .swiper-slide video {
   opacity: 0;
   transition: var(--transition);
+  @media (max-height: 400px) {
+    display: none;
+  }
 }
 
 .swiper-slide.swiper-slide-active,
