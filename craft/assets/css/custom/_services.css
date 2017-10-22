@@ -50,9 +50,14 @@
     @media (min-width: 993px) {
       padding-right: 35px;
     }
+    @media (max-height: 400px) {
+      width: 30%;
+    }
+    @media (min-height: 660px) {
+      margin-bottom: 2.5rem;
+    }
   }
   & h3 {
-    margin-bottom: 15px;
     margin-left: -1.2em;
   }
   & li {
