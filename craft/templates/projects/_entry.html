@@ -315,6 +315,19 @@
             </button>
           </div>
 
+        {% elseif block.type == "twoUpImageAndText" %}
+
+          <div class="contained two-up__image-and-text {% if block.imagePosition == 'right' %}flipped{% endif %}">
+            <div class="image">
+              {% for asset in block.image %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <p>
+              {{ block.text }}
+            </p>
+          </div>
+
         {% endif %}
 
       {% endfor %}
