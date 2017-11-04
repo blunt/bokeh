@@ -33,15 +33,15 @@ function generateNavShape() {
     height: 58
   }).appendTo(navShapeContainer);
 
-  const elem = {
+  const navElem = {
     shape: navShape,
     shapeColor: '#fff',
     shapeRadiusX: navShape.width / 2,
     shapeRadiusY: navShape.height / 2,
-    shapePounts: 5
+    shapePoints: 5
   }
 
-  physicsAnimation(elem);
+  physicsAnimation(navElem);
 }
 
 // Trigger generateShapes()

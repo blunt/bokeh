@@ -2,7 +2,7 @@
 {% for entry in entries %}
   <div data-hash="{{ entry.title | lower | replace(' ', '-') }}" class="slide-{{ loop.index }} swiper-slide overflow-visible bg-white pt6 feat-case-study__slide">
     <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
-      <!-- <div class="slide__image relative w-100 h-100"></div> -->
+      <div class="slide__image relative w-100 h-100"></div>
       <!-- <div class="slide__imageFade absolute"></div> -->
       <div class="center mw8 w-90 cf mt0-ns mt3">
           {% if loop.index == 2 %}
@@ -10,9 +10,6 @@
           {% else %}
             <div class="w-100 pt0-l pt5 mt0-l mt7 nr7-l fr case-study-video">
           {% endif %}
-          {% for asset in entry.featuredCaseStudyGraphic %}
-            <video class="w-100" src="{{ siteUrl }}{{ asset.url }}" muted playsinline preload="auto"></video>
-          {% endfor %}
         </div>
       </div>
     </div>

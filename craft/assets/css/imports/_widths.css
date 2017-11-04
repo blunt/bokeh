@@ -45,6 +45,7 @@
 .w1 {    width: 1rem; }
 .w2 {    width: 2rem; }
 .w3 {    width: 4rem; }
+.w3-5 {  width: 8rem; }
 .w4 {    width: 10rem; }
 .w5 {    width: 16rem; }
 
@@ -72,6 +73,7 @@
   .w1-ns {  width: 1rem; }
   .w2-ns {  width: 2rem; }
   .w3-ns {  width: 4rem; }
+  .w3-5-ns {  width: 8rem; }
   .w4-ns {  width: 10rem; }
   .w5-ns {  width: 16rem; }
   .w-10-ns { width:  10%; }
