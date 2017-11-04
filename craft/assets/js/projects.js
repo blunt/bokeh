@@ -31,7 +31,16 @@ function generateShapes() {
     width: 1200
   }).appendTo(shapeContainer);
 
-  physicsAnimation(shape, '#F84449', shape.width / 2.5, shape.height / 2.7, 6, null, true);
+  const elem = {
+    shape: shape,
+    shapeColor: '#F84449',
+    shapeRadiusX: shape.width / 2.5,
+    shapeRadiusY: shape.height / 2.7,
+    shapePoints: 6,
+    gradient: true
+  };
+
+  physicsAnimation(elem);
 }
 
 // Trigger generateShapes()

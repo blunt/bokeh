@@ -199,7 +199,7 @@ function nextSlideLinks() {
 
 
 // Homepage navigation link triggers
-const links = document.querySelectorAll('.nav__links .link');
+const links = document.querySelectorAll('.nav__links [data-slide]');
 
 Array.from(links).forEach((element) => {
   element.addEventListener('click', () => {
@@ -347,7 +347,15 @@ function generateShapes() {
         width: 1000
       }).appendTo(slide1[1]);
 
-      physicsAnimation(shapes.shape_15, '#fff', shapes.shape_15.height / 2, shapes.shape_15.height / 2, 8);
+      const slide1Elem = {
+        shape: shapes.shape_15,
+        shapeColor: '#fff',
+        shapeRadiusX: shapes.shape_15.height / 2,
+        shapeRadiusY: shapes.shape_15.height / 2,
+        shapePoints: 8
+      };
+
+      physicsAnimation(slide1Elem);
       controlAnimation(shapes.shape_15, true);
     }
   }
@@ -361,7 +369,15 @@ function generateShapes() {
       width: 1000
     }).appendTo(slide1[0]);
 
-    physicsAnimation(shapes.shape_1, '#fff', shapes.shape_1.height / 2, shapes.shape_1.height / 2, 8);
+    const shape1Elem = {
+      shape: shapes.shape_1,
+      shapeColor: '#fff',
+      shapeRadiusX: shapes.shape_1.height / 2,
+      shapeRadiusY: shapes.shape_1.height / 2,
+      shapePoints: 8
+    };
+
+    physicsAnimation(shape1Elem);
     controlAnimation(shapes.shape_1, true);
 
     slide1DesktopFlag = true;
@@ -395,11 +411,36 @@ function generateShapes() {
       width: 1000
     }).appendTo(case3);
 
-    physicsAnimation(shapes.shape_2, case1.dataset.color, shapes.shape_2.width / 3.5, shapes.shape_2.height / 3.5, 10, null, true);
+    const slide2Elem = {
+      shape: shapes.shape_2,
+      shapeColor: case1.dataset.color,
+      shapeRadiusX: shapes.shape_2.width / 3.5,
+      shapeRadiusY: shapes.shape_2.height / 3.5,
+      shapePoints: 10,
+      gradient: true
+    };
+    const slide3Elem = {
+      shape: shapes.shape_3,
+      shapeColor: case2.dataset.color,
+      shapeRadiusX: shapes.shape_3.width / 2.5,
+      shapeRadiusY: shapes.shape_3.height / 3.5,
+      shapePoints: 10,
+      gradient: true
+    };
+    const slide4Elem = {
+      shape: shapes.shape_4,
+      shapeColor: case3.dataset.color,
+      shapeRadiusX: shapes.shape_4.width / 2.75,
+      shapeRadiusY: shapes.shape_4.height / 3,
+      shapePoints: 10,
+      gradient: true
+    };
+
+    physicsAnimation(slide2Elem);
     controlAnimation(shapes.shape_2, true);
-    physicsAnimation(shapes.shape_3, case2.dataset.color, shapes.shape_3.width / 2.5, shapes.shape_3.height / 3.5, 10, null, true);
+    physicsAnimation(slide3Elem);
     controlAnimation(shapes.shape_3, true);
-    physicsAnimation(shapes.shape_4, case3.dataset.color, shapes.shape_4.width / 2.75, shapes.shape_4.height / 3, 10, null, true);
+    physicsAnimation(slide4Elem);
     controlAnimation(shapes.shape_4, true);
 
     caseStudyDesktopFlag = true;
@@ -414,7 +455,16 @@ function generateShapes() {
       width: 1400
     }).appendTo(services);
 
-    physicsAnimation(shapes.shape_5, '#F62944', shapes.shape_5.width / 5, shapes.shape_5.height / 2, 10, null, true);
+    const servicesElem = {
+      shape: shapes.shape_5,
+      shapeColor: '#F62944',
+      shapeRadiusX: shapes.shape_5.width / 5,
+      shapeRadiusY: shapes.shape_5.height / 2,
+      shapePoints: 10,
+      gradient: true
+    };
+
+    physicsAnimation(servicesElem);
     controlAnimation(shapes.shape_5, true);
 
     servicesDesktopFlag = true;

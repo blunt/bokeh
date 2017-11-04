@@ -3,25 +3,25 @@ function blendColors(c0, c1, p) {
     return "#"+(0x1000000+(Math.round((R2-R1)*p)+R1)*0x10000+(Math.round((G2-G1)*p)+G1)*0x100+(Math.round((B2-B1)*p)+B1)).toString(16).slice(1);
 }
 
-function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePoints, speed, gradient) {
-  shape.renderer.domElement.style.overflow = "visible";
+function physicsAnimation(elem) {
+  elem.shape.renderer.domElement.style.overflow = "visible";
 
   var mass = 100;
-  var radiusX = shapeRadiusX;
-  var radiusY = shapeRadiusY;
-  var strength = speed ? speed : 0.03;
+  var radiusX = elem.shapeRadiusX;
+  var radiusY = elem.shapeRadiusY;
+  var strength = elem.speed ? elem.speed : 0.03;
   var drag = 0.0;
 
-  var background = shape.makeGroup();
-  var foreground = shape.makeGroup();
+  var background = elem.shape.makeGroup();
+  var foreground = elem.shape.makeGroup();
 
   var physics = new Physics();
   var points = [];
   var i = 0;
 
-  for (i = 0; i < shapePoints; i++) {
+  for (i = 0; i < elem.shapePoints; i++) {
 
-    var pct = i / shapePoints;
+    var pct = i / elem.shapePoints;
     var theta = pct * Math.PI * 2;
 
     var ax = radiusX * Math.cos(theta);
@@ -37,7 +37,7 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
 
     origin.makeFixed();
 
-    particle.shape = shape.makeCircle(particle.position.x, particle.position.y, 1);
+    particle.shape = elem.shape.makeCircle(particle.position.x, particle.position.y, 1);
 
     particle.shape.noStroke().fill = 'rgba(255,255,255,0)';
     particle.position = particle.shape.translation;
@@ -47,15 +47,15 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
 
   }
 
-  var linearGradient = shape.makeLinearGradient(
-    - shape.width / 2, shape.height / 2,
-    shape.width / 2, shape.height / 2,
-    new Two.Stop(0, blendColors(shapeColor, '#000000', 0.3)),
-    new Two.Stop(1, shapeColor),
+  var linearGradient = elem.shape.makeLinearGradient(
+    - elem.shape.width / 2, elem.shape.height / 2,
+    elem.shape.width / 2, elem.shape.height / 2,
+    new Two.Stop(0, blendColors(elem.shapeColor, '#000000', 0.3)),
+    new Two.Stop(1, elem.shapeColor),
   );
 
   var outer = new Two.Path(points, true, true);
-  outer.fill = gradient ? linearGradient : shapeColor;
+  outer.fill = elem.gradient ? linearGradient : elem.shapeColor;
   outer.scale = 1.15;
   outer.linewidth = 0;
 
@@ -63,7 +63,7 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
 
   resize();
 
-  shape
+  elem.shape
     .bind('resize', resize)
     .bind('update', function() {
       physics.update();
@@ -71,7 +71,7 @@ function physicsAnimation(shape, shapeColor, shapeRadiusX, shapeRadiusY, shapePo
     .play();
 
     function resize() {
-      background.translation.set(shape.width / 2, shape.height / 2);
+      background.translation.set(elem.shape.width / 2, elem.shape.height / 2);
       foreground.translation.copy(background.translation);
     }
 }
