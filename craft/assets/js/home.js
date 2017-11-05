@@ -402,36 +402,35 @@ function generateShapes() {
 
     shapes.shape_3 = new Two({
       type: Two.Types['svg'],
-      width: 1000,
-      height: 550
+      width: 1125,
     }).appendTo(case2);
 
     shapes.shape_4 = new Two({
       type: Two.Types['svg'],
-      width: 1000
+      width: 1125
     }).appendTo(case3);
 
     const slide2Elem = {
       shape: shapes.shape_2,
       shapeColor: case1.dataset.color,
-      shapeRadiusX: shapes.shape_2.width / 3.5,
-      shapeRadiusY: shapes.shape_2.height / 3.5,
+      shapeRadiusX: shapes.shape_2.width / 3,
+      shapeRadiusY: shapes.shape_2.height / 2,
       shapePoints: 10,
       gradient: true
     };
     const slide3Elem = {
       shape: shapes.shape_3,
       shapeColor: case2.dataset.color,
-      shapeRadiusX: shapes.shape_3.width / 2.5,
-      shapeRadiusY: shapes.shape_3.height / 3.5,
+      shapeRadiusX: shapes.shape_3.width / 3,
+      shapeRadiusY: shapes.shape_3.height / 2,
       shapePoints: 10,
       gradient: true
     };
     const slide4Elem = {
       shape: shapes.shape_4,
       shapeColor: case3.dataset.color,
-      shapeRadiusX: shapes.shape_4.width / 2.75,
-      shapeRadiusY: shapes.shape_4.height / 3,
+      shapeRadiusX: shapes.shape_4.width / 3,
+      shapeRadiusY: shapes.shape_4.height / 2,
       shapePoints: 10,
       gradient: true
     };
