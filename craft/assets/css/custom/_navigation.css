@@ -223,6 +223,21 @@
     transform: rotate(-180deg);
     transform-origin: center center;
   }
+  .nav__links {
+    margin-top: -2em;
+  }
+}
+
+.social {
+  & svg {
+    fill: #fff;
+    width: 25px;
+    height: auto;
+    transition: var(--transition-default);
+    &:hover {
+      transform: scale(1.1,1.1);
+    }
+  }
 }
 
 /* Logo */
@@ -322,7 +337,7 @@
 .contact-button {
   width: 70px;
   height: 70px;
-  bottom: 25px;
+  top: 120px;
   transition: var(--transition-default);
 }
 
