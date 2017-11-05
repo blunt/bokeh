@@ -38,6 +38,8 @@ function generateSwiper(viewport) {
 
     if (slider.activeIndex === 1) {
 
+      hidePrev();
+
       for (var i = 0; i < slideOneText.length; i++) {
         slideOneText[i].classList.add('ready-to-animate');
       }
@@ -73,6 +75,7 @@ function generateSwiper(viewport) {
         }, 1600);
     } else {
       navTrigger.style.opacity = 1;
+      showPrev();
     }
 
     logo.style.display = 'block';
@@ -87,9 +90,18 @@ function generateSwiper(viewport) {
     if (!serviceAnimation && slider.activeIndex === 5) loopAnimation(true, triggeredServices, 'service', servicesTitle);
 
     nextSlideLinks();
+    prevSlideLinks();
   }
 
   function swiperOnSlideChangeStart(slider) {
+
+    console.log(slider.activeIndex);
+    if (slider.activeIndex === 1 || slider.activeIndex === 15) {
+      hidePrev();
+    } else {
+      showPrev();
+    }
+
     const video = document.querySelectorAll('.swiper-slide-active video')[0];
 
     if (shapes[`shape_${slider.previousIndex}`]) controlAnimation(shapes[`shape_${slider.previousIndex}`], true);
@@ -125,7 +137,8 @@ function generateSwiper(viewport) {
   const swiperDesktopAttributes = {
     keyboardControl: true,
     a11y: true,
-    mousewheelControl: true,
+    mousewheelControl: false,
+    simulateTouch: false,
     hashnav: true,
     speed: 1000,
     loop: true,
@@ -139,6 +152,7 @@ function generateSwiper(viewport) {
     a11y: true,
     mousewheelControl: true,
     mousewheelSensitivity: 3,
+    simulateTouch: true,
     direction: 'vertical',
     hashnav: true,
     speed: 1000,
@@ -195,6 +209,34 @@ function nextSlideLinks() {
   function nextSlide() {
     swiper.slideNext();
   }
+}
+
+// Prev slide
+function prevSlideLinks() {
+  const prevSlideButton = document.querySelectorAll('.prev-slide');
+
+  Array.from(prevSlideButton).forEach((element) => {
+    element.addEventListener('click', () => {
+      prevSlide();
+    });
+  });
+
+  function prevSlide() {
+    swiper.slidePrev();
+  }
+}
+
+
+const prev = document.getElementsByClassName('prev-slide')[0];
+
+// Hide prev
+function hidePrev() {
+  prev.classList.add('fade-out');
+}
+
+// Show prev
+function showPrev() {
+  prev.classList.remove('fade-out');
 }
 
 

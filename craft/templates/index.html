@@ -31,9 +31,6 @@
           class="hp-image absolute top-0 left-0 w-100 h-100"
           style="background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }}; baloopckground-size: cover;"></div>
         <div class="hp-slide1__cover absolute top-0 left-0 w-100 h-100"></div>
-        <span class="next-slide next-slide__icon absolute z-1">
-          {% include 'partials/icons/chevronRight.html' %}
-        </span>
         <div class="hp-slide1__overlay absolute bg-white top-0 left-0 w-100 h-100 z-2"></div>
       </div>
       <div class="hp-slide1-content relative center w-90 cf mt5-ns mt4 relative dn">
@@ -74,6 +71,14 @@
     {% include 'partials/clients.html' %}
     {% include 'partials/work.html' %}
     {% include 'partials/studio.html' %}
+  </div>
+  <div class="pagination cf db-l dn">
+    <div class="fade-out fl swiper-button-prev prev-slide next-slide__icon prev-slide__icon">
+      {% include 'partials/icons/chevronLeft.html' %}
+    </div>
+    <div class="swiper-button-next fl next-slide next-slide__icon">
+      {% include 'partials/icons/chevronRight.html' %}
+    </div>
   </div>
 </div>
 

@@ -188,6 +188,14 @@ svg .icon {
   opacity: 0;
 }
 
+.services-title strong {
+  font-weight: 700;
+}
+
+.services-title em {
+  font-style: italic;
+}
+
 @keyframes push-in {
 	0% {
 		opacity: 0;
