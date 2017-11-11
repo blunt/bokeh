@@ -95,7 +95,6 @@ function generateSwiper(viewport) {
 
   function swiperOnSlideChangeStart(slider) {
 
-    console.log(slider.activeIndex);
     if (slider.activeIndex === 1 || slider.activeIndex === 15) {
       hidePrev();
     } else {
@@ -493,13 +492,13 @@ function generateShapes() {
 
     shapes.shape_5 = new Two({
       type: Two.Types['svg'],
-      width: 1400
+      width: 1125
     }).appendTo(services);
 
     const servicesElem = {
       shape: shapes.shape_5,
       shapeColor: '#F62944',
-      shapeRadiusX: shapes.shape_5.width / 5,
+      shapeRadiusX: shapes.shape_5.width / 3,
       shapeRadiusY: shapes.shape_5.height / 2,
       shapePoints: 10,
       gradient: true
