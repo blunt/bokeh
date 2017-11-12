@@ -20,7 +20,7 @@
 
     <div data-hash="dont-know" class="slide-studio slide-studio-2 swiper-slide bg-white pt4 overflow-hidden">
       <div class="center mw8 w-90 mt6 mt5-ns mt0-l feat-case-study__content relative z-1">
-        <div class="center w-70-l w-90-ns mt2-l">
+        <div class="center w-70-l w-80-ns mt2-l">
           <video class="w-100 ml5-l ml4-ns" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted playsinline preload="auto"></video>
         </div>
         <div class="w-50-l w-80-ns center tc nt3-l">
@@ -35,7 +35,7 @@
 
     <div data-hash="education" class="slide-studio slide-studio-3 swiper-slide bg-white pt6 pt5-ns pt6-l overflow-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap items-center">
-        <div class="mb4 center w-60-l w-90-ns">
+        <div class="mb4 center w-60-ns w-100">
           <video class="w-100" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted playsinline preload="auto"></video>
         </div>
         <div class="pb4 w-30-l w-80-ns center">
@@ -59,7 +59,7 @@
             {{ block.copy }}
           </h2>
         </div>
-        <div class="mb3 mt4-l w-60-l w-80-ns center pr5">
+        <div class="mb3 mt4-l w-60-l w-70-ns center pr5">
           <video class="w-100" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted playsinline preload="auto"></video>
         </div>
       </div>

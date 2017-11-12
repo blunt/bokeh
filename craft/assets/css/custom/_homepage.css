@@ -122,6 +122,10 @@ html {
   z-index: 4;
   border-radius: 50%;
   transform: translateY(-50%);
+  display: none;
+  @media (min-width: 992px) {
+    display: block;
+  }
 }
 
 .next-slide__icon {
