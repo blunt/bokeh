@@ -95,23 +95,19 @@ function generateSwiper(viewport) {
 
   function swiperOnSlideChangeStart(slider) {
 
+    const video = document.querySelectorAll('.swiper-slide-active video')[0];
+    if (video) {
+      video.play();
+    }
+
     if (slider.activeIndex === 1 || slider.activeIndex === 15) {
       hidePrev();
     } else {
       showPrev();
     }
 
-    const video = document.querySelectorAll('.swiper-slide-active video')[0];
-
     if (shapes[`shape_${slider.previousIndex}`]) controlAnimation(shapes[`shape_${slider.previousIndex}`], true);
     if (shapes[`shape_${slider.activeIndex}`]) controlAnimation(shapes[`shape_${slider.activeIndex}`]);
-
-    if (video) {
-      video.load();
-      setTimeout(() => {
-        video.play();
-      }, 1000);
-    }
 
     const prevVideo = document.querySelectorAll('.swiper-slide-prev video')[0];
 
@@ -121,7 +117,6 @@ function generateSwiper(viewport) {
 
       if (isPlaying) {
         prevVideo.pause();
-        prevVideo.currentTime = 0;
       }
     }
 

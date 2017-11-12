@@ -3,7 +3,7 @@
 
   {% if loop.index == 1 %}
 
-    <div data-hash="name" class="slide-studio slide-studio-1 swiper-slide bg-white pt6 overflow-y-hidden">
+    <div data-hash="name" class="slide-studio slide-studio-1 swiper-slide bg-white pt6 overflow-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap">
         <div class="mt4-ns mt6-l w-30-l w-70-ns center-m ml6-l">
           <h2 class="f2-5-ns f3 lh-title relative slide__title mb4-ns mb5 z-1">
@@ -18,9 +18,9 @@
 
   {% elseif loop.index == 2 %}
 
-    <div data-hash="dont-know" class="slide-studio slide-studio-2 swiper-slide bg-white pt4 overflow-y-hidden">
+    <div data-hash="dont-know" class="slide-studio slide-studio-2 swiper-slide bg-white pt4 overflow-hidden">
       <div class="center mw8 w-90 mt6 mt5-ns mt0-l feat-case-study__content relative z-1">
-        <div class="center w-70-l w-90-ns mt4-l">
+        <div class="center w-70-l w-90-ns mt2-l">
           <video class="w-100 ml5-l ml4-ns" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted playsinline preload="auto"></video>
         </div>
         <div class="w-50-l w-80-ns center tc nt3-l">
@@ -33,7 +33,7 @@
 
   {% elseif loop.index == 3 %}
 
-    <div data-hash="education" class="slide-studio slide-studio-3 swiper-slide bg-white pt6 pt5-ns pt6-l overflow-y-hidden">
+    <div data-hash="education" class="slide-studio slide-studio-3 swiper-slide bg-white pt6 pt5-ns pt6-l overflow-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap items-center">
         <div class="mb4 center w-60-l w-90-ns">
           <video class="w-100" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted playsinline preload="auto"></video>
@@ -52,14 +52,14 @@
 
   {% elseif loop.index == 4 %}
 
-    <div data-hash="start" class="slide-studio slide-studio-4 swiper-slide bg-white pt3-l pt6 overflow-y-hidden">
+    <div data-hash="start" class="slide-studio slide-studio-4 swiper-slide bg-white pt3-l pt6 overflow-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap items-center">
         <div class="pb6-l pb4 w-40-l w-80-ns center-m mt6-l">
           <h2 class="f2-5-ns f3 lh-title relative slide__title z-1 mw6-l pl5-ns">
             {{ block.copy }}
           </h2>
         </div>
-        <div class="mb3 mt5-l w-60-l w-80-ns center pr5">
+        <div class="mb3 mt4-l w-60-l w-80-ns center pr5">
           <video class="w-100" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted playsinline preload="auto"></video>
         </div>
       </div>
@@ -67,7 +67,7 @@
 
   {% elseif loop.index == 5 %}
 
-    <div data-hash="lead" class="slide-studio slide-studio-5 swiper-slide bg-white pt5-ns pt6 overflow-y-hidden">
+    <div data-hash="lead" class="slide-studio slide-studio-5 swiper-slide bg-white pt5-ns pt6 overflow-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap items-center">
         <div class="mt5-ns w-20-l pb4 pb0-ns w-70-ns ml6-l ml5-m mt7-l center-m">
           <h2 class="f2-5-ns f3 lh-title relative slide__title z-1">
@@ -82,7 +82,7 @@
 
   {% elseif loop.index == 6 %}
 
-    <div data-hash="promise" class="slide-studio slide-studio-6 swiper-slide bg-white pt5-ns pt6 overflow-y-hidden">
+    <div data-hash="promise" class="slide-studio slide-studio-6 swiper-slide bg-white pt5-ns pt6 overflow-hidden">
       <div class="center mw8 w-90 feat-case-study__content relative z-1 flex flex-wrap flex-row-reverse-l items-center">
         <div class="w-60-l w-70-ns center pb4 mt4-l">
           <video class="w-100 ml5-l" src="{% for asset in block.video %}{{ siteUrl }}{{ asset.url }}{% endfor %}" muted playsinline preload="auto"></video>
@@ -97,7 +97,7 @@
 
   {% elseif loop.index == 7 %}
 
-    <div data-hash="inspiration" class="slide-studio slide-studio-7 swiper-slide bg-white pt5-ns pt6 overflow-y-hidden">
+    <div data-hash="inspiration" class="slide-studio slide-studio-7 swiper-slide bg-white pt5-ns pt6 overflow-hidden">
       <div class="absolute middle w-100 z-1">
         <div class="center mw8 w-90 feat-case-study__content relative z-1">
           <div class="mb4 center w-70-l w-80-ns">
