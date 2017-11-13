@@ -19,7 +19,9 @@ var triggeredServices = false;
 // Homepage Swiper
 var swiper = null;
 var homeAnimation = null;
+var homeAnimation2 = null;
 var triggeredHomeAnimation = false;
+var triggeredHomeAnimation2 = false;
 
 var desktopFlag = false;
 
@@ -30,14 +32,18 @@ function generateSwiper(viewport) {
     const slideOneText = document.getElementsByClassName('hp-slide1__text');
     const slideOneOverlay = document.getElementsByClassName('hp-slide1__overlay');
 
-    const video = document.querySelectorAll('.swiper-slide-active video')[0];
-
-    if (video) {
-      video.play();
-    }
+    // const video = document.querySelectorAll('.swiper-slide-active video');
+    // if (video) {
+    //   alert(video.length)
+    //   if (video.length > 1) {
+    //     alert(video[1].getAttribute('src'))
+    //     video[1].play();
+    //   } else {
+    //     video[0].play();
+    //   }
+    // }
 
     if (slider.activeIndex === 1) {
-
       hidePrev();
 
       for (var i = 0; i < slideOneText.length; i++) {
@@ -70,7 +76,7 @@ function generateSwiper(viewport) {
           slider.params.allowSwipeToNext = true;
 
           // Animate slide 1 word list
-          const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
+          const homepageWords = document.querySelectorAll('.swiper-slide-active .hp-slide1__headline .wordList span');
           if (!homeAnimation) loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
         }, 1600);
     } else {
@@ -94,16 +100,24 @@ function generateSwiper(viewport) {
   }
 
   function swiperOnSlideChangeStart(slider) {
-
-    const video = document.querySelectorAll('.swiper-slide-active video')[0];
+    const video = document.querySelectorAll('.swiper-slide-active video');
     if (video) {
-      video.play();
+      const hpVid = document.querySelectorAll('.hp-slide1 video')[0];
+      hpVid.pause();
+
+      video[0].play();
     }
 
     if (slider.activeIndex === 1 || slider.activeIndex === 15) {
       hidePrev();
     } else {
       showPrev();
+    }
+
+    if (slider.activeIndex === 15) {
+      // Animate duplicated slide 1 word list
+      const homepageWords = document.querySelectorAll('.swiper-slide-active .hp-slide1__headline .wordList span');
+      if (!homeAnimation2) loopAnimation(true, triggeredHomeAnimation2, 'home2', homepageWords);
     }
 
     if (shapes[`shape_${slider.previousIndex}`]) controlAnimation(shapes[`shape_${slider.previousIndex}`], true);
@@ -137,7 +151,6 @@ function generateSwiper(viewport) {
     speed: 1000,
     loop: true,
     onInit: (slider) => swiperOnInit(slider),
-    runCallbacksOnInit: false,
     onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
 
@@ -152,7 +165,6 @@ function generateSwiper(viewport) {
     speed: 1000,
     loop: true,
     onInit: (slider) => swiperOnInit(slider),
-    runCallbacksOnInit: false,
     onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
 
@@ -316,6 +328,10 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
       homeAnimation = setInterval(() => {
         slideAnimation();
       }, 4000);
+    } else if (interval === 'home2') {
+      homeAnimation2 = setInterval(() => {
+        slideAnimation();
+      }, 4000);
     } else {
       serviceAnimation = setInterval(() => {
         slideAnimation();
@@ -354,6 +370,8 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
   } else {
     if (interval === 'home') {
       clearInterval(homeAnimation);
+    } else if (interval === 'home2') {
+      clearInterval(homeAnimation2);
     } else {
       clearInterval(serviceAnimation);
     }
