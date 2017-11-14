@@ -3,13 +3,9 @@
 }
 
 .clients-slide .slide__imageFade {
-  background: linear-gradient(to top, #fff 0%, #fff 5%, rgba(255,255,255,0) 100%);
-}
-
-@media (min-width: 992px) {
-  .clients-slide .slide__imageFade {
-    background: linear-gradient(to left, #fff 0%, #fff 5%, rgba(255,255,255,0) 100%);
-  }
+  background: rgba(255, 255, 255, .6);
+  width: 100%;
+  height: 100%;
 }
 
 .logos {

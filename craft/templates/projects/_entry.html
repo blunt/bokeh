@@ -22,7 +22,7 @@
 
 {% block content %}
   <article class="case-study">
-    <header class="cover pt6 relative overflow-hidden" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }}; fixed">
+    <header class="cover pt6-ns pt5 relative overflow-hidden" style="background:url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }}; fixed">
       <div class="case-study-overlay absolute left-0 top-0 right-0 bottom-0"></div>
       <div class="mw8 w-90 mh3 mh0-ns center f-subheadline-l f1-ns f2 white lh-title relative">
         <h1 class="text-shadow pr7-ns pb5 mv5"
@@ -313,6 +313,19 @@
             <button class="swiper-button-prev input-reset button-reset bn">
               {% include 'partials/icons/chevronLeft.html' %}
             </button>
+          </div>
+
+        {% elseif block.type == "twoUpImageAndText" %}
+
+          <div class="contained two-up__image-and-text {% if block.imagePosition == 'right' %}flipped{% endif %}">
+            <div class="image">
+              {% for asset in block.image %}
+                <img src="{{ siteUrl }}{{ asset.url }}" alt="{{ asset.title }}">
+              {% endfor %}
+            </div>
+            <p>
+              {{ block.text }}
+            </p>
           </div>
 
         {% endif %}

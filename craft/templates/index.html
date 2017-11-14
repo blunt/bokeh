@@ -29,17 +29,13 @@
         </div>
         <div
           class="hp-image absolute top-0 left-0 w-100 h-100"
-          style="background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat 75% 50%; baloopckground-size: cover;"></div>
-        <div class="slide__imageFade absolute z-1"></div>
+          style="background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }}; baloopckground-size: cover;"></div>
         <div class="hp-slide1__cover absolute top-0 left-0 w-100 h-100"></div>
-        <span class="next-slide next-slide__icon absolute z-1">
-          {% include 'partials/icons/chevronRight.html' %}
-        </span>
         <div class="hp-slide1__overlay absolute bg-white top-0 left-0 w-100 h-100 z-2"></div>
       </div>
-      <div class="hp-slide1-content relative center mw8 w-90 cf mt5-ns mt4 relative dn">
+      <div class="hp-slide1-content relative center w-90 cf mt5-ns mt4 relative dn">
         <div class="hp-slide1__text relative z-1">
-          <h2 class="hp-slide1__headline w-50-ns f1 fw7 mt5 mb4-ns mb3 black">
+          <h2 class="hp-slide1__headline w-50-ns mw6-5 f1 fw7 mt5-l mt4 mb4-ns mb3 black">
             We are a
             <span class="wordList">
               {% set entries = entry.taglineWordList %}
@@ -49,11 +45,11 @@
             </span><br>
             partner for brands ready to move at the speed <br>of inspiration.
           </h2>
-          <button class="fw6 pa0 next-slide bg-transparent pointer bn input-reset underline dib f4 link white mt2">View case studies</button>
+          <a href="/projects" class="fw6 pa0 bg-transparent pointer underline dib f4 link white mt2">View case studies</a>
         </div>
-        <div class="hp-slide1__shape shape absolute"></div>
       </div>
-      <!-- <div class="hp-slide1__overlay--mingle absolute top-0 h-100 z-1"></div> -->
+
+      <div class="hp-slide1__shape shape absolute"></div>
 
       <style>
       /* Add custom styles from CMS for each slide as we iterate through */
@@ -68,20 +64,6 @@
         50%{background-position:100% 50%}
         100%{background-position:0% 50%}
       }
-      .hp-slide1 .slide__imageFade {
-        background: linear-gradient(to top, #fff 0%, rgba(255,255,255,0) 100%);
-      }
-      .hp-slide1__overlay--mingle {
-        background: linear-gradient(to top, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%)
-      }
-      @media (min-width: 992px) {
-        .hp-slide1 .slide__imageFade {
-          background: linear-gradient(to left, #fff 0%, rgba(255,255,255,0) 100%);
-        }
-        .hp-slide1__overlay--mingle {
-          background: linear-gradient(to left, rgba(255,255,255,0) 0%, {{ entry.color }} 90%, {{ entry.color }} 100%)
-        }
-      }
       </style>
     </div>
     {% include 'partials/feat-case-studies.html' %}
@@ -90,7 +72,15 @@
     {% include 'partials/work.html' %}
     {% include 'partials/studio.html' %}
   </div>
+  <div class="pagination cf">
+    <div class="fade-out fl swiper-button-prev prev-slide next-slide__icon prev-slide__icon">
+      {% include 'partials/icons/chevronLeft.html' %}
+    </div>
+    <div class="swiper-button-next fl next-slide next-slide__icon">
+      {% include 'partials/icons/chevronRight.html' %}
+    </div>
+  </div>
 </div>
 
-<script src="{{ siteUrl }}assets/js/home.min.js?v=2"></script>
+<script src="{{ siteUrl }}assets/js/home.min.js?v=4"></script>
 {% endblock %}

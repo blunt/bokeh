@@ -19,7 +19,9 @@ var triggeredServices = false;
 // Homepage Swiper
 var swiper = null;
 var homeAnimation = null;
+var homeAnimation2 = null;
 var triggeredHomeAnimation = false;
+var triggeredHomeAnimation2 = false;
 
 var desktopFlag = false;
 
@@ -30,13 +32,19 @@ function generateSwiper(viewport) {
     const slideOneText = document.getElementsByClassName('hp-slide1__text');
     const slideOneOverlay = document.getElementsByClassName('hp-slide1__overlay');
 
-    const video = document.querySelectorAll('.swiper-slide-active video')[0];
-
-    if (video) {
-      video.play();
-    }
+    // const video = document.querySelectorAll('.swiper-slide-active video');
+    // if (video) {
+    //   alert(video.length)
+    //   if (video.length > 1) {
+    //     alert(video[1].getAttribute('src'))
+    //     video[1].play();
+    //   } else {
+    //     video[0].play();
+    //   }
+    // }
 
     if (slider.activeIndex === 1) {
+      hidePrev();
 
       for (var i = 0; i < slideOneText.length; i++) {
         slideOneText[i].classList.add('ready-to-animate');
@@ -68,11 +76,12 @@ function generateSwiper(viewport) {
           slider.params.allowSwipeToNext = true;
 
           // Animate slide 1 word list
-          const homepageWords = document.querySelectorAll('.hp-slide1__headline .wordList span');
+          const homepageWords = document.querySelectorAll('.swiper-slide-active .hp-slide1__headline .wordList span');
           if (!homeAnimation) loopAnimation(true, triggeredHomeAnimation, 'home', homepageWords);
         }, 1600);
     } else {
       navTrigger.style.opacity = 1;
+      showPrev();
     }
 
     logo.style.display = 'block';
@@ -87,20 +96,32 @@ function generateSwiper(viewport) {
     if (!serviceAnimation && slider.activeIndex === 5) loopAnimation(true, triggeredServices, 'service', servicesTitle);
 
     nextSlideLinks();
+    prevSlideLinks();
   }
 
   function swiperOnSlideChangeStart(slider) {
     const video = document.querySelectorAll('.swiper-slide-active video')[0];
+    if (video) {
+      const hpVid = document.querySelectorAll('.hp-slide1 video')[0];
+      hpVid.pause();
+
+      video.play();
+    }
+
+    if (slider.activeIndex === 1 || slider.activeIndex === 15) {
+      hidePrev();
+    } else {
+      showPrev();
+    }
+
+    if (slider.activeIndex === 15) {
+      // Animate duplicated slide 1 word list
+      const homepageWords = document.querySelectorAll('.swiper-slide-active .hp-slide1__headline .wordList span');
+      if (!homeAnimation2) loopAnimation(true, triggeredHomeAnimation2, 'home2', homepageWords);
+    }
 
     if (shapes[`shape_${slider.previousIndex}`]) controlAnimation(shapes[`shape_${slider.previousIndex}`], true);
     if (shapes[`shape_${slider.activeIndex}`]) controlAnimation(shapes[`shape_${slider.activeIndex}`]);
-
-    if (video) {
-      video.load();
-      setTimeout(() => {
-        video.play();
-      }, 1000);
-    }
 
     const prevVideo = document.querySelectorAll('.swiper-slide-prev video')[0];
 
@@ -110,7 +131,6 @@ function generateSwiper(viewport) {
 
       if (isPlaying) {
         prevVideo.pause();
-        prevVideo.currentTime = 0;
       }
     }
 
@@ -125,12 +145,12 @@ function generateSwiper(viewport) {
   const swiperDesktopAttributes = {
     keyboardControl: true,
     a11y: true,
-    mousewheelControl: true,
+    mousewheelControl: false,
+    simulateTouch: false,
     hashnav: true,
     speed: 1000,
     loop: true,
     onInit: (slider) => swiperOnInit(slider),
-    runCallbacksOnInit: false,
     onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
 
@@ -139,12 +159,12 @@ function generateSwiper(viewport) {
     a11y: true,
     mousewheelControl: true,
     mousewheelSensitivity: 3,
+    simulateTouch: true,
     direction: 'vertical',
     hashnav: true,
     speed: 1000,
     loop: true,
     onInit: (slider) => swiperOnInit(slider),
-    runCallbacksOnInit: false,
     onSlideChangeStart: (slider) => swiperOnSlideChangeStart(slider)
   };
 
@@ -197,9 +217,37 @@ function nextSlideLinks() {
   }
 }
 
+// Prev slide
+function prevSlideLinks() {
+  const prevSlideButton = document.querySelectorAll('.prev-slide');
+
+  Array.from(prevSlideButton).forEach((element) => {
+    element.addEventListener('click', () => {
+      prevSlide();
+    });
+  });
+
+  function prevSlide() {
+    swiper.slidePrev();
+  }
+}
+
+
+const prev = document.getElementsByClassName('prev-slide')[0];
+
+// Hide prev
+function hidePrev() {
+  prev.classList.add('fade-out');
+}
+
+// Show prev
+function showPrev() {
+  prev.classList.remove('fade-out');
+}
+
 
 // Homepage navigation link triggers
-const links = document.querySelectorAll('.nav__links .link');
+const links = document.querySelectorAll('.nav__links [data-slide]');
 
 Array.from(links).forEach((element) => {
   element.addEventListener('click', () => {
@@ -280,6 +328,10 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
       homeAnimation = setInterval(() => {
         slideAnimation();
       }, 4000);
+    } else if (interval === 'home2') {
+      homeAnimation2 = setInterval(() => {
+        slideAnimation();
+      }, 4000);
     } else {
       serviceAnimation = setInterval(() => {
         slideAnimation();
@@ -318,6 +370,8 @@ function loopAnimation(shouldRun, intervalTrigger, interval, elems) {
   } else {
     if (interval === 'home') {
       clearInterval(homeAnimation);
+    } else if (interval === 'home2') {
+      clearInterval(homeAnimation2);
     } else {
       clearInterval(serviceAnimation);
     }
@@ -347,7 +401,15 @@ function generateShapes() {
         width: 1000
       }).appendTo(slide1[1]);
 
-      physicsAnimation(shapes.shape_15, '#fff', shapes.shape_15.height / 2, shapes.shape_15.height / 2, 8);
+      const slide1Elem = {
+        shape: shapes.shape_15,
+        shapeColor: '#fff',
+        shapeRadiusX: shapes.shape_15.height / 2,
+        shapeRadiusY: shapes.shape_15.height / 2,
+        shapePoints: 8
+      };
+
+      physicsAnimation(slide1Elem);
       controlAnimation(shapes.shape_15, true);
     }
   }
@@ -361,7 +423,15 @@ function generateShapes() {
       width: 1000
     }).appendTo(slide1[0]);
 
-    physicsAnimation(shapes.shape_1, '#fff', shapes.shape_1.height / 2, shapes.shape_1.height / 2, 8);
+    const shape1Elem = {
+      shape: shapes.shape_1,
+      shapeColor: '#fff',
+      shapeRadiusX: shapes.shape_1.height / 2,
+      shapeRadiusY: shapes.shape_1.height / 2,
+      shapePoints: 8
+    };
+
+    physicsAnimation(shape1Elem);
     controlAnimation(shapes.shape_1, true);
 
     slide1DesktopFlag = true;
@@ -386,20 +456,44 @@ function generateShapes() {
 
     shapes.shape_3 = new Two({
       type: Two.Types['svg'],
-      width: 1000,
-      height: 550
+      width: 1125,
     }).appendTo(case2);
 
     shapes.shape_4 = new Two({
       type: Two.Types['svg'],
-      width: 1000
+      width: 1125
     }).appendTo(case3);
 
-    physicsAnimation(shapes.shape_2, case1.dataset.color, shapes.shape_2.width / 3.5, shapes.shape_2.height / 3.5, 10, null, true);
+    const slide2Elem = {
+      shape: shapes.shape_2,
+      shapeColor: case1.dataset.color,
+      shapeRadiusX: shapes.shape_2.width / 3,
+      shapeRadiusY: shapes.shape_2.height / 2,
+      shapePoints: 10,
+      gradient: true
+    };
+    const slide3Elem = {
+      shape: shapes.shape_3,
+      shapeColor: case2.dataset.color,
+      shapeRadiusX: shapes.shape_3.width / 3,
+      shapeRadiusY: shapes.shape_3.height / 2,
+      shapePoints: 10,
+      gradient: true
+    };
+    const slide4Elem = {
+      shape: shapes.shape_4,
+      shapeColor: case3.dataset.color,
+      shapeRadiusX: shapes.shape_4.width / 3,
+      shapeRadiusY: shapes.shape_4.height / 2,
+      shapePoints: 10,
+      gradient: true
+    };
+
+    physicsAnimation(slide2Elem);
     controlAnimation(shapes.shape_2, true);
-    physicsAnimation(shapes.shape_3, case2.dataset.color, shapes.shape_3.width / 2.5, shapes.shape_3.height / 3.5, 10, null, true);
+    physicsAnimation(slide3Elem);
     controlAnimation(shapes.shape_3, true);
-    physicsAnimation(shapes.shape_4, case3.dataset.color, shapes.shape_4.width / 2.75, shapes.shape_4.height / 3, 10, null, true);
+    physicsAnimation(slide4Elem);
     controlAnimation(shapes.shape_4, true);
 
     caseStudyDesktopFlag = true;
@@ -411,10 +505,19 @@ function generateShapes() {
 
     shapes.shape_5 = new Two({
       type: Two.Types['svg'],
-      width: 1400
+      width: 1125
     }).appendTo(services);
 
-    physicsAnimation(shapes.shape_5, '#F62944', shapes.shape_5.width / 5, shapes.shape_5.height / 2, 10, null, true);
+    const servicesElem = {
+      shape: shapes.shape_5,
+      shapeColor: '#F62944',
+      shapeRadiusX: shapes.shape_5.width / 3,
+      shapeRadiusY: shapes.shape_5.height / 2,
+      shapePoints: 10,
+      gradient: true
+    };
+
+    physicsAnimation(servicesElem);
     controlAnimation(shapes.shape_5, true);
 
     servicesDesktopFlag = true;

@@ -98,6 +98,7 @@ svg .icon {
 .home .swiper-slide {
   @media (min-width: 992px) {
     min-height: 100vh;
+    max-height: 100vh;
   }
 }
 
@@ -146,15 +147,15 @@ svg .icon {
 }
 
 .swiper-slide video {
-  opacity: 0;
+  // opacity: 0;
   transition: var(--transition);
+  transform: translate3d(0,0,0);
   @media (max-height: 400px) {
     display: none;
   }
 }
 
-.swiper-slide.swiper-slide-active,
-.swiper-slide.swiper-slide-prev {
+.swiper-slide.swiper-slide-active {
   & video {
     opacity: 1;
   }
@@ -186,6 +187,14 @@ svg .icon {
 
 .services-title, .wordList span {
   opacity: 0;
+}
+
+.services-title strong {
+  font-weight: 700;
+}
+
+.services-title em {
+  font-style: italic;
 }
 
 @keyframes push-in {

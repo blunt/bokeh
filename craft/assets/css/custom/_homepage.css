@@ -18,8 +18,12 @@
 }
 
 .hp-slide1__shape {
-  bottom: -650px;
-  left: -300px;
+  bottom: -350px;
+  left: -260px;
+
+  @media (min-width: 1236px) {
+    bottom: -300px
+  }
 }
 
 .hp-slide1__headline {
@@ -29,30 +33,8 @@
   }
 }
 
-.hp-slide1 .slide__imageFade {
-  height: 70%;
-  width: 100%;
-  @media (min-width: 1000px) {
-    width: 70%;
-    height: 100%;
-  }
-}
-
 .hp-slide1 .hp-slide1__cover {
   opacity: .5;
-}
-
-.hp-slide1__overlay--mingle {
-  width: 100%;
-  top: 100%;
-  height: 60%;
-  transform: translate3d(0,0,0);
-  @media (min-width: 768px) {
-    left: 100%;
-    top: 0;
-    height: 100%;
-    width: 60%;
-  }
 }
 
 
@@ -77,14 +59,14 @@
   top: 0;
   bottom: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   overflow: hidden;
 }
 
 .hp-video-container video {
   /* Make video to at least 100% wide and tall */
-  min-width: 115%; 
-  min-height: 115%; 
+  min-width: 115%;
+  min-height: 115%;
 
   /* Setting width & height to auto prevents the browser from stretching or squishing the video */
   width: auto;
@@ -132,22 +114,59 @@ html {
   }
 }
 
-.next-slide__icon {
+.pagination {
+  position: absolute;
   top: 50%;
-  right: 40px;
-  display: inline-block;
-  padding: 10px;
-  line-height: 1px;
+  right: 5%;
+  left: inherit;
+  z-index: 4;
   border-radius: 50%;
   transform: translateY(-50%);
   display: none;
-  transition: var(--transition-default);
-  @media (min-width: 44em) { 
+  @media (min-width: 992px) {
     display: block;
   }
 }
 
+.next-slide__icon {
+  top: inherit;
+  left: inherit;
+  bottom: inherit;
+  right: inherite;
+  display: inline-block;
+  position: static;
+  padding: 10px;
+  line-height: 1px;
+  border-radius: 50%;
+  transition: var(--transition-default);
+  box-shadow: none;
+  transform: translate(0);
+}
+
+.next-slide__icon svg {
+  transition: var(--transition-default);
+}
+
 .next-slide__icon:hover {
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(0) scale(1);
   cursor: pointer;
+  & svg {
+    transform: scale(1.2);
+  }
+}
+
+.prev-slide__icon {
+  border-radius: 50% 0 0 50%;
+  transition: var(--transition-default);
+  opacity: 1;
+}
+
+.prev-slide__icon:not(.fade-out) + .next-slide__icon {
+  border-radius: 0 50% 50% 0;
+}
+
+.prev-slide__icon.fade-out {
+  opacity: 0;
+  border-radius: 50%;
+  transform: translateX(100%);
 }

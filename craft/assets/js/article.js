@@ -72,7 +72,17 @@ function generateShapes() {
     height: 200
   }).appendTo(heroShapeContainer);
 
-  physicsAnimation(heroShape, '#fff', heroShape.width, heroShape.height, 18, speed = 0.01);
+
+  const heroElem = {
+    shape: heroShape,
+    shapeColor: '#fff',
+    shapeRadiusX: heroShape.width,
+    shapeRadiusY: heroShape.height,
+    shapePoints: 18,
+    speed: 0.01
+  };
+
+  physicsAnimation(heroElem);
 
 
   const nextShapeContainer = document.getElementsByClassName('next-case-study__shape')[0];
@@ -104,7 +114,16 @@ function generateShapes() {
     height: 200
   }).appendTo(nextShapeContainer);
 
-  physicsAnimation(nextShape, '#fff', nextShape.width, nextShape.height, 18, speed = 0.01);
+  const nextElem = {
+    shape: nextShape,
+    shapeColor: '#fff',
+    shapeRadiusX: nextShape.width,
+    shapeRadiusY: nextShape.height,
+    shapePoints: 18,
+    speed: 0.01
+  };
+
+  physicsAnimation(nextElem);
 
   const blockquotes = document.querySelectorAll('blockquote:not(.no-shape)');
 
@@ -150,8 +169,26 @@ function generateShapes() {
       height: 200
     }).appendTo(blockquoteBottomShapeContainer);
 
-    physicsAnimation(blockquoteShapeTop, '#fff', blockquoteShapeTop.width, blockquoteShapeTop.height, 18, speed = 0.01);
-    physicsAnimation(blockquoteShapeBottom, '#fff', blockquoteShapeBottom.width, blockquoteShapeBottom.height, 18, speed = 0.01);
+    const elem1 = {
+      shape: blockquoteShapeTop,
+      shapeColor: '#fff',
+      shapeRadiusX: blockquoteShapeTop.width,
+      shapeRadiusY: blockquoteShapeTop.height,
+      shapePoints: 18,
+      speed: 0.01
+    };
+
+    const elem2 = {
+      shape: blockquoteShapeBottom,
+      shapeColor: '#fff',
+      shapeRadiusX: blockquoteShapeBottom.width,
+      shapeRadiusY: blockquoteShapeBottom.height,
+      shapePoints: 18,
+      speed: 0.01
+    };
+
+    physicsAnimation(elem1);
+    physicsAnimation(elem2);
   }
 }
 
