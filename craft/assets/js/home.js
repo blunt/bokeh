@@ -100,12 +100,12 @@ function generateSwiper(viewport) {
   }
 
   function swiperOnSlideChangeStart(slider) {
-    const video = document.querySelectorAll('.swiper-slide-active video');
+    const video = document.querySelectorAll('.swiper-slide-active video')[0];
     if (video) {
       const hpVid = document.querySelectorAll('.hp-slide1 video')[0];
       hpVid.pause();
 
-      video[0].play();
+      video.play();
     }
 
     if (slider.activeIndex === 1 || slider.activeIndex === 15) {
