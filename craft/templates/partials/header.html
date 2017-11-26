@@ -62,6 +62,16 @@
 				</svg>
 			</a>
 		</h1>
+		{% if craft.request.getUrl() == siteUrl %}
+			<div class="pagination cf">
+		    <div class="fade-out fl swiper-button-prev prev-slide next-slide__icon prev-slide__icon">
+		      {% include 'partials/icons/chevronLeft.html' %}
+		    </div>
+		    <div class="swiper-button-next fl next-slide next-slide__icon">
+		      {% include 'partials/icons/chevronRight.html' %}
+		    </div>
+		  </div>
+		{% endif %}
 		<button class="nav-button input-reset bn bg-transparent pointer relative" type="button" name="button">
 			<div class="shape navShapeContainer"></div>
 		  <span></span>
@@ -89,12 +99,12 @@
 		</svg>
 		<div class="contact-wrapper db-ns dn w-50-l lh-title mw7 center relative z-1">
 			<div class="contact-button f4 absolute br-100 gradient gradient--red b left-0 bottom-2 ph3 pointer">
-				<a href="mailto:hello@seebokeh.com" class="absolute plus mail f6">{% include 'partials/icons/mail.html' %}</a>
+				<a href="mailto:{{ contactInfo.email }}" class="absolute plus mail f6">{% include 'partials/icons/mail.html' %}</a>
 			</div>
 			<div class="contact-move">
 				<p class="f4 mw5 white-70 mb4 contact-heading">We are always looking for creative partners, so get in touch.</p>
 				<div class="contact-info">
-					<a class="gradient f2 fw7 link white underline hover-underline dib mb1" href="mailto:hello@seebokeh.com">hello@seebokeh.com</a><br>
+					<a class="gradient f2 fw7 link white underline hover-underline dib mb1" href="mailto:{{ contactInfo.email }}">{{ contactInfo.email }}</a><br>
 					<a class="gradient f2 fw7 link white underline hover-underline dib" href="tel:4154835042">415 483 5042</a>
 					<ul class="social mt4">
 						<li class="dib mr3">
@@ -132,10 +142,10 @@
 				</div>
 			</li>
 		</ul>
-		<hr class="dn-ns db mw2 bg-white bn mv4">
+		<hr class="dn-ns db mw2 bg-white bn mv4-ns mv3">
 		<div class="dn-ns db tc contact-info contact-info-mobile">
-			<a class="gradient f3 fw7 link white underline dib mb3" href="mailto:hello@seebokeh.com">hello@seebokeh.com</a><br>
-			<a class="gradient f3 fw7 link white underline dib" href="tel:4154835042">415 483 5042</a>
+			<a class="gradient f3 fw7 link white underline dib mb3" href="mailto:{{ contactInfo.email }}">{{ contactInfo.email }}</a><br>
+			<a class="gradient f3 fw7 link white underline dib" href="tel:{{ contactInfo.phoneNumber | replace({ ' ' : '' })}}">{{ contactInfo.phoneNumber }}</a>
 			<ul class="social mt4">
 				<li class="dib mr3">
 					<a href="https://www.facebook.com/bokeh.agency/" target="_blank">

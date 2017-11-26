@@ -37,7 +37,7 @@ hr {
   width: 35px;
   height: 35px;
   margin-top: -15px;
-  padding-top: 6px;
+  padding-top: 4px;
   line-height: 1;
   background: #fff;
   transition: var(--transition-default);
@@ -45,7 +45,8 @@ hr {
     transform: scale(1.1) translateY(-50%);
   }
   & svg {
-    width: 100%;
+    width: 19px;
+    height: 24px;
   }
 }
 
@@ -64,6 +65,10 @@ hr {
     margin-top: 0;
     width: 45px;
     height: 45px;
+
+    & svg {
+      width: 29px;
+    }
   }
   .swiper-button-prev {
     left: 15px;
