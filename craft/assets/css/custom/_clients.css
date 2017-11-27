@@ -13,25 +13,26 @@
   bottom: -2%;
   width: 250%;
   transition: 300s all cubic-bezier(0.19, 1, 0.22, 1);
-  transform: translateX(-10%);
+  transform: translateY(0);
   transition-delay: .5s;
 }
 
 .client-logo {
   transform: translateY(100%);
-  transition: 40s all ease;
+  transition: 20s all ease;
 }
 
 @media (min-width: 44em) {
   .client-logo {
     transform: translateX(100%);
+    transition: 40s all ease;
   }
 }
 
 .logos {
   & ul:nth-child(odd) {
     & li:nth-child(odd) {
-      transform: translateY(40%);
+      transform: translateY(-20%);
       & img {
         transform: scale(.6);
       }
@@ -39,7 +40,7 @@
   }
   & ul:nth-child(even) {
     & li:nth-child(even) {
-      transform: translateY(70%);
+      transform: translateY(-50%);
       & img {
         transform: scale(.7);
       }
@@ -119,23 +120,51 @@
 }
 
 .swiper-slide.clients-slide.swiper-slide-active {
-  & .client-logo {
-    transform: translateY(0);
+  & .logos {
+    & .client-logo {
+      transform: translateY(0);
+    }
+    & ul:nth-child(odd) {
+      & li:nth-child(odd) {
+        transform: translateY(-40%);
+      }
+    }
+    & ul:nth-child(even) {
+      & li:nth-child(even) {
+        transform: translateY(-70%);
+      }
+    }
   }
   & .logos {
-    transform: translateY(-50%);
+    transform: translateY(0);
     transition-delay: 0;
   }
 }
 
 @media (min-width: 44em) {
   .swiper-slide.clients-slide.swiper-slide-active {
-    & .client-logo {
-      transform: translateX(0);
+    .logos {
+      & .client-logo {
+        transform: translateX(0);
+      }
+      & ul:nth-child(odd) {
+        & li:nth-child(odd) {
+          transform: translateX(20%);
+        }
+      }
+      & ul:nth-child(even) {
+        & li:nth-child(even) {
+          transform: translateX(10%);
+        }
+      }
     }
     & .logos {
       transform: translateX(-50%);
       transition-delay: 0;
     }
+  }
+  & .logos {
+    transform: translateX(-10%);
+    transition-delay: 0;
   }
 }

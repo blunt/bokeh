@@ -105,7 +105,7 @@
 				<p class="f4 mw5 white-70 mb4 contact-heading">We are always looking for creative partners, so get in touch.</p>
 				<div class="contact-info">
 					<a class="gradient f2 fw7 link white underline hover-underline dib mb1" href="mailto:{{ contactInfo.email }}">{{ contactInfo.email }}</a><br>
-					<a class="gradient f2 fw7 link white underline hover-underline dib" href="tel:4154835042">415 483 5042</a>
+					<a class="gradient f2 fw7 link white underline hover-underline dib" href="tel:{{ contactInfo.phoneNumber | replace({ ' ' : '' })}}">{{ contactInfo.phoneNumber }}</a>
 					<ul class="social mt4">
 						<li class="dib mr3">
 							<a href="https://www.facebook.com/bokeh.agency/" target="_blank">

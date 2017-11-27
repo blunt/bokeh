@@ -24,6 +24,13 @@
   top: 50%;
 }
 
+@media screen and (max-width: 44.938em){
+  .center-s {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
 @media (--breakpoint-not-small){
   .center-ns {
     margin-right: auto;
