@@ -40,6 +40,7 @@ hr {
   padding-top: 4px;
   line-height: 1;
   background: #fff;
+  text-align: center;
   transition: var(--transition-default);
   &:hover {
     transform: scale(1.1) translateY(-50%);

@@ -17,9 +17,21 @@
 
       <style>
       /* Add custom styles from CMS for each slide as we iterate through */
-      .slide-{{ slideIndex }} .slide__image {
-        background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }};
-        background-size: cover;
+      {% if entry.featuredCaseStudyGraphic | length %}
+        .slide-{{ slideIndex }} .slide__image {
+          background: url({% for asset in entry.featuredCaseStudyGraphic %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalMobilePosition }} {{ entry.verticalMobilePosition }};
+          background-size: cover !important;
+        }
+      {% else %}
+        .slide-{{ slideIndex }} .slide__image {
+          background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }};
+          background-size: cover !important;
+        }
+      {% endif %}
+      @media (min-width: 720px) {
+        .slide-{{ slideIndex }} .slide__image {
+          background: url({% for asset in entry.image %}{{ siteUrl }}{{ asset.url }}{% endfor %}) no-repeat {{ entry.horizontalPosition }} {{ entry.verticalPosition }};
+        }
       }
       </style>
     </div>
