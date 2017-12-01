@@ -1,4 +1,4 @@
-<div data-hash="services" class="slide-service slide-services swiper-slide bg-white pt6">
+<div data-hash="services" class="slide-service slide-services swiper-slide bg-near-white-2 pt6">
   {% set entries = entry.services %}
   {% for entry in entries %}
   <div class="absolute top-0 left-0 w-100 h-100 overflow-hidden">
@@ -11,6 +11,7 @@
       <h2 class="services-title absolute left-0 top-0 w-100 copy-three f2-ns f3 lh-title black relative fw5">{{ entry.copyLineThree }}</h2>
     </div>
   </div>
+  <div class="absolute left-0 right-0 bottom-0 top-0 bg-white-80 services-overlay"></div>
   {% endfor %}
   <!-- Services list -->
   <div class="services-list absolute z-1 bottom-0 right-0 w-40-l pb5 pr4-l pr3-ns ph5 ph0-ns">

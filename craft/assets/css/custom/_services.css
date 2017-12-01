@@ -154,3 +154,13 @@
     opacity: 1;
   }
 }
+
+.services-overlay {
+  opacity: 0;
+  point-events: none;
+  transition: var(--transition);
+}
+
+.slide-services.visible .services-overlay {
+  opacity: 1;
+}

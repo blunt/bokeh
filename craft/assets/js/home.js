@@ -274,11 +274,14 @@ Array.from(showServices).forEach((element) => {
 
 function showServiceDetails() {
   const services = document.getElementsByClassName('services-list__content');
+  const servicesWrapper = document.getElementsByClassName('slide-service');
   for (var i = 0; i < services.length; i++) {
     if (services[i].classList.contains('visible')) {
       services[i].classList.remove('visible');
+      servicesWrapper[i].classList.remove('visible');
     } else {
       services[i].classList.add('visible');
+      servicesWrapper[i].classList.add('visible');
     }
   }
 }

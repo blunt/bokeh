@@ -5,7 +5,7 @@
   <div class="logos absolute left-0 right-0 pa3 relative">
     <div class="flex flex-wrap flex-column h-100">
       {% set entries = entry.clients %}
-      <ul class="flex w-100 items-center flex-grow">
+      <ul class="flex w-100 items-center flex-grow client-logo-wrapper">
         {% for entry in entries %}
             <li class="client-logo client-logo-{{ loop.index }} w-100">
               {% for asset in entry.client %}
@@ -14,13 +14,13 @@
             </li>
           {% if loop.index == 7 or loop.index == 15 or loop.index == 21 %}
             </ul>
-            <ul class="flex w-100 items-center flex-grow">
+            <ul class="flex w-100 items-center flex-grow client-logo-wrapper">
           {% endif %}
         {% endfor %}
       </ul>
     </div>
   </div>
-  <div class="absolute left-0 right-0 bottom-0 top-0 bg-white-50"></div>
+  <div class="absolute left-0 right-0 bottom-0 top-0 bg-white-50 white-overlay"></div>
   <div class="absolute middle w-100 z-1">
     <div class="center w-90 mw7 relative z-1 tc cf">
       <h2 class="f2-l f2-ns f3 lh-title fw7 black mb3">{{ entry.clientCopy }}</h2>
