@@ -161,6 +161,8 @@
   transition: var(--transition);
 }
 
-.slide-services.visible .services-overlay {
-  opacity: 1;
+@media (max-width: 992px) {
+  .slide-services.visible .services-overlay {
+    opacity: 1;
+  }
 }
