@@ -314,8 +314,14 @@ p + .article-swiper-container {
       margin: 4rem auto;
     }
 
+    & .image-wrapper + blockquote:not(.no-shape),
+    & .swiper-container + blockquote:not(.no-shape),
+    & .image-grid + blockquote:not(.no-shape) {
+      margin-top: -2.5rem;
+    }
+
     & blockquote:not(.no-shape) {
-      margin: -2.5rem auto 3rem;
+      margin-bottom: 3rem;
     }
   }
 
