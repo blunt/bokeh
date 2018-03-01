@@ -233,16 +233,17 @@ function prevSlideLinks() {
 }
 
 
-const prev = document.getElementsByClassName('prev-slide')[0];
 
 // Hide prev
 function hidePrev() {
+  const prev = document.getElementsByClassName('prev-slide')[0];
   prev.classList.add('fade-out');
 }
 
 // Show prev
 function showPrev() {
-  prev.classList.remove('fade-out');
+  const prev = document.getElementsByClassName('prev-slide')[0];
+    prev.classList.remove('fade-out');
 }
 
 
